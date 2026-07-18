@@ -17,8 +17,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://peera.co/peera-og.png">
 
-<link rel="icon" href="laity-icon.png">
-<link rel="apple-touch-icon" href="laity-icon.png">
+<link rel="icon" href="laity-avatar.png">
+<link rel="apple-touch-icon" href="laity-avatar.png">
 
 <script type="application/ld+json">
 {
@@ -102,9 +102,14 @@
   /* ── 상단 바 ── */
   header.top { padding: 22px 0 6px; }
   .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-  .brand svg.mini { width: 42px; height: 42px; }
   .brand b { font-family: "Jua", sans-serif; font-size: 1.4rem; }
   .brand span { color: var(--ink-soft); font-size: .82rem; margin-left: 1px; }
+
+  /* 라이티 아바타(본품 실제 아트) — 전화 연락처 사진처럼 원형으로 쓴다 */
+  .avatar {
+    border-radius: 50%; object-fit: cover; display: inline-block;
+    box-shadow: 0 3px 10px rgba(61,43,31,.18);
+  }
 
   /* ── 히어로 ── */
   .hero {
@@ -172,10 +177,21 @@
   .screen {
     position: relative; overflow: hidden;
     border-radius: 34px;
-    background: linear-gradient(178deg, var(--night-1) 4%, var(--night-2) 58%, #27503F 100%);
+    /* 실제 writy.riv 아트보드의 정지 프레임을 포스터로 깔고, 그 위에 라이브 Rive 캔버스를 얹는다 */
+    background: url("writy-still.png") center / cover no-repeat,
+                linear-gradient(178deg, var(--night-1) 4%, var(--night-2) 58%, #27503F 100%);
     aspect-ratio: 9 / 18.6;
     display: flex; flex-direction: column;
   }
+  .screen canvas.rive {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    opacity: 0; transition: opacity .5s ease;
+  }
+  .screen canvas.rive.on { opacity: 1; }
+  /* 상/하단 자막·상태바 가독성 그늘 (실제 영상통화 UI 문법) */
+  .shade { position: absolute; left: 0; right: 0; z-index: 2; pointer-events: none; }
+  .shade.top { top: 0; height: 118px; background: linear-gradient(180deg, rgba(10,24,18,.62), transparent); }
+  .shade.bot { bottom: 0; height: 200px; background: linear-gradient(0deg, rgba(10,24,18,.68), transparent); }
   .notch {
     position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
     width: 88px; height: 22px; border-radius: 999px; background: #14100C; z-index: 6;
@@ -196,15 +212,6 @@
   }
   .batt .case::after { content:""; position: absolute; right: -4px; top: 3px; width: 2.5px; height: 5px; background: #CFE3D2; border-radius: 1px; }
   .batt .fill { display: block; height: 100%; width: 86%; background: #7BD68B; border-radius: 2px; transition: width .8s ease, background .8s ease; }
-
-  /* 라이티 무대 */
-  .stage { position: relative; display: grid; place-items: center; padding: 4px 0 0; z-index: 1; }
-  .stage svg.laity { width: 74%; height: auto; display: block; }
-  .stage::before {
-    /* 라이티 뒤 달빛 */
-    content: ""; position: absolute; width: 66%; aspect-ratio: 1; border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,233,201,.16), transparent 68%);
-  }
 
   /* 자막(대화) 영역 */
   .chat {
@@ -262,30 +269,14 @@
     background: repeating-linear-gradient(to bottom, transparent 0 calc(1.5em - 1px), #F0E2CC calc(1.5em - 1px) 1.5em);
   }
   .diary .d-stamp {
-    position: absolute; right: 14px; bottom: 12px;
-    font-family: "Jua", sans-serif; font-size: .78rem; color: var(--green);
-    border: 2px solid var(--green); border-radius: 999px; padding: 2px 10px;
-    transform: rotate(-8deg) scale(0); transition: transform .35s cubic-bezier(.2,.9,.3,1.4);
+    /* 본품의 실제 '참 잘했어요' 도장 */
+    position: absolute; right: 10px; bottom: 8px; width: 84px; height: auto;
+    transform: rotate(-10deg) scale(0); transition: transform .35s cubic-bezier(.2,.9,.3,1.4);
+    filter: drop-shadow(0 2px 4px rgba(61,43,31,.18));
   }
-  .diary .d-stamp.show { transform: rotate(-8deg) scale(1); }
+  .diary .d-stamp.show { transform: rotate(-10deg) scale(1); }
 
-  /* 폰 옆 장식(도토리·잎) — 절제 */
   .demo-col { position: relative; }
-  .float-deco { position: absolute; z-index: -1; opacity: .9; }
-  .float-deco.acorn1 { width: 44px; top: 4%; right: 2%; transform: rotate(14deg); animation: bob 5.2s ease-in-out infinite; }
-  .float-deco.leaf1  { width: 52px; bottom: 6%; left: 0%; transform: rotate(-10deg); animation: bob 6.4s ease-in-out infinite reverse; }
-  @keyframes bob { 50% { translate: 0 -9px; } }
-
-  /* ── 라이티 애니메이션(SVG 내부) ── */
-  .laity .eye { transform-origin: center; transform-box: fill-box; animation: blink 4.6s infinite; }
-  @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 95.5% { transform: scaleY(.06); } }
-  .laity .tail { transform-origin: 18% 88%; transform-box: fill-box; animation: sway 3.6s ease-in-out infinite; }
-  @keyframes sway { 50% { transform: rotate(4.5deg); } }
-  .laity .mouth-open { opacity: 0; }
-  .talking .laity .mouth-idle { animation: mouthIdle .34s steps(1) infinite; }
-  .talking .laity .mouth-open { animation: mouthOpen .34s steps(1) infinite; }
-  @keyframes mouthIdle { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-  @keyframes mouthOpen { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 
   /* ── 공통 섹션 ── */
   section { padding: 52px 0; }
@@ -304,7 +295,8 @@
     background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius);
     padding: 26px 24px; box-shadow: var(--shadow); position: relative;
   }
-  .step .ico { width: 62px; height: 62px; }
+  /* 단계 아이콘 = 본품의 실제 새싹·꽃 아트 — 씨앗이 꽃으로 피는 브랜드 은유를 그대로 */
+  .step .ico { height: 64px; width: auto; max-width: 96px; object-fit: contain; object-position: left bottom; }
   .step h3 { font-size: 1.3rem; margin: 14px 0 7px; }
   .step p { margin: 0; color: var(--ink-soft); font-size: .96rem; }
   .step .mini-diary {
@@ -330,7 +322,7 @@
     font-size: .64rem; font-weight: 800; letter-spacing: .12em; color: var(--outline);
   }
   .dex-top { display: flex; align-items: center; gap: 16px; }
-  .dex-top svg { width: 96px; height: 96px; flex-shrink: 0; }
+  .dex-top img { width: 92px; height: 92px; flex-shrink: 0; border: 3px solid #fff; }
   .dex-top .nm { line-height: 1.3; }
   .dex-top .nm b { font-family: "Jua", sans-serif; font-size: 1.7rem; display: block; }
   .dex-top .nm span { color: var(--ink-soft); font-size: .88rem; }
@@ -383,7 +375,7 @@
   }
   .final::before { top: 26px; left: 12%; }
   .final::after { top: 60px; right: 14%; font-size: .6rem; }
-  .final svg.mini { width: 74px; height: 74px; margin-bottom: 6px; }
+  .final img.avatar { width: 76px; height: 76px; margin-bottom: 8px; border: 3px solid rgba(255,246,230,.35); }
   .final h2 { color: #fff; font-size: clamp(1.7rem, 4.4vw, 2.4rem); margin: 0 0 10px; }
   .final > p { color: #BFD4C3; margin: 0 auto 26px; max-width: 28em; }
   .final .signup { margin: 0 auto; }
@@ -395,7 +387,7 @@
 
   footer { text-align: center; color: var(--ink-soft); font-size: .87rem; padding: 44px 0 58px; }
   footer .fbrand { display: flex; justify-content: center; align-items: center; gap: 9px; margin-bottom: 10px; }
-  footer .fbrand svg { width: 34px; height: 34px; }
+  footer .fbrand img { width: 34px; height: 34px; }
   footer .fbrand b { font-family: "Jua", sans-serif; font-size: 1.1rem; }
   footer .from-cards { margin-top: 14px; font-size: .8rem; color: #A8977F; }
 
@@ -420,8 +412,8 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .rise { opacity: 1; transform: none; transition: none; }
-    .laity .eye, .laity .tail, .float-deco, .call-sub .rec, .bubble, .caret,
-    .talking .laity .mouth-idle, .talking .laity .mouth-open { animation: none !important; }
+    .call-sub .rec, .bubble, .caret { animation: none !important; }
+    .screen canvas.rive { display: none; } /* 모션 최소화: 라이브 Rive 대신 정지 프레임 */
     .diary { transition: none; }
     .diary .d-stamp { transition: none; }
   }
@@ -430,75 +422,10 @@
 <body>
 <div class="bg" aria-hidden="true"></div>
 
-<!-- ── 라이티 SVG 원본(심볼) — 본품 laity-avatar 실측 톤을 벡터로 재현 ── -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <g id="laity-face">
-      <!-- 꼬리: 등 뒤에서 머리 위로 크게 말려 올라가 끝이 안쪽으로 감기는 실루엣 -->
-      <g class="tail">
-        <path d="M140 160 C 186 150, 202 116, 200 76 C 198 38, 176 10, 140 12 C 118 13, 106 30, 114 46 C 134 38, 154 46, 158 66 C 164 96, 152 130, 124 146 Z" fill="var(--laity-tail)"/>
-        <path d="M148 146 C 180 132, 192 104, 190 74 C 188 44, 172 24, 146 24 C 168 34, 180 56, 176 84 C 172 112, 162 132, 140 142 Z" fill="#E88A35" opacity=".85"/>
-      </g>
-      <!-- 귀 -->
-      <ellipse cx="62" cy="52" rx="21" ry="24" fill="var(--laity)"/>
-      <ellipse cx="63" cy="56" rx="11" ry="13" fill="var(--cream-face)"/>
-      <ellipse cx="138" cy="52" rx="21" ry="24" fill="var(--laity)"/>
-      <ellipse cx="137" cy="56" rx="11" ry="13" fill="var(--cream-face)"/>
-      <!-- 머리 -->
-      <circle cx="100" cy="112" r="72" fill="var(--laity)"/>
-      <!-- 크림 머즐 -->
-      <ellipse cx="100" cy="142" rx="52" ry="38" fill="var(--cream-face)"/>
-      <!-- 볼 -->
-      <ellipse cx="52" cy="132" rx="13" ry="9" fill="#F2A05C"/>
-      <ellipse cx="148" cy="132" rx="13" ry="9" fill="#F2A05C"/>
-      <!-- 눈 -->
-      <g class="eye">
-        <ellipse cx="72" cy="108" rx="12.5" ry="14" fill="#2B1B10"/>
-        <circle cx="76.5" cy="103" r="4.6" fill="#fff"/>
-        <circle cx="68.5" cy="112" r="2" fill="#fff" opacity=".85"/>
-      </g>
-      <g class="eye">
-        <ellipse cx="128" cy="108" rx="12.5" ry="14" fill="#2B1B10"/>
-        <circle cx="132.5" cy="103" r="4.6" fill="#fff"/>
-        <circle cx="124.5" cy="112" r="2" fill="#fff" opacity=".85"/>
-      </g>
-      <!-- 코 -->
-      <ellipse cx="100" cy="130" rx="8.5" ry="6.5" fill="#7A4A21"/>
-      <!-- 입: 평소(스마일+앞니) / 말할 때(동그란 입) -->
-      <g class="mouth-idle">
-        <path d="M84 142 Q 92 150 100 144 Q 108 150 116 142" fill="none" stroke="#7A4A21" stroke-width="4.5" stroke-linecap="round"/>
-        <rect x="94.5" y="146" width="11" height="13" rx="4" fill="#fff" stroke="#EAD9C0" stroke-width="1"/>
-      </g>
-      <g class="mouth-open">
-        <ellipse cx="100" cy="150" rx="10" ry="8.5" fill="#7A4A21"/>
-        <rect x="95" y="142" width="10" height="8" rx="3.5" fill="#fff"/>
-      </g>
-    </g>
-
-    <!-- 새싹(브랜드) -->
-    <g id="sprout">
-      <path d="M50 88 C 50 66, 50 58, 50 46" stroke="#43A047" stroke-width="7" stroke-linecap="round" fill="none"/>
-      <path d="M50 56 C 30 54, 22 38, 24 24 C 42 26, 52 40, 50 56 Z" fill="#5DBB63"/>
-      <path d="M50 48 C 66 44, 74 30, 72 18 C 56 20, 46 32, 50 48 Z" fill="#43A047"/>
-    </g>
-    <!-- 도토리 -->
-    <g id="acorn">
-      <path d="M20 34 C 20 22, 30 16, 40 16 C 50 16, 60 22, 60 34 Z" fill="#8A5A2B"/>
-      <rect x="36" y="10" width="8" height="9" rx="4" fill="#8A5A2B"/>
-      <path d="M23 36 C 23 52, 32 62, 40 62 C 48 62, 57 52, 57 36 Z" fill="#C89154"/>
-    </g>
-    <!-- 잎 -->
-    <g id="leaf">
-      <path d="M12 52 C 10 26, 30 8, 56 10 C 58 36, 40 54, 12 52 Z" fill="#7BC47F"/>
-      <path d="M16 48 C 28 38, 40 26, 50 16" stroke="#4E9D53" stroke-width="3" fill="none" stroke-linecap="round"/>
-    </g>
-  </defs>
-</svg>
-
 <div class="wrap">
   <header class="top">
     <a class="brand" href="#" aria-label="피어라 홈">
-      <svg class="mini" viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
+      <img class="avatar" src="laity-avatar.png" width="42" height="42" alt="">
       <b>피어라</b><span>Peera</span>
     </a>
   </header>
@@ -527,14 +454,14 @@
       </form>
     </div>
 
-    <!-- 시그니처: 라이티 통화 데모 -->
+    <!-- 시그니처: 라이티 통화 데모 — 본품의 writy.riv(라이티)가 실제로 여기서 구동된다 -->
     <div class="demo-col rise in">
-      <svg class="float-deco acorn1" viewBox="0 0 80 70" aria-hidden="true"><use href="#acorn"/></svg>
-      <svg class="float-deco leaf1" viewBox="0 0 64 60" aria-hidden="true"><use href="#leaf"/></svg>
-
       <div class="phone" id="phoneDemo" role="img"
            aria-label="피어라 앱 미리보기: 아이가 다람쥐 라이티와 영상통화를 하고, 통화에서 말한 마음이 손글씨 일기가 되는 장면">
         <div class="screen">
+          <canvas class="rive" id="riveCanvas" aria-hidden="true"></canvas>
+          <div class="shade top" aria-hidden="true"></div>
+          <div class="shade bot" aria-hidden="true"></div>
           <div class="notch" aria-hidden="true"></div>
           <div class="call-top" aria-hidden="true">
             <span class="call-id">
@@ -542,9 +469,6 @@
               <span class="call-sub"><i class="rec"></i>통화 중 <span id="callTime">00:04</span></span>
             </span>
             <span class="batt">라이티 폰 <i class="case"><i class="fill" id="battFill"></i></i></span>
-          </div>
-          <div class="stage" aria-hidden="true">
-            <svg class="laity" viewBox="0 0 200 200"><use href="#laity-face"/></svg>
           </div>
           <div class="chat" id="chat" aria-hidden="true"></div>
           <div class="call-hint" aria-hidden="true">
@@ -554,7 +478,7 @@
         <div class="diary" id="diary" aria-hidden="true">
           <span class="d-label">오늘의 일기 · 통화에서 꺼낸 마음</span>
           <div class="d-text" id="diaryText"></div>
-          <span class="d-stamp" id="diaryStamp">참 잘했어요</span>
+          <img class="d-stamp" id="diaryStamp" src="stamp-good.png" alt="">
         </div>
       </div>
     </div>
@@ -570,20 +494,20 @@
     </div>
     <div class="steps">
       <div class="step rise">
-        <svg class="ico" viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
+        <img class="ico" src="plant-bud1.png" alt="">
         <h3>1 · 라이티와 통화해요</h3>
         <p>따르릉— 라이티에게서 전화가 와요. 오늘 뭐 했는지, 그때 기분이 어땠는지.
            라이티는 아이가 방금 한 말을 꼭 짚어서 되물어요. 아이는 놀이처럼 마음을 말로 꺼내요.</p>
       </div>
       <div class="step rise">
-        <svg class="ico" viewBox="0 0 100 100" aria-hidden="true"><use href="#sprout" transform="translate(0,4)"/></svg>
+        <img class="ico" src="plant-bud3.png" alt="">
         <h3>2 · 마음을 일기로 써요</h3>
         <p>통화에서 꺼낸 이야기가 그대로 일기 글감이 돼요.
            라이티가 곁에서 지켜보는 동안, 아이가 자기 손으로 또박또박 써봅니다.</p>
         <div class="mini-diary" aria-label="아이 일기 예시">오늘 종이접기를 했다.<br>어려웠는데 끝까지 해서 뿌듯했다.</div>
       </div>
       <div class="step rise">
-        <svg class="ico" viewBox="0 0 80 70" aria-hidden="true"><use href="#acorn"/></svg>
+        <img class="ico" src="plant-flower1.png" alt="">
         <h3>3 · 한글에서 영어로</h3>
         <p>같은 라이티, 같은 목소리로 영어 통화도 해요. 틀려도 창피 주지 않고
            부드럽게 다시 말해주면서, 아이 속도에 맞춰 한 걸음씩.</p>
@@ -597,7 +521,7 @@
     <div class="profile">
       <div class="dex-card rise" aria-label="라이티 캐릭터 카드">
         <div class="dex-top">
-          <svg viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
+          <img class="avatar" src="laity-avatar.png" alt="라이티 얼굴">
           <div class="nm"><b>라이티</b><span>다람쥐 · 8살 · 남자아이</span></div>
         </div>
         <ul class="dex-list">
@@ -659,7 +583,7 @@
   <!-- ═════════ 마무리 CTA ═════════ -->
   <section>
     <div class="final rise">
-      <svg class="mini" viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
+      <img class="avatar" src="laity-avatar.png" alt="">
       <h2>라이티의 첫 전화,<br>우리 아이가 받게 해주세요</h2>
       <p>피어라가 준비되는 대로, 사전예약하신 분들께 가장 먼저 소식을 전해드릴게요.</p>
       <form class="signup" data-signup action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -676,7 +600,7 @@
 
   <footer>
     <div class="fbrand">
-      <svg viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
+      <img class="avatar" src="laity-avatar.png" alt="">
       <b>피어라</b>
     </div>
     <div>만든 사람 Hephaestosian · 문의 <a href="mailto:retyper@naver.com">retyper@naver.com</a></div>
@@ -685,8 +609,44 @@
   </footer>
 </div>
 
+<script src="rive.js"></script>
 <script>
   const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── 라이브 라이티 — 본품(dearmydiary)의 writy.riv를 그대로 구동한다.
+     실패하면 .screen의 정지 프레임 포스터(writy-still.png)가 그대로 보인다. ── */
+  const riveCanvas = document.getElementById('riveCanvas');
+  let laityVmi = null;
+  function setLaity(name, v) {
+    try { const b = laityVmi && laityVmi.boolean && laityVmi.boolean(name); if (b) b.value = v; } catch (_) {}
+  }
+  function initLaityRive() {
+    if (prefersReduced || !window.rive || !riveCanvas || riveCanvas.dataset.init) return;
+    riveCanvas.dataset.init = '1';
+    try {
+      rive.RuntimeLoader.setWasmUrl(new URL('rive.wasm', location.href).href);
+      const r = new rive.Rive({
+        src: 'writy.riv',
+        canvas: riveCanvas,
+        artboard: 'Artboard',
+        stateMachines: 'squirrel_state',
+        autoplay: true,
+        autoBind: true,
+        layout: new rive.Layout({ fit: rive.Fit.Cover, alignment: rive.Alignment.Center }),
+        onLoad: () => {
+          r.resizeDrawingSurfaceToCanvas();
+          laityVmi = r.viewModelInstance || null;
+          setLaity('isTalking', false);
+          setLaity('isListening', false);
+          setLaity('isThinkingComplex', false);
+          try { const m = laityVmi && laityVmi.number && laityVmi.number('mouthOpen'); if (m) m.value = -1; } catch (_) {}
+          riveCanvas.classList.add('on');
+        },
+      });
+      addEventListener('resize', () => { try { r.resizeDrawingSurfaceToCanvas(); } catch (_) {} });
+    } catch (_) { /* 포스터 폴백 */ }
+  }
+  initLaityRive();
 
   /* ── 스크롤 등장 ── */
   const riseEls = document.querySelectorAll('.rise:not(.in)');
@@ -782,16 +742,18 @@
 
       if (m.who === 'laity') {
         const b = addBubble('laity');
-        phone.classList.add('talking');
+        setLaity('isTalking', true);       // Rive: 말하는 애니메이션
         const ok = await typeInto(b, m.text, gen);
-        phone.classList.remove('talking');
+        setLaity('isTalking', false);
         if (!ok) return;
         if (!await wait(950, gen)) return;
       } else {
         const b = addBubble('kid');
         b.innerHTML = '<span class="listen" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
+        setLaity('isListening', true);     // Rive: 귀 기울이는 애니메이션
         if (!await wait(1050, gen)) return;
         b.textContent = m.text;
+        setLaity('isListening', false);
         if (!await wait(1100, gen)) return;
       }
     }

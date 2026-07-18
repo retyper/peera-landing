@@ -36,10 +36,18 @@
 
 - `index.html` — 랜딩페이지(HTML·CSS·JS 인라인, 폰트만 CDN).
   히어로의 "라이티 통화 → 손글씨 일기" 데모, 라이티 도감, 정서 안전 약속 섹션 포함.
-  라이티는 인라인 SVG(`#laity-face` 심볼)로 그려서 어디서든 선명하다.
-- `laity-icon.png` — 라이티 얼굴(투명 배경 512px). 파비콘·애플터치 아이콘.
-- `peera-og.png` — 카톡·문자 공유 미리보기(OG) 이미지 1200×630.
+- **라이티는 본품(dearmydiary)의 실제 에셋을 그대로 쓴다** (그린 그림 아님):
+  - `writy.riv` + `rive.js` + `rive.wasm` — 본품 VoiceTalk의 라이티 Rive를 **라이브 구동**
+    (아트보드 `Artboard`, 스테이트머신 `squirrel_state`, 데모가 isTalking/isListening 입력을 조작).
+  - `writy-still.png` — Rive 로드 전/실패 시 폴백 포스터(정지 프레임, 폰 화면 비율).
+  - `laity-avatar.png` — 공식 아바타(256px 축소판). 파비콘 + 원형 연락처 사진 스타일로 사용.
+  - `plant-bud1/bud3/flower1.png` — 본품의 새싹→꽃 아트(알파 크롭판). 세 걸음 아이콘.
+  - `stamp-good.png` — 본품의 "참 잘했어요" 도장. 일기 카드 연출.
+- `peera-og.png` — 카톡·문자 공유 미리보기(OG) 1200×630. 실제 라이티 통화 화면 목업 포함.
 - `peera-sprout.png` — 예전 새싹 브랜드 이미지(감정카드 앱과의 연결 고리, 보관용).
+
+> 본품 에셋을 갱신하면: dearmydiary의 `public/writy.riv`·`laity-avatar.png` 등을 다시 복사하면 된다.
+> Rive 런타임은 dearmydiary `node_modules/@rive-app/canvas`의 `rive.js`/`rive.wasm`.
 
 ## 디자인 시스템
 
