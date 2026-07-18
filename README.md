@@ -1,19 +1,24 @@
 # peera-landing
 
-피어라(Peera) 출시 전 **이메일 사전예약 랜딩페이지**. 정적 페이지 하나(`index.html`)로,
-GitHub Pages로 호스팅한다. 감정카드 앱의 피어라 CTA가 이 페이지로 연결된다.
+피어라(Peera) 출시 전 **이메일 사전예약 랜딩페이지**. 정적 페이지 하나(`index.html`).
+감정카드 앱의 피어라 CTA가 이 페이지로 연결된다.
 
-## 배포 (GitHub Pages)
+## 도메인 & 배포
 
-1. GitHub에 **`peera-landing`** 이름으로 새 공개 레포를 만든다(계정: Hephaestosian).
-2. 이 폴더를 push 한다:
-   ```
-   git remote add origin https://github.com/Hephaestosian/peera-landing.git
-   git push -u origin main
-   ```
-3. 레포 **Settings → Pages → Source: `main` / `/root`** 로 Pages를 켠다.
-4. 몇 분 뒤 아래 주소로 열린다(앱에 연결된 주소와 동일):
-   **https://hephaestosian.github.io/peera-landing/**
+앱은 **커스텀 도메인 `https://peera.app/`** 에 하드코딩돼 있다(`PeeoraFunnel.destinationUrl`).
+도메인을 고정해 두면 호스트를 나중에 바꿔도 앱 재빌드가 필요 없다 — DNS만 옮기면 된다.
+
+**공통**: `peera.app` 도메인을 등록한다. 랜딩이 **도메인 루트(`peera.app/`)** 로 열려야 앱 링크와 맞는다.
+
+### 옵션 A — GitHub Pages
+1. GitHub에 공개 레포(예: `peera-landing`)를 만들고 이 폴더를 push.
+2. **Settings → Pages → Source: `main` / `/root`**.
+3. **Settings → Pages → Custom domain**에 `peera.app` 입력(레포에 `CNAME` 파일 생성) +
+   등록업체 DNS에 GitHub Pages A 레코드(또는 `<user>.github.io` CNAME) 설정. HTTPS 적용까지 대기.
+
+### 옵션 B — Vercel (프리뷰 배포·분석 등 편의)
+1. Vercel에서 이 레포를 Import(정적 사이트 자동 인식).
+2. **Project → Settings → Domains**에 `peera.app` 추가 → 안내대로 DNS 설정.
 
 ## 이메일 수집 연결 (Formspree, 무료)
 
