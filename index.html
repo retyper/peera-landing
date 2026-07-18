@@ -124,11 +124,21 @@
   }
   .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(67,160,71,.16); }
   h1 {
-    font-size: clamp(2.05rem, 4.6vw, 3.25rem);
-    line-height: 1.24; margin: 18px 0 0;
+    font-size: clamp(1.9rem, 4.3vw, 3.1rem);
+    line-height: 1.32; margin: 18px 0 0; word-break: keep-all;
   }
   h1 .hl-laity { color: var(--laity); }
   h1 .hl-bloom { color: var(--bloom); }
+  /* 라이티가 보낸 문자를 그대로 인용 — 말풍선 꼬리를 단 한 줄 */
+  h1 .sms {
+    position: relative; display: inline-block; color: var(--laity-deep);
+    background: #FFF3E2; border-radius: 20px; padding: .04em .4em .1em;
+    box-shadow: 0 3px 0 #F0DCC0;
+  }
+  h1 .sms::after {
+    content: ""; position: absolute; left: 1.2em; bottom: -12px;
+    border: 8px solid transparent; border-top-color: #FFF3E2; border-bottom: 0;
+  }
   .lead {
     max-width: 31em; margin: 18px 0 0;
     font-size: clamp(1.02rem, 2.2vw, 1.15rem); color: var(--ink-soft);
@@ -585,11 +595,10 @@
     <div class="hero-copy">
       <span class="eyebrow rise in"><span class="dot"></span> 4~8세 · 출시 준비 중 · 사전예약 받는 중</span>
       <h1 class="rise in"><span class="hl-laity">라이티</span>한테 문자가 왔어요<br>
-        아이가 <span class="hl-bloom">먼저</span> 전화를 겁니다</h1>
+        <span class="sms">“오늘 있었던 일 통화하자!”</span></h1>
       <p class="lead rise in">
-        숲속 다람쥐 라이티가 하루 한 번 문자를 보내요. 궁금해진 아이는 직접 전화를 걸어
-        오늘 하루를 조잘조잘 이야기하고,
-        <b>말로 꺼낸 그 마음이 한글·영어 손글씨 일기로 피어납니다.</b>
+        하루 한 번, 숲속 다람쥐 라이티가 문자를 보내요. 그러면 <b>아이가 먼저 전화를 겁니다.</b>
+        조잘조잘 오늘 하루를 이야기하고, 그 마음을 그대로 한글·영어 손글씨 일기로 씁니다.
       </p>
 
       <form class="signup rise in" data-signup action="https://formspree.io/f/meeygazy" method="POST">
