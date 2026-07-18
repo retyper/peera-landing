@@ -3,37 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>피어라 — 마음의 씨앗이 손글씨의 꽃으로</title>
-<meta name="description" content="아이가 다람쥐 라이티와 이야기하며 마음을 말로 꺼내고, 그 마음을 직접 글로 써봅니다. 한글과 영어 쓰기를 함께 배우는 피어라. 출시 소식을 가장 먼저 받아보세요.">
+<title>피어라 — 다람쥐 라이티가 우리 아이에게 전화를 걸어요</title>
+<meta name="description" content="숲속 다람쥐 라이티와 통화하며 아이가 마음을 말로 꺼내고, 그 마음을 한글·영어 손글씨 일기로 씁니다. 4~8세를 위한 피어라, 출시 소식을 가장 먼저 받아보세요.">
 
 <!-- 오픈그래프(카톡·문자 공유 시 미리보기) -->
-<meta property="og:title" content="피어라 — 마음의 씨앗이 손글씨의 꽃으로">
-<meta property="og:description" content="다람쥐 라이티와 이야기하며 마음을 말로, 그 마음을 글로. 출시 소식을 가장 먼저 받아보세요.">
+<meta property="og:title" content="피어라 — 다람쥐 라이티가 우리 아이에게 전화를 걸어요">
+<meta property="og:description" content="라이티와 통화하며 마음을 말로, 그 마음을 한글·영어 손글씨로. 출시 소식을 가장 먼저 받아보세요.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="peera-sprout.png">
+<meta property="og:url" content="https://peera.co/">
+<meta property="og:image" content="https://peera.co/peera-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://peera.co/peera-og.png">
 
-<link rel="icon" href="peera-sprout.png">
+<link rel="icon" href="laity-icon.png">
+<link rel="apple-touch-icon" href="laity-icon.png">
 
-<!-- 폰트: 앱과 같은 서체로 브랜드를 잇는다(표제 Jua·본문 Pretendard). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "피어라 (Peera)",
+  "url": "https://peera.co/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "iOS, Android",
+  "description": "숲속 다람쥐 라이티와 통화하며 아이가 마음을 말로 꺼내고, 그 마음을 한글·영어 손글씨 일기로 쓰는 4~8세 대상 앱. 출시 전 사전예약 진행 중.",
+  "audience": { "@type": "PeopleAudience", "suggestedMinAge": 4, "suggestedMaxAge": 8 }
+}
+</script>
+
+<!-- 폰트: 앱과 같은 서체로 브랜드를 잇는다. 표제 Jua · 손글씨 Gaegu · 본문 Pretendard -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 
 <style>
+  /* ── 피어라 인장(본품 dearmydiary 실측 토큰): 크림 종이·갈색 잉크·갈색 라인·보라 포인트.
+     검정 외곽선은 쓰지 않는다. ── */
   :root {
-    --paper:       #FBF7F0;
-    --paper-warm:  #F6EFE3;
-    --ink:         #3A3350;
-    --ink-soft:    #6E6880;
-    --lavender:    #7C6BD9;  /* 피어라 보라 포인트 */
-    --lavender-dk: #5F4EC0;
-    --lavender-sf: #EEE9FB;
-    --sprout:      #6BAE46;  /* 새싹(자라남) */
-    --bloom:       #F3919F;  /* 꽃(피어남) */
-    --line:        #E8E0D2;
-    --shadow:      0 14px 34px rgba(58, 51, 80, .10);
-    --radius:      22px;
+    --paper:       #FFFDF8;
+    --paper-warm:  #FAF1E2;
+    --ink:         #3D2B1F;
+    --ink-soft:    #85715C;
+    --line:        #EBDCC6;
+    --outline:     #B07050;
+
+    --laity:       #E1751F;  /* 라이티 주황 */
+    --laity-deep:  #C1580E;
+    --laity-tail:  #CE5F10;
+    --cream-face:  #FFE9C9;
+
+    --purple:      #7C3AED;  /* 피어라 보라 포인트 */
+    --purple-dark: #5B21C0;
+    --purple-soft: #F1EAFE;
+
+    --green:       #43A047;  /* 새싹 */
+    --green-soft:  #E8F5E9;
+    --bloom:       #EF8A9B;  /* 꽃(피어남) */
+
+    --night-1:     #10202B;  /* 통화 화면(저녁 숲) */
+    --night-2:     #1D3A34;
+
+    --radius: 24px;
+    --shadow: 0 16px 40px rgba(61, 43, 31, .10);
   }
 
   * { box-sizing: border-box; }
@@ -44,262 +78,790 @@
     color: var(--ink);
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
                  "Malgun Gothic", sans-serif;
-    line-height: 1.7;
+    line-height: 1.72;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  h1, h2, .display { font-family: "Jua", "Pretendard Variable", sans-serif; font-weight: 400; letter-spacing: -.01em; }
+  h1, h2, h3, .display { font-family: "Jua", "Pretendard Variable", sans-serif; font-weight: 400; letter-spacing: -.005em; }
+  .hand { font-family: "Gaegu", "Jua", cursive; }
+  a { color: var(--purple-dark); }
+  img { max-width: 100%; }
 
-  .wrap { width: min(1040px, 100% - 44px); margin-inline: auto; }
-  a { color: var(--lavender-dk); }
+  .wrap { width: min(1080px, 100% - 44px); margin-inline: auto; }
 
-  /* ── 배경: 위(씨앗)에서 아래(꽃)로 아주 옅게 물드는 종이 ── */
+  /* ── 배경: 크림 종이에 아주 옅은 숲의 기척 ── */
   .bg {
-    position: fixed; inset: 0; z-index: -1;
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background:
-      radial-gradient(60% 40% at 82% -6%, var(--lavender-sf), transparent 60%),
-      radial-gradient(50% 34% at 8% 106%, #FCE7EB, transparent 60%),
+      radial-gradient(52% 36% at 88% -8%, #F3E8FA, transparent 62%),
+      radial-gradient(44% 30% at -6% 30%, #FDF0DC, transparent 60%),
+      radial-gradient(50% 34% at 6% 108%, #E9F4E4, transparent 62%),
       var(--paper);
   }
 
   /* ── 상단 바 ── */
-  header.top { padding: 22px 0 8px; }
-  .brand { display: flex; align-items: center; gap: 11px; }
-  .brand img { width: 38px; height: 38px; border-radius: 50%; box-shadow: 0 3px 10px rgba(58,51,80,.14); }
-  .brand b { font-family: "Jua", sans-serif; font-size: 1.35rem; }
-  .brand span { color: var(--ink-soft); font-size: .82rem; margin-left: 2px; }
+  header.top { padding: 22px 0 6px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+  .brand svg.mini { width: 42px; height: 42px; }
+  .brand b { font-family: "Jua", sans-serif; font-size: 1.4rem; }
+  .brand span { color: var(--ink-soft); font-size: .82rem; margin-left: 1px; }
 
   /* ── 히어로 ── */
-  .hero { padding: 46px 0 34px; }
+  .hero {
+    display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: 44px; align-items: center; padding: 40px 0 56px;
+  }
   .eyebrow {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: #fff; border: 1px solid var(--line); color: var(--ink-soft);
-    padding: 6px 13px; border-radius: 999px; font-size: .82rem; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; border: 1.5px solid var(--line); color: var(--ink-soft);
+    padding: 7px 14px; border-radius: 999px; font-size: .84rem; font-weight: 600;
   }
-  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sprout); box-shadow: 0 0 0 4px rgba(107,174,70,.18); }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(67,160,71,.16); }
   h1 {
-    font-size: clamp(2.35rem, 6.4vw, 4.1rem);
-    line-height: 1.16; margin: 20px 0 0;
+    font-size: clamp(2.3rem, 5.6vw, 3.85rem);
+    line-height: 1.2; margin: 18px 0 0;
   }
-  h1 .seed { color: var(--sprout); }
-  h1 .bloom { color: var(--bloom); }
+  h1 .hl-laity { color: var(--laity); }
+  h1 .hl-bloom { color: var(--bloom); }
   .lead {
-    max-width: 30em; margin: 20px 0 0;
-    font-size: clamp(1.02rem, 2.3vw, 1.16rem); color: var(--ink-soft);
+    max-width: 30em; margin: 18px 0 0;
+    font-size: clamp(1.02rem, 2.2vw, 1.15rem); color: var(--ink-soft);
   }
+  .lead b { color: var(--ink); }
 
-  /* ── 사전예약 폼 ── */
-  .signup { margin-top: 30px; max-width: 30em; }
+  /* ── 사전예약 폼(듀오링고식 3D 푸시 버튼 — 앱 컨벤션) ── */
+  .signup { margin-top: 28px; max-width: 31em; }
   .signup .row { display: flex; gap: 10px; }
   .signup input[type=email] {
-    flex: 1; min-width: 0; padding: 15px 17px;
-    border: 1.5px solid var(--line); border-radius: 15px; background: #fff;
+    flex: 1; min-width: 0; padding: 15px 18px;
+    border: 2px solid var(--line); border-radius: 16px; background: #fff;
     font: inherit; color: var(--ink);
   }
-  .signup input[type=email]:focus { outline: none; border-color: var(--lavender); box-shadow: 0 0 0 4px var(--lavender-sf); }
+  .signup input[type=email]::placeholder { color: #BCA98F; }
+  .signup input[type=email]:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 4px var(--purple-soft); }
   .btn {
-    border: none; cursor: pointer; font: inherit; font-weight: 700;
-    background: var(--lavender); color: #fff;
-    padding: 15px 22px; border-radius: 15px;
-    box-shadow: 0 6px 0 var(--lavender-dk);
-    transition: transform .06s ease, box-shadow .06s ease, background .15s;
+    border: none; cursor: pointer; font: inherit; font-family: "Jua", sans-serif;
+    font-size: 1.06rem; letter-spacing: .01em;
+    background: var(--purple); color: #fff;
+    padding: 14px 24px 15px; border-radius: 16px;
+    box-shadow: 0 5px 0 var(--purple-dark);
+    transition: transform .07s ease, box-shadow .07s ease, filter .15s;
     white-space: nowrap;
   }
-  .btn:hover { background: var(--lavender-dk); }
-  .btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--lavender-dk); }
-  .note { margin: 11px 2px 0; font-size: .82rem; color: var(--ink-soft); }
-  .status { margin: 12px 2px 0; font-size: .92rem; font-weight: 600; min-height: 1.2em; }
-  .status.ok { color: var(--sprout); }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--purple-dark); }
+  .btn:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--purple); outline-offset: 2px; }
+  .note { margin: 12px 2px 0; font-size: .84rem; color: var(--ink-soft); }
+  .note b { color: var(--ink); }
+  .status { margin: 10px 2px 0; font-size: .93rem; font-weight: 700; min-height: 1.3em; }
+  .status.ok { color: var(--green); }
   .status.err { color: #C6566B; }
 
-  /* ── 자라나는 과정 ── */
-  section { padding: 40px 0; }
-  .section-head { text-align: center; max-width: 34em; margin: 0 auto 30px; }
-  .section-head h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0; }
-  .section-head p { color: var(--ink-soft); margin: 10px 0 0; }
+  /* ═══════════════ 폰 데모(시그니처) ═══════════════ */
+  .demo-col { display: flex; justify-content: center; }
+  .phone {
+    position: relative;
+    width: min(340px, 88vw);
+    border-radius: 44px;
+    background: #2A2019;
+    padding: 12px;
+    box-shadow: 0 24px 60px rgba(61,43,31,.28), inset 0 0 0 2px #4A3A2C;
+    transform: rotate(1.6deg);
+    overflow: hidden; /* 일기 카드의 숨김 상태가 폰 밖으로 비치지 않게 */
+  }
+  .screen {
+    position: relative; overflow: hidden;
+    border-radius: 34px;
+    background: linear-gradient(178deg, var(--night-1) 4%, var(--night-2) 58%, #27503F 100%);
+    aspect-ratio: 9 / 18.6;
+    display: flex; flex-direction: column;
+  }
+  .notch {
+    position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+    width: 88px; height: 22px; border-radius: 999px; background: #14100C; z-index: 6;
+  }
+  .call-top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 44px 18px 6px; color: #EFEAE2; z-index: 5;
+  }
+  .call-id { display: flex; flex-direction: column; line-height: 1.35; }
+  .call-name { font-family: "Jua", sans-serif; font-size: 1.06rem; }
+  .call-sub { font-size: .68rem; color: #A8C3AE; display: inline-flex; align-items: center; gap: 5px; }
+  .call-sub .rec { width: 6px; height: 6px; border-radius: 50%; background: #7BD68B; animation: pulse 1.6s infinite; }
+  @keyframes pulse { 50% { opacity: .25; } }
+  .batt { display: inline-flex; align-items: center; gap: 6px; font-size: .68rem; color: #CFE3D2; }
+  .batt .case {
+    width: 26px; height: 12px; border: 1.5px solid #CFE3D2; border-radius: 4px;
+    padding: 1.5px; position: relative;
+  }
+  .batt .case::after { content:""; position: absolute; right: -4px; top: 3px; width: 2.5px; height: 5px; background: #CFE3D2; border-radius: 1px; }
+  .batt .fill { display: block; height: 100%; width: 86%; background: #7BD68B; border-radius: 2px; transition: width .8s ease, background .8s ease; }
 
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  /* 라이티 무대 */
+  .stage { position: relative; display: grid; place-items: center; padding: 4px 0 0; z-index: 1; }
+  .stage svg.laity { width: 74%; height: auto; display: block; }
+  .stage::before {
+    /* 라이티 뒤 달빛 */
+    content: ""; position: absolute; width: 66%; aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,233,201,.16), transparent 68%);
+  }
+
+  /* 자막(대화) 영역 */
+  .chat {
+    flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
+    gap: 8px; padding: 8px 14px 12px; overflow: hidden; z-index: 4; min-height: 0;
+  }
+  .bubble {
+    max-width: 88%; padding: 9px 13px; border-radius: 16px;
+    font-size: .84rem; line-height: 1.55; word-break: keep-all;
+    animation: bubIn .35s cubic-bezier(.2,.8,.3,1.1) both;
+  }
+  @keyframes bubIn { from { opacity: 0; transform: translateY(10px) scale(.96); } }
+  .bubble.laity {
+    align-self: flex-start; background: #FFF6E6; color: #3D2B1F;
+    border-bottom-left-radius: 5px;
+  }
+  .bubble.kid {
+    align-self: flex-end; background: var(--purple); color: #fff;
+    border-bottom-right-radius: 5px;
+  }
+  .bubble.kid .listen { display: inline-flex; gap: 3px; align-items: center; height: 1em; }
+  .bubble.kid .listen i {
+    width: 3px; border-radius: 2px; background: #E4D6FF; display: block;
+    animation: eq .9s ease-in-out infinite;
+  }
+  .bubble.kid .listen i:nth-child(1){ height: 6px; }
+  .bubble.kid .listen i:nth-child(2){ height: 12px; animation-delay: .12s; }
+  .bubble.kid .listen i:nth-child(3){ height: 8px;  animation-delay: .24s; }
+  .bubble.kid .listen i:nth-child(4){ height: 11px; animation-delay: .36s; }
+  @keyframes eq { 50% { transform: scaleY(.4); } }
+  .caret { display: inline-block; width: 2px; height: .95em; background: #C1580E; vertical-align: -0.12em; margin-left: 1px; animation: caret 0.8s step-end infinite; }
+  @keyframes caret { 50% { opacity: 0; } }
+
+  .call-hint {
+    text-align: center; color: #9FB8A6; font-size: .68rem; padding: 0 0 14px; z-index: 4;
+  }
+  .call-hint .mic {
+    display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+    background: #FFF6E6; margin-bottom: 5px; box-shadow: 0 0 0 6px rgba(255,246,230,.12);
+  }
+
+  /* 통화 뒤 일기 카드(말 → 글 전환 연출) */
+  .diary {
+    position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 7;
+    background: #FFFDF6; border-radius: 20px; padding: 15px 17px 13px;
+    box-shadow: 0 -10px 34px rgba(16,32,43,.45);
+    transform: translateY(calc(100% + 24px));
+    transition: transform .6s cubic-bezier(.2,.8,.25,1);
+  }
+  .diary.show { transform: translateY(0); }
+  .diary .d-label { font-size: .68rem; font-weight: 700; color: var(--outline); letter-spacing: .06em; }
+  .diary .d-text {
+    font-family: "Gaegu", cursive; font-size: 1.22rem; line-height: 1.5; color: #4A3423;
+    min-height: 3em; margin-top: 3px;
+    background: repeating-linear-gradient(to bottom, transparent 0 calc(1.5em - 1px), #F0E2CC calc(1.5em - 1px) 1.5em);
+  }
+  .diary .d-stamp {
+    position: absolute; right: 14px; bottom: 12px;
+    font-family: "Jua", sans-serif; font-size: .78rem; color: var(--green);
+    border: 2px solid var(--green); border-radius: 999px; padding: 2px 10px;
+    transform: rotate(-8deg) scale(0); transition: transform .35s cubic-bezier(.2,.9,.3,1.4);
+  }
+  .diary .d-stamp.show { transform: rotate(-8deg) scale(1); }
+
+  /* 폰 옆 장식(도토리·잎) — 절제 */
+  .demo-col { position: relative; }
+  .float-deco { position: absolute; z-index: -1; opacity: .9; }
+  .float-deco.acorn1 { width: 44px; top: 4%; right: 2%; transform: rotate(14deg); animation: bob 5.2s ease-in-out infinite; }
+  .float-deco.leaf1  { width: 52px; bottom: 6%; left: 0%; transform: rotate(-10deg); animation: bob 6.4s ease-in-out infinite reverse; }
+  @keyframes bob { 50% { translate: 0 -9px; } }
+
+  /* ── 라이티 애니메이션(SVG 내부) ── */
+  .laity .eye { transform-origin: center; transform-box: fill-box; animation: blink 4.6s infinite; }
+  @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 95.5% { transform: scaleY(.06); } }
+  .laity .tail { transform-origin: 18% 88%; transform-box: fill-box; animation: sway 3.6s ease-in-out infinite; }
+  @keyframes sway { 50% { transform: rotate(4.5deg); } }
+  .laity .mouth-open { opacity: 0; }
+  .talking .laity .mouth-idle { animation: mouthIdle .34s steps(1) infinite; }
+  .talking .laity .mouth-open { animation: mouthOpen .34s steps(1) infinite; }
+  @keyframes mouthIdle { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  @keyframes mouthOpen { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+  /* ── 공통 섹션 ── */
+  section { padding: 52px 0; }
+  .section-head { text-align: center; max-width: 36em; margin: 0 auto 36px; }
+  .section-head h2 { font-size: clamp(1.7rem, 4vw, 2.35rem); margin: 0; }
+  .section-head p { color: var(--ink-soft); margin: 12px 0 0; }
+  .kicker {
+    display: inline-block; font-family: "Jua", sans-serif; font-size: .92rem;
+    color: var(--purple-dark); background: var(--purple-soft);
+    padding: 4px 14px; border-radius: 999px; margin-bottom: 12px;
+  }
+
+  /* ── 세 걸음 ── */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .step {
-    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 24px 22px; box-shadow: var(--shadow);
+    background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius);
+    padding: 26px 24px; box-shadow: var(--shadow); position: relative;
   }
-  .step .n {
-    font-family: "Jua", sans-serif; font-size: 1rem; color: #fff;
-    width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
-  }
-  .step:nth-child(1) .n { background: var(--sprout); }
-  .step:nth-child(2) .n { background: var(--lavender); }
-  .step:nth-child(3) .n { background: var(--bloom); }
-  .step h3 { font-family: "Jua", sans-serif; font-weight: 400; font-size: 1.28rem; margin: 15px 0 7px; }
+  .step .ico { width: 62px; height: 62px; }
+  .step h3 { font-size: 1.3rem; margin: 14px 0 7px; }
   .step p { margin: 0; color: var(--ink-soft); font-size: .96rem; }
-
-  /* ── 누구를 위한 앱 ── */
-  .who {
-    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
-    box-shadow: var(--shadow); padding: 34px; display: flex; gap: 28px; align-items: center;
+  .step .mini-diary {
+    margin-top: 14px; background: #FFFBF1; border: 1.5px dashed var(--line); border-radius: 14px;
+    padding: 10px 13px; font-family: "Gaegu", cursive; font-size: 1.12rem; line-height: 1.5; color: #4A3423;
   }
-  .who img { width: 118px; height: 118px; border-radius: 26px; flex-shrink: 0; box-shadow: 0 6px 16px rgba(58,51,80,.14); }
-  .who h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); margin: 0 0 8px; }
-  .who p { margin: 0; color: var(--ink-soft); }
-  .who .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-  .who .tags span { background: var(--lavender-sf); color: var(--lavender-dk); font-size: .84rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+  .step .en { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .step .en span {
+    font-family: "Jua", sans-serif; font-size: .92rem;
+    background: var(--green-soft); color: #2E7D32; border-radius: 10px; padding: 5px 11px;
+  }
+
+  /* ── 라이티 도감 ── */
+  .profile { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); gap: 40px; align-items: center; }
+  .dex-card {
+    background: linear-gradient(168deg, #FFF9EE, #FDF0DC);
+    border: 2px solid var(--outline); border-radius: 28px;
+    padding: 26px; box-shadow: var(--shadow);
+    position: relative; transform: rotate(-1.4deg);
+  }
+  .dex-card::before {
+    content: "PEERA FRIENDS No.1"; position: absolute; top: 16px; right: 20px;
+    font-size: .64rem; font-weight: 800; letter-spacing: .12em; color: var(--outline);
+  }
+  .dex-top { display: flex; align-items: center; gap: 16px; }
+  .dex-top svg { width: 96px; height: 96px; flex-shrink: 0; }
+  .dex-top .nm { line-height: 1.3; }
+  .dex-top .nm b { font-family: "Jua", sans-serif; font-size: 1.7rem; display: block; }
+  .dex-top .nm span { color: var(--ink-soft); font-size: .88rem; }
+  .dex-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 9px; }
+  .dex-list li {
+    display: flex; gap: 10px; align-items: baseline;
+    background: rgba(255,255,255,.72); border-radius: 12px; padding: 8px 13px; font-size: .92rem;
+  }
+  .dex-list .k { font-family: "Jua", sans-serif; color: var(--laity-deep); flex-shrink: 0; width: 6.2em; font-size: .88rem; }
+  .profile-copy h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 0 0 14px; }
+  .profile-copy p { color: var(--ink-soft); margin: 0 0 14px; max-width: 32em; }
+  .profile-copy p b { color: var(--ink); }
+  .quote {
+    margin: 20px 0 0; padding: 16px 20px; border-left: 4px solid var(--laity);
+    background: #FFF6E9; border-radius: 0 16px 16px 0;
+    font-family: "Jua", sans-serif; font-size: 1.08rem; color: #7A4A21;
+  }
+
+  /* ── 부모님께 드리는 약속 ── */
+  .band {
+    background: var(--paper-warm); border-block: 1.5px solid var(--line);
+    margin-inline: calc(50% - 50vw); /* wrap 안에서 화면 전체 너비로 */
+  }
+  .promises { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .promise {
+    background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius);
+    padding: 24px 26px; box-shadow: var(--shadow);
+  }
+  .promise h3 { display: flex; align-items: center; gap: 10px; font-size: 1.18rem; margin: 0 0 8px; }
+  .promise h3 .pi {
+    width: 38px; height: 38px; border-radius: 12px; display: inline-grid; place-items: center;
+    font-size: 1.15rem; flex-shrink: 0;
+  }
+  .promise:nth-child(1) .pi { background: #FDECEF; }
+  .promise:nth-child(2) .pi { background: var(--green-soft); }
+  .promise:nth-child(3) .pi { background: var(--purple-soft); }
+  .promise:nth-child(4) .pi { background: #FFF3E0; }
+  .promise p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
+  .promise p b { color: var(--ink); }
 
   /* ── 마무리 CTA ── */
   .final {
-    text-align: center; background: var(--ink); color: #fff;
-    border-radius: 28px; padding: 48px 28px; margin: 12px 0 0;
+    text-align: center;
+    background: linear-gradient(180deg, var(--night-1), var(--night-2));
+    color: #fff; border-radius: 32px; padding: 54px 28px 50px; margin: 8px 0 0;
+    position: relative; overflow: hidden;
   }
+  .final::before, .final::after {
+    content: "✦"; position: absolute; color: rgba(255,233,201,.4); font-size: .8rem;
+  }
+  .final::before { top: 26px; left: 12%; }
+  .final::after { top: 60px; right: 14%; font-size: .6rem; }
+  .final svg.mini { width: 74px; height: 74px; margin-bottom: 6px; }
   .final h2 { color: #fff; font-size: clamp(1.7rem, 4.4vw, 2.4rem); margin: 0 0 10px; }
-  .final p { color: #C9C3DC; margin: 0 0 24px; }
-  .final .btn.ghost {
-    background: #fff; color: var(--lavender-dk); box-shadow: 0 6px 0 #C9C3DC; text-decoration: none;
-    display: inline-block;
+  .final > p { color: #BFD4C3; margin: 0 auto 26px; max-width: 28em; }
+  .final .signup { margin: 0 auto; }
+  .final .signup input[type=email] { border-color: transparent; }
+  .final .note { color: #9FB8A6; }
+  .final .note b { color: #E8F0E4; }
+  .final .status.ok { color: #8FE39C; }
+  .final .status.err { color: #FFAFBE; }
+
+  footer { text-align: center; color: var(--ink-soft); font-size: .87rem; padding: 44px 0 58px; }
+  footer .fbrand { display: flex; justify-content: center; align-items: center; gap: 9px; margin-bottom: 10px; }
+  footer .fbrand svg { width: 34px; height: 34px; }
+  footer .fbrand b { font-family: "Jua", sans-serif; font-size: 1.1rem; }
+  footer .from-cards { margin-top: 14px; font-size: .8rem; color: #A8977F; }
+
+  /* ── 스크롤 등장 ── */
+  .rise { opacity: 0; transform: translateY(16px); transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); }
+  .rise.in { opacity: 1; transform: none; }
+
+  /* ── 반응형 ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 26px; }
+    .demo-col { order: 2; }
+    .profile { grid-template-columns: 1fr; gap: 30px; }
+    .dex-card { max-width: 460px; margin-inline: auto; transform: rotate(0deg); }
   }
-  .final .btn.ghost:active { box-shadow: 0 2px 0 #C9C3DC; }
-
-  footer { text-align: center; color: var(--ink-soft); font-size: .86rem; padding: 40px 0 56px; }
-  footer .brand { justify-content: center; margin-bottom: 12px; }
-
-  /* ── 등장 애니메이션(과하지 않게, reduced-motion 존중) ── */
-  .rise { opacity: 0; transform: translateY(14px); animation: rise .7s cubic-bezier(.2,.7,.3,1) forwards; }
-  .d1 { animation-delay: .05s; } .d2 { animation-delay: .16s; } .d3 { animation-delay: .27s; } .d4 { animation-delay: .38s; }
-  @keyframes rise { to { opacity: 1; transform: none; } }
-
   @media (max-width: 720px) {
     .steps { grid-template-columns: 1fr; }
-    .who { flex-direction: column; text-align: center; }
-    .who .tags { justify-content: center; }
+    .promises { grid-template-columns: 1fr; }
     .signup .row { flex-direction: column; }
     .btn { width: 100%; }
+    h1 br.desk { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .rise { animation: none; opacity: 1; transform: none; }
     html { scroll-behavior: auto; }
+    .rise { opacity: 1; transform: none; transition: none; }
+    .laity .eye, .laity .tail, .float-deco, .call-sub .rec, .bubble, .caret,
+    .talking .laity .mouth-idle, .talking .laity .mouth-open { animation: none !important; }
+    .diary { transition: none; }
+    .diary .d-stamp { transition: none; }
   }
 </style>
 </head>
 <body>
-<div class="bg"></div>
+<div class="bg" aria-hidden="true"></div>
+
+<!-- ── 라이티 SVG 원본(심볼) — 본품 laity-avatar 실측 톤을 벡터로 재현 ── -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="laity-face">
+      <!-- 꼬리: 등 뒤에서 머리 위로 크게 말려 올라가 끝이 안쪽으로 감기는 실루엣 -->
+      <g class="tail">
+        <path d="M140 160 C 186 150, 202 116, 200 76 C 198 38, 176 10, 140 12 C 118 13, 106 30, 114 46 C 134 38, 154 46, 158 66 C 164 96, 152 130, 124 146 Z" fill="var(--laity-tail)"/>
+        <path d="M148 146 C 180 132, 192 104, 190 74 C 188 44, 172 24, 146 24 C 168 34, 180 56, 176 84 C 172 112, 162 132, 140 142 Z" fill="#E88A35" opacity=".85"/>
+      </g>
+      <!-- 귀 -->
+      <ellipse cx="62" cy="52" rx="21" ry="24" fill="var(--laity)"/>
+      <ellipse cx="63" cy="56" rx="11" ry="13" fill="var(--cream-face)"/>
+      <ellipse cx="138" cy="52" rx="21" ry="24" fill="var(--laity)"/>
+      <ellipse cx="137" cy="56" rx="11" ry="13" fill="var(--cream-face)"/>
+      <!-- 머리 -->
+      <circle cx="100" cy="112" r="72" fill="var(--laity)"/>
+      <!-- 크림 머즐 -->
+      <ellipse cx="100" cy="142" rx="52" ry="38" fill="var(--cream-face)"/>
+      <!-- 볼 -->
+      <ellipse cx="52" cy="132" rx="13" ry="9" fill="#F2A05C"/>
+      <ellipse cx="148" cy="132" rx="13" ry="9" fill="#F2A05C"/>
+      <!-- 눈 -->
+      <g class="eye">
+        <ellipse cx="72" cy="108" rx="12.5" ry="14" fill="#2B1B10"/>
+        <circle cx="76.5" cy="103" r="4.6" fill="#fff"/>
+        <circle cx="68.5" cy="112" r="2" fill="#fff" opacity=".85"/>
+      </g>
+      <g class="eye">
+        <ellipse cx="128" cy="108" rx="12.5" ry="14" fill="#2B1B10"/>
+        <circle cx="132.5" cy="103" r="4.6" fill="#fff"/>
+        <circle cx="124.5" cy="112" r="2" fill="#fff" opacity=".85"/>
+      </g>
+      <!-- 코 -->
+      <ellipse cx="100" cy="130" rx="8.5" ry="6.5" fill="#7A4A21"/>
+      <!-- 입: 평소(스마일+앞니) / 말할 때(동그란 입) -->
+      <g class="mouth-idle">
+        <path d="M84 142 Q 92 150 100 144 Q 108 150 116 142" fill="none" stroke="#7A4A21" stroke-width="4.5" stroke-linecap="round"/>
+        <rect x="94.5" y="146" width="11" height="13" rx="4" fill="#fff" stroke="#EAD9C0" stroke-width="1"/>
+      </g>
+      <g class="mouth-open">
+        <ellipse cx="100" cy="150" rx="10" ry="8.5" fill="#7A4A21"/>
+        <rect x="95" y="142" width="10" height="8" rx="3.5" fill="#fff"/>
+      </g>
+    </g>
+
+    <!-- 새싹(브랜드) -->
+    <g id="sprout">
+      <path d="M50 88 C 50 66, 50 58, 50 46" stroke="#43A047" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path d="M50 56 C 30 54, 22 38, 24 24 C 42 26, 52 40, 50 56 Z" fill="#5DBB63"/>
+      <path d="M50 48 C 66 44, 74 30, 72 18 C 56 20, 46 32, 50 48 Z" fill="#43A047"/>
+    </g>
+    <!-- 도토리 -->
+    <g id="acorn">
+      <path d="M20 34 C 20 22, 30 16, 40 16 C 50 16, 60 22, 60 34 Z" fill="#8A5A2B"/>
+      <rect x="36" y="10" width="8" height="9" rx="4" fill="#8A5A2B"/>
+      <path d="M23 36 C 23 52, 32 62, 40 62 C 48 62, 57 52, 57 36 Z" fill="#C89154"/>
+    </g>
+    <!-- 잎 -->
+    <g id="leaf">
+      <path d="M12 52 C 10 26, 30 8, 56 10 C 58 36, 40 54, 12 52 Z" fill="#7BC47F"/>
+      <path d="M16 48 C 28 38, 40 26, 50 16" stroke="#4E9D53" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+  </defs>
+</svg>
 
 <div class="wrap">
   <header class="top">
-    <div class="brand rise">
-      <img src="peera-sprout.png" alt="피어라">
+    <a class="brand" href="#" aria-label="피어라 홈">
+      <svg class="mini" viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
       <b>피어라</b><span>Peera</span>
-    </div>
+    </a>
   </header>
 
-  <!-- ── 히어로 ── -->
+  <!-- ═════════ 히어로 ═════════ -->
   <section class="hero">
-    <span class="eyebrow rise"><span class="dot"></span> 출시 준비 중 · 사전예약 받는 중</span>
-    <h1 class="rise d1">마음의 <span class="seed">씨앗</span>이<br>손글씨의 <span class="bloom">꽃</span>으로<br>피어나기까지</h1>
-    <p class="lead rise d2">
-      아이가 다람쥐 <b>라이티</b>와 이야기하며 마음을 말로 꺼내고,
-      그 마음을 직접 글로 써봅니다. 한글과 영어 쓰기를 라이티가 함께 도와줘요.
-    </p>
+    <div class="hero-copy">
+      <span class="eyebrow rise in"><span class="dot"></span> 4~8세 · 출시 준비 중 · 사전예약 받는 중</span>
+      <h1 class="rise in">숲속 다람쥐 <span class="hl-laity">라이티</span>가<br>
+        우리 아이에게<br class="desk">
+        전화를 걸어요</h1>
+      <p class="lead rise in">
+        전화를 받은 아이는 오늘 있었던 일을 조잘조잘 이야기하고,
+        라이티는 그 마음을 끝까지 들어줘요. 통화가 끝나면 —
+        <b>말로 꺼낸 마음이 한글·영어 손글씨 일기로 피어납니다.</b>
+      </p>
 
-    <form class="signup rise d3" id="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <div class="row">
-        <input type="email" name="email" inputmode="email" autocomplete="email"
-               placeholder="이메일 주소" required aria-label="이메일 주소">
-        <button class="btn" type="submit">사전예약 신청</button>
-      </div>
-      <p class="note">출시되면 이 메일로 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
-      <p class="status" id="status" role="status" aria-live="polite"></p>
-    </form>
-  </section>
-
-  <!-- ── 자라나는 과정 ── -->
-  <section id="how">
-    <div class="section-head rise">
-      <h2>말한 마음이 글이 되기까지</h2>
-      <p>피어라는 세 걸음으로 자랍니다. 말하기에서 시작해 쓰기로 피어납니다.</p>
+      <form class="signup rise in" data-signup action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="row">
+          <input type="email" name="email" inputmode="email" autocomplete="email"
+                 placeholder="이메일 주소" required aria-label="이메일 주소">
+          <button class="btn" type="submit">출시 소식 받기</button>
+        </div>
+        <p class="note">출시되면 이 메일로 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
     </div>
-    <div class="steps">
-      <div class="step rise d1">
-        <div class="n">1</div>
-        <h3>라이티와 이야기해요</h3>
-        <p>다람쥐 라이티가 오늘 있었던 일을 물어봅니다. 아이는 마음을 말로 꺼내며 답해요.</p>
-      </div>
-      <div class="step rise d2">
-        <div class="n">2</div>
-        <h3>마음을 글로 써요</h3>
-        <p>말로 꺼낸 마음을 직접 손으로 써봅니다. 말하기가 자연스럽게 쓰기로 이어져요.</p>
-      </div>
-      <div class="step rise d3">
-        <div class="n">3</div>
-        <h3>한글도 영어도</h3>
-        <p>라이티가 한글 쓰기와 영어 쓰기를 함께 도와줍니다. 한 걸음씩, 아이 속도에 맞춰서요.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ── 누구를 위한 앱 ── -->
-  <section id="who">
-    <div class="who rise">
-      <img src="peera-sprout.png" alt="라이티">
-      <div>
-        <h2>누구와 함께 쓰나요</h2>
-        <p>피어라는 <b>4~8세 아이</b>가 부모님과 함께 쓰도록 만든 앱입니다.
-           아이가 자기 마음을 말과 글로 표현하는 힘을 키우고, 그 곁을 어른이 지켜봅니다.</p>
-        <div class="tags">
-          <span>4~8세</span><span>마음 표현</span><span>한글 쓰기</span><span>영어 쓰기</span><span>부모와 함께</span>
+    <!-- 시그니처: 라이티 통화 데모 -->
+    <div class="demo-col rise in">
+      <svg class="float-deco acorn1" viewBox="0 0 80 70" aria-hidden="true"><use href="#acorn"/></svg>
+      <svg class="float-deco leaf1" viewBox="0 0 64 60" aria-hidden="true"><use href="#leaf"/></svg>
+
+      <div class="phone" id="phoneDemo" role="img"
+           aria-label="피어라 앱 미리보기: 아이가 다람쥐 라이티와 영상통화를 하고, 통화에서 말한 마음이 손글씨 일기가 되는 장면">
+        <div class="screen">
+          <div class="notch" aria-hidden="true"></div>
+          <div class="call-top" aria-hidden="true">
+            <span class="call-id">
+              <span class="call-name">라이티 🌰</span>
+              <span class="call-sub"><i class="rec"></i>통화 중 <span id="callTime">00:04</span></span>
+            </span>
+            <span class="batt">라이티 폰 <i class="case"><i class="fill" id="battFill"></i></i></span>
+          </div>
+          <div class="stage" aria-hidden="true">
+            <svg class="laity" viewBox="0 0 200 200"><use href="#laity-face"/></svg>
+          </div>
+          <div class="chat" id="chat" aria-hidden="true"></div>
+          <div class="call-hint" aria-hidden="true">
+            <span class="mic">🎙️</span><br>버튼 없이, 아이가 말하면 라이티가 들어요
+          </div>
+        </div>
+        <div class="diary" id="diary" aria-hidden="true">
+          <span class="d-label">오늘의 일기 · 통화에서 꺼낸 마음</span>
+          <div class="d-text" id="diaryText"></div>
+          <span class="d-stamp" id="diaryStamp">참 잘했어요</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 마무리 CTA ── -->
+  <!-- ═════════ 세 걸음 ═════════ -->
+  <section id="how">
+    <div class="section-head rise">
+      <span class="kicker">피어라의 세 걸음</span>
+      <h2>말한 마음이 글이 되기까지</h2>
+      <p>쓰기를 가르치기 전에, 쓰고 싶은 이야기부터 만들어 줍니다.
+         아이에겐 매일의 통화가 놀이고, 그 놀이가 그대로 글감이 돼요.</p>
+    </div>
+    <div class="steps">
+      <div class="step rise">
+        <svg class="ico" viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
+        <h3>1 · 라이티와 통화해요</h3>
+        <p>따르릉— 라이티에게서 전화가 와요. 오늘 뭐 했는지, 그때 기분이 어땠는지.
+           라이티는 아이가 방금 한 말을 꼭 짚어서 되물어요. 아이는 놀이처럼 마음을 말로 꺼내요.</p>
+      </div>
+      <div class="step rise">
+        <svg class="ico" viewBox="0 0 100 100" aria-hidden="true"><use href="#sprout" transform="translate(0,4)"/></svg>
+        <h3>2 · 마음을 일기로 써요</h3>
+        <p>통화에서 꺼낸 이야기가 그대로 일기 글감이 돼요.
+           라이티가 곁에서 지켜보는 동안, 아이가 자기 손으로 또박또박 써봅니다.</p>
+        <div class="mini-diary" aria-label="아이 일기 예시">오늘 종이접기를 했다.<br>어려웠는데 끝까지 해서 뿌듯했다.</div>
+      </div>
+      <div class="step rise">
+        <svg class="ico" viewBox="0 0 80 70" aria-hidden="true"><use href="#acorn"/></svg>
+        <h3>3 · 한글에서 영어로</h3>
+        <p>같은 라이티, 같은 목소리로 영어 통화도 해요. 틀려도 창피 주지 않고
+           부드럽게 다시 말해주면서, 아이 속도에 맞춰 한 걸음씩.</p>
+        <div class="en"><span>한글 쓰기</span><span>영어 말하기</span><span>영어 쓰기</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ 라이티 도감 ═════════ -->
+  <section id="laity">
+    <div class="profile">
+      <div class="dex-card rise" aria-label="라이티 캐릭터 카드">
+        <div class="dex-top">
+          <svg viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
+          <div class="nm"><b>라이티</b><span>다람쥐 · 8살 · 남자아이</span></div>
+        </div>
+        <ul class="dex-list">
+          <li><span class="k">사는 곳</span><span>초록숲 한가운데, 커다란 참나무 꼭대기 나무집</span></li>
+          <li><span class="k">가족</span><span>포근한 엄마, 도토리 잘 찾는 아빠, 장난꾸러기 여동생 콩이</span></li>
+          <li><span class="k">좋아하는 것</span><span>볶은 도토리, 숨바꼭질, 비 온 뒤 흙냄새</span></li>
+          <li><span class="k">무서워하는 것</span><span>천둥소리 (사실은 아주 많이)</span></li>
+          <li><span class="k">버릇</span><span>신나면 꼬리를 파닥파닥, 놀라면 "헐!"</span></li>
+        </ul>
+      </div>
+      <div class="profile-copy rise">
+        <span class="kicker">왜 캐릭터가 중요한가요</span>
+        <h2>아이는 앱이 아니라<br>친구에게 마음을 열어요</h2>
+        <p>라이티는 말을 걸어주는 기능이 아니라, <b>삶이 있는 여덟 살 친구</b>입니다.
+           참나무 나무집에 살고, 여동생 콩이가 있고, 천둥을 무서워해요.
+           아이가 "너 몇 살이야?" 하고 물으면 어제도 오늘도 내일도 같은 대답을 합니다.</p>
+        <p>친구라서, 아이는 시키지 않아도 오늘 하루를 들려줍니다.
+           그리고 친구에게 들려준 이야기라서 — <b>일기로 쓸 때도 술술 나옵니다.</b></p>
+        <blockquote class="quote">"헐! 종이접기 했어? 뭐 접었는지 진짜 궁금하다!"</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ 부모님께 드리는 약속 ═════════ -->
+  <div class="band">
+    <section id="promise">
+      <div class="wrap">
+        <div class="section-head rise">
+          <span class="kicker">부모님께 드리는 약속</span>
+          <h2>재미보다 먼저 지키는 것들</h2>
+          <p>피어라는 아이의 마음을 다루는 앱입니다. 그래서 처음부터 이 원칙들 위에 만들었습니다.</p>
+        </div>
+        <div class="promises">
+          <div class="promise rise">
+            <h3><span class="pi">🤍</span>힘든 마음엔 들뜨지 않아요</h3>
+            <p>슬프거나 속상한 이야기에는 경쾌한 축하 대신, <b>먼저 그 마음을 진지하게 알아줍니다.</b>
+               즐거운 날엔 함께 기뻐하고요. 아이 마음의 무게에 맞춰 라이티의 말투가 달라집니다.</p>
+          </div>
+          <div class="promise rise">
+            <h3><span class="pi">🌳</span>어른과 연결해요</h3>
+            <p>아이 안전에 관한 이야기가 나오면 라이티는 해결해주겠다고 약속하는 대신,
+               <b>"엄마 아빠나 믿는 어른에게 꼭 얘기해줘"</b>라고 부드럽게 권합니다.</p>
+          </div>
+          <div class="promise rise">
+            <h3><span class="pi">🔋</span>통화에는 끝이 있어요</h3>
+            <p>라이티의 폰 배터리가 다 되면 통화도 끝나요. <b>아이를 무한정 붙잡아두지 않고</b>,
+               나눈 이야기를 일기로 쓰도록 다정하게 배웅합니다. 화면 밖으로 이어지는 앱이에요.</p>
+          </div>
+          <div class="promise rise">
+            <h3><span class="pi">✏️</span>틀려도 괜찮아요</h3>
+            <p>오답에 빨간 줄을 긋지 않아요. 틀린 말은 <b>바른 말로 부드럽게 다시 들려주면서</b>,
+               아이가 창피함 없이 다시 시도하게 합니다. 광고도 없습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═════════ 마무리 CTA ═════════ -->
   <section>
     <div class="final rise">
-      <h2>가장 먼저 만나보세요</h2>
-      <p>피어라가 준비되면, 사전예약하신 분들께 제일 먼저 소식을 전해드릴게요.</p>
-      <a class="btn ghost" href="#signup">사전예약 신청하기</a>
+      <svg class="mini" viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
+      <h2>라이티의 첫 전화,<br>우리 아이가 받게 해주세요</h2>
+      <p>피어라가 준비되는 대로, 사전예약하신 분들께 가장 먼저 소식을 전해드릴게요.</p>
+      <form class="signup" data-signup action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="row">
+          <input type="email" name="email" inputmode="email" autocomplete="email"
+                 placeholder="이메일 주소" required aria-label="이메일 주소">
+          <button class="btn" type="submit">출시 소식 받기</button>
+        </div>
+        <p class="note">출시되면 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
   <footer>
-    <div class="brand"><img src="peera-sprout.png" alt=""><b>피어라</b></div>
+    <div class="fbrand">
+      <svg viewBox="0 0 200 210" aria-hidden="true"><use href="#laity-face"/></svg>
+      <b>피어라</b>
+    </div>
     <div>만든 사람 Hephaestosian · 문의 <a href="mailto:retyper@naver.com">retyper@naver.com</a></div>
     <div>© 2026 Peera</div>
+    <div class="from-cards">감정카드 앱에서 오셨나요? 반가워요 — 마음의 씨앗이 여기서 손글씨의 꽃으로 피어납니다. 🌱</div>
   </footer>
 </div>
 
 <script>
-  // 사전예약 폼 — Formspree로 이메일을 보낸다. 페이지 이동 없이 그 자리에서 결과를 알린다.
-  // ★설치: formspree.io에서 무료 폼을 만들고, 위 form action의 YOUR_FORM_ID를
-  //   받은 엔드포인트(예: https://formspree.io/f/abcdwxyz)로 바꾸세요.
-  const form = document.getElementById('signup');
-  const status = document.getElementById('status');
+  const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    status.className = 'status';
-    status.textContent = '보내는 중…';
+  /* ── 스크롤 등장 ── */
+  const riseEls = document.querySelectorAll('.rise:not(.in)');
+  if (prefersReduced) {
+    riseEls.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .18 });
+    riseEls.forEach(el => io.observe(el));
+  }
 
-    if (form.action.includes('YOUR_FORM_ID')) {
-      status.className = 'status err';
-      status.textContent = '아직 폼이 연결되지 않았어요. (관리자: Formspree 주소를 넣어 주세요)';
-      return;
+  /* ── 폰 데모: 라이티와의 통화 → 일기 ──
+     실제 앱의 대화 루프(아이 말 짚어주기 → 감정 묻기 → 일기 권유)를 30초로 압축한 연출. */
+  const SCRIPT = [
+    { who: 'laity', text: '어? 방금 화면에 이름이 딱 떴어! 지우야, 반가워! 나는 라이티야. 오늘 하루 어땠어?' },
+    { who: 'kid',   text: '오늘 유치원에서 종이접기 했어!' },
+    { who: 'laity', text: '종이접기! 뭘 접었는지 진짜 궁금하다. 하면서 기분이 어땠어?' },
+    { who: 'kid',   text: '어려웠는데… 끝까지 해서 뿌듯했어' },
+    { who: 'laity', text: '끝까지 해냈구나, 멋지다! 그 뿌듯한 마음, 우리 일기로 남겨볼까?' },
+  ];
+  const DIARY_TEXT = '오늘 종이접기를 했다.\n어려웠는데 끝까지 해서 뿌듯했다.';
+
+  const phone = document.getElementById('phoneDemo');
+  const chat = document.getElementById('chat');
+  const diary = document.getElementById('diary');
+  const diaryText = document.getElementById('diaryText');
+  const diaryStamp = document.getElementById('diaryStamp');
+  const battFill = document.getElementById('battFill');
+  const callTime = document.getElementById('callTime');
+
+  let demoGen = 0;          // 리셋 시 진행 중인 체인을 무효화
+  let demoVisible = false;
+  let secs = 4, timeTimer = null;
+
+  const wait = (ms, gen) => new Promise(r => setTimeout(() => r(gen === demoGen), ms));
+  const fmt = n => String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0');
+
+  function addBubble(who) {
+    const b = document.createElement('div');
+    b.className = 'bubble ' + who;
+    chat.appendChild(b);
+    // 오래된 말풍선은 3개까지만 유지
+    while (chat.children.length > 3) chat.removeChild(chat.firstChild);
+    return b;
+  }
+
+  async function typeInto(el, text, gen, cps = 38) {
+    const caret = document.createElement('span');
+    caret.className = 'caret';
+    for (let i = 0; i <= text.length; i++) {
+      if (gen !== demoGen) return false;
+      el.textContent = text.slice(0, i);
+      el.appendChild(caret);
+      await new Promise(r => setTimeout(r, 1000 / cps));
     }
+    caret.remove();
+    el.textContent = text;
+    return true;
+  }
 
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' },
-      });
-      if (res.ok) {
-        form.reset();
-        status.className = 'status ok';
-        status.textContent = '고마워요! 출시되면 이 메일로 가장 먼저 알려드릴게요. 🌱';
+  function setBattery(pct) {
+    battFill.style.width = pct + '%';
+    battFill.style.background = pct <= 18 ? '#F2A05C' : '#7BD68B';
+  }
+
+  function renderStatic() {
+    // 모션 최소화 환경: 완성된 장면을 그대로 보여준다.
+    chat.innerHTML = '';
+    SCRIPT.slice(-3).forEach(m => { addBubble(m.who).textContent = m.text; });
+    setBattery(12);
+    diary.classList.add('show');
+    diaryText.textContent = DIARY_TEXT.replace('\n', ' ');
+    diaryStamp.classList.add('show');
+  }
+
+  async function runDemo() {
+    const gen = ++demoGen;
+    chat.innerHTML = '';
+    diary.classList.remove('show');
+    diaryStamp.classList.remove('show');
+    diaryText.textContent = '';
+    setBattery(86);
+    secs = 4;
+    callTime.textContent = fmt(secs);
+
+    if (!await wait(900, gen)) return;
+
+    for (let i = 0; i < SCRIPT.length; i++) {
+      if (gen !== demoGen) return;
+      const m = SCRIPT[i];
+      setBattery(86 - i * 15);
+
+      if (m.who === 'laity') {
+        const b = addBubble('laity');
+        phone.classList.add('talking');
+        const ok = await typeInto(b, m.text, gen);
+        phone.classList.remove('talking');
+        if (!ok) return;
+        if (!await wait(950, gen)) return;
       } else {
-        status.className = 'status err';
-        status.textContent = '잠시 후 다시 시도해 주세요.';
+        const b = addBubble('kid');
+        b.innerHTML = '<span class="listen" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
+        if (!await wait(1050, gen)) return;
+        b.textContent = m.text;
+        if (!await wait(1100, gen)) return;
       }
-    } catch (_) {
-      status.className = 'status err';
-      status.textContent = '네트워크 연결을 확인해 주세요.';
     }
+
+    // 통화 끝 → 말이 글로
+    setBattery(8);
+    if (!await wait(1200, gen)) return;
+    diary.classList.add('show');
+    if (!await wait(650, gen)) return;
+    const lines = DIARY_TEXT.split('\n');
+    for (const [idx, line] of lines.entries()) {
+      const ok = await typeInto(diaryText, lines.slice(0, idx).join('\n') + (idx ? '\n' : '') + line, gen, 22);
+      if (!ok) return;
+    }
+    diaryStamp.classList.add('show');
+    if (!await wait(4200, gen)) return;
+    if (demoVisible) runDemo();   // 루프
+  }
+
+  if (prefersReduced) {
+    renderStatic();
+  } else {
+    // 통화 시간 카운터
+    timeTimer = setInterval(() => {
+      if (demoVisible) { secs++; callTime.textContent = fmt(secs); }
+    }, 1000);
+    const demoIO = new IntersectionObserver((ents) => {
+      ents.forEach(e => {
+        const was = demoVisible;
+        demoVisible = e.isIntersecting;
+        if (demoVisible && !was) runDemo();
+        if (!demoVisible) demoGen++;   // 화면 밖: 체인 중단
+      });
+    }, { threshold: .35 });
+    demoIO.observe(phone);
+  }
+
+  /* ── 사전예약 폼(Formspree) — 페이지 이동 없이 그 자리에서 결과 안내.
+     ★설치: formspree.io에서 폼을 만들고 action의 YOUR_FORM_ID를 실제 주소로 교체. ── */
+  document.querySelectorAll('form[data-signup]').forEach((form) => {
+    const status = form.querySelector('.status');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className = 'status';
+      status.textContent = '보내는 중…';
+
+      if (form.action.includes('YOUR_FORM_ID')) {
+        status.className = 'status err';
+        status.textContent = '아직 폼이 연결되지 않았어요. (관리자: Formspree 주소를 넣어 주세요)';
+        return;
+      }
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' },
+        });
+        if (res.ok) {
+          form.reset();
+          status.className = 'status ok';
+          status.textContent = '고마워요! 라이티의 첫 전화 소식, 이 메일로 가장 먼저 알려드릴게요. 🌱';
+        } else {
+          status.className = 'status err';
+          status.textContent = '전송이 잘 안 됐어요. 잠시 후 다시 시도해 주세요.';
+        }
+      } catch (_) {
+        status.className = 'status err';
+        status.textContent = '네트워크 연결을 확인해 주세요.';
+      }
+    });
   });
 </script>
 </body>
