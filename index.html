@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>피어라 — 다람쥐 라이티가 우리 아이에게 전화를 걸어요</title>
-<meta name="description" content="숲속 다람쥐 라이티와 통화하며 아이가 마음을 말로 꺼내고, 그 마음을 한글·영어 손글씨 일기로 씁니다. 4~8세를 위한 피어라, 출시 소식을 가장 먼저 받아보세요.">
+<title>피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다</title>
+<meta name="description" content="숲속 다람쥐 라이티가 하루 한 번 문자를 보내면, 궁금해진 아이가 직접 전화를 걸어 오늘 하루를 이야기합니다. 말로 꺼낸 마음은 한글·영어 손글씨 일기로. 4~8세를 위한 피어라, 출시 소식을 가장 먼저 받아보세요.">
 
 <!-- 오픈그래프(카톡·문자 공유 시 미리보기) -->
-<meta property="og:title" content="피어라 — 다람쥐 라이티가 우리 아이에게 전화를 걸어요">
-<meta property="og:description" content="라이티와 통화하며 마음을 말로, 그 마음을 한글·영어 손글씨로. 출시 소식을 가장 먼저 받아보세요.">
+<meta property="og:title" content="피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다">
+<meta property="og:description" content="숲속 친구 라이티의 하루 한 번 문자. 아이가 전화를 걸어 나눈 이야기가 한글·영어 손글씨 일기로 피어납니다.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://peera.co/">
 <meta property="og:image" content="https://peera.co/peera-og.png">
@@ -28,7 +28,7 @@
   "url": "https://peera.co/",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "iOS, Android",
-  "description": "숲속 다람쥐 라이티와 통화하며 아이가 마음을 말로 꺼내고, 그 마음을 한글·영어 손글씨 일기로 쓰는 4~8세 대상 앱. 출시 전 사전예약 진행 중.",
+  "description": "숲속 다람쥐 라이티가 하루 한 번 문자를 보내면 아이가 직접 전화를 걸어 오늘 하루를 이야기하고, 그 마음을 한글·영어 손글씨 일기로 쓰는 4~8세 대상 앱. 출시 전 사전예약 진행 중.",
   "audience": { "@type": "PeopleAudience", "suggestedMinAge": 4, "suggestedMaxAge": 8 },
   "creator": { "@type": "Organization", "name": "Peer" }
 }
@@ -124,16 +124,17 @@
   }
   .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(67,160,71,.16); }
   h1 {
-    font-size: clamp(2.3rem, 5.6vw, 3.85rem);
-    line-height: 1.2; margin: 18px 0 0;
+    font-size: clamp(2.05rem, 4.6vw, 3.25rem);
+    line-height: 1.24; margin: 18px 0 0;
   }
   h1 .hl-laity { color: var(--laity); }
   h1 .hl-bloom { color: var(--bloom); }
   .lead {
-    max-width: 30em; margin: 18px 0 0;
+    max-width: 31em; margin: 18px 0 0;
     font-size: clamp(1.02rem, 2.2vw, 1.15rem); color: var(--ink-soft);
   }
   .lead b { color: var(--ink); }
+  .lead i { font-style: normal; color: var(--laity-deep); font-weight: 600; }
 
   /* ── 사전예약 폼(듀오링고식 3D 푸시 버튼 — 앱 컨벤션) ── */
   .signup { margin-top: 28px; max-width: 31em; }
@@ -200,6 +201,7 @@
   .call-top {
     display: flex; align-items: center; justify-content: space-between;
     padding: 44px 18px 6px; color: #EFEAE2; z-index: 5;
+    opacity: 0; transition: opacity .4s ease;  /* 통화가 연결된 뒤에만 보인다 */
   }
   .call-id { display: flex; flex-direction: column; line-height: 1.35; }
   .call-name { font-family: "Jua", sans-serif; font-size: 1.06rem; }
@@ -246,9 +248,44 @@
   .caret { display: inline-block; width: 2px; height: .95em; background: #C1580E; vertical-align: -0.12em; margin-left: 1px; animation: caret 0.8s step-end infinite; }
   @keyframes caret { 50% { opacity: 0; } }
 
+  /* ── 1막: 라이티의 문자 알림(잠금화면 배너) ── */
+  .notif {
+    position: absolute; top: 44px; left: 12px; right: 12px; z-index: 8;
+    background: rgba(255,253,246,.94); backdrop-filter: blur(8px);
+    border-radius: 18px; padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start;
+    box-shadow: 0 12px 30px rgba(10,24,18,.45);
+    transform: translateY(-140%); opacity: 0;
+    transition: transform .5s cubic-bezier(.2,.9,.3,1.2), opacity .35s ease;
+  }
+  .notif.show { transform: translateY(0); opacity: 1; }
+  .notif img { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; }
+  .notif .n-body { min-width: 0; }
+  .notif .n-head { display: flex; gap: 6px; align-items: baseline; }
+  .notif .n-head b { font-family: "Jua", sans-serif; font-size: .82rem; }
+  .notif .n-head span { font-size: .62rem; color: #A08D74; }
+  .notif .n-text { font-size: .78rem; line-height: 1.45; color: #4A3423; margin-top: 1px; word-break: keep-all; }
+
+  /* ── 2막: 전화 거는 중 ── */
+  .calling {
+    position: absolute; inset: 0; z-index: 7; display: grid; place-items: center; align-content: center;
+    gap: 10px; background: rgba(11,26,20,.72); backdrop-filter: blur(3px);
+    opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility .4s;
+  }
+  .calling.show { opacity: 1; visibility: visible; }
+  .calling img { width: 96px; height: 96px; border-radius: 50%; box-shadow: 0 0 0 0 rgba(255,246,230,.5); animation: ring 1.5s ease-out infinite; }
+  @keyframes ring { to { box-shadow: 0 0 0 26px rgba(255,246,230,0); } }
+  .calling b { font-family: "Jua", sans-serif; color: #FFF6E6; font-size: 1.15rem; }
+  .calling span { color: #A8C3AE; font-size: .74rem; letter-spacing: .04em; }
+  .calling span i { display: inline-block; animation: dots 1.4s infinite; font-style: normal; }
+  .calling span i:nth-child(2) { animation-delay: .2s; }
+  .calling span i:nth-child(3) { animation-delay: .4s; }
+  @keyframes dots { 0%, 60%, 100% { opacity: .25; } 30% { opacity: 1; } }
+
   .call-hint {
     text-align: center; color: #9FB8A6; font-size: .68rem; padding: 0 0 14px; z-index: 4;
+    opacity: 0; transition: opacity .4s ease;
   }
+  .call-hint.show { opacity: 1; }
   .call-hint .mic {
     display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
     background: #FFF6E6; margin-bottom: 5px; box-shadow: 0 0 0 6px rgba(255,246,230,.12);
@@ -256,8 +293,8 @@
 
   /* 통화 뒤 일기 카드(말 → 글 전환 연출) */
   .diary {
-    position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 7;
-    background: #FFFDF6; border-radius: 20px; padding: 15px 17px 13px;
+    position: absolute; left: 10px; right: 10px; bottom: 22px; z-index: 7;
+    background: #FFFDF6; border-radius: 20px; padding: 15px 17px 16px;
     box-shadow: 0 -10px 34px rgba(16,32,43,.45);
     transform: translateY(calc(100% + 24px));
     transition: transform .6s cubic-bezier(.2,.8,.25,1);
@@ -266,14 +303,14 @@
   .diary .d-label { font-size: .68rem; font-weight: 700; color: var(--outline); letter-spacing: .06em; }
   .diary .d-text {
     font-family: "Gaegu", cursive; font-size: 1.22rem; line-height: 1.5; color: #4A3423;
-    min-height: 3em; margin-top: 3px;
+    min-height: 3em; margin-top: 3px; padding-right: 4px;
     background: repeating-linear-gradient(to bottom, transparent 0 calc(1.5em - 1px), #F0E2CC calc(1.5em - 1px) 1.5em);
   }
   .diary .d-stamp {
-    /* 본품의 실제 '참 잘했어요' 도장 */
-    position: absolute; right: 10px; bottom: 8px; width: 84px; height: auto;
+    /* 본품의 실제 '참 잘했어요' 도장 — 종이 오른쪽 아래 모서리에 걸쳐 찍힌다 */
+    position: absolute; right: -8px; bottom: -12px; width: 66px; height: auto;
     transform: rotate(-10deg) scale(0); transition: transform .35s cubic-bezier(.2,.9,.3,1.4);
-    filter: drop-shadow(0 2px 4px rgba(61,43,31,.18));
+    filter: drop-shadow(0 2px 5px rgba(61,43,31,.22));
   }
   .diary .d-stamp.show { transform: rotate(-10deg) scale(1); }
 
@@ -435,16 +472,20 @@
   <section class="hero">
     <div class="hero-copy">
       <span class="eyebrow rise in"><span class="dot"></span> 4~8세 · 출시 준비 중 · 사전예약 받는 중</span>
-      <h1 class="rise in">숲속 다람쥐 <span class="hl-laity">라이티</span>가<br>
-        우리 아이에게<br class="desk">
-        전화를 걸어요</h1>
+      <h1 class="rise in"><span class="hl-laity">라이티</span>한테 문자가 왔어요<br>
+        아이가 <span class="hl-bloom">먼저</span> 전화를 겁니다</h1>
       <p class="lead rise in">
-        전화를 받은 아이는 오늘 있었던 일을 조잘조잘 이야기하고,
-        라이티는 그 마음을 끝까지 들어줘요. 통화가 끝나면 —
-        <b>말로 꺼낸 마음이 한글·영어 손글씨 일기로 피어납니다.</b>
+        숲속 다람쥐 라이티가 하루 한 번 문자를 보내요. 궁금해진 아이는 직접 전화를 걸어
+        오늘 하루를 조잘조잘 이야기하고,
+        <b>말로 꺼낸 그 마음이 한글·영어 손글씨 일기로 피어납니다.</b>
       </p>
 
-      <form class="signup rise in" data-signup action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="signup rise in" data-signup action="https://formspree.io/f/meeygazy" method="POST">
+        <!-- 메일 제목·유입 위치 구분(히어로 vs 마무리 CTA). _gotcha는 Formspree 기본 스팸 트랩 -->
+        <input type="hidden" name="_subject" value="[피어라] 사전예약 신청 — 히어로">
+        <input type="hidden" name="신청위치" value="히어로">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
                  placeholder="이메일 주소" required aria-label="이메일 주소">
@@ -458,7 +499,7 @@
     <!-- 시그니처: 라이티 통화 데모 — 본품의 writy.riv(라이티)가 실제로 여기서 구동된다 -->
     <div class="demo-col rise in">
       <div class="phone" id="phoneDemo" role="img"
-           aria-label="피어라 앱 미리보기: 아이가 다람쥐 라이티와 영상통화를 하고, 통화에서 말한 마음이 손글씨 일기가 되는 장면">
+           aria-label="피어라 앱 미리보기: 다람쥐 라이티가 문자를 보내고, 아이가 전화를 걸어 이야기를 나눈 뒤, 그 마음이 손글씨 일기가 되는 장면">
         <div class="screen">
           <canvas class="rive" id="riveCanvas" aria-hidden="true"></canvas>
           <div class="shade top" aria-hidden="true"></div>
@@ -472,8 +513,24 @@
             <span class="batt">라이티 폰 <i class="case"><i class="fill" id="battFill"></i></i></span>
           </div>
           <div class="chat" id="chat" aria-hidden="true"></div>
-          <div class="call-hint" aria-hidden="true">
+          <div class="call-hint" id="callHint" aria-hidden="true">
             <span class="mic">🎙️</span><br>버튼 없이, 아이가 말하면 라이티가 들어요
+          </div>
+
+          <!-- 1막: 라이티가 보낸 문자 -->
+          <div class="notif" id="notif" aria-hidden="true">
+            <img src="laity-avatar.png" alt="">
+            <div class="n-body">
+              <div class="n-head"><b>라이티</b><span>지금</span></div>
+              <div class="n-text" id="notifText"></div>
+            </div>
+          </div>
+
+          <!-- 2막: 아이가 전화를 건다 -->
+          <div class="calling" id="calling" aria-hidden="true">
+            <img src="laity-avatar.png" alt="">
+            <b>라이티</b>
+            <span>전화 거는 중<i>.</i><i>.</i><i>.</i></span>
           </div>
         </div>
         <div class="diary" id="diary" aria-hidden="true">
@@ -496,9 +553,10 @@
     <div class="steps">
       <div class="step rise">
         <img class="ico" src="plant-bud1.png" alt="">
-        <h3>1 · 라이티와 통화해요</h3>
-        <p>따르릉— 라이티에게서 전화가 와요. 오늘 뭐 했는지, 그때 기분이 어땠는지.
-           라이티는 아이가 방금 한 말을 꼭 짚어서 되물어요. 아이는 놀이처럼 마음을 말로 꺼내요.</p>
+        <h3>1 · 문자를 받고, 전화를 걸어요</h3>
+        <p>하루 한 번, 라이티가 숲에서 있었던 일을 문자로 보내요. 궁금해진 아이가
+           전화를 걸면 그때부터 대화가 시작돼요. 라이티는 아이가 방금 한 말을 꼭 짚어서 되묻고,
+           그때 기분이 어땠는지 물어봐요.</p>
       </div>
       <div class="step rise">
         <img class="ico" src="plant-bud3.png" alt="">
@@ -567,9 +625,10 @@
                <b>"엄마 아빠나 믿는 어른에게 꼭 얘기해줘"</b>라고 부드럽게 권합니다.</p>
           </div>
           <div class="promise rise">
-            <h3><span class="pi">🔋</span>통화에는 끝이 있어요</h3>
-            <p>라이티의 폰 배터리가 다 되면 통화도 끝나요. <b>아이를 무한정 붙잡아두지 않고</b>,
-               나눈 이야기를 일기로 쓰도록 다정하게 배웅합니다. 화면 밖으로 이어지는 앱이에요.</p>
+            <h3><span class="pi">🔋</span>붙잡지 않아요</h3>
+            <p>라이티의 문자는 <b>하루에 딱 한 통</b>. 전화를 걸지 말지는 아이가 정합니다.
+               통화도 라이티의 폰 배터리가 다 되면 끝나요. 아이를 무한정 붙잡는 대신,
+               나눈 이야기를 일기로 쓰도록 다정하게 배웅합니다.</p>
           </div>
           <div class="promise rise">
             <h3><span class="pi">✏️</span>틀려도 괜찮아요</h3>
@@ -585,9 +644,13 @@
   <section>
     <div class="final rise">
       <img class="avatar" src="laity-avatar.png" alt="">
-      <h2>라이티의 첫 전화,<br>우리 아이가 받게 해주세요</h2>
+      <h2>라이티의 첫 문자,<br>우리 아이에게 닿게 해주세요</h2>
       <p>피어라가 준비되는 대로, 사전예약하신 분들께 가장 먼저 소식을 전해드릴게요.</p>
-      <form class="signup" data-signup action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="signup" data-signup action="https://formspree.io/f/meeygazy" method="POST">
+        <input type="hidden" name="_subject" value="[피어라] 사전예약 신청 — 마무리 CTA">
+        <input type="hidden" name="신청위치" value="마무리 CTA">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
                  placeholder="이메일 주소" required aria-label="이메일 주소">
@@ -662,12 +725,16 @@
 
   /* ── 폰 데모: 라이티와의 통화 → 일기 ──
      실제 앱의 대화 루프(아이 말 짚어주기 → 감정 묻기 → 일기 권유)를 30초로 압축한 연출. */
+  // 실제 앱의 하루: 라이티가 문자를 보내고(laityMessages) → 아이가 전화를 걸고 → 통화 → 일기.
+  const NOTIF_TEXT = '나 오늘 진짜 커다란 도토리를 주웠어!';
   const SCRIPT = [
-    { who: 'laity', text: '어? 방금 화면에 이름이 딱 떴어! 지우야, 반가워! 나는 라이티야. 오늘 하루 어땠어?' },
-    { who: 'kid',   text: '오늘 유치원에서 종이접기 했어!' },
-    { who: 'laity', text: '종이접기! 뭘 접었는지 진짜 궁금하다. 하면서 기분이 어땠어?' },
-    { who: 'kid',   text: '어려웠는데… 끝까지 해서 뿌듯했어' },
-    { who: 'laity', text: '끝까지 해냈구나, 멋지다! 그 뿌듯한 마음, 우리 일기로 남겨볼까?' },
+    { who: 'laity', text: '어? 지우야, 안녕! 오늘 하루 어땠어?' },
+    { who: 'kid',   text: '라이티야! 아까 문자 봤어. 도토리 어디서 주웠어?' },
+    { who: 'laity', text: '참나무 밑에서! 너무 커서 들고 오다 데굴데굴 굴렀지 뭐야. 너는 오늘 뭐 했어?' },
+    { who: 'kid',   text: '유치원에서 종이접기 했어. 어려웠는데 끝까지 했어' },
+    { who: 'laity', text: '끝까지 해냈구나, 멋지다! 그때 기분이 어땠어?' },
+    { who: 'kid',   text: '뿌듯했어!' },
+    { who: 'laity', text: '그 뿌듯한 마음, 우리 일기로 남겨볼까?' },
   ];
   const DIARY_TEXT = '오늘 종이접기를 했다.\n어려웠는데 끝까지 해서 뿌듯했다.';
 
@@ -678,10 +745,16 @@
   const diaryStamp = document.getElementById('diaryStamp');
   const battFill = document.getElementById('battFill');
   const callTime = document.getElementById('callTime');
+  const callTop = document.querySelector('.call-top');
+  const callHint = document.getElementById('callHint');
+  const notif = document.getElementById('notif');
+  const notifText = document.getElementById('notifText');
+  const calling = document.getElementById('calling');
 
   let demoGen = 0;          // 리셋 시 진행 중인 체인을 무효화
   let demoVisible = false;
-  let secs = 4, timeTimer = null;
+  let callRunning = false;  // 3막(통화) 중에만 통화시간이 흐른다
+  let secs = 0, timeTimer = null;
 
   const wait = (ms, gen) => new Promise(r => setTimeout(() => r(gen === demoGen), ms));
   const fmt = n => String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0');
@@ -715,10 +788,12 @@
   }
 
   function renderStatic() {
-    // 모션 최소화 환경: 완성된 장면을 그대로 보여준다.
+    // 모션 최소화 환경: 통화 마지막 장면 + 완성된 일기를 그대로 보여준다.
     chat.innerHTML = '';
     SCRIPT.slice(-3).forEach(m => { addBubble(m.who).textContent = m.text; });
     setBattery(12);
+    callTop.style.opacity = '1';
+    callTime.textContent = fmt(184);
     diary.classList.add('show');
     diaryText.textContent = DIARY_TEXT.replace('\n', ' ');
     diaryStamp.classList.add('show');
@@ -730,37 +805,62 @@
     diary.classList.remove('show');
     diaryStamp.classList.remove('show');
     diaryText.textContent = '';
-    setBattery(86);
-    secs = 4;
+    notif.classList.remove('show');
+    notifText.textContent = '';
+    calling.classList.remove('show');
+    callHint.classList.remove('show');
+    callTop.style.opacity = '0';
+    setBattery(92);
+    secs = 0;
     callTime.textContent = fmt(secs);
+    callRunning = false;
 
-    if (!await wait(900, gen)) return;
+    // ── 1막 · 라이티가 문자를 보낸다 ──
+    if (!await wait(700, gen)) return;
+    notif.classList.add('show');
+    if (!await typeInto(notifText, NOTIF_TEXT, gen, 30)) return;
+    if (!await wait(1700, gen)) return;
+    notif.classList.remove('show');
+
+    // ── 2막 · 궁금해진 아이가 전화를 건다 ──
+    if (!await wait(500, gen)) return;
+    calling.classList.add('show');
+    if (!await wait(2100, gen)) return;
+    calling.classList.remove('show');
+
+    // ── 3막 · 통화 ──
+    callTop.style.opacity = '1';
+    callHint.classList.add('show');
+    callRunning = true;
+    if (!await wait(500, gen)) return;
 
     for (let i = 0; i < SCRIPT.length; i++) {
       if (gen !== demoGen) return;
       const m = SCRIPT[i];
-      setBattery(86 - i * 15);
+      setBattery(92 - i * 11);
 
       if (m.who === 'laity') {
         const b = addBubble('laity');
         setLaity('isTalking', true);       // Rive: 말하는 애니메이션
-        const ok = await typeInto(b, m.text, gen);
+        const ok = await typeInto(b, m.text, gen, 46);
         setLaity('isTalking', false);
         if (!ok) return;
-        if (!await wait(950, gen)) return;
+        if (!await wait(750, gen)) return;
       } else {
         const b = addBubble('kid');
         b.innerHTML = '<span class="listen" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
         setLaity('isListening', true);     // Rive: 귀 기울이는 애니메이션
-        if (!await wait(1050, gen)) return;
+        if (!await wait(900, gen)) return;
         b.textContent = m.text;
         setLaity('isListening', false);
-        if (!await wait(1100, gen)) return;
+        if (!await wait(850, gen)) return;
       }
     }
 
-    // 통화 끝 → 말이 글로
+    // ── 4막 · 통화 끝, 말이 글로 ──
     setBattery(8);
+    callRunning = false;
+    callHint.classList.remove('show');
     if (!await wait(1200, gen)) return;
     diary.classList.add('show');
     if (!await wait(650, gen)) return;
@@ -770,16 +870,16 @@
       if (!ok) return;
     }
     diaryStamp.classList.add('show');
-    if (!await wait(4200, gen)) return;
+    if (!await wait(3600, gen)) return;
     if (demoVisible) runDemo();   // 루프
   }
 
   if (prefersReduced) {
     renderStatic();
   } else {
-    // 통화 시간 카운터
+    // 통화 시간 카운터 — 실제 통화 중일 때만 흐른다
     timeTimer = setInterval(() => {
-      if (demoVisible) { secs++; callTime.textContent = fmt(secs); }
+      if (demoVisible && callRunning) { secs++; callTime.textContent = fmt(secs); }
     }, 1000);
     const demoIO = new IntersectionObserver((ents) => {
       ents.forEach(e => {
@@ -792,20 +892,18 @@
     demoIO.observe(phone);
   }
 
-  /* ── 사전예약 폼(Formspree) — 페이지 이동 없이 그 자리에서 결과 안내.
-     ★설치: formspree.io에서 폼을 만들고 action의 YOUR_FORM_ID를 실제 주소로 교체. ── */
+  /* ── 사전예약 폼 — Formspree(f/meeygazy, 수신 retyper92@gmail.com)로 보낸다.
+     페이지 이동 없이 그 자리에서 결과를 안내한다. ── */
   document.querySelectorAll('form[data-signup]').forEach((form) => {
     const status = form.querySelector('.status');
+    const button = form.querySelector('button[type=submit]');
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       status.className = 'status';
       status.textContent = '보내는 중…';
+      button.disabled = true;
 
-      if (form.action.includes('YOUR_FORM_ID')) {
-        status.className = 'status err';
-        status.textContent = '아직 폼이 연결되지 않았어요. (관리자: Formspree 주소를 넣어 주세요)';
-        return;
-      }
       try {
         const res = await fetch(form.action, {
           method: 'POST',
@@ -815,14 +913,22 @@
         if (res.ok) {
           form.reset();
           status.className = 'status ok';
-          status.textContent = '고마워요! 라이티의 첫 전화 소식, 이 메일로 가장 먼저 알려드릴게요. 🌱';
+          status.textContent = '고마워요! 라이티의 첫 소식, 이 메일로 가장 먼저 알려드릴게요. 🌱';
         } else {
+          // Formspree는 실패 사유를 errors[]로 준다(예: 이메일 형식 오류).
+          let msg = '전송이 잘 안 됐어요. 잠시 후 다시 시도해 주세요.';
+          try {
+            const data = await res.json();
+            if (data.errors && data.errors.length) msg = data.errors.map((x) => x.message).join(' ');
+          } catch (_) {}
           status.className = 'status err';
-          status.textContent = '전송이 잘 안 됐어요. 잠시 후 다시 시도해 주세요.';
+          status.textContent = msg;
         }
       } catch (_) {
         status.className = 'status err';
         status.textContent = '네트워크 연결을 확인해 주세요.';
+      } finally {
+        button.disabled = false;
       }
     });
   });
