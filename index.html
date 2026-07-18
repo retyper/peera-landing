@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>피어라 — 마음의 씨앗이 손글씨의 꽃으로</title>
+<meta name="description" content="아이가 다람쥐 라이티와 이야기하며 마음을 말로 꺼내고, 그 마음을 직접 글로 써봅니다. 한글과 영어 쓰기를 함께 배우는 피어라. 출시 소식을 가장 먼저 받아보세요.">
+
+<!-- 오픈그래프(카톡·문자 공유 시 미리보기) -->
+<meta property="og:title" content="피어라 — 마음의 씨앗이 손글씨의 꽃으로">
+<meta property="og:description" content="다람쥐 라이티와 이야기하며 마음을 말로, 그 마음을 글로. 출시 소식을 가장 먼저 받아보세요.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="peera-sprout.png">
+
+<link rel="icon" href="peera-sprout.png">
+
+<!-- 폰트: 앱과 같은 서체로 브랜드를 잇는다(표제 Jua·본문 Pretendard). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+
+<style>
+  :root {
+    --paper:       #FBF7F0;
+    --paper-warm:  #F6EFE3;
+    --ink:         #3A3350;
+    --ink-soft:    #6E6880;
+    --lavender:    #7C6BD9;  /* 피어라 보라 포인트 */
+    --lavender-dk: #5F4EC0;
+    --lavender-sf: #EEE9FB;
+    --sprout:      #6BAE46;  /* 새싹(자라남) */
+    --bloom:       #F3919F;  /* 꽃(피어남) */
+    --line:        #E8E0D2;
+    --shadow:      0 14px 34px rgba(58, 51, 80, .10);
+    --radius:      22px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+                 "Malgun Gothic", sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .display { font-family: "Jua", "Pretendard Variable", sans-serif; font-weight: 400; letter-spacing: -.01em; }
+
+  .wrap { width: min(1040px, 100% - 44px); margin-inline: auto; }
+  a { color: var(--lavender-dk); }
+
+  /* ── 배경: 위(씨앗)에서 아래(꽃)로 아주 옅게 물드는 종이 ── */
+  .bg {
+    position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(60% 40% at 82% -6%, var(--lavender-sf), transparent 60%),
+      radial-gradient(50% 34% at 8% 106%, #FCE7EB, transparent 60%),
+      var(--paper);
+  }
+
+  /* ── 상단 바 ── */
+  header.top { padding: 22px 0 8px; }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand img { width: 38px; height: 38px; border-radius: 50%; box-shadow: 0 3px 10px rgba(58,51,80,.14); }
+  .brand b { font-family: "Jua", sans-serif; font-size: 1.35rem; }
+  .brand span { color: var(--ink-soft); font-size: .82rem; margin-left: 2px; }
+
+  /* ── 히어로 ── */
+  .hero { padding: 46px 0 34px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: #fff; border: 1px solid var(--line); color: var(--ink-soft);
+    padding: 6px 13px; border-radius: 999px; font-size: .82rem; font-weight: 600;
+  }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sprout); box-shadow: 0 0 0 4px rgba(107,174,70,.18); }
+  h1 {
+    font-size: clamp(2.35rem, 6.4vw, 4.1rem);
+    line-height: 1.16; margin: 20px 0 0;
+  }
+  h1 .seed { color: var(--sprout); }
+  h1 .bloom { color: var(--bloom); }
+  .lead {
+    max-width: 30em; margin: 20px 0 0;
+    font-size: clamp(1.02rem, 2.3vw, 1.16rem); color: var(--ink-soft);
+  }
+
+  /* ── 사전예약 폼 ── */
+  .signup { margin-top: 30px; max-width: 30em; }
+  .signup .row { display: flex; gap: 10px; }
+  .signup input[type=email] {
+    flex: 1; min-width: 0; padding: 15px 17px;
+    border: 1.5px solid var(--line); border-radius: 15px; background: #fff;
+    font: inherit; color: var(--ink);
+  }
+  .signup input[type=email]:focus { outline: none; border-color: var(--lavender); box-shadow: 0 0 0 4px var(--lavender-sf); }
+  .btn {
+    border: none; cursor: pointer; font: inherit; font-weight: 700;
+    background: var(--lavender); color: #fff;
+    padding: 15px 22px; border-radius: 15px;
+    box-shadow: 0 6px 0 var(--lavender-dk);
+    transition: transform .06s ease, box-shadow .06s ease, background .15s;
+    white-space: nowrap;
+  }
+  .btn:hover { background: var(--lavender-dk); }
+  .btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--lavender-dk); }
+  .note { margin: 11px 2px 0; font-size: .82rem; color: var(--ink-soft); }
+  .status { margin: 12px 2px 0; font-size: .92rem; font-weight: 600; min-height: 1.2em; }
+  .status.ok { color: var(--sprout); }
+  .status.err { color: #C6566B; }
+
+  /* ── 자라나는 과정 ── */
+  section { padding: 40px 0; }
+  .section-head { text-align: center; max-width: 34em; margin: 0 auto 30px; }
+  .section-head h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0; }
+  .section-head p { color: var(--ink-soft); margin: 10px 0 0; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .step {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px 22px; box-shadow: var(--shadow);
+  }
+  .step .n {
+    font-family: "Jua", sans-serif; font-size: 1rem; color: #fff;
+    width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  }
+  .step:nth-child(1) .n { background: var(--sprout); }
+  .step:nth-child(2) .n { background: var(--lavender); }
+  .step:nth-child(3) .n { background: var(--bloom); }
+  .step h3 { font-family: "Jua", sans-serif; font-weight: 400; font-size: 1.28rem; margin: 15px 0 7px; }
+  .step p { margin: 0; color: var(--ink-soft); font-size: .96rem; }
+
+  /* ── 누구를 위한 앱 ── */
+  .who {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 34px; display: flex; gap: 28px; align-items: center;
+  }
+  .who img { width: 118px; height: 118px; border-radius: 26px; flex-shrink: 0; box-shadow: 0 6px 16px rgba(58,51,80,.14); }
+  .who h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); margin: 0 0 8px; }
+  .who p { margin: 0; color: var(--ink-soft); }
+  .who .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+  .who .tags span { background: var(--lavender-sf); color: var(--lavender-dk); font-size: .84rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+
+  /* ── 마무리 CTA ── */
+  .final {
+    text-align: center; background: var(--ink); color: #fff;
+    border-radius: 28px; padding: 48px 28px; margin: 12px 0 0;
+  }
+  .final h2 { color: #fff; font-size: clamp(1.7rem, 4.4vw, 2.4rem); margin: 0 0 10px; }
+  .final p { color: #C9C3DC; margin: 0 0 24px; }
+  .final .btn.ghost {
+    background: #fff; color: var(--lavender-dk); box-shadow: 0 6px 0 #C9C3DC; text-decoration: none;
+    display: inline-block;
+  }
+  .final .btn.ghost:active { box-shadow: 0 2px 0 #C9C3DC; }
+
+  footer { text-align: center; color: var(--ink-soft); font-size: .86rem; padding: 40px 0 56px; }
+  footer .brand { justify-content: center; margin-bottom: 12px; }
+
+  /* ── 등장 애니메이션(과하지 않게, reduced-motion 존중) ── */
+  .rise { opacity: 0; transform: translateY(14px); animation: rise .7s cubic-bezier(.2,.7,.3,1) forwards; }
+  .d1 { animation-delay: .05s; } .d2 { animation-delay: .16s; } .d3 { animation-delay: .27s; } .d4 { animation-delay: .38s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  @media (max-width: 720px) {
+    .steps { grid-template-columns: 1fr; }
+    .who { flex-direction: column; text-align: center; }
+    .who .tags { justify-content: center; }
+    .signup .row { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rise { animation: none; opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand rise">
+      <img src="peera-sprout.png" alt="피어라">
+      <b>피어라</b><span>Peera</span>
+    </div>
+  </header>
+
+  <!-- ── 히어로 ── -->
+  <section class="hero">
+    <span class="eyebrow rise"><span class="dot"></span> 출시 준비 중 · 사전예약 받는 중</span>
+    <h1 class="rise d1">마음의 <span class="seed">씨앗</span>이<br>손글씨의 <span class="bloom">꽃</span>으로<br>피어나기까지</h1>
+    <p class="lead rise d2">
+      아이가 다람쥐 <b>라이티</b>와 이야기하며 마음을 말로 꺼내고,
+      그 마음을 직접 글로 써봅니다. 한글과 영어 쓰기를 라이티가 함께 도와줘요.
+    </p>
+
+    <form class="signup rise d3" id="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="row">
+        <input type="email" name="email" inputmode="email" autocomplete="email"
+               placeholder="이메일 주소" required aria-label="이메일 주소">
+        <button class="btn" type="submit">사전예약 신청</button>
+      </div>
+      <p class="note">출시되면 이 메일로 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- ── 자라나는 과정 ── -->
+  <section id="how">
+    <div class="section-head rise">
+      <h2>말한 마음이 글이 되기까지</h2>
+      <p>피어라는 세 걸음으로 자랍니다. 말하기에서 시작해 쓰기로 피어납니다.</p>
+    </div>
+    <div class="steps">
+      <div class="step rise d1">
+        <div class="n">1</div>
+        <h3>라이티와 이야기해요</h3>
+        <p>다람쥐 라이티가 오늘 있었던 일을 물어봅니다. 아이는 마음을 말로 꺼내며 답해요.</p>
+      </div>
+      <div class="step rise d2">
+        <div class="n">2</div>
+        <h3>마음을 글로 써요</h3>
+        <p>말로 꺼낸 마음을 직접 손으로 써봅니다. 말하기가 자연스럽게 쓰기로 이어져요.</p>
+      </div>
+      <div class="step rise d3">
+        <div class="n">3</div>
+        <h3>한글도 영어도</h3>
+        <p>라이티가 한글 쓰기와 영어 쓰기를 함께 도와줍니다. 한 걸음씩, 아이 속도에 맞춰서요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 누구를 위한 앱 ── -->
+  <section id="who">
+    <div class="who rise">
+      <img src="peera-sprout.png" alt="라이티">
+      <div>
+        <h2>누구와 함께 쓰나요</h2>
+        <p>피어라는 <b>4~8세 아이</b>가 부모님과 함께 쓰도록 만든 앱입니다.
+           아이가 자기 마음을 말과 글로 표현하는 힘을 키우고, 그 곁을 어른이 지켜봅니다.</p>
+        <div class="tags">
+          <span>4~8세</span><span>마음 표현</span><span>한글 쓰기</span><span>영어 쓰기</span><span>부모와 함께</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 마무리 CTA ── -->
+  <section>
+    <div class="final rise">
+      <h2>가장 먼저 만나보세요</h2>
+      <p>피어라가 준비되면, 사전예약하신 분들께 제일 먼저 소식을 전해드릴게요.</p>
+      <a class="btn ghost" href="#signup">사전예약 신청하기</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand"><img src="peera-sprout.png" alt=""><b>피어라</b></div>
+    <div>만든 사람 Hephaestosian · 문의 <a href="mailto:retyper@naver.com">retyper@naver.com</a></div>
+    <div>© 2026 Peera</div>
+  </footer>
+</div>
+
+<script>
+  // 사전예약 폼 — Formspree로 이메일을 보낸다. 페이지 이동 없이 그 자리에서 결과를 알린다.
+  // ★설치: formspree.io에서 무료 폼을 만들고, 위 form action의 YOUR_FORM_ID를
+  //   받은 엔드포인트(예: https://formspree.io/f/abcdwxyz)로 바꾸세요.
+  const form = document.getElementById('signup');
+  const status = document.getElementById('status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className = 'status';
+    status.textContent = '보내는 중…';
+
+    if (form.action.includes('YOUR_FORM_ID')) {
+      status.className = 'status err';
+      status.textContent = '아직 폼이 연결되지 않았어요. (관리자: Formspree 주소를 넣어 주세요)';
+      return;
+    }
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      });
+      if (res.ok) {
+        form.reset();
+        status.className = 'status ok';
+        status.textContent = '고마워요! 출시되면 이 메일로 가장 먼저 알려드릴게요. 🌱';
+      } else {
+        status.className = 'status err';
+        status.textContent = '잠시 후 다시 시도해 주세요.';
+      }
+    } catch (_) {
+      status.className = 'status err';
+      status.textContent = '네트워크 연결을 확인해 주세요.';
+    }
+  });
+</script>
+</body>
+</html>
