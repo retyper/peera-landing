@@ -880,6 +880,7 @@
      실패하면 .screen의 정지 프레임 포스터(writy-still.png)가 그대로 보인다. ── */
   const riveCanvas = document.getElementById('riveCanvas');
   let laityVmi = null;
+  let riveInst = null;   // 화면 밖에선 멈춰 둔다(모바일 배터리·CPU)
   function setLaity(name, v) {
     try { const b = laityVmi && laityVmi.boolean && laityVmi.boolean(name); if (b) b.value = v; } catch (_) {}
   }
@@ -898,6 +899,7 @@
         layout: new rive.Layout({ fit: rive.Fit.Cover, alignment: rive.Alignment.Center }),
         onLoad: () => {
           r.resizeDrawingSurfaceToCanvas();
+          riveInst = r;
           laityVmi = r.viewModelInstance || null;
           setLaity('isTalking', false);
           setLaity('isListening', false);
@@ -1086,11 +1088,25 @@
       ents.forEach(e => {
         const was = demoVisible;
         demoVisible = e.isIntersecting;
-        if (demoVisible && !was) runDemo();
-        if (!demoVisible) demoGen++;   // 화면 밖: 체인 중단
+        if (demoVisible && !was) {
+          try { riveInst && riveInst.play(); } catch (_) {}
+          runDemo();
+        }
+        if (!demoVisible) {
+          demoGen++;                                   // 화면 밖: 대본 체인 중단
+          try { riveInst && riveInst.pause(); } catch (_) {}  // Rive 렌더링도 정지
+        }
       });
-    }, { threshold: .35 });
+    }, { threshold: .2 });
     demoIO.observe(phone);
+
+    // 탭이 백그라운드면 애니메이션을 멈춘다.
+    document.addEventListener('visibilitychange', () => {
+      try {
+        if (document.hidden) { demoGen++; riveInst && riveInst.pause(); }
+        else if (demoVisible) { riveInst && riveInst.play(); runDemo(); }
+      } catch (_) {}
+    });
   }
 
   /* ── 사전예약 폼 — Formspree(f/meeygazy, 수신 retyper92@gmail.com)로 보낸다.
