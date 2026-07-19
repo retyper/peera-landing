@@ -40,15 +40,15 @@
 </script>
 
 <!-- ── 구글 애널리틱스 4 ──────────────────────────────────────────────
-     ★ 켜는 법: 아래 GA_ID의 빈 문자열을 측정 ID('G-XXXXXXXXXX')로 바꾸면 끝.
-       비워 두면 gtag.js를 아예 내려받지 않는다(로컬·미설정 상태에서 무해).
+     GA_ID를 비우면 gtag.js를 아예 내려받지 않는다 — 로컬에서 지표를 더럽히고
+     싶지 않을 때 한 줄만 비우면 계측 전체가 꺼진다(track()도 조용히 무시된다).
 
      4~8세 아동 대상 서비스라 광고·개인화 신호는 전부 끈다:
      - allow_google_signals:false            → 구글 계정 기반 크로스디바이스 추적 off
      - allow_ad_personalization_signals:false → 수집 데이터의 광고 활용 off
      이 조합이면 GA4는 광고 쿠키 없이 분석 목적으로만 동작한다. -->
 <script>
-  window.GA_ID = '';  // ← 여기에 G-XXXXXXXXXX
+  window.GA_ID = 'G-VK77HTLEQH';  // Peera Landing 속성
 
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
