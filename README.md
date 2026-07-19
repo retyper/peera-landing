@@ -24,7 +24,7 @@
 
 `index.html`의 폼은 [Formspree](https://formspree.io)로 이메일을 보낸다. 설치:
 
-1. formspree.io 가입 → 새 form 생성(수신 이메일: retyper@naver.com 등).
+1. formspree.io 가입 → 새 form 생성(수신 이메일: retyper92@gmail.com 등).
 2. 받은 엔드포인트(예: `https://formspree.io/f/abcdwxyz`)를 복사.
 3. `index.html`에서 `action="https://formspree.io/f/YOUR_FORM_ID"` 의
    `YOUR_FORM_ID`를 그 주소로 교체.
