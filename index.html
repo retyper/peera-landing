@@ -6,16 +6,21 @@
 <title>피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다</title>
 <meta name="description" content="숲속 다람쥐 라이티가 하루 한 번 문자를 보내면, 궁금해진 아이가 직접 전화를 걸어 오늘 하루를 이야기합니다. 말로 꺼낸 마음은 한글·영어 손글씨 일기로. 4~8세를 위한 피어라, 출시 소식을 가장 먼저 받아보세요.">
 
-<!-- 오픈그래프(카톡·문자 공유 시 미리보기) -->
+<!-- ★ 사이트 정본 주소 — 여기 한 곳만 고치면 OG·canonical·구조화데이터가 함께 따라온다.
+     지금은 GitHub Pages. peera.co 도메인을 사서 연결하면 아래 세 줄을
+     https://peera.co/ 로 바꾸고 CNAME 파일만 추가하면 끝. -->
+<link rel="canonical" href="https://retyper.github.io/peera-landing/">
+
+<!-- 오픈그래프(카톡·문자 공유 시 미리보기) — og:image는 반드시 살아 있는 절대 URL이어야 뜬다 -->
 <meta property="og:title" content="피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다">
 <meta property="og:description" content="숲속 친구 라이티의 하루 한 번 문자. 아이가 전화를 걸어 나눈 이야기가 한글·영어 손글씨 일기로 피어납니다.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://peera.co/">
-<meta property="og:image" content="https://peera.co/peera-og.png">
+<meta property="og:url" content="https://retyper.github.io/peera-landing/">
+<meta property="og:image" content="https://retyper.github.io/peera-landing/peera-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://peera.co/peera-og.png">
+<meta name="twitter:image" content="https://retyper.github.io/peera-landing/peera-og.png">
 
 <link rel="icon" href="laity-avatar.png">
 <link rel="apple-touch-icon" href="laity-avatar.png">
@@ -25,13 +30,48 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "피어라 (Peera)",
-  "url": "https://peera.co/",
+  "url": "https://retyper.github.io/peera-landing/",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "iOS, Android",
   "description": "숲속 다람쥐 라이티가 하루 한 번 문자를 보내면 아이가 직접 전화를 걸어 오늘 하루를 이야기하고, 그 마음을 한글·영어 손글씨 일기로 쓰는 4~8세 대상 앱. 출시 전 사전예약 진행 중.",
   "audience": { "@type": "PeopleAudience", "suggestedMinAge": 4, "suggestedMaxAge": 8 },
   "creator": { "@type": "Organization", "name": "Peer" }
 }
+</script>
+
+<!-- ── 구글 애널리틱스 4 ──────────────────────────────────────────────
+     ★ 켜는 법: 아래 GA_ID의 빈 문자열을 측정 ID('G-XXXXXXXXXX')로 바꾸면 끝.
+       비워 두면 gtag.js를 아예 내려받지 않는다(로컬·미설정 상태에서 무해).
+
+     4~8세 아동 대상 서비스라 광고·개인화 신호는 전부 끈다:
+     - allow_google_signals:false            → 구글 계정 기반 크로스디바이스 추적 off
+     - allow_ad_personalization_signals:false → 수집 데이터의 광고 활용 off
+     이 조합이면 GA4는 광고 쿠키 없이 분석 목적으로만 동작한다. -->
+<script>
+  window.GA_ID = '';  // ← 여기에 G-XXXXXXXXXX
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+
+  // 페이지 어디서든 쓰는 이벤트 헬퍼. GA 미설정이어도 조용히 무시된다.
+  window.track = function (name, params) {
+    if (!window.GA_ID) return;
+    try { gtag('event', name, params || {}); } catch (_) {}
+  };
+
+  if (window.GA_ID) {
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
+    document.head.appendChild(s);
+
+    gtag('js', new Date());
+    gtag('config', window.GA_ID, {
+      anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+    });
+  }
 </script>
 
 <!-- 폰트: 앱과 같은 서체로 브랜드를 잇는다. 표제 Jua · 손글씨 Gaegu · 본문 Pretendard -->
@@ -170,6 +210,20 @@
   .btn:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--purple); outline-offset: 2px; }
   .note { margin: 12px 2px 0; font-size: .84rem; color: var(--ink-soft); }
   .note b { color: var(--ink); }
+
+  /* 개인정보 수집 동의 — 이메일을 받는 이상 필수. 체크 전엔 버튼이 잠긴다. */
+  .consent {
+    display: flex; align-items: flex-start; gap: 8px;
+    margin: 12px 2px 0; font-size: .84rem; line-height: 1.5; color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .consent input[type=checkbox] {
+    flex: none; width: 18px; height: 18px; margin: 1px 0 0;
+    accent-color: var(--purple); cursor: pointer;
+  }
+  .consent a { color: inherit; text-underline-offset: 2px; }
+  .btn[disabled] { opacity: .45; box-shadow: 0 5px 0 var(--purple-dark); cursor: not-allowed; }
+  .btn[disabled]:hover { filter: none; }
   .status { margin: 10px 2px 0; font-size: .93rem; font-weight: 700; min-height: 1.3em; }
   .status.ok { color: var(--green); }
   .status.err { color: #C6566B; }
@@ -527,6 +581,8 @@
   .final .signup input[type=email] { border-color: transparent; }
   .final .note { color: #9FB8A6; }
   .final .note b { color: #E8F0E4; }
+  .final .consent { color: #9FB8A6; }
+  .final .consent a { color: #D8E8DC; }
   .final .status.ok { color: #8FE39C; }
   .final .status.err { color: #FFAFBE; }
 
@@ -605,13 +661,21 @@
         <!-- 메일 제목·유입 위치 구분(히어로 vs 마무리 CTA). _gotcha는 Formspree 기본 스팸 트랩 -->
         <input type="hidden" name="_subject" value="[피어라] 사전예약 신청 — 히어로">
         <input type="hidden" name="신청위치" value="히어로">
+        <!-- 유입경로: JS가 UTM·referrer를 채운다. 신청 메일에서 감정카드 앱 유입이 바로 보인다. -->
+        <input type="hidden" name="유입경로" data-source-field value="(직접 방문)">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
                style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
                  placeholder="이메일 주소" required aria-label="이메일 주소">
-          <button class="btn" type="submit">출시 소식 받기</button>
+          <button class="btn" type="submit" disabled>출시 소식 받기</button>
         </div>
+        <label class="consent">
+          <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
+          <span>출시 알림을 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다.
+            출시 안내 발송 후 지체 없이 파기해요.
+            <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span>
+        </label>
         <p class="note">출시되면 이 메일로 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
         <p class="status" role="status" aria-live="polite"></p>
       </form>
@@ -842,13 +906,20 @@
       <form class="signup" data-signup action="https://formspree.io/f/meeygazy" method="POST">
         <input type="hidden" name="_subject" value="[피어라] 사전예약 신청 — 마무리 CTA">
         <input type="hidden" name="신청위치" value="마무리 CTA">
+        <input type="hidden" name="유입경로" data-source-field value="(직접 방문)">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
                style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
                  placeholder="이메일 주소" required aria-label="이메일 주소">
-          <button class="btn" type="submit">출시 소식 받기</button>
+          <button class="btn" type="submit" disabled>출시 소식 받기</button>
         </div>
+        <label class="consent">
+          <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
+          <span>출시 알림을 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다.
+            출시 안내 발송 후 지체 없이 파기해요.
+            <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span>
+        </label>
         <p class="note">출시되면 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
         <p class="status" role="status" aria-live="polite"></p>
       </form>
@@ -861,6 +932,7 @@
       <b>피어라</b>
     </div>
     <div>만든 팀 <b>Peer</b> · 문의 <a href="mailto:retyper@naver.com">retyper@naver.com</a></div>
+    <div><a href="privacy.html">개인정보 수집·이용 안내</a></div>
     <div>© 2026 Peer</div>
     <div class="from-cards">감정카드 앱에서 오셨나요? 반가워요 — 마음의 씨앗이 여기서 손글씨의 꽃으로 피어납니다. 🌱</div>
   </footer>
@@ -1120,9 +1192,46 @@
 
   /* ── 사전예약 폼 — Formspree(f/meeygazy, 수신 retyper92@gmail.com)로 보낸다.
      페이지 이동 없이 그 자리에서 결과를 안내한다. ── */
+  /* ── 유입경로 판별 ──
+     UTM이 있으면 그걸 쓰고, 없으면 referrer로 추정한다. GA와 별개로
+     Formspree 신청 메일에 실려 오므로 GA를 안 켠 상태에서도 출처를 알 수 있다. */
+  const trafficSource = (() => {
+    const q = new URLSearchParams(location.search);
+    const src = q.get('utm_source');
+    if (src) {
+      const medium = q.get('utm_medium');
+      const campaign = q.get('utm_campaign');
+      return [src, medium, campaign].filter(Boolean).join(' / ');
+    }
+    if (!document.referrer) return '(직접 방문)';
+    try {
+      const host = new URL(document.referrer).hostname.replace(/^www\./, '');
+      return host === location.hostname ? '(직접 방문)' : host;
+    } catch (_) { return '(직접 방문)'; }
+  })();
+
+  document.querySelectorAll('input[data-source-field]').forEach((el) => {
+    el.value = trafficSource;
+  });
+
   document.querySelectorAll('form[data-signup]').forEach((form) => {
     const status = form.querySelector('.status');
     const button = form.querySelector('button[type=submit]');
+    const consent = form.querySelector('[data-consent]');
+    const where = form.querySelector('[name="신청위치"]').value;
+
+    /* 동의 전에는 버튼을 잠근다. JS가 죽어도 checkbox의 required가 막아준다. */
+    const syncConsent = () => { button.disabled = !consent.checked; };
+    consent.addEventListener('change', syncConsent);
+    syncConsent();
+
+    /* 퍼널 1단계: 이메일 칸에 처음 손을 댄 순간. 방문→입력→완료 이탈률을 본다. */
+    let started = false;
+    form.querySelector('input[type=email]').addEventListener('focus', () => {
+      if (started) return;
+      started = true;
+      track('form_start', { cta_location: where });
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1138,8 +1247,11 @@
         });
         if (res.ok) {
           form.reset();
+          syncConsent();  // reset()으로 체크가 풀리므로 버튼도 다시 잠근다
           status.className = 'status ok';
           status.textContent = '고마워요! 라이티의 첫 소식, 이 메일로 가장 먼저 알려드릴게요. 🌱';
+          // ★ 이 랜딩의 유일한 전환. GA4에서 '주요 이벤트'로 표시할 것.
+          track('generate_lead', { cta_location: where, traffic_source: trafficSource });
         } else {
           // Formspree는 실패 사유를 errors[]로 준다(예: 이메일 형식 오류).
           let msg = '전송이 잘 안 됐어요. 잠시 후 다시 시도해 주세요.';
@@ -1149,15 +1261,63 @@
           } catch (_) {}
           status.className = 'status err';
           status.textContent = msg;
+          track('form_error', { cta_location: where, reason: 'server' });
         }
       } catch (_) {
         status.className = 'status err';
         status.textContent = '네트워크 연결을 확인해 주세요.';
+        track('form_error', { cta_location: where, reason: 'network' });
       } finally {
-        button.disabled = false;
+        syncConsent();
       }
     });
   });
+
+  /* ── 스크롤 깊이 ──
+     GA4 기본 측정은 90% 한 지점만 준다. 어디서 읽기를 멈추는지 보려면
+     구간을 직접 나눠야 한다. 각 구간은 한 번씩만 보낸다. */
+  (() => {
+    const marks = [25, 50, 75, 100];
+    let sent = 0;
+    let ticking = false;
+
+    const check = () => {
+      ticking = false;
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+      const pct = Math.min(100, Math.round((window.scrollY / scrollable) * 100));
+      while (sent < marks.length && pct >= marks[sent]) {
+        track('scroll_depth', { percent: marks[sent] });
+        sent++;
+      }
+      if (sent >= marks.length) window.removeEventListener('scroll', onScroll);
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(check);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    check();  // 화면이 짧아 스크롤이 없는 경우도 잡는다
+  })();
+
+  /* ── 시그니처 데모 조회 ──
+     라이티 통화 데모가 실제로 화면에 들어왔는가. 이 페이지의 핵심 설득 장치라
+     '봤는데 전환 안 됨'과 '보지도 못함'을 구분할 수 있어야 한다. */
+  (() => {
+    const el = document.getElementById('phoneDemo');
+    if (!el || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        track('demo_view');
+        io.disconnect();
+      });
+    }, { threshold: 0.5 });
+    io.observe(el);
+  })();
 </script>
 </body>
 </html>
