@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다</title>
-<meta name="description" content="라이티한테 문자가 오면, 아이가 먼저 전화를 겁니다. 오늘 나눈 이야기가 그대로 손글씨 일기가 돼요. 잘한 건 확실히 칭찬하고, 고칠 건 살짝. 7~11세를 위한 피어라, 출시 소식을 가장 먼저 받아보세요.">
+<title>Peera — Laity just texted. Your child calls first.</title>
+<meta name="description" content="Laity texts. Your child calls first. Today's story becomes today's handwritten diary — in Korean and English. Praise loudly, correct gently. Peera, for ages 7–11. Be first to hear when it launches.">
 
 <!-- ★ 사이트 정본 주소 — 여기 한 곳만 고치면 OG·canonical·구조화데이터가 함께 따라온다.
      지금은 GitHub Pages. peera.co 도메인을 사서 연결하면 아래 세 줄을
      https://peera.co/ 로 바꾸고 CNAME 파일만 추가하면 끝. -->
-<link rel="canonical" href="https://retyper.github.io/peera-landing/">
+<link rel="canonical" href="https://retyper.github.io/peera-landing/en.html">
 
 <!-- ── 언어별 정본 안내(hreflang) ──
      검색엔진에 "같은 페이지의 한국어판/영어판"임을 알린다. x-default는 언어를
@@ -28,7 +28,7 @@
      렌더 전에 실행해야 깜빡임이 없어서 head 맨 위에 둔다. -->
 <script>
 (function () {
-  var THIS = 'ko', OTHER = 'en.html';
+  var THIS = 'en', OTHER = 'index.html';
   try {
     var q = new URLSearchParams(location.search).get('lang');
     if (q === 'ko' || q === 'en') { localStorage.setItem('peeraLang', q); }
@@ -40,15 +40,15 @@
 </script>
 
 <!-- 오픈그래프(카톡·문자 공유 시 미리보기) — og:image는 반드시 살아 있는 절대 URL이어야 뜬다 -->
-<meta property="og:title" content="피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다">
-<meta property="og:description" content="숲속 친구 라이티의 하루 한 번 문자. 아이가 전화를 걸어 나눈 이야기가 한글·영어 손글씨 일기로 피어납니다.">
+<meta property="og:title" content="Peera — Laity just texted. Your child calls first.">
+<meta property="og:description" content="One text a day from Laity, a squirrel in the forest. Your child calls, talks, and turns that story into a handwritten diary — Korean and English.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://retyper.github.io/peera-landing/">
-<meta property="og:image" content="https://retyper.github.io/peera-landing/peera-og.png">
+<meta property="og:url" content="https://retyper.github.io/peera-landing/en.html">
+<meta property="og:image" content="https://retyper.github.io/peera-landing/peera-og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://retyper.github.io/peera-landing/peera-og.png">
+<meta name="twitter:image" content="https://retyper.github.io/peera-landing/peera-og-en.png">
 
 <link rel="icon" href="laity-avatar.png">
 <link rel="apple-touch-icon" href="laity-avatar.png">
@@ -57,11 +57,11 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "피어라 (Peera)",
-  "url": "https://retyper.github.io/peera-landing/",
+  "name": "Peera",
+  "url": "https://retyper.github.io/peera-landing/en.html",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "iOS, Android",
-  "description": "숲속 다람쥐 라이티가 하루 한 번 문자를 보내면 아이가 직접 전화를 걸어 오늘 하루를 이야기하고, 그 마음을 한글·영어 손글씨 일기로 쓰는 7~11세 대상 앱. 출시 전 사전예약 진행 중.",
+  "description": "A squirrel named Laity texts once a day. The child calls, talks about their day, and turns it into a handwritten diary in Korean and English. For ages 7–11. Pre-registration open before launch.",
   "audience": { "@type": "PeopleAudience", "suggestedMinAge": 7, "suggestedMaxAge": 11 },
   "creator": { "@type": "Organization", "name": "Peer" }
 }
@@ -776,43 +776,43 @@
 
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="#" aria-label="피어라 홈">
+    <a class="brand" href="#" aria-label="Peera home">
       <img class="avatar" src="laity-avatar.png" width="42" height="42" alt="">
-      <b>피어라</b><span>Peera</span>
+      <b>Peera</b><span>피어라</span>
     </a>
   </header>
 
   <!-- ═════════ 히어로 ═════════ -->
   <section class="hero">
     <div class="hero-copy">
-      <span class="eyebrow rise in"><span class="dot"></span> 7~11세 · 출시 준비 중 · 사전예약 받는 중</span>
-      <h1 class="rise in"><span class="hl-laity">라이티</span>한테 문자가 왔어요<br>
-        <span class="sms">“오늘 있었던 일 통화하자!”</span></h1>
+      <span class="eyebrow rise in"><span class="dot"></span> Ages 7–11 · In development · Pre-registration open</span>
+      <h1 class="rise in"><span class="hl-laity">Laity</span> just texted<br>
+        <span class="sms">“Tell me about your day!”</span></h1>
       <p class="lead rise in">
-        <b>아이가 먼저 전화를 겁니다.</b><br>
-        오늘 나눈 이야기가 그대로 일기가 돼요.
+        <b>Your child calls first.</b><br>
+        Today’s story becomes today’s diary.
       </p>
 
       <form class="signup rise in" data-signup action="https://formspree.io/f/meeygazy" method="POST">
         <!-- 메일 제목·유입 위치 구분(히어로 vs 마무리 CTA). _gotcha는 Formspree 기본 스팸 트랩 -->
-        <input type="hidden" name="_subject" value="[피어라] 사전예약 신청 — 히어로">
-        <input type="hidden" name="신청위치" value="히어로">
+        <input type="hidden" name="_subject" value="[Peera] Pre-registration — hero (EN)">
+        <input type="hidden" name="신청위치" value="히어로 (EN)">
         <!-- 유입경로: JS가 UTM·referrer를 채운다. 신청 메일에서 감정카드 앱 유입이 바로 보인다. -->
         <input type="hidden" name="유입경로" data-source-field value="(직접 방문)">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
                style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
-                 placeholder="이메일 주소" required aria-label="이메일 주소">
-          <button class="btn" type="submit" disabled>출시 소식 받기</button>
+                 placeholder="Email address" required aria-label="Email address">
+          <button class="btn" type="submit" disabled>Get launch news</button>
         </div>
         <label class="consent">
           <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
-          <span>출시 알림을 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다.
-            출시 안내 발송 후 지체 없이 파기해요.
-            <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span>
+          <span>I agree to the <b>collection and use of my email address</b> to receive the launch notice.
+            It is deleted as soon as the notice is sent.
+            <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>
         </label>
-        <p class="note">출시되면 이 메일로 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
+        <p class="note">One email, <b>once</b>, when we launch. No marketing.</p>
         <p class="status" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -820,7 +820,7 @@
     <!-- 시그니처: 라이티 통화 데모 — 본품의 writy.riv(라이티)가 실제로 여기서 구동된다 -->
     <div class="demo-col rise in">
       <div class="phone" id="phoneDemo" role="img"
-           aria-label="피어라 앱 미리보기: 다람쥐 라이티가 문자를 보내고, 아이가 전화를 걸어 이야기를 나눈 뒤, 그 마음이 손글씨 일기가 되는 장면">
+           aria-label="Peera app preview: Laity the squirrel sends a text, the child calls and talks, and that story becomes a handwritten diary">
         <div class="screen">
           <canvas class="rive" id="riveCanvas" aria-hidden="true"></canvas>
           <div class="shade top" aria-hidden="true"></div>
@@ -828,21 +828,21 @@
           <div class="notch" aria-hidden="true"></div>
           <div class="call-top" aria-hidden="true">
             <span class="call-id">
-              <span class="call-name">라이티 🌰</span>
-              <span class="call-sub"><i class="rec"></i>통화 중 <span id="callTime">00:04</span></span>
+              <span class="call-name">Laity 🌰</span>
+              <span class="call-sub"><i class="rec"></i>On call <span id="callTime">00:04</span></span>
             </span>
-            <span class="batt">라이티 폰 <i class="case"><i class="fill" id="battFill"></i></i></span>
+            <span class="batt">Laity’s phone <i class="case"><i class="fill" id="battFill"></i></i></span>
           </div>
           <div class="chat" id="chat" aria-hidden="true"></div>
           <div class="call-hint" id="callHint" aria-hidden="true">
-            <span class="mic">🎙️</span><br>버튼 없이, 아이가 말하면 라이티가 들어요
+            <span class="mic">🎙️</span><br>No buttons — they talk, Laity listens
           </div>
 
           <!-- 1막: 라이티가 보낸 문자 -->
           <div class="notif" id="notif" aria-hidden="true">
             <img src="laity-avatar.png" alt="">
             <div class="n-body">
-              <div class="n-head"><b>라이티</b><span>지금</span></div>
+              <div class="n-head"><b>Laity</b><span>now</span></div>
               <div class="n-text" id="notifText"></div>
             </div>
           </div>
@@ -850,12 +850,12 @@
           <!-- 2막: 아이가 전화를 건다 -->
           <div class="calling" id="calling" aria-hidden="true">
             <img src="laity-avatar.png" alt="">
-            <b>라이티</b>
-            <span>전화 거는 중<i>.</i><i>.</i><i>.</i></span>
+            <b>Laity</b>
+            <span>Calling<i>.</i><i>.</i><i>.</i></span>
           </div>
         </div>
         <div class="diary" id="diary" aria-hidden="true">
-          <span class="d-label">오늘의 일기 · 통화에서 꺼낸 마음</span>
+          <span class="d-label">Today’s diary · from the call</span>
           <div class="d-text" id="diaryText"></div>
           <img class="d-stamp" id="diaryStamp" src="stamp-good.png" alt="">
         </div>
@@ -866,49 +866,49 @@
   <!-- ═════════ 세 걸음 ═════════ -->
   <section id="how">
     <div class="section-head rise">
-      <span class="kicker">피어라의 세 걸음</span>
-      <h2>말한 마음이<br class="desk">글이 되기까지</h2>
-      <p>쓰기를 가르치기 전에,<br class="desk">쓰고 싶은 이야기부터 만들어 줍니다.</p>
+      <span class="kicker">Three steps</span>
+      <h2>From spoken<br class="desk">to written</h2>
+      <p>Before teaching how to write,<br class="desk">we give them something worth writing.</p>
     </div>
     <div class="steps">
       <div class="step rise">
         <img class="ico" src="plant-bud1.png" alt="">
-        <h3>1 · 문자를 받고,<br>전화를 걸어요</h3>
-        <p>하루 한 통, 라이티가 문자를 보내요.<br>궁금해진 아이가 먼저 전화를 겁니다.</p>
+        <h3>1 · A text arrives,<br>they call back</h3>
+        <p>One text a day from Laity.<br>Curious, your child calls first.</p>
       </div>
       <div class="step rise">
         <img class="ico" src="plant-flower2.png" alt="">
-        <h3>2 · 태블릿에<br>손으로 써요</h3>
-        <p>통화에서 꺼낸 이야기가 글감이 돼요.<br>막히면 <b>"이거 어떻게 써?"</b> 하고 물어봐요.</p>
-        <div class="mini-diary" aria-label="아이 일기 예시">오늘 아빠랑 자전거를 탔다.<br>처음엔 무서웠는데 재미있써서 또 타고싶다.</div>
+        <h3>2 · They write it<br>by hand</h3>
+        <p>The call gives them something to say.<br>Stuck? They ask <b>“How do I write this?”</b></p>
+        <div class="mini-diary" aria-label="Example of a child’s diary">오늘 아빠랑 자전거를 탔다.<br>처음엔 무서웠는데 재미있써서 또 타고싶다.</div>
       </div>
       <div class="step rise">
         <img class="ico" src="plant-flower1.png" alt="">
-        <h3>3 · 봐주고,<br>다시 써요</h3>
-        <p><b>잘한 건 확실히 칭찬하고,</b><br>주의할 곳만 살짝 짚어줘요.</p>
-        <div class="en"><span>한글 쓰기</span><span>영어 쓰기</span><span>그림일기</span></div>
+        <h3>3 · Feedback,<br>then rewrite</h3>
+        <p><b>What they did well, said clearly.</b><br>One thing to watch, said lightly.</p>
+        <div class="en"><span>Korean writing</span><span>English writing</span><span>Picture diary</span></div>
       </div>
     </div>
 
     <!-- 연속성 — 인터뷰에서 이전 서비스를 버린 결정적 이유가 "초등부로 안 이어짐"이었다 -->
     <div class="contd rise">
-      <b>7세에 시작해서, 11세까지.</b>
-      <span>학년이 바뀌어도 같은 친구와 씁니다.</span>
+      <b>Start at 7. Stay through 11.</b>
+      <span>The same friend, grade after grade.</span>
     </div>
   </section>
 
   <!-- ═════════ 손글씨 일기 + 첨삭 표시 ═════════ -->
   <section id="write">
     <div class="section-head rise">
-      <span class="kicker">태블릿 + 펜</span>
-      <h2>잘한 건 확실히,<br class="desk">고칠 건 살짝</h2>
-      <p>칭찬은 크게 하고,<br class="desk">주의할 곳만 가볍게 짚어줍니다.</p>
+      <span class="kicker">Tablet + pen</span>
+      <h2>Praise loudly,<br class="desk">correct gently</h2>
+      <p>We say the good part out loud,<br class="desk">and touch the rest lightly.</p>
     </div>
 
     <div class="write-grid">
       <div class="tablet rise" id="markedPaper">
         <div class="paper">
-          <div class="p-top"><span>2026년 7월 18일 토요일</span><span>맑음 ☀️</span></div>
+          <div class="p-top"><span>Saturday, July 18, 2026</span><span>Sunny ☀️</span></div>
 
           <div class="p-draw" aria-hidden="true">
             <svg viewBox="0 0 260 96" role="img">
@@ -930,38 +930,38 @@
                <span class="mk d3">재미있써서<i class="star">★</i><em class="fix">재미있어서</em></span> 또 타고 싶다.</p>
           </div>
 
-          <div class="p-comment">아빠랑 탄 게 진짜 신났구나!<br>다음엔 혼자서도 탈 수 있을 거야 🚲</div>
+          <div class="p-comment">You were so excited to ride with Dad!<br>Next time you’ll ride on your own 🚲</div>
 
           <div class="p-actions" aria-hidden="true">
-            <span class="p-btn">고쳐쓰기</span>
-            <span class="p-btn primary">저장하기</span>
+            <span class="p-btn">Rewrite</span>
+            <span class="p-btn primary">Save</span>
           </div>
 
           <!-- 작성 중 라이티 도움 -->
           <div class="helper" aria-hidden="true">
-            <div class="h-top"><img src="laity-avatar.png" alt=""><b>라이티 도움</b></div>
-            <div class="h-line kid">"자전거 어떻게 써?"</div>
-            <div class="h-line">네가 쓴 글씨 봤어! '자전거'는 자·전·거 세 글자야. 한 글자씩 천천히 써봐.</div>
-            <div class="h-mic">🎙️ 눌러서 더 물어보기</div>
+            <div class="h-top"><img src="laity-avatar.png" alt=""><b>Laity’s help</b></div>
+            <div class="h-line kid">“How do I write bicycle?”</div>
+            <div class="h-line">I saw what you wrote! “자전거” is three blocks: 자·전·거. Try one at a time.</div>
+            <div class="h-mic">🎙️ Tap to ask more</div>
           </div>
         </div>
       </div>
 
       <div class="write-points">
         <div class="wp rise">
-          <h3>라이티 도움 <em>쓰는 중</em></h3>
-          <p>아이가 <b>지금 쓴 글씨를 눈으로 보고</b> 답해요.<br>
-             말로 묻고 목소리로 들으니, 혼자서도 물어봅니다.</p>
+          <h3>Laity’s help <em>while writing</em></h3>
+          <p>Laity <b>looks at what they just wrote</b> and answers.<br>
+             They ask out loud and hear it back, so they can do it alone.</p>
         </div>
         <div class="wp rise">
-          <h3>다정한 첨삭 <em>다 쓴 뒤</em></h3>
-          <p><b>잘 쓴 곳은 확실하게 짚어 칭찬</b>하고,<br>
-             주의할 곳만 하나 가볍게 알려줘요.</p>
+          <h3>Warm feedback <em>when done</em></h3>
+          <p><b>The good parts get named, clearly.</b><br>
+             Then one thing to watch, lightly.</p>
         </div>
         <div class="wp rise">
-          <h3>고쳐쓰기 <em>다시</em></h3>
-          <p>흐린 밑글씨 위에 아이가 다시 씁니다.<br>
-             지우는 게 아니라 <b>다시 써보는 경험</b>이에요.</p>
+          <h3>Rewriting <em>again</em></h3>
+          <p>Faint guide letters appear, and they write over them.<br>
+             Not erasing — <b>the experience of writing it again.</b></p>
         </div>
       </div>
     </div>
@@ -970,27 +970,27 @@
   <!-- ═════════ 라이티 도감 ═════════ -->
   <section id="laity">
     <div class="profile">
-      <div class="dex-card rise" aria-label="라이티 캐릭터 카드">
+      <div class="dex-card rise" aria-label="Laity character card">
         <div class="dex-top">
-          <img class="avatar" src="laity-avatar.png" alt="라이티 얼굴">
-          <div class="nm"><b>라이티</b><span>다람쥐 · 8살 · 남자아이</span></div>
+          <img class="avatar" src="laity-avatar.png" alt="Laity’s face">
+          <div class="nm"><b>Laity</b><span>Squirrel · age 8 · boy</span></div>
         </div>
         <ul class="dex-list">
-          <li><span class="k">사는 곳</span><span>초록숲 한가운데, 커다란 참나무 꼭대기 나무집</span></li>
-          <li><span class="k">가족</span><span>포근한 엄마, 도토리 잘 찾는 아빠, 장난꾸러기 여동생 콩이</span></li>
-          <li><span class="k">좋아하는 것</span><span>볶은 도토리, 숨바꼭질, 비 온 뒤 흙냄새</span></li>
-          <li><span class="k">무서워하는 것</span><span>천둥소리 (사실은 아주 많이)</span></li>
-          <li><span class="k">버릇</span><span>신나면 꼬리를 파닥파닥, 놀라면 "헐!"</span></li>
+          <li><span class="k">Home</span><span>A treehouse atop a great oak, deep in the green forest</span></li>
+          <li><span class="k">Family</span><span>A warm mom, a dad who finds the best acorns, and Kongi, his mischievous little sister</span></li>
+          <li><span class="k">Loves</span><span>Roasted acorns, hide-and-seek, the smell of earth after rain</span></li>
+          <li><span class="k">Afraid of</span><span>Thunder (quite a lot, honestly)</span></li>
+          <li><span class="k">Habits</span><span>Tail flapping when excited, “Whoa!” when surprised</span></li>
         </ul>
       </div>
       <div class="profile-copy rise">
-        <span class="kicker">왜 캐릭터가 중요한가요</span>
-        <h2>아이는 앱이 아니라<br>친구에게 마음을 열어요</h2>
-        <p>라이티는 기능이 아니라 <b>삶이 있는 여덟 살 친구</b>예요.
-           나무집에 살고, 천둥을 무서워합니다.</p>
-        <p>친구라서 시키지 않아도 하루를 들려줘요.<br>
-           그래서 <b>일기로 쓸 때도 술술 나옵니다.</b></p>
-        <blockquote class="quote">"헐! 종이접기 했어? 뭐 접었는지 진짜 궁금하다!"</blockquote>
+        <span class="kicker">Why a character matters</span>
+        <h2>Children open up to<br>a friend, not an app</h2>
+        <p>Laity isn’t a feature — he’s <b>an eight-year-old with a life.</b>
+           He lives in a treehouse and he’s scared of thunder.</p>
+        <p>Because he’s a friend, they tell him about the day unprompted.<br>
+           And that’s why <b>the diary comes out easily.</b></p>
+        <blockquote class="quote">“Whoa! You did origami? I really want to know what you made!”</blockquote>
       </div>
     </div>
   </section>
@@ -1001,12 +1001,12 @@
        ★미출시 기능이다. '준비 중' 표기와 하단 고지를 절대 빼지 말 것. -->
   <section id="friends">
     <div class="soon-card rise">
-      <span class="soon-badge">다음 단계 · 준비 중</span>
-      <p class="big">지금은 라이티와 둘이서.<br>곧 <b>친구들 글도 함께</b> 봐요.</p>
+      <span class="soon-badge">Coming next · in development</span>
+      <p class="big">Today, just Laity.<br>Soon, <b>friends’ writing too.</b></p>
       <p class="disc">
-        아이가 쓴 글을 또래와 나누고 서로의 생각을 보는 기능을 준비하고 있습니다.
-        다만 <b>아직 제공되지 않는 기능</b>이에요. 아이 안전과 개인정보 보호 설계를 먼저 끝낸 뒤에 열겠습니다.
-        출시 시점의 제공 범위와 방식은 달라질 수 있습니다.
+        We’re building a way for children to share their writing and see how others think.
+        This is <b>not available yet.</b> We’ll open it only after the child-safety and privacy design is finished.
+        Scope and approach may change by launch.
       </p>
     </div>
   </section>
@@ -1016,26 +1016,26 @@
     <section id="promise">
       <div class="wrap">
         <div class="section-head rise">
-          <span class="kicker">부모님께 드리는 약속</span>
-          <h2>재미보다 먼저 지키는 것들</h2>
-          <p>아이의 마음을 다루는 앱이니까요.</p>
+          <span class="kicker">Our promises to parents</span>
+          <h2>What comes before fun</h2>
+          <p>This app handles a child’s feelings.</p>
         </div>
         <div class="promises">
           <div class="promise rise">
-            <h3><span class="pi">🤍</span>힘든 마음엔 들뜨지 않아요</h3>
-            <p>속상한 이야기엔 축하 대신,<br><b>그 마음을 먼저 알아줍니다.</b></p>
+            <h3><span class="pi">🤍</span>No confetti over sadness</h3>
+            <p>When the story hurts, instead of celebrating<br><b>Laity acknowledges the feeling first.</b></p>
           </div>
           <div class="promise rise">
-            <h3><span class="pi">🌳</span>어른과 연결해요</h3>
-            <p>안전에 관한 얘기가 나오면<br><b>"믿는 어른에게 꼭 얘기해줘"</b>라고 권해요.</p>
+            <h3><span class="pi">🌳</span>We point to grown-ups</h3>
+            <p>If safety comes up, Laity says<br><b>“Please tell a grown-up you trust.”</b></p>
           </div>
           <div class="promise rise">
-            <h3><span class="pi">🔋</span>붙잡지 않아요</h3>
-            <p>문자는 <b>하루 딱 한 통</b>.<br>라이티 폰 배터리가 다 되면 통화도 끝나요.</p>
+            <h3><span class="pi">🔋</span>We don’t hold on</h3>
+            <p><b>One text a day.</b><br>When Laity’s phone battery runs out, the call ends.</p>
           </div>
           <div class="promise rise">
-            <h3><span class="pi">✏️</span>틀려도 괜찮아요</h3>
-            <p>틀린 말은 <b>바른 말로 다시 들려줄 뿐</b>이에요.<br>광고도 없습니다.</p>
+            <h3><span class="pi">✏️</span>Mistakes are fine</h3>
+            <p>A wrong word is simply <b>said back the right way.</b><br>And there are no ads.</p>
           </div>
         </div>
       </div>
@@ -1047,49 +1047,53 @@
        효과를 단정하는 문구(성적 향상 등)는 절대 넣지 않는다 — 법무검토 보고서의 미검증 효과 금지. -->
   <section id="why">
     <div class="section-head rise">
-      <span class="kicker">왜 이렇게 만들었나</span>
-      <h2>근거 위에 만듭니다</h2>
-      <p>재미있게만 만들지 않았어요.<br class="desk">쌓인 연구가 가리키는 쪽으로 만들었습니다.</p>
+      <span class="kicker">Why we built it this way</span>
+      <h2>Built on evidence</h2>
+      <p>We didn’t only make it fun.<br class="desk">We built toward what the research points to.</p>
     </div>
 
     <div class="evids">
       <div class="evid rise">
-        <h3>말이 먼저, 글은 그다음</h3>
-        <p class="big">어릴 때 말한 만큼<br>나중에 씁니다.</p>
-        <p class="src">유아·초기 아동기의 <b>구어(말하기) 능력이 이후의 쓰기 능력을 예측</b>한다는 연구가 반복해서 보고됩니다.
-          미국 국가조기문해패널(NELP)은 어휘·구어 발달을 이후 문해력의 핵심 예측 요인으로 꼽았습니다.
-          <br>→ 그래서 피어라는 <b>쓰기 전에 통화</b>부터 합니다.</p>
+        <h3>Talking comes first</h3>
+        <p class="big">What they say early<br>shapes what they write later.</p>
+        <p class="src">Studies repeatedly report that <b>oral language in early childhood predicts later writing ability.</b>
+          The U.S. National Early Literacy Panel identified vocabulary and oral language development as core
+          predictors of later literacy.
+          <br>→ That’s why Peera <b>starts with a call, not a page.</b></p>
       </div>
 
       <div class="evid rise">
-        <h3>쓰면 읽기가 자란다</h3>
-        <p class="big">쓰기는 읽기를<br>같이 끌어올려요.</p>
-        <p class="src">Graham &amp; Hebert, <b>「Writing to Read」</b>(Harvard Educational Review, 2011 · 카네기재단 지원 메타분석).
-          읽은 것에 대해 글을 쓰면 읽기 이해가 향상됐고(효과크기 .40~.51), 철자·문장 구성 지도는 .79였습니다.
-          <br>→ 그래서 피어라는 <b>매일 조금씩 씁니다.</b></p>
+        <h3>Writing lifts reading</h3>
+        <p class="big">Writing pulls reading<br>up along with it.</p>
+        <p class="src">Graham &amp; Hebert, <b>“Writing to Read”</b> (Harvard Educational Review, 2011 · Carnegie-funded meta-analysis).
+          Writing about what students read improved reading comprehension (effect sizes .40–.51); teaching spelling
+          and sentence construction, .79.
+          <br>→ That’s why Peera <b>writes a little every day.</b></p>
       </div>
 
       <div class="evid rise">
-        <h3>고쳐쓰기까지가 한 세트</h3>
-        <p class="big">쓰고 → 봐주고 →<br>다시 쓰기.</p>
-        <p class="src">쓰기 전략을 단계적으로 가르치고 스스로 점검하게 하는 <b>SRSD(자기조절 전략 개발)</b>는
-          초등 쓰기 지도에서 근거가 가장 두텁게 쌓인 접근으로 꼽힙니다(Graham·Harris 등, 미국 교육부 WWC 검토 대상).
-          <br>→ 그래서 첨삭에서 끝내지 않고 <b>고쳐쓰기까지</b> 갑니다.</p>
+        <h3>Rewriting completes it</h3>
+        <p class="big">Write → look →<br>write again.</p>
+        <p class="src"><b>SRSD (Self-Regulated Strategy Development)</b> — teaching writing strategies step by step and building
+          self-monitoring — is among the most heavily evidenced approaches in elementary writing instruction
+          (Graham, Harris et al.; reviewed by the U.S. Department of Education’s What Works Clearinghouse).
+          <br>→ That’s why we don’t stop at feedback — <b>the child rewrites.</b></p>
       </div>
 
       <div class="evid rise">
-        <h3>칭찬은 능력이 아니라 과정에</h3>
-        <p class="big">"똑똑하네" 대신<br>"해냈구나".</p>
-        <p class="src">Mueller &amp; Dweck(1998), <i>Journal of Personality and Social Psychology</i>.
-          <b>능력을 칭찬받은 아이는 실패한 뒤 더 빨리 포기</b>했고, 과정을 칭찬받은 아이는 계속 시도했습니다.
-          (캐럴 드웩 — 현 스탠퍼드대 교수)
-          <br>→ 그래서 피어라엔 <b>점수도 등수도 없습니다.</b></p>
+        <h3>Praise the process, not the ability</h3>
+        <p class="big">“You worked hard”<br>over “You’re smart.”</p>
+        <p class="src">Mueller &amp; Dweck (1998), <i>Journal of Personality and Social Psychology</i>. <b>Children praised for
+          ability gave up faster after failure</b>; children praised for effort kept trying.
+          (Carol Dweck — now at Stanford)
+          <br>→ That’s why Peera has <b>no scores and no ranking.</b></p>
       </div>
     </div>
 
     <p class="evid-note">
-      ※ 위 연구들은 <b>피어라를 검증한 것이 아닙니다.</b> 피어라가 어떤 원리를 따라 설계됐는지를 밝히는 근거입니다.
-      피어라는 아직 출시 전이며, 저희 앱의 학습 효과는 검증된 바 없습니다. 확인되지 않은 효과를 약속드리지 않겠습니다.
+      ※ These studies <b>do not validate Peera.</b> They explain the principles Peera was designed around.
+      Peera has not launched yet, and our app’s learning outcomes have not been measured. We will not promise
+      results we haven’t verified.
     </p>
   </section>
 
@@ -1097,26 +1101,26 @@
   <section>
     <div class="final rise">
       <img class="avatar" src="laity-avatar.png" alt="">
-      <h2>라이티의 첫 문자,<br>우리 아이에게 닿게 해주세요</h2>
-      <p>준비되는 대로 가장 먼저 알려드릴게요.</p>
+      <h2>Let Laity’s first text<br>reach your child</h2>
+      <p>We’ll tell you the moment it’s ready.</p>
       <form class="signup" data-signup action="https://formspree.io/f/meeygazy" method="POST">
-        <input type="hidden" name="_subject" value="[피어라] 사전예약 신청 — 마무리 CTA">
-        <input type="hidden" name="신청위치" value="마무리 CTA">
+        <input type="hidden" name="_subject" value="[Peera] Pre-registration — final CTA (EN)">
+        <input type="hidden" name="신청위치" value="마무리 CTA (EN)">
         <input type="hidden" name="유입경로" data-source-field value="(직접 방문)">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
                style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
-                 placeholder="이메일 주소" required aria-label="이메일 주소">
-          <button class="btn" type="submit" disabled>출시 소식 받기</button>
+                 placeholder="Email address" required aria-label="Email address">
+          <button class="btn" type="submit" disabled>Get launch news</button>
         </div>
         <label class="consent">
           <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
-          <span>출시 알림을 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다.
-            출시 안내 발송 후 지체 없이 파기해요.
-            <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span>
+          <span>I agree to the <b>collection and use of my email address</b> to receive the launch notice.
+            It is deleted as soon as the notice is sent.
+            <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>
         </label>
-        <p class="note">출시되면 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
+        <p class="note">One email, <b>once</b>, when we launch. No marketing.</p>
         <p class="status" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -1125,36 +1129,36 @@
   <footer>
     <div class="fbrand">
       <img class="avatar" src="laity-avatar.png" alt="">
-      <b>피어라</b>
+      <b>Peera</b>
     </div>
     <!-- 사용자 선택이 자동 감지를 이긴다 — 누르면 그 언어로 고정된다 -->
-    <div class="langsw"><b>한국어</b> <span>·</span> <a href="en.html?lang=en">English</a></div>
-    <div>만든 팀 <b>Peer</b> · 문의 <a href="mailto:retyper92@gmail.com">retyper92@gmail.com</a></div>
+    <div class="langsw"><a href="index.html?lang=ko">한국어</a> <span>·</span> <b>English</b></div>
+    <div>Made by team <b>Peer</b> · Contact <a href="mailto:retyper92@gmail.com">retyper92@gmail.com</a></div>
     <!-- 문서가 둘로 나뉜다: privacy.html은 '이 사전예약 페이지'(이메일·GA4·Formspree),
          legal/*-peera.html은 '앱'(아이 일기·음성·AI 위탁). 범위가 달라 대체 불가 —
          사전예약 동의 체크박스가 가리키는 건 반드시 privacy.html이어야 한다. -->
-    <div><a href="privacy.html">개인정보 수집·이용 안내</a> <span class="fsep">— 사전예약 페이지</span></div>
+    <div><a href="privacy-en.html">Privacy notice</a> <span class="fsep">— this pre-registration page</span></div>
     <div>
-      <a href="https://hephaestosian.github.io/legal/privacy-peera.html" target="_blank" rel="noopener">앱 개인정보처리방침</a>
+      <a href="https://hephaestosian.github.io/legal/privacy-peera.html" target="_blank" rel="noopener">App Privacy Policy</a>
       ·
-      <a href="https://hephaestosian.github.io/legal/terms-peera.html" target="_blank" rel="noopener">앱 이용약관</a>
-      <span class="fsep">— 피어라 앱</span>
+      <a href="https://hephaestosian.github.io/legal/terms-peera.html" target="_blank" rel="noopener">App Terms of Service</a>
+      <span class="fsep">— the Peera app</span>
     </div>
     <div>© 2026 Peer</div>
-    <div class="from-cards">감정카드 앱에서 오셨나요? 반가워요 — 마음의 씨앗이 여기서 손글씨의 꽃으로 피어납니다. 🌱</div>
+    <div class="from-cards">Came from the Emotion Cards app? Welcome — the seed of a feeling blooms here into handwriting. 🌱</div>
   </footer>
 
   <!-- 쿠키 동의 — 선택 전까지 GA4는 로드되지 않는다 -->
-  <div class="cbar" id="cbar" role="dialog" aria-live="polite" aria-label="쿠키 사용 동의">
+  <div class="cbar" id="cbar" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <div class="cbar-in">
       <p>
-        방문 통계를 위해 <b>구글 애널리틱스 쿠키</b>를 사용하려 합니다.
-        광고에는 쓰지 않아요. 거부하셔도 사전예약에는 아무 지장이 없습니다.
-        <a href="privacy.html">자세히</a>
+        We’d like to use <b>Google Analytics cookies</b> to measure visits.
+        Never for advertising. Declining does not affect pre-registration in any way.
+        <a href="privacy-en.html">Details</a>
       </p>
       <div class="cbar-btns">
-        <button type="button" id="cNo">거부</button>
-        <button type="button" class="ok" id="cYes">동의</button>
+        <button type="button" id="cNo">Decline</button>
+        <button type="button" class="ok" id="cYes">Accept</button>
       </div>
     </div>
   </div>
@@ -1232,17 +1236,17 @@
   /* ── 폰 데모: 라이티와의 통화 → 일기 ──
      실제 앱의 대화 루프(아이 말 짚어주기 → 감정 묻기 → 일기 권유)를 30초로 압축한 연출. */
   // 실제 앱의 하루: 라이티가 문자를 보내고(laityMessages) → 아이가 전화를 걸고 → 통화 → 일기.
-  const NOTIF_TEXT = '나 오늘 진짜 커다란 도토리를 주웠어!';
+  const NOTIF_TEXT = 'I found a REALLY big acorn today!';
   const SCRIPT = [
-    { who: 'laity', text: '어? 지우야, 안녕! 오늘 하루 어땠어?' },
-    { who: 'kid',   text: '라이티야! 아까 문자 봤어. 도토리 어디서 주웠어?' },
-    { who: 'laity', text: '참나무 밑에서! 너무 커서 들고 오다 데굴데굴 굴렀지 뭐야. 너는 오늘 뭐 했어?' },
-    { who: 'kid',   text: '학교에서 종이접기 했어. 어려웠는데 끝까지 했어' },
-    { who: 'laity', text: '끝까지 해냈구나, 멋지다! 그때 기분이 어땠어?' },
-    { who: 'kid',   text: '뿌듯했어!' },
-    { who: 'laity', text: '그 뿌듯한 마음, 우리 일기로 남겨볼까?' },
+    { who: 'laity', text: 'Oh, hi Mia! How was your day?' },
+    { who: 'kid',   text: 'Laity! I saw your text. Where did you find the acorn?' },
+    { who: 'laity', text: 'Under the big oak! It was so heavy I rolled all the way home. What did you do today?' },
+    { who: 'kid',   text: 'We did origami at school. It was hard but I finished it' },
+    { who: 'laity', text: 'You finished it — that’s awesome! How did that feel?' },
+    { who: 'kid',   text: 'I felt proud!' },
+    { who: 'laity', text: 'That proud feeling — want to put it in your diary?' },
   ];
-  const DIARY_TEXT = '오늘 종이접기를 했다.\n어려웠는데 끝까지 해서 뿌듯했다.';
+  const DIARY_TEXT = 'Today I did origami.\nIt was hard but I finished it and felt proud.';
 
   const phone = document.getElementById('phoneDemo');
   const chat = document.getElementById('chat');
@@ -1476,7 +1480,7 @@
           track('generate_lead', { cta_location: where, traffic_source: trafficSource });
         } else {
           // Formspree는 실패 사유를 errors[]로 준다(예: 이메일 형식 오류).
-          let msg = '전송이 잘 안 됐어요. 잠시 후 다시 시도해 주세요.';
+          let msg = 'Something went wrong. Please try again in a moment.';
           try {
             const data = await res.json();
             if (data.errors && data.errors.length) msg = data.errors.map((x) => x.message).join(' ');
@@ -1487,7 +1491,7 @@
         }
       } catch (_) {
         status.className = 'status err';
-        status.textContent = '네트워크 연결을 확인해 주세요.';
+        status.textContent = 'Please check your network connection.';
         track('form_error', { cta_location: where, reason: 'network' });
       } finally {
         syncConsent();
