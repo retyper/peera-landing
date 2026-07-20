@@ -562,6 +562,39 @@
   .promise p { margin: 0; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.66; }
   .promise p b { color: var(--ink); }
 
+  /* ── 연속성 스트립 ──
+     인터뷰: 이전 서비스를 "영유아 한정, 초등부로 안 이어져서" 버렸다.
+     연속성이 구매 조건이므로 세 걸음 바로 아래에서 한 줄로 못 박는다. */
+  .contd {
+    margin-top: 22px; text-align: center;
+    background: var(--green-soft); border: 1.5px solid var(--line);
+    border-radius: var(--radius); padding: 22px 24px;
+  }
+  .contd b { font-size: clamp(1.3rem, 2.8vw, 1.6rem); display: block; }
+  .contd span { display: block; margin-top: 7px; color: var(--ink-soft); font-size: 1.04rem; }
+
+  /* ── 다음 단계(준비 중) ──
+     인터뷰 최대 페인: "외동이라 다른 사람 생각을 들어볼 기회가 없다".
+     라이티도 1:1이라 지금은 정직하게 못 채운다 → 로드맵으로 답한다.
+     ★미출시 기능이므로 '준비 중'을 반드시 명시한다(있는 것처럼 쓰지 않는다). */
+  .soon-card {
+    background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 34px 30px; text-align: center; max-width: 44em; margin-inline: auto;
+  }
+  .soon-badge {
+    display: inline-block; font-family: "Jua", sans-serif; font-size: .88rem;
+    color: var(--laity-deep); background: #FFF3E2; border: 1.5px solid #F0DCC0;
+    padding: 4px 14px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .soon-card .big {
+    margin: 0; font-size: clamp(1.32rem, 3vw, 1.7rem); line-height: 1.5;
+    font-weight: 700; word-break: keep-all;
+  }
+  .soon-card .disc {
+    margin: 18px auto 0; padding-top: 15px; border-top: 1.5px dashed var(--line);
+    max-width: 34em; font-size: .84rem; line-height: 1.65; color: var(--ink-soft); word-break: keep-all;
+  }
+
   /* ── 근거 ──
      핵심 문구는 크게(한 화면 40자 규칙), 출처는 각주로 작게.
      ★연구는 '피어라'가 아니라 '설계 원리'를 뒷받침한다 — 효과 단정 금지(법무검토 §미검증 효과). */
@@ -777,6 +810,12 @@
         <div class="en"><span>한글 쓰기</span><span>영어 쓰기</span><span>그림일기</span></div>
       </div>
     </div>
+
+    <!-- 연속성 — 인터뷰에서 이전 서비스를 버린 결정적 이유가 "초등부로 안 이어짐"이었다 -->
+    <div class="contd rise">
+      <b>7세에 시작해서, 11세까지.</b>
+      <span>학년이 바뀌어도 같은 친구와 씁니다.</span>
+    </div>
   </section>
 
   <!-- ═════════ 손글씨 일기 + 빨간펜 첨삭 ═════════ -->
@@ -874,6 +913,22 @@
            그래서 <b>일기로 쓸 때도 술술 나옵니다.</b></p>
         <blockquote class="quote">"헐! 종이접기 했어? 뭐 접었는지 진짜 궁금하다!"</blockquote>
       </div>
+    </div>
+  </section>
+
+  <!-- ═════════ 다음 단계 · 친구들과 이어지기 ═════════
+       인터뷰 최대 페인: "외동아이라 다른 사람 생각을 들어볼 기회가 없다."
+       라이티도 1:1이라 지금은 못 채운다 → 대체한다고 하지 않고 로드맵으로 정직하게 답한다.
+       ★미출시 기능이다. '준비 중' 표기와 하단 고지를 절대 빼지 말 것. -->
+  <section id="friends">
+    <div class="soon-card rise">
+      <span class="soon-badge">다음 단계 · 준비 중</span>
+      <p class="big">지금은 라이티와 둘이서.<br>곧 <b>친구들 글도 함께</b> 봐요.</p>
+      <p class="disc">
+        아이가 쓴 글을 또래와 나누고 서로의 생각을 보는 기능을 준비하고 있습니다.
+        다만 <b>아직 제공되지 않는 기능</b>이에요. 아이 안전과 개인정보 보호 설계를 먼저 끝낸 뒤에 열겠습니다.
+        출시 시점의 제공 범위와 방식은 달라질 수 있습니다.
+      </p>
     </div>
   </section>
 
