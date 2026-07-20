@@ -411,7 +411,7 @@
     background: var(--green-soft); color: #2E7D32; border-radius: 10px; padding: 5px 11px;
   }
 
-  /* ═══════════ 손글씨 일기 + 빨간펜 첨삭(두 번째 시그니처) ═══════════ */
+  /* ═══════════ 손글씨 일기 + 첨삭 표시(두 번째 시그니처) ═══════════ */
   .write-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 42px; align-items: center; }
 
   /* 태블릿에 얹힌 일기 종이 */
@@ -818,7 +818,7 @@
     </div>
   </section>
 
-  <!-- ═════════ 손글씨 일기 + 빨간펜 첨삭 ═════════ -->
+  <!-- ═════════ 손글씨 일기 + 첨삭 표시 ═════════ -->
   <section id="write">
     <div class="section-head rise">
       <span class="kicker">태블릿 + 펜</span>
@@ -1059,7 +1059,7 @@
 <script>
   const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ── 빨간펜 첨삭 — 종이가 화면에 들어오면 마크가 순서대로 찍힌다. ── */
+  /* ── 첨삭 표시 — 종이가 화면에 들어오면 마크가 순서대로 찍힌다. ── */
   const markedPaper = document.getElementById('markedPaper');
   if (markedPaper) {
     if (prefersReduced) {
