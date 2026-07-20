@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다</title>
-<meta name="description" content="숲속 다람쥐 라이티가 하루 한 번 문자를 보내면, 궁금해진 아이가 직접 전화를 걸어 오늘 하루를 이야기합니다. 말로 꺼낸 마음은 한글·영어 손글씨 일기로. 7~11세를 위한 피어라, 출시 소식을 가장 먼저 받아보세요.">
+<meta name="description" content="라이티한테 문자가 오면, 아이가 먼저 전화를 겁니다. 오늘 나눈 이야기가 그대로 손글씨 일기가 돼요. 혼내지 않는 빨간펜. 7~11세를 위한 피어라, 출시 소식을 가장 먼저 받아보세요.">
 
 <!-- ★ 사이트 정본 주소 — 여기 한 곳만 고치면 OG·canonical·구조화데이터가 함께 따라온다.
      지금은 GitHub Pages. peera.co 도메인을 사서 연결하면 아래 세 줄을
@@ -164,8 +164,8 @@
   }
   .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(67,160,71,.16); }
   h1 {
-    font-size: clamp(1.9rem, 4.3vw, 3.1rem);
-    line-height: 1.32; margin: 18px 0 0; word-break: keep-all;
+    font-size: clamp(2.2rem, 5.2vw, 3.7rem);
+    line-height: 1.28; margin: 18px 0 0; word-break: keep-all;
   }
   h1 .hl-laity { color: var(--laity); }
   h1 .hl-bloom { color: var(--bloom); }
@@ -180,8 +180,8 @@
     border: 8px solid transparent; border-top-color: #FFF3E2; border-bottom: 0;
   }
   .lead {
-    max-width: 31em; margin: 18px 0 0;
-    font-size: clamp(1.02rem, 2.2vw, 1.15rem); color: var(--ink-soft);
+    max-width: 27em; margin: 18px 0 0; line-height: 1.68;
+    font-size: clamp(1.16rem, 2.6vw, 1.4rem); color: var(--ink-soft);
   }
   .lead b { color: var(--ink); }
   .lead i { font-style: normal; color: var(--laity-deep); font-weight: 600; }
@@ -383,8 +383,8 @@
   /* ── 공통 섹션 ── */
   section { padding: 52px 0; }
   .section-head { text-align: center; max-width: 36em; margin: 0 auto 36px; }
-  .section-head h2 { font-size: clamp(1.45rem, 4vw, 2.35rem); margin: 0; word-break: keep-all; }
-  .section-head p { color: var(--ink-soft); margin: 12px 0 0; }
+  .section-head h2 { font-size: clamp(1.75rem, 4.8vw, 2.8rem); line-height: 1.32; margin: 0; word-break: keep-all; }
+  .section-head p { color: var(--ink-soft); margin: 14px 0 0; font-size: clamp(1.06rem, 2.2vw, 1.2rem); line-height: 1.65; }
   .kicker {
     display: inline-block; font-family: "Jua", sans-serif; font-size: .92rem;
     color: var(--purple-dark); background: var(--purple-soft);
@@ -399,8 +399,8 @@
   }
   /* 단계 아이콘 = 본품의 실제 새싹·꽃 아트 — 씨앗이 꽃으로 피는 브랜드 은유를 그대로 */
   .step .ico { height: 64px; width: auto; max-width: 96px; object-fit: contain; object-position: left bottom; }
-  .step h3 { font-size: 1.3rem; margin: 14px 0 7px; }
-  .step p { margin: 0; color: var(--ink-soft); font-size: .96rem; }
+  .step h3 { font-size: clamp(1.36rem, 2.6vw, 1.55rem); line-height: 1.38; margin: 14px 0 9px; }
+  .step p { margin: 0; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.66; }
   .step .mini-diary {
     margin-top: 14px; background: #FFFBF1; border: 1.5px dashed var(--line); border-radius: 14px;
     padding: 10px 13px; font-family: "Gaegu", cursive; font-size: 1.12rem; line-height: 1.5; color: #4A3423;
@@ -500,12 +500,12 @@
   }
 
   .write-points { display: grid; gap: 18px; }
-  .wp h3 { font-size: 1.22rem; margin: 0 0 6px; display: flex; align-items: center; gap: 9px; }
+  .wp h3 { font-size: 1.34rem; margin: 0 0 6px; display: flex; align-items: center; gap: 9px; }
   .wp h3 em {
     font-style: normal; font-family: "Jua", sans-serif; font-size: .78rem; color: #fff;
     background: var(--outline); border-radius: 8px; padding: 2px 9px;
   }
-  .wp p { margin: 0; color: var(--ink-soft); font-size: .96rem; }
+  .wp p { margin: 0; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.66; }
   .wp p b { color: var(--ink); }
 
   /* ── 라이티 도감 ── */
@@ -532,7 +532,7 @@
   }
   .dex-list .k { font-family: "Jua", sans-serif; color: var(--laity-deep); flex-shrink: 0; width: 6.2em; font-size: .88rem; }
   .profile-copy h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 0 0 14px; }
-  .profile-copy p { color: var(--ink-soft); margin: 0 0 14px; max-width: 32em; }
+  .profile-copy p { color: var(--ink-soft); margin: 0 0 14px; font-size: 1.08rem; line-height: 1.7; max-width: 32em; }
   .profile-copy p b { color: var(--ink); }
   .quote {
     margin: 20px 0 0; padding: 16px 20px; border-left: 4px solid var(--laity);
@@ -550,7 +550,7 @@
     background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius);
     padding: 24px 26px; box-shadow: var(--shadow);
   }
-  .promise h3 { display: flex; align-items: center; gap: 10px; font-size: 1.18rem; margin: 0 0 8px; }
+  .promise h3 { display: flex; align-items: center; gap: 10px; font-size: 1.3rem; margin: 0 0 8px; }
   .promise h3 .pi {
     width: 38px; height: 38px; border-radius: 12px; display: inline-grid; place-items: center;
     font-size: 1.15rem; flex-shrink: 0;
@@ -559,8 +559,31 @@
   .promise:nth-child(2) .pi { background: var(--green-soft); }
   .promise:nth-child(3) .pi { background: var(--purple-soft); }
   .promise:nth-child(4) .pi { background: #FFF3E0; }
-  .promise p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
+  .promise p { margin: 0; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.66; }
   .promise p b { color: var(--ink); }
+
+  /* ── 근거 ──
+     핵심 문구는 크게(한 화면 40자 규칙), 출처는 각주로 작게.
+     ★연구는 '피어라'가 아니라 '설계 원리'를 뒷받침한다 — 효과 단정 금지(법무검토 §미검증 효과). */
+  .evids { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .evid {
+    background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius);
+    padding: 24px 26px; box-shadow: var(--shadow);
+  }
+  .evid h3 { font-size: 1.02rem; margin: 0; color: var(--purple-dark); font-family: "Jua", sans-serif; }
+  .evid .big {
+    margin: 8px 0 0; font-size: clamp(1.24rem, 2.5vw, 1.5rem);
+    line-height: 1.46; color: var(--ink); font-weight: 700; word-break: keep-all;
+  }
+  .evid .src {
+    margin: 14px 0 0; padding-top: 12px; border-top: 1.5px dashed var(--line);
+    font-size: .82rem; line-height: 1.6; color: var(--ink-soft); word-break: keep-all;
+  }
+  .evid .src b { color: var(--ink); font-weight: 600; }
+  .evid-note {
+    margin: 22px auto 0; max-width: 40em; text-align: center;
+    font-size: .84rem; line-height: 1.65; color: var(--ink-soft); word-break: keep-all;
+  }
 
   /* ── 마무리 CTA ── */
   .final {
@@ -575,7 +598,7 @@
   .final::before { top: 26px; left: 12%; }
   .final::after { top: 60px; right: 14%; font-size: .6rem; }
   .final img.avatar { width: 76px; height: 76px; margin-bottom: 8px; border: 3px solid rgba(255,246,230,.35); }
-  .final h2 { color: #fff; font-size: clamp(1.7rem, 4.4vw, 2.4rem); margin: 0 0 10px; }
+  .final h2 { color: #fff; font-size: clamp(1.95rem, 5vw, 2.85rem); margin: 0 0 10px; }
   .final > p { color: #BFD4C3; margin: 0 auto 26px; max-width: 28em; }
   .final .signup { margin: 0 auto; }
   .final .signup input[type=email] { border-color: transparent; }
@@ -617,6 +640,7 @@
   @media (max-width: 720px) {
     .steps { grid-template-columns: 1fr; }
     .promises { grid-template-columns: 1fr; }
+    .evids { grid-template-columns: 1fr; }
     .signup .row { flex-direction: column; }
     .btn { width: 100%; }
     br.desk { display: none; }
@@ -653,8 +677,8 @@
       <h1 class="rise in"><span class="hl-laity">라이티</span>한테 문자가 왔어요<br>
         <span class="sms">“오늘 있었던 일 통화하자!”</span></h1>
       <p class="lead rise in">
-        하루 한 번, 숲속 다람쥐 라이티가 문자를 보내요. 그러면 <b>아이가 먼저 전화를 겁니다.</b>
-        조잘조잘 오늘 하루를 이야기하고, 그 마음을 그대로 한글·영어 손글씨 일기로 씁니다.
+        <b>아이가 먼저 전화를 겁니다.</b><br>
+        오늘 나눈 이야기가 그대로 일기가 돼요.
       </p>
 
       <form class="signup rise in" data-signup action="https://formspree.io/f/meeygazy" method="POST">
@@ -731,31 +755,25 @@
   <section id="how">
     <div class="section-head rise">
       <span class="kicker">피어라의 세 걸음</span>
-      <h2>말한 마음이 글이 되기까지</h2>
-      <p>쓰기를 가르치기 전에, 쓰고 싶은 이야기부터 만들어 줍니다.
-         아이에겐 매일의 통화가 놀이고, 그 놀이가 그대로 글감이 돼요.</p>
+      <h2>말한 마음이<br class="desk">글이 되기까지</h2>
+      <p>쓰기를 가르치기 전에,<br class="desk">쓰고 싶은 이야기부터 만들어 줍니다.</p>
     </div>
     <div class="steps">
       <div class="step rise">
         <img class="ico" src="plant-bud1.png" alt="">
-        <h3>1 · 문자를 받고, 전화를 걸어요</h3>
-        <p>하루 한 번, 라이티가 숲에서 있었던 일을 문자로 보내요. 궁금해진 아이가
-           전화를 걸면 그때부터 대화가 시작돼요. 라이티는 아이가 방금 한 말을 꼭 짚어서 되묻고,
-           그때 기분이 어땠는지 물어봐요.</p>
+        <h3>1 · 문자를 받고,<br>전화를 걸어요</h3>
+        <p>하루 한 통, 라이티가 문자를 보내요.<br>궁금해진 아이가 먼저 전화를 겁니다.</p>
       </div>
       <div class="step rise">
         <img class="ico" src="plant-flower2.png" alt="">
-        <h3>2 · 태블릿에 손으로 써요</h3>
-        <p>통화에서 꺼낸 이야기가 그대로 글감이 돼요. 종이 위쪽엔 그림, 아래쪽엔 글.
-           펜을 쥔 채로 <b>"이거 어떻게 써?"</b> 하고 물으면, 라이티가 아이가 쓴 글씨를
-           직접 보고 대답해 줍니다.</p>
+        <h3>2 · 태블릿에<br>손으로 써요</h3>
+        <p>통화에서 꺼낸 이야기가 글감이 돼요.<br>막히면 <b>"이거 어떻게 써?"</b> 하고 물어봐요.</p>
         <div class="mini-diary" aria-label="아이 일기 예시">오늘 아빠랑 자전거를 탔다.<br>처음엔 무서웠는데 재미있써서 또 타고싶다.</div>
       </div>
       <div class="step rise">
         <img class="ico" src="plant-flower1.png" alt="">
-        <h3>3 · 첨삭을 받고, 고쳐 써요</h3>
-        <p>다 쓰면 선생님이 빨간펜으로 봐주듯 첨삭이 돌아와요. 틀린 곳엔 별표와 바른 글씨,
-           붙여 쓸 곳엔 붙임표. <b>그 위에 아이가 다시 씁니다</b> — 여기서 실력이 자라요.</p>
+        <h3>3 · 다정하게 봐주고,<br>다시 써요</h3>
+        <p><b>빨간펜이지만 혼내지 않아요.</b><br>칭찬 먼저, 딱 하나만 짚어요.</p>
         <div class="en"><span>한글 쓰기</span><span>영어 쓰기</span><span>그림일기</span></div>
       </div>
     </div>
@@ -764,10 +782,9 @@
   <!-- ═════════ 손글씨 일기 + 빨간펜 첨삭 ═════════ -->
   <section id="write">
     <div class="section-head rise">
-      <span class="kicker">태블릿 + 펜 · 피어라의 진짜 공부</span>
-      <h2>쓰는 동안 옆에 있고,<br class="desk">다 쓰면 빨간펜으로 봐줍니다</h2>
-      <p>아이는 종이에 쓰듯 자유롭게 씁니다. 칸도 격자도 없어요.
-         막히면 라이티를 부르고, 다 쓰면 첨삭을 받고, 그 위에 다시 씁니다.</p>
+      <span class="kicker">태블릿 + 펜</span>
+      <h2>혼내지 않는 빨간펜</h2>
+      <p>칸도 격자도 없이, 종이에 쓰듯 자유롭게.<br class="desk">막히면 부르고, 다 쓰면 다시 씁니다.</p>
     </div>
 
     <div class="write-grid">
@@ -815,18 +832,18 @@
       <div class="write-points">
         <div class="wp rise">
           <h3>라이티 도움 <em>쓰는 중</em></h3>
-          <p>라이티는 아이가 <b>지금 쓴 글씨를 눈으로 보고</b> 답합니다.
-             말로 물어보고 목소리로 듣기 때문에, 글을 다 못 읽는 아이도 혼자 물어볼 수 있어요.</p>
+          <p>아이가 <b>지금 쓴 글씨를 눈으로 보고</b> 답해요.<br>
+             말로 묻고 목소리로 들으니, 혼자서도 물어봅니다.</p>
         </div>
         <div class="wp rise">
-          <h3>자동 첨삭 <em>다 쓴 뒤</em></h3>
-          <p>선생님이 종이에 빨간펜으로 봐주듯 첨삭합니다. 틀린 글자엔 <b>별표와 바른 글씨</b>,
-             띄어 쓴 곳엔 <b>붙임표</b>, 그리고 아래에 손글씨 총평. 점수도 등수도 없습니다.</p>
+          <h3>다정한 첨삭 <em>다 쓴 뒤</em></h3>
+          <p><b>칭찬이 먼저, 지적은 딱 하나만.</b><br>
+             점수도 등수도 없습니다.</p>
         </div>
         <div class="wp rise">
           <h3>고쳐쓰기 <em>다시</em></h3>
-          <p>첨삭받은 글이 <b>흐린 밑글씨로 깔리고</b>, 아이가 그 위에 다시 씁니다.
-             틀린 걸 지우는 게 아니라 <b>다시 써보는 경험</b>이 손에 남아요.</p>
+          <p>흐린 밑글씨 위에 아이가 다시 씁니다.<br>
+             지우는 게 아니라 <b>다시 써보는 경험</b>이에요.</p>
         </div>
       </div>
     </div>
@@ -851,11 +868,10 @@
       <div class="profile-copy rise">
         <span class="kicker">왜 캐릭터가 중요한가요</span>
         <h2>아이는 앱이 아니라<br>친구에게 마음을 열어요</h2>
-        <p>라이티는 말을 걸어주는 기능이 아니라, <b>삶이 있는 여덟 살 친구</b>입니다.
-           참나무 나무집에 살고, 여동생 콩이가 있고, 천둥을 무서워해요.
-           아이가 "너 몇 살이야?" 하고 물으면 어제도 오늘도 내일도 같은 대답을 합니다.</p>
-        <p>친구라서, 아이는 시키지 않아도 오늘 하루를 들려줍니다.
-           그리고 친구에게 들려준 이야기라서 — <b>일기로 쓸 때도 술술 나옵니다.</b></p>
+        <p>라이티는 기능이 아니라 <b>삶이 있는 여덟 살 친구</b>예요.
+           나무집에 살고, 천둥을 무서워합니다.</p>
+        <p>친구라서 시키지 않아도 하루를 들려줘요.<br>
+           그래서 <b>일기로 쓸 때도 술술 나옵니다.</b></p>
         <blockquote class="quote">"헐! 종이접기 했어? 뭐 접었는지 진짜 궁금하다!"</blockquote>
       </div>
     </div>
@@ -868,41 +884,87 @@
         <div class="section-head rise">
           <span class="kicker">부모님께 드리는 약속</span>
           <h2>재미보다 먼저 지키는 것들</h2>
-          <p>피어라는 아이의 마음을 다루는 앱입니다. 그래서 처음부터 이 원칙들 위에 만들었습니다.</p>
+          <p>아이의 마음을 다루는 앱이니까요.</p>
         </div>
         <div class="promises">
           <div class="promise rise">
             <h3><span class="pi">🤍</span>힘든 마음엔 들뜨지 않아요</h3>
-            <p>슬프거나 속상한 이야기에는 경쾌한 축하 대신, <b>먼저 그 마음을 진지하게 알아줍니다.</b>
-               즐거운 날엔 함께 기뻐하고요. 아이 마음의 무게에 맞춰 라이티의 말투가 달라집니다.</p>
+            <p>속상한 이야기엔 축하 대신,<br><b>그 마음을 먼저 알아줍니다.</b></p>
           </div>
           <div class="promise rise">
             <h3><span class="pi">🌳</span>어른과 연결해요</h3>
-            <p>아이 안전에 관한 이야기가 나오면 라이티는 해결해주겠다고 약속하는 대신,
-               <b>"엄마 아빠나 믿는 어른에게 꼭 얘기해줘"</b>라고 부드럽게 권합니다.</p>
+            <p>안전에 관한 얘기가 나오면<br><b>"믿는 어른에게 꼭 얘기해줘"</b>라고 권해요.</p>
           </div>
           <div class="promise rise">
             <h3><span class="pi">🔋</span>붙잡지 않아요</h3>
-            <p>라이티의 문자는 <b>하루에 딱 한 통</b>. 전화를 걸지 말지는 아이가 정합니다.
-               통화도 라이티의 폰 배터리가 다 되면 끝나요. 아이를 무한정 붙잡는 대신,
-               나눈 이야기를 일기로 쓰도록 다정하게 배웅합니다.</p>
+            <p>문자는 <b>하루 딱 한 통</b>.<br>라이티 폰 배터리가 다 되면 통화도 끝나요.</p>
           </div>
           <div class="promise rise">
             <h3><span class="pi">✏️</span>틀려도 괜찮아요</h3>
-            <p>오답에 빨간 줄을 긋지 않아요. 틀린 말은 <b>바른 말로 부드럽게 다시 들려주면서</b>,
-               아이가 창피함 없이 다시 시도하게 합니다. 광고도 없습니다.</p>
+            <p>틀린 말은 <b>바른 말로 다시 들려줄 뿐</b>이에요.<br>광고도 없습니다.</p>
           </div>
         </div>
       </div>
     </section>
   </div>
 
+  <!-- ═════════ 근거 ═════════
+       ★정직성 원칙: 이 연구들은 피어라를 검증한 것이 아니다. 피어라의 '설계가 따른 원리'다.
+       효과를 단정하는 문구(성적 향상 등)는 절대 넣지 않는다 — 법무검토 보고서의 미검증 효과 금지. -->
+  <section id="why">
+    <div class="section-head rise">
+      <span class="kicker">왜 이렇게 만들었나</span>
+      <h2>근거 위에 만듭니다</h2>
+      <p>재미있게만 만들지 않았어요.<br class="desk">쌓인 연구가 가리키는 쪽으로 만들었습니다.</p>
+    </div>
+
+    <div class="evids">
+      <div class="evid rise">
+        <h3>말이 먼저, 글은 그다음</h3>
+        <p class="big">어릴 때 말한 만큼<br>나중에 씁니다.</p>
+        <p class="src">유아·초기 아동기의 <b>구어(말하기) 능력이 이후의 쓰기 능력을 예측</b>한다는 연구가 반복해서 보고됩니다.
+          미국 국가조기문해패널(NELP)은 어휘·구어 발달을 이후 문해력의 핵심 예측 요인으로 꼽았습니다.
+          <br>→ 그래서 피어라는 <b>쓰기 전에 통화</b>부터 합니다.</p>
+      </div>
+
+      <div class="evid rise">
+        <h3>쓰면 읽기가 자란다</h3>
+        <p class="big">쓰기는 읽기를<br>같이 끌어올려요.</p>
+        <p class="src">Graham &amp; Hebert, <b>「Writing to Read」</b>(Harvard Educational Review, 2011 · 카네기재단 지원 메타분석).
+          읽은 것에 대해 글을 쓰면 읽기 이해가 향상됐고(효과크기 .40~.51), 철자·문장 구성 지도는 .79였습니다.
+          <br>→ 그래서 피어라는 <b>매일 조금씩 씁니다.</b></p>
+      </div>
+
+      <div class="evid rise">
+        <h3>고쳐쓰기까지가 한 세트</h3>
+        <p class="big">쓰고 → 봐주고 →<br>다시 쓰기.</p>
+        <p class="src">쓰기 전략을 단계적으로 가르치고 스스로 점검하게 하는 <b>SRSD(자기조절 전략 개발)</b>는
+          초등 쓰기 지도에서 근거가 가장 두텁게 쌓인 접근으로 꼽힙니다(Graham·Harris 등, 미국 교육부 WWC 검토 대상).
+          <br>→ 그래서 첨삭에서 끝내지 않고 <b>고쳐쓰기까지</b> 갑니다.</p>
+      </div>
+
+      <div class="evid rise">
+        <h3>칭찬은 능력이 아니라 과정에</h3>
+        <p class="big">"똑똑하네" 대신<br>"해냈구나".</p>
+        <p class="src">Mueller &amp; Dweck(1998), <i>Journal of Personality and Social Psychology</i>.
+          <b>능력을 칭찬받은 아이는 실패한 뒤 더 빨리 포기</b>했고, 과정을 칭찬받은 아이는 계속 시도했습니다.
+          (캐럴 드웩 — 현 스탠퍼드대 교수)
+          <br>→ 그래서 피어라엔 <b>점수도 등수도 없습니다.</b></p>
+      </div>
+    </div>
+
+    <p class="evid-note">
+      ※ 위 연구들은 <b>피어라를 검증한 것이 아닙니다.</b> 피어라가 어떤 원리를 따라 설계됐는지를 밝히는 근거입니다.
+      피어라는 아직 출시 전이며, 저희 앱의 학습 효과는 검증된 바 없습니다. 확인되지 않은 효과를 약속드리지 않겠습니다.
+    </p>
+  </section>
+
   <!-- ═════════ 마무리 CTA ═════════ -->
   <section>
     <div class="final rise">
       <img class="avatar" src="laity-avatar.png" alt="">
       <h2>라이티의 첫 문자,<br>우리 아이에게 닿게 해주세요</h2>
-      <p>피어라가 준비되는 대로, 사전예약하신 분들께 가장 먼저 소식을 전해드릴게요.</p>
+      <p>준비되는 대로 가장 먼저 알려드릴게요.</p>
       <form class="signup" data-signup action="https://formspree.io/f/meeygazy" method="POST">
         <input type="hidden" name="_subject" value="[피어라] 사전예약 신청 — 마무리 CTA">
         <input type="hidden" name="신청위치" value="마무리 CTA">
