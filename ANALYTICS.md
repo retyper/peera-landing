@@ -48,8 +48,8 @@ static const String? destinationUrl =
 
 붙이고 나면 랜딩이 UTM을 읽어서:
 - GA4 → 트래픽 획득 보고서에 `emotioncards / app`으로 분리 집계
-- Formspree 신청 메일 → `유입경로: emotioncards / app / peera_cta` 로 표시
-  (**GA를 안 켜도** 신청 메일만 보면 감정카드발 신청인지 알 수 있다)
+- 사전예약 시트 신규 행 → `유입경로: emotioncards / app / peera_cta` 로 표시
+  (**GA를 안 켜도** 시트(또는 신청 알림 메일)만 보면 감정카드발 신청인지 알 수 있다)
 
 > 이왕 여는 김에 파일 안의 `Peeora` → `Peera` 표기도 정리하면 좋다(클래스명 포함 17곳).
 > 다만 이건 별건이니 UTM만 먼저 처리해도 무방.

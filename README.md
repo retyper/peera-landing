@@ -20,17 +20,41 @@
 1. Vercel에서 이 레포를 Import(정적 사이트 자동 인식).
 2. **Project → Settings → Domains**에 `peera.co` 추가 → 안내대로 DNS 설정.
 
-## 이메일 수집 연결 (Formspree, 무료)
+## 이메일 수집 연결 (Google 시트, 무료 — 예전 Formspree에서 교체됨)
 
-`index.html`의 폼은 [Formspree](https://formspree.io)로 이메일을 보낸다. 설치:
+`index.html`/`en.html`의 폼은 Google Apps Script 웹앱을 거쳐 스프레드시트에 한 행씩
+쌓인다(백엔드 없이). Formspree(월 50건 무료 한도)를 걷어내고 이걸 쓰는 이유는 한도가
+사실상 없고, 신청자가 raw 데이터까지 그대로 시트에 남기 때문.
 
-1. formspree.io 가입 → 새 form 생성(수신 이메일: retyper92@gmail.com 등).
-2. 받은 엔드포인트(예: `https://formspree.io/f/abcdwxyz`)를 복사.
-3. `index.html`에서 `action="https://formspree.io/f/YOUR_FORM_ID"` 의
-   `YOUR_FORM_ID`를 그 주소로 교체.
+**현재 연결 상태**: `roqkfeke12@gmail.com` 드라이브의 `피어라/1.출시예약랜딩페이지`
+시트에 바인딩된 Apps Script 웹앱으로 연결돼 있다(2026-07-20 배포, 실 제출 테스트 통과).
+`index.html`/`en.html`의 두 폼 `action`이 그 `/exec` URL을 가리킨다.
 
-> 연결 전에는 폼 제출 시 "아직 폼이 연결되지 않았어요" 안내가 뜬다.
-> Google Forms 링크로 대체하고 싶으면 폼 대신 버튼 하나로 바꿔도 된다.
+시트를 새로 만들거나 재배포할 때의 설치 절차:
+
+1. [sheets.google.com](https://sheets.google.com)에서 새 스프레드시트 생성
+   (예: "피어라 사전예약").
+2. **1행에 헤더**를 정확히 이 이름으로 입력(순서 무관):
+   `타임스탬프` `email` `신청위치` `유입경로` `개인정보동의` `raw`
+3. 메뉴 **확장 프로그램 → Apps Script**를 연다.
+4. `tools/google-apps-script/Code.gs`의 내용을 그대로 붙여넣고 저장.
+5. 우측 상단 **배포 → 새 배포**:
+   - 유형: **웹 앱**
+   - 실행 계정: **나**
+   - 액세스 권한이 있는 사용자: **모든 사용자**
+   - 배포 후 처음엔 권한 승인 팝업이 뜬다 — 본인 Google 계정으로 승인.
+     (Google 미인증 경고 화면에서 **고급 → (프로젝트명)으로 이동 → 허용**. 본인 스크립트라 안전.)
+6. 배포 완료 후 나오는 URL(`https://script.google.com/macros/s/xxx/exec`)을 복사.
+7. `index.html`의 두 폼(`히어로`/`마무리 CTA`) `action="..."` 안 URL을 그 값으로 교체.
+8. `node tools/make-en.mjs index.html en.html`로 `en.html`에도 반영.
+
+메일 알림(신청 올 때마다 retyper92@gmail.com으로 요약 메일)도 `Code.gs`에 포함돼 있다 —
+Formspree가 하던 걸 그대로 대신한다. 필요 없으면 스크립트의 `MailApp.sendEmail` 블록만
+지우면 된다.
+
+> 연결 전(플레이스홀더 URL 그대로)엔 폼 제출 시 "전송이 잘 안 됐어요" 오류가 뜬다.
+> `raw` 열에는 그 요청의 모든 필드가 JSON으로 그대로 들어가서, 나중에 폼에 필드를
+> 추가해도(위 헤더에 없어도) 유실 없이 남는다.
 
 ## 구성
 
