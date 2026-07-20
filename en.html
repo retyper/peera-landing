@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Peera — Laity just texted. Your child calls first.</title>
-<meta name="description" content="Laity texts. Your child calls first. Today's story becomes today's handwritten diary — in Korean and English. Praise loudly, correct gently. Peera, for ages 7–11. Be first to hear when it launches.">
+<title>Peera — Writy just texted. Your child calls first.</title>
+<meta name="description" content="Writy texts. Your child calls first. Today's story becomes today's handwritten diary — in Korean and English. Praise loudly, correct gently. Peera, for ages 7–11. Be first to hear when it launches.">
 
 <!-- ★ 사이트 정본 주소 — 여기 한 곳만 고치면 OG·canonical·구조화데이터가 함께 따라온다.
      지금은 GitHub Pages. peera.co 도메인을 사서 연결하면 아래 세 줄을
@@ -40,8 +40,8 @@
 </script>
 
 <!-- 오픈그래프(카톡·문자 공유 시 미리보기) — og:image는 반드시 살아 있는 절대 URL이어야 뜬다 -->
-<meta property="og:title" content="Peera — Laity just texted. Your child calls first.">
-<meta property="og:description" content="One text a day from Laity, a squirrel in the forest. Your child calls, talks, and turns that story into a handwritten diary — Korean and English.">
+<meta property="og:title" content="Peera — Writy just texted. Your child calls first.">
+<meta property="og:description" content="One text a day from Writy, a squirrel in the forest. Your child calls, talks, and turns that story into a handwritten diary — Korean and English.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://retyper.github.io/peera-landing/en.html">
 <meta property="og:image" content="https://retyper.github.io/peera-landing/peera-og-en.png">
@@ -50,8 +50,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://retyper.github.io/peera-landing/peera-og-en.png">
 
-<link rel="icon" href="laity-avatar.png">
-<link rel="apple-touch-icon" href="laity-avatar.png">
+<link rel="icon" href="writy-avatar.png">
+<link rel="apple-touch-icon" href="writy-avatar.png">
 
 <script type="application/ld+json">
 {
@@ -61,7 +61,7 @@
   "url": "https://retyper.github.io/peera-landing/en.html",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "iOS, Android",
-  "description": "A squirrel named Laity texts once a day. The child calls, talks about their day, and turns it into a handwritten diary in Korean and English. For ages 7–11. Pre-registration open before launch.",
+  "description": "A squirrel named Writy texts once a day. The child calls, talks about their day, and turns it into a handwritten diary in Korean and English. For ages 7–11. Pre-registration open before launch.",
   "audience": { "@type": "PeopleAudience", "suggestedMinAge": 7, "suggestedMaxAge": 11 },
   "creator": { "@type": "Organization", "name": "Peer" }
 }
@@ -129,9 +129,9 @@
     --line:        #EBDCC6;
     --outline:     #B07050;
 
-    --laity:       #E1751F;  /* 라이티 주황 */
-    --laity-deep:  #C1580E;
-    --laity-tail:  #CE5F10;
+    --writy:       #E1751F;  /* 라이티 주황 */
+    --writy-deep:  #C1580E;
+    --writy-tail:  #CE5F10;
     --cream-face:  #FFE9C9;
 
     --purple:      #7C3AED;  /* 피어라 보라 포인트 */
@@ -227,11 +227,11 @@
     font-size: clamp(2.55rem, 6.1vw, 4.3rem);
     line-height: 1.28; margin: 18px 0 0; word-break: keep-all;
   }
-  h1 .hl-laity { color: var(--laity); }
+  h1 .hl-writy { color: var(--writy); }
   h1 .hl-bloom { color: var(--bloom); }
   /* 라이티가 보낸 문자를 그대로 인용 — 말풍선 꼬리를 단 한 줄 */
   h1 .sms {
-    position: relative; display: inline-block; color: var(--laity-deep);
+    position: relative; display: inline-block; color: var(--writy-deep);
     background: #FFF3E2; border-radius: 20px; padding: .04em .4em .1em;
     box-shadow: 0 3px 0 #F0DCC0;
   }
@@ -244,7 +244,7 @@
     font-size: clamp(1.32rem, 3vw, 1.66rem); color: var(--ink-soft);
   }
   .lead b { color: var(--ink); }
-  .lead i { font-style: normal; color: var(--laity-deep); font-weight: 600; }
+  .lead i { font-style: normal; color: var(--writy-deep); font-weight: 600; }
 
   /* ── 사전예약 폼(듀오링고식 3D 푸시 버튼 — 앱 컨벤션) ── */
   .signup { margin-top: 28px; max-width: 31em; }
@@ -351,7 +351,7 @@
     animation: bubIn .35s cubic-bezier(.2,.8,.3,1.1) both;
   }
   @keyframes bubIn { from { opacity: 0; transform: translateY(10px) scale(.96); } }
-  .bubble.laity {
+  .bubble.writy {
     align-self: flex-start; background: #FFF6E6; color: #3D2B1F;
     border-bottom-left-radius: 5px;
   }
@@ -549,7 +549,7 @@
   }
   .helper .h-top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
   .helper .h-top img { width: 26px; height: 26px; border-radius: 50%; }
-  .helper .h-top b { font-family: "Jua", sans-serif; font-size: .84rem; color: var(--laity-deep); }
+  .helper .h-top b { font-family: "Jua", sans-serif; font-size: .84rem; color: var(--writy-deep); }
   .helper .h-line { font-size: .78rem; line-height: 1.5; color: var(--ink); word-break: keep-all; }
   .helper .h-line.kid { color: var(--purple-dark); font-weight: 600; }
   .helper .h-line + .h-line { margin-top: 6px; }
@@ -590,12 +590,12 @@
     display: flex; gap: 10px; align-items: baseline;
     background: rgba(255,255,255,.72); border-radius: 12px; padding: 8px 13px; font-size: .92rem;
   }
-  .dex-list .k { font-family: "Jua", sans-serif; color: var(--laity-deep); flex-shrink: 0; width: 6.2em; font-size: .88rem; }
+  .dex-list .k { font-family: "Jua", sans-serif; color: var(--writy-deep); flex-shrink: 0; width: 6.2em; font-size: .88rem; }
   .profile-copy h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 0 0 14px; }
   .profile-copy p { color: var(--ink-soft); margin: 0 0 14px; font-size: 1.2rem; line-height: 1.7; max-width: 32em; }
   .profile-copy p b { color: var(--ink); }
   .quote {
-    margin: 20px 0 0; padding: 16px 20px; border-left: 4px solid var(--laity);
+    margin: 20px 0 0; padding: 16px 20px; border-left: 4px solid var(--writy);
     background: #FFF6E9; border-radius: 0 16px 16px 0;
     font-family: "Jua", sans-serif; font-size: 1.08rem; color: #7A4A21;
   }
@@ -643,7 +643,7 @@
   }
   .soon-badge {
     display: inline-block; font-family: "Jua", sans-serif; font-size: .88rem;
-    color: var(--laity-deep); background: #FFF3E2; border: 1.5px solid #F0DCC0;
+    color: var(--writy-deep); background: #FFF3E2; border: 1.5px solid #F0DCC0;
     padding: 4px 14px; border-radius: 999px; margin-bottom: 14px;
   }
   .soon-card .big {
@@ -799,7 +799,7 @@
 <div class="wrap">
   <header class="top">
     <a class="brand" href="#" aria-label="Peera home">
-      <img class="avatar" src="laity-avatar.png" width="42" height="42" alt="">
+      <img class="avatar" src="writy-avatar.png" width="42" height="42" alt="">
       <b>Peera</b><span>피어라</span>
     </a>
     <nav class="langtop" aria-label="Language">
@@ -812,7 +812,7 @@
   <section class="hero">
     <div class="hero-copy">
       <span class="eyebrow rise in"><span class="dot"></span> Ages 7–11 · In development · Pre-registration open</span>
-      <h1 class="rise in"><span class="hl-laity">Laity</span> just texted<br>
+      <h1 class="rise in"><span class="hl-writy">Writy</span> just texted<br>
         <span class="sms">“Tell me about your day!”</span></h1>
       <p class="lead rise in">
         <b>Your child calls first.</b><br>
@@ -846,7 +846,7 @@
     <!-- 시그니처: 라이티 통화 데모 — 본품의 writy.riv(라이티)가 실제로 여기서 구동된다 -->
     <div class="demo-col rise in">
       <div class="phone" id="phoneDemo" role="img"
-           aria-label="Peera app preview: Laity the squirrel sends a text, the child calls and talks, and that story becomes a handwritten diary">
+           aria-label="Peera app preview: Writy the squirrel sends a text, the child calls and talks, and that story becomes a handwritten diary">
         <div class="screen">
           <canvas class="rive" id="riveCanvas" aria-hidden="true"></canvas>
           <div class="shade top" aria-hidden="true"></div>
@@ -854,29 +854,29 @@
           <div class="notch" aria-hidden="true"></div>
           <div class="call-top" aria-hidden="true">
             <span class="call-id">
-              <span class="call-name">Laity 🌰</span>
+              <span class="call-name">Writy 🌰</span>
               <span class="call-sub"><i class="rec"></i>On call <span id="callTime">00:04</span></span>
             </span>
-            <span class="batt">Laity’s phone <i class="case"><i class="fill" id="battFill"></i></i></span>
+            <span class="batt">Writy’s phone <i class="case"><i class="fill" id="battFill"></i></i></span>
           </div>
           <div class="chat" id="chat" aria-hidden="true"></div>
           <div class="call-hint" id="callHint" aria-hidden="true">
-            <span class="mic">🎙️</span><br>No buttons — they talk, Laity listens
+            <span class="mic">🎙️</span><br>No buttons — they talk, Writy listens
           </div>
 
           <!-- 1막: 라이티가 보낸 문자 -->
           <div class="notif" id="notif" aria-hidden="true">
-            <img src="laity-avatar.png" alt="">
+            <img src="writy-avatar.png" alt="">
             <div class="n-body">
-              <div class="n-head"><b>Laity</b><span>now</span></div>
+              <div class="n-head"><b>Writy</b><span>now</span></div>
               <div class="n-text" id="notifText"></div>
             </div>
           </div>
 
           <!-- 2막: 아이가 전화를 건다 -->
           <div class="calling" id="calling" aria-hidden="true">
-            <img src="laity-avatar.png" alt="">
-            <b>Laity</b>
+            <img src="writy-avatar.png" alt="">
+            <b>Writy</b>
             <span>Calling<i>.</i><i>.</i><i>.</i></span>
           </div>
         </div>
@@ -900,7 +900,7 @@
       <div class="step rise">
         <img class="ico" src="plant-bud1.png" alt="">
         <h3>1 · A text arrives,<br>they call back</h3>
-        <p>One text a day from Laity.<br>Curious, your child calls first.</p>
+        <p>One text a day from Writy.<br>Curious, your child calls first.</p>
       </div>
       <div class="step rise">
         <img class="ico" src="plant-flower2.png" alt="">
@@ -965,7 +965,7 @@
 
           <!-- 작성 중 라이티 도움 -->
           <div class="helper" aria-hidden="true">
-            <div class="h-top"><img src="laity-avatar.png" alt=""><b>Laity’s help</b></div>
+            <div class="h-top"><img src="writy-avatar.png" alt=""><b>Writy’s help</b></div>
             <div class="h-line kid">“How do I write bicycle?”</div>
             <div class="h-line">I saw what you wrote! “자전거” is three blocks: 자·전·거. Try one at a time.</div>
             <div class="h-mic">🎙️ Tap to ask more</div>
@@ -975,8 +975,8 @@
 
       <div class="write-points">
         <div class="wp rise">
-          <h3>Laity’s help <em>while writing</em></h3>
-          <p>Laity <b>looks at what they just wrote</b> and answers.<br>
+          <h3>Writy’s help <em>while writing</em></h3>
+          <p>Writy <b>looks at what they just wrote</b> and answers.<br>
              They ask out loud and hear it back, so they can do it alone.</p>
         </div>
         <div class="wp rise">
@@ -994,12 +994,12 @@
   </section>
 
   <!-- ═════════ 라이티 도감 ═════════ -->
-  <section id="laity">
+  <section id="writy">
     <div class="profile">
-      <div class="dex-card rise" aria-label="Laity character card">
+      <div class="dex-card rise" aria-label="Writy character card">
         <div class="dex-top">
-          <img class="avatar" src="laity-avatar.png" alt="Laity’s face">
-          <div class="nm"><b>Laity</b><span>Squirrel · age 8 · boy</span></div>
+          <img class="avatar" src="writy-avatar.png" alt="Writy’s face">
+          <div class="nm"><b>Writy</b><span>Squirrel · age 8 · boy</span></div>
         </div>
         <ul class="dex-list">
           <li><span class="k">Home</span><span>A treehouse atop a great oak, deep in the green forest</span></li>
@@ -1012,7 +1012,7 @@
       <div class="profile-copy rise">
         <span class="kicker">Why a character matters</span>
         <h2>Children open up to<br>a friend, not an app</h2>
-        <p>Laity isn’t a feature — he’s <b>an eight-year-old with a life.</b>
+        <p>Writy isn’t a feature — he’s <b>an eight-year-old with a life.</b>
            He lives in a treehouse and he’s scared of thunder.</p>
         <p>Because he’s a friend, they tell him about the day unprompted.<br>
            And that’s why <b>the diary comes out easily.</b></p>
@@ -1028,7 +1028,7 @@
   <section id="friends">
     <div class="soon-card rise">
       <span class="soon-badge">Coming next · in development</span>
-      <p class="big">Today, just Laity.<br>Soon, <b>friends’ writing too.</b></p>
+      <p class="big">Today, just Writy.<br>Soon, <b>friends’ writing too.</b></p>
       <p class="disc">
         We’re building a way for children to share their writing and see how others think.
         This is <b>not available yet.</b> We’ll open it only after the child-safety and privacy design is finished.
@@ -1049,15 +1049,15 @@
         <div class="promises">
           <div class="promise rise">
             <h3><span class="pi">🤍</span>No confetti over sadness</h3>
-            <p>When the story hurts, instead of celebrating<br><b>Laity acknowledges the feeling first.</b></p>
+            <p>When the story hurts, instead of celebrating<br><b>Writy acknowledges the feeling first.</b></p>
           </div>
           <div class="promise rise">
             <h3><span class="pi">🌳</span>We point to grown-ups</h3>
-            <p>If safety comes up, Laity says<br><b>“Please tell a grown-up you trust.”</b></p>
+            <p>If safety comes up, Writy says<br><b>“Please tell a grown-up you trust.”</b></p>
           </div>
           <div class="promise rise">
             <h3><span class="pi">🔋</span>We don’t hold on</h3>
-            <p><b>One text a day.</b><br>When Laity’s phone battery runs out, the call ends.</p>
+            <p><b>One text a day.</b><br>When Writy’s phone battery runs out, the call ends.</p>
           </div>
           <div class="promise rise">
             <h3><span class="pi">✏️</span>Mistakes are fine</h3>
@@ -1126,8 +1126,8 @@
   <!-- ═════════ 마무리 CTA ═════════ -->
   <section>
     <div class="final rise">
-      <img class="avatar" src="laity-avatar.png" alt="">
-      <h2>Let Laity’s first text<br>reach your child</h2>
+      <img class="avatar" src="writy-avatar.png" alt="">
+      <h2>Let Writy’s first text<br>reach your child</h2>
       <p>We’ll tell you the moment it’s ready.</p>
       <form class="signup" data-signup action="https://formspree.io/f/meeygazy" method="POST">
         <input type="hidden" name="_subject" value="[Peera] Pre-registration — final CTA (EN)">
@@ -1154,7 +1154,7 @@
 
   <footer>
     <div class="fbrand">
-      <img class="avatar" src="laity-avatar.png" alt="">
+      <img class="avatar" src="writy-avatar.png" alt="">
       <b>Peera</b>
     </div>
     <!-- 사용자 선택이 자동 감지를 이긴다 — 누르면 그 언어로 고정된다 -->
@@ -1212,12 +1212,12 @@
   /* ── 라이브 라이티 — 본품(dearmydiary)의 writy.riv를 그대로 구동한다.
      실패하면 .screen의 정지 프레임 포스터(writy-still.png)가 그대로 보인다. ── */
   const riveCanvas = document.getElementById('riveCanvas');
-  let laityVmi = null;
+  let writyVmi = null;
   let riveInst = null;   // 화면 밖에선 멈춰 둔다(모바일 배터리·CPU)
-  function setLaity(name, v) {
-    try { const b = laityVmi && laityVmi.boolean && laityVmi.boolean(name); if (b) b.value = v; } catch (_) {}
+  function setWrity(name, v) {
+    try { const b = writyVmi && writyVmi.boolean && writyVmi.boolean(name); if (b) b.value = v; } catch (_) {}
   }
-  function initLaityRive() {
+  function initWrityRive() {
     if (prefersReduced || !window.rive || !riveCanvas || riveCanvas.dataset.init) return;
     riveCanvas.dataset.init = '1';
     try {
@@ -1233,18 +1233,18 @@
         onLoad: () => {
           r.resizeDrawingSurfaceToCanvas();
           riveInst = r;
-          laityVmi = r.viewModelInstance || null;
-          setLaity('isTalking', false);
-          setLaity('isListening', false);
-          setLaity('isThinkingComplex', false);
-          try { const m = laityVmi && laityVmi.number && laityVmi.number('mouthOpen'); if (m) m.value = -1; } catch (_) {}
+          writyVmi = r.viewModelInstance || null;
+          setWrity('isTalking', false);
+          setWrity('isListening', false);
+          setWrity('isThinkingComplex', false);
+          try { const m = writyVmi && writyVmi.number && writyVmi.number('mouthOpen'); if (m) m.value = -1; } catch (_) {}
           riveCanvas.classList.add('on');
         },
       });
       addEventListener('resize', () => { try { r.resizeDrawingSurfaceToCanvas(); } catch (_) {} });
     } catch (_) { /* 포스터 폴백 */ }
   }
-  initLaityRive();
+  initWrityRive();
 
   /* ── 스크롤 등장 ──
      IntersectionObserver를 쓸 수 있을 때만 숨김을 켠다(.js-anim). 못 쓰면 그냥 다 보인다. */
@@ -1261,16 +1261,16 @@
 
   /* ── 폰 데모: 라이티와의 통화 → 일기 ──
      실제 앱의 대화 루프(아이 말 짚어주기 → 감정 묻기 → 일기 권유)를 30초로 압축한 연출. */
-  // 실제 앱의 하루: 라이티가 문자를 보내고(laityMessages) → 아이가 전화를 걸고 → 통화 → 일기.
+  // 실제 앱의 하루: 라이티가 문자를 보내고(writyMessages) → 아이가 전화를 걸고 → 통화 → 일기.
   const NOTIF_TEXT = 'I found a REALLY big acorn today!';
   const SCRIPT = [
-    { who: 'laity', text: 'Oh, hi Mia! How was your day?' },
-    { who: 'kid',   text: 'Laity! I saw your text. Where did you find the acorn?' },
-    { who: 'laity', text: 'Under the big oak! It was so heavy I rolled all the way home. What did you do today?' },
+    { who: 'writy', text: 'Oh, hi Mia! How was your day?' },
+    { who: 'kid',   text: 'Writy! I saw your text. Where did you find the acorn?' },
+    { who: 'writy', text: 'Under the big oak! It was so heavy I rolled all the way home. What did you do today?' },
     { who: 'kid',   text: 'We did origami at school. It was hard but I finished it' },
-    { who: 'laity', text: 'You finished it — that’s awesome! How did that feel?' },
+    { who: 'writy', text: 'You finished it — that’s awesome! How did that feel?' },
     { who: 'kid',   text: 'I felt proud!' },
-    { who: 'laity', text: 'That proud feeling — want to put it in your diary?' },
+    { who: 'writy', text: 'That proud feeling — want to put it in your diary?' },
   ];
   const DIARY_TEXT = 'Today I did origami.\nIt was hard but I finished it and felt proud.';
 
@@ -1375,20 +1375,20 @@
       const m = SCRIPT[i];
       setBattery(92 - i * 11);
 
-      if (m.who === 'laity') {
-        const b = addBubble('laity');
-        setLaity('isTalking', true);       // Rive: 말하는 애니메이션
+      if (m.who === 'writy') {
+        const b = addBubble('writy');
+        setWrity('isTalking', true);       // Rive: 말하는 애니메이션
         const ok = await typeInto(b, m.text, gen, 46);
-        setLaity('isTalking', false);
+        setWrity('isTalking', false);
         if (!ok) return;
         if (!await wait(750, gen)) return;
       } else {
         const b = addBubble('kid');
         b.innerHTML = '<span class="listen" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
-        setLaity('isListening', true);     // Rive: 귀 기울이는 애니메이션
+        setWrity('isListening', true);     // Rive: 귀 기울이는 애니메이션
         if (!await wait(900, gen)) return;
         b.textContent = m.text;
-        setLaity('isListening', false);
+        setWrity('isListening', false);
         if (!await wait(850, gen)) return;
       }
     }

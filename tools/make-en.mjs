@@ -18,13 +18,13 @@ const rep = (a, b) => R.push([a, b]);
 // ── head ──
 rep('<html lang="ko">', '<html lang="en">');
 rep('<title>피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다</title>',
-    '<title>Peera — Laity just texted. Your child calls first.</title>');
+    '<title>Peera — Writy just texted. Your child calls first.</title>');
 rep('content="라이티한테 문자가 오면, 아이가 먼저 전화를 겁니다. 오늘 나눈 이야기가 그대로 손글씨 일기가 돼요. 잘한 건 확실히 칭찬하고, 고칠 건 살짝. 7~11세를 위한 피어라, 출시 소식을 가장 먼저 받아보세요."',
-    'content="Laity texts. Your child calls first. Today\'s story becomes today\'s handwritten diary — in Korean and English. Praise loudly, correct gently. Peera, for ages 7–11. Be first to hear when it launches."');
+    'content="Writy texts. Your child calls first. Today\'s story becomes today\'s handwritten diary — in Korean and English. Praise loudly, correct gently. Peera, for ages 7–11. Be first to hear when it launches."');
 rep('<meta property="og:title" content="피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다">',
-    '<meta property="og:title" content="Peera — Laity just texted. Your child calls first.">');
+    '<meta property="og:title" content="Peera — Writy just texted. Your child calls first.">');
 rep('<meta property="og:description" content="숲속 친구 라이티의 하루 한 번 문자. 아이가 전화를 걸어 나눈 이야기가 한글·영어 손글씨 일기로 피어납니다.">',
-    '<meta property="og:description" content="One text a day from Laity, a squirrel in the forest. Your child calls, talks, and turns that story into a handwritten diary — Korean and English.">');
+    '<meta property="og:description" content="One text a day from Writy, a squirrel in the forest. Your child calls, talks, and turns that story into a handwritten diary — Korean and English.">');
 rep('<meta property="og:url" content="https://retyper.github.io/peera-landing/">',
     '<meta property="og:url" content="https://retyper.github.io/peera-landing/en.html">');
 rep('peera-og.png">\n<meta property="og:image:width"', 'peera-og-en.png">\n<meta property="og:image:width"');
@@ -39,13 +39,13 @@ rep("var THIS = 'ko', OTHER = 'en.html';", "var THIS = 'en', OTHER = 'index.html
 rep('"name": "피어라 (Peera)"', '"name": "Peera"');
 rep('"url": "https://retyper.github.io/peera-landing/",', '"url": "https://retyper.github.io/peera-landing/en.html",');
 rep('"description": "숲속 다람쥐 라이티가 하루 한 번 문자를 보내면 아이가 직접 전화를 걸어 오늘 하루를 이야기하고, 그 마음을 한글·영어 손글씨 일기로 쓰는 7~11세 대상 앱. 출시 전 사전예약 진행 중.",',
-    '"description": "A squirrel named Laity texts once a day. The child calls, talks about their day, and turns it into a handwritten diary in Korean and English. For ages 7–11. Pre-registration open before launch.",');
+    '"description": "A squirrel named Writy texts once a day. The child calls, talks about their day, and turns it into a handwritten diary in Korean and English. For ages 7–11. Pre-registration open before launch.",');
 
 // ── 헤더/히어로 ──
 rep('<span class="eyebrow rise in"><span class="dot"></span> 7~11세 · 출시 준비 중 · 사전예약 받는 중</span>',
     '<span class="eyebrow rise in"><span class="dot"></span> Ages 7–11 · In development · Pre-registration open</span>');
-rep('<h1 class="rise in"><span class="hl-laity">라이티</span>한테 문자가 왔어요<br>\n        <span class="sms">“오늘 있었던 일 통화하자!”</span></h1>',
-    '<h1 class="rise in"><span class="hl-laity">Laity</span> just texted<br>\n        <span class="sms">“Tell me about your day!”</span></h1>');
+rep('<h1 class="rise in"><span class="hl-writy">라이티</span>한테 문자가 왔어요<br>\n        <span class="sms">“오늘 있었던 일 통화하자!”</span></h1>',
+    '<h1 class="rise in"><span class="hl-writy">Writy</span> just texted<br>\n        <span class="sms">“Tell me about your day!”</span></h1>');
 rep('<b>아이가 먼저 전화를 겁니다.</b><br>\n        오늘 나눈 이야기가 그대로 일기가 돼요.',
     '<b>Your child calls first.</b><br>\n        Today’s story becomes today’s diary.');
 
@@ -69,7 +69,7 @@ rep('name="개인정보동의" value="동의함"', 'name="개인정보동의" va
 
 // 폰 데모 접근성 라벨
 rep('aria-label="피어라 앱 미리보기: 다람쥐 라이티가 문자를 보내고, 아이가 전화를 걸어 이야기를 나눈 뒤, 그 마음이 손글씨 일기가 되는 장면"',
-    'aria-label="Peera app preview: Laity the squirrel sends a text, the child calls and talks, and that story becomes a handwritten diary"');
+    'aria-label="Peera app preview: Writy the squirrel sends a text, the child calls and talks, and that story becomes a handwritten diary"');
 
 // ── 세 걸음 ──
 rep('<span class="kicker">피어라의 세 걸음</span>', '<span class="kicker">Three steps</span>');
@@ -78,7 +78,7 @@ rep('<p>쓰기를 가르치기 전에,<br class="desk">쓰고 싶은 이야기�
     '<p>Before teaching how to write,<br class="desk">we give them something worth writing.</p>');
 rep('<h3>1 · 문자를 받고,<br>전화를 걸어요</h3>', '<h3>1 · A text arrives,<br>they call back</h3>');
 rep('<p>하루 한 통, 라이티가 문자를 보내요.<br>궁금해진 아이가 먼저 전화를 겁니다.</p>',
-    '<p>One text a day from Laity.<br>Curious, your child calls first.</p>');
+    '<p>One text a day from Writy.<br>Curious, your child calls first.</p>');
 rep('<h3>2 · 태블릿에<br>손으로 써요</h3>', '<h3>2 · They write it<br>by hand</h3>');
 rep('<p>통화에서 꺼낸 이야기가 글감이 돼요.<br>막히면 <b>"이거 어떻게 써?"</b> 하고 물어봐요.</p>',
     '<p>The call gives them something to say.<br>Stuck? They ask <b>“How do I write this?”</b></p>');
@@ -97,9 +97,9 @@ rep('<p>칭찬은 크게 하고,<br class="desk">주의할 곳만 가볍게 짚�
     '<p>We say the good part out loud,<br class="desk">and touch the rest lightly.</p>');
 rep('<div class="p-top"><span>2026년 7월 18일 토요일</span><span>맑음 ☀️</span></div>',
     '<div class="p-top"><span>Saturday, July 18, 2026</span><span>Sunny ☀️</span></div>');
-rep('<h3>라이티 도움 <em>쓰는 중</em></h3>', '<h3>Laity’s help <em>while writing</em></h3>');
+rep('<h3>라이티 도움 <em>쓰는 중</em></h3>', '<h3>Writy’s help <em>while writing</em></h3>');
 rep('<p>아이가 <b>지금 쓴 글씨를 눈으로 보고</b> 답해요.<br>\n             말로 묻고 목소리로 들으니, 혼자서도 물어봅니다.</p>',
-    '<p>Laity <b>looks at what they just wrote</b> and answers.<br>\n             They ask out loud and hear it back, so they can do it alone.</p>');
+    '<p>Writy <b>looks at what they just wrote</b> and answers.<br>\n             They ask out loud and hear it back, so they can do it alone.</p>');
 rep('<h3>다정한 첨삭 <em>다 쓴 뒤</em></h3>', '<h3>Warm feedback <em>when done</em></h3>');
 rep('<p><b>잘 쓴 곳은 확실하게 짚어 칭찬</b>하고,<br>\n             주의할 곳만 하나 가볍게 알려줘요.</p>',
     '<p><b>The good parts get named, clearly.</b><br>\n             Then one thing to watch, lightly.</p>');
@@ -112,7 +112,7 @@ rep('<div class="p-comment">아빠랑 탄 게 진짜 신났구나!<br>다음엔 
     '<div class="p-comment">You were so excited to ride with Dad!<br>Next time you’ll ride on your own 🚲</div>');
 rep('<span class="p-btn">고쳐쓰기</span>', '<span class="p-btn">Rewrite</span>');
 rep('<span class="p-btn primary">저장하기</span>', '<span class="p-btn primary">Save</span>');
-rep('<b>라이티 도움</b>', '<b>Laity’s help</b>');
+rep('<b>라이티 도움</b>', '<b>Writy’s help</b>');
 rep('<div class="h-line kid">"자전거 어떻게 써?"</div>', '<div class="h-line kid">“How do I write bicycle?”</div>');
 rep('<div class="h-line">네가 쓴 글씨 봤어! \'자전거\'는 자·전·거 세 글자야. 한 글자씩 천천히 써봐.</div>',
     '<div class="h-line">I saw what you wrote! “자전거” is three blocks: 자·전·거. Try one at a time.</div>');
@@ -120,10 +120,10 @@ rep('<div class="h-mic">🎙️ 눌러서 더 물어보기</div>', '<div class="
 rep('<div class="p-draw" aria-hidden="true">', '<div class="p-draw" aria-hidden="true">');
 
 // ── 라이티 도감 ──
-rep('<div class="dex-card rise" aria-label="라이티 캐릭터 카드">', '<div class="dex-card rise" aria-label="Laity character card">');
-rep('<img class="avatar" src="laity-avatar.png" alt="라이티 얼굴">', '<img class="avatar" src="laity-avatar.png" alt="Laity’s face">');
+rep('<div class="dex-card rise" aria-label="라이티 캐릭터 카드">', '<div class="dex-card rise" aria-label="Writy character card">');
+rep('<img class="avatar" src="writy-avatar.png" alt="라이티 얼굴">', '<img class="avatar" src="writy-avatar.png" alt="Writy’s face">');
 rep('<div class="nm"><b>라이티</b><span>다람쥐 · 8살 · 남자아이</span></div>',
-    '<div class="nm"><b>Laity</b><span>Squirrel · age 8 · boy</span></div>');
+    '<div class="nm"><b>Writy</b><span>Squirrel · age 8 · boy</span></div>');
 rep('<li><span class="k">사는 곳</span><span>초록숲 한가운데, 커다란 참나무 꼭대기 나무집</span></li>',
     '<li><span class="k">Home</span><span>A treehouse atop a great oak, deep in the green forest</span></li>');
 rep('<li><span class="k">가족</span><span>포근한 엄마, 도토리 잘 찾는 아빠, 장난꾸러기 여동생 콩이</span></li>',
@@ -137,7 +137,7 @@ rep('<li><span class="k">버릇</span><span>신나면 꼬리를 파닥파닥, �
 rep('<span class="kicker">왜 캐릭터가 중요한가요</span>', '<span class="kicker">Why a character matters</span>');
 rep('<h2>아이는 앱이 아니라<br>친구에게 마음을 열어요</h2>', '<h2>Children open up to<br>a friend, not an app</h2>');
 rep('<p>라이티는 기능이 아니라 <b>삶이 있는 여덟 살 친구</b>예요.\n           나무집에 살고, 천둥을 무서워합니다.</p>',
-    '<p>Laity isn’t a feature — he’s <b>an eight-year-old with a life.</b>\n           He lives in a treehouse and he’s scared of thunder.</p>');
+    '<p>Writy isn’t a feature — he’s <b>an eight-year-old with a life.</b>\n           He lives in a treehouse and he’s scared of thunder.</p>');
 rep('<p>친구라서 시키지 않아도 하루를 들려줘요.<br>\n           그래서 <b>일기로 쓸 때도 술술 나옵니다.</b></p>',
     '<p>Because he’s a friend, they tell him about the day unprompted.<br>\n           And that’s why <b>the diary comes out easily.</b></p>');
 rep('<blockquote class="quote">"헐! 종이접기 했어? 뭐 접었는지 진짜 궁금하다!"</blockquote>',
@@ -146,7 +146,7 @@ rep('<blockquote class="quote">"헐! 종이접기 했어? 뭐 접었는지 진�
 // ── 친구 연결(준비 중) ──
 rep('<span class="soon-badge">다음 단계 · 준비 중</span>', '<span class="soon-badge">Coming next · in development</span>');
 rep('<p class="big">지금은 라이티와 둘이서.<br>곧 <b>친구들 글도 함께</b> 봐요.</p>',
-    '<p class="big">Today, just Laity.<br>Soon, <b>friends’ writing too.</b></p>');
+    '<p class="big">Today, just Writy.<br>Soon, <b>friends’ writing too.</b></p>');
 rep('아이가 쓴 글을 또래와 나누고 서로의 생각을 보는 기능을 준비하고 있습니다.\n        다만 <b>아직 제공되지 않는 기능</b>이에요. 아이 안전과 개인정보 보호 설계를 먼저 끝낸 뒤에 열겠습니다.\n        출시 시점의 제공 범위와 방식은 달라질 수 있습니다.',
     'We’re building a way for children to share their writing and see how others think.\n        This is <b>not available yet.</b> We’ll open it only after the child-safety and privacy design is finished.\n        Scope and approach may change by launch.');
 
@@ -156,13 +156,13 @@ rep('<h2>재미보다 먼저 지키는 것들</h2>', '<h2>What comes before fun<
 rep('<p>아이의 마음을 다루는 앱이니까요.</p>', '<p>This app handles a child’s feelings.</p>');
 rep('<h3><span class="pi">🤍</span>힘든 마음엔 들뜨지 않아요</h3>', '<h3><span class="pi">🤍</span>No confetti over sadness</h3>');
 rep('<p>속상한 이야기엔 축하 대신,<br><b>그 마음을 먼저 알아줍니다.</b></p>',
-    '<p>When the story hurts, instead of celebrating<br><b>Laity acknowledges the feeling first.</b></p>');
+    '<p>When the story hurts, instead of celebrating<br><b>Writy acknowledges the feeling first.</b></p>');
 rep('<h3><span class="pi">🌳</span>어른과 연결해요</h3>', '<h3><span class="pi">🌳</span>We point to grown-ups</h3>');
 rep('<p>안전에 관한 얘기가 나오면<br><b>"믿는 어른에게 꼭 얘기해줘"</b>라고 권해요.</p>',
-    '<p>If safety comes up, Laity says<br><b>“Please tell a grown-up you trust.”</b></p>');
+    '<p>If safety comes up, Writy says<br><b>“Please tell a grown-up you trust.”</b></p>');
 rep('<h3><span class="pi">🔋</span>붙잡지 않아요</h3>', '<h3><span class="pi">🔋</span>We don’t hold on</h3>');
 rep('<p>문자는 <b>하루 딱 한 통</b>.<br>라이티 폰 배터리가 다 되면 통화도 끝나요.</p>',
-    '<p><b>One text a day.</b><br>When Laity’s phone battery runs out, the call ends.</p>');
+    '<p><b>One text a day.</b><br>When Writy’s phone battery runs out, the call ends.</p>');
 rep('<h3><span class="pi">✏️</span>틀려도 괜찮아요</h3>', '<h3><span class="pi">✏️</span>Mistakes are fine</h3>');
 rep('<p>틀린 말은 <b>바른 말로 다시 들려줄 뿐</b>이에요.<br>광고도 없습니다.</p>',
     '<p>A wrong word is simply <b>said back the right way.</b><br>And there are no ads.</p>');
@@ -197,7 +197,7 @@ rep('※ 위 연구들은 <b>피어라를 검증한 것이 아닙니다.</b> 피
     '※ These studies <b>do not validate Peera.</b> They explain the principles Peera was designed around.\n      Peera has not launched yet, and our app’s learning outcomes have not been measured. We will not promise\n      results we haven’t verified.');
 
 // ── 마무리 CTA ──
-rep('<h2>라이티의 첫 문자,<br>우리 아이에게 닿게 해주세요</h2>', '<h2>Let Laity’s first text<br>reach your child</h2>');
+rep('<h2>라이티의 첫 문자,<br>우리 아이에게 닿게 해주세요</h2>', '<h2>Let Writy’s first text<br>reach your child</h2>');
 rep('<p>준비되는 대로 가장 먼저 알려드릴게요.</p>', '<p>We’ll tell you the moment it’s ready.</p>');
 
 // ── 푸터 ──
@@ -225,33 +225,33 @@ rep('<a class="brand" href="#" aria-label="피어라 홈">', '<a class="brand" h
 rep('<nav class="langtop" aria-label="언어 선택">\n      <b aria-current="true">한국어</b>\n      <a href="en.html?lang=en" hreflang="en">EN</a>\n    </nav>',
     '<nav class="langtop" aria-label="Language">\n      <a href="index.html?lang=ko" hreflang="ko">한국어</a>\n      <b aria-current="true">EN</b>\n    </nav>');
 rep('<b>피어라</b><span>Peera</span>', '<b>Peera</b><span>피어라</span>');
-rep('<span class="call-name">라이티 🌰</span>', '<span class="call-name">Laity 🌰</span>');
+rep('<span class="call-name">라이티 🌰</span>', '<span class="call-name">Writy 🌰</span>');
 rep('<i class="rec"></i>통화 중 <span id="callTime">', '<i class="rec"></i>On call <span id="callTime">');
-rep('<span class="batt">라이티 폰 <i class="case">', '<span class="batt">Laity’s phone <i class="case">');
+rep('<span class="batt">라이티 폰 <i class="case">', '<span class="batt">Writy’s phone <i class="case">');
 rep('<span class="mic">🎙️</span><br>버튼 없이, 아이가 말하면 라이티가 들어요',
-    '<span class="mic">🎙️</span><br>No buttons — they talk, Laity listens');
-rep('<div class="n-head"><b>라이티</b><span>지금</span></div>', '<div class="n-head"><b>Laity</b><span>now</span></div>');
+    '<span class="mic">🎙️</span><br>No buttons — they talk, Writy listens');
+rep('<div class="n-head"><b>라이티</b><span>지금</span></div>', '<div class="n-head"><b>Writy</b><span>now</span></div>');
 rep('<b>라이티</b>\n            <span>전화 거는 중<i>.</i><i>.</i><i>.</i></span>',
-    '<b>Laity</b>\n            <span>Calling<i>.</i><i>.</i><i>.</i></span>');
+    '<b>Writy</b>\n            <span>Calling<i>.</i><i>.</i><i>.</i></span>');
 rep('<span class="d-label">오늘의 일기 · 통화에서 꺼낸 마음</span>',
     '<span class="d-label">Today’s diary · from the call</span>');
 
 // ── 폰 데모 대사(30초 연출) ──
 rep("const NOTIF_TEXT = '나 오늘 진짜 커다란 도토리를 주웠어!';",
     "const NOTIF_TEXT = 'I found a REALLY big acorn today!';");
-rep("{ who: 'laity', text: '어? 지우야, 안녕! 오늘 하루 어땠어?' }",
-    "{ who: 'laity', text: 'Oh, hi Mia! How was your day?' }");
+rep("{ who: 'writy', text: '어? 지우야, 안녕! 오늘 하루 어땠어?' }",
+    "{ who: 'writy', text: 'Oh, hi Mia! How was your day?' }");
 rep("{ who: 'kid',   text: '라이티야! 아까 문자 봤어. 도토리 어디서 주웠어?' }",
-    "{ who: 'kid',   text: 'Laity! I saw your text. Where did you find the acorn?' }");
-rep("{ who: 'laity', text: '참나무 밑에서! 너무 커서 들고 오다 데굴데굴 굴렀지 뭐야. 너는 오늘 뭐 했어?' }",
-    "{ who: 'laity', text: 'Under the big oak! It was so heavy I rolled all the way home. What did you do today?' }");
+    "{ who: 'kid',   text: 'Writy! I saw your text. Where did you find the acorn?' }");
+rep("{ who: 'writy', text: '참나무 밑에서! 너무 커서 들고 오다 데굴데굴 굴렀지 뭐야. 너는 오늘 뭐 했어?' }",
+    "{ who: 'writy', text: 'Under the big oak! It was so heavy I rolled all the way home. What did you do today?' }");
 rep("{ who: 'kid',   text: '학교에서 종이접기 했어. 어려웠는데 끝까지 했어' }",
     "{ who: 'kid',   text: 'We did origami at school. It was hard but I finished it' }");
-rep("{ who: 'laity', text: '끝까지 해냈구나, 멋지다! 그때 기분이 어땠어?' }",
-    "{ who: 'laity', text: 'You finished it — that’s awesome! How did that feel?' }");
+rep("{ who: 'writy', text: '끝까지 해냈구나, 멋지다! 그때 기분이 어땠어?' }",
+    "{ who: 'writy', text: 'You finished it — that’s awesome! How did that feel?' }");
 rep("{ who: 'kid',   text: '뿌듯했어!' }", "{ who: 'kid',   text: 'I felt proud!' }");
-rep("{ who: 'laity', text: '그 뿌듯한 마음, 우리 일기로 남겨볼까?' }",
-    "{ who: 'laity', text: 'That proud feeling — want to put it in your diary?' }");
+rep("{ who: 'writy', text: '그 뿌듯한 마음, 우리 일기로 남겨볼까?' }",
+    "{ who: 'writy', text: 'That proud feeling — want to put it in your diary?' }");
 rep("const DIARY_TEXT = '오늘 종이접기를 했다.\\n어려웠는데 끝까지 해서 뿌듯했다.';",
     "const DIARY_TEXT = 'Today I did origami.\\nIt was hard but I finished it and felt proud.';");
 

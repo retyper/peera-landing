@@ -45,7 +45,8 @@
   - `writy.riv` + `rive.js` + `rive.wasm` — 본품 VoiceTalk의 라이티 Rive를 **라이브 구동**
     (아트보드 `Artboard`, 스테이트머신 `squirrel_state`, 데모가 isTalking/isListening 입력을 조작).
   - `writy-still.png` — Rive 로드 전/실패 시 폴백 포스터(정지 프레임, 폰 화면 비율).
-  - `laity-avatar.png` — 공식 아바타(256px 축소판). 파비콘 + 원형 연락처 사진 스타일로 사용.
+  - `writy-avatar.png` — 공식 아바타(256px 축소판). 파비콘 + 원형 연락처 사진 스타일로 사용.
+    (본품에는 `laity-avatar.png` 라는 옛 이름으로 있다 — 다시 복사할 땐 이름을 바꿔 넣을 것.)
   - `plant-bud1/flower2/flower1.png` — 본품의 새싹→꽃 아트(알파 크롭판). 세 걸음 아이콘.
     본품 `bud1~bud3`는 셋 다 사실상 같은 떡잎 싹이라 2단계가 1단계와 구분되지 않는다.
     그래서 2단계는 오므린 튤립(`flower2`)을 봉오리 대용으로 쓴다 — 싹 → 봉오리 → 활짝.
@@ -56,7 +57,7 @@
   > (본문은 7~11세인데 공유 미리보기만 4~8세로 나가고 있었다).
   >
   > 재생성: `tools/og-card.html`을 고친 뒤 아래를 돌린다. 본품 공식 아트
-  > (`writy-still.png`, `laity-avatar.png`)를 넣고 조판만 한다 — 라이티는 다시 그리지 않는다.
+  > (`writy-still.png`, `writy-avatar.png`)를 넣고 조판만 한다 — 라이티는 다시 그리지 않는다.
   > ```
   > node tools/shoot.mjs tools/og-card.html    peera-og.png
   > node tools/shoot.mjs tools/og-card-en.html peera-og-en.png
@@ -64,7 +65,8 @@
 - `peera-og-en.png` — 영어판(`en.html`)용 OG. 위와 같은 주의사항이 그대로 적용된다.
 - `peera-sprout.png` — 예전 새싹 브랜드 이미지(감정카드 앱과의 연결 고리, 보관용).
 
-> 본품 에셋을 갱신하면: dearmydiary의 `public/writy.riv`·`laity-avatar.png` 등을 다시 복사하면 된다.
+> 본품 에셋을 갱신하면: dearmydiary의 `public/writy.riv`·`laity-avatar.png`(→ `writy-avatar.png`로
+> 이름 바꿔 저장) 등을 다시 복사하면 된다.
 > Rive 런타임은 dearmydiary `node_modules/@rive-app/canvas`의 `rive.js`/`rive.wasm`.
 
 ## 한국어 / 영어 두 벌 — ★수정 순서를 반드시 지킬 것
@@ -82,6 +84,10 @@
 배포되는 걸 막기 위한 것이니, 실패를 무시하고 넘어가지 말 것. 마지막에 "남은 한국어"도
 같이 찍는다 — 브랜드명 `피어라`와 손글씨 일기 샘플은 **의도적으로 한국어로 남긴다**
 (한글 쓰기 자체가 셀링 포인트라 외국인에게도 그대로 보여준다).
+
+**라이티의 영어 이름은 `Writy`다.** 에셋 이름(`writy.riv`)과 같은 철자를 쓴다.
+한때 `Laity`로 나가 있었는데 영어에서 "평신도"라는 뜻의 실재 단어라 완전히 다른 이름이었다.
+영어 카피·OG 카드·CSS 변수까지 전부 `Writy`로 통일돼 있으니 새 문구를 넣을 때도 맞출 것.
 
 **폼 필드의 `name`은 한국어를 유지한다.** JS가 `[name="신청위치"]`로 찾고, 알림 메일을
 받는 쪽도 한국어라 양쪽 페이지가 같은 형식으로 와야 한다. 값만 `(EN)`으로 구분한다.
