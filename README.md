@@ -41,7 +41,9 @@
     (아트보드 `Artboard`, 스테이트머신 `squirrel_state`, 데모가 isTalking/isListening 입력을 조작).
   - `writy-still.png` — Rive 로드 전/실패 시 폴백 포스터(정지 프레임, 폰 화면 비율).
   - `laity-avatar.png` — 공식 아바타(256px 축소판). 파비콘 + 원형 연락처 사진 스타일로 사용.
-  - `plant-bud1/bud3/flower1.png` — 본품의 새싹→꽃 아트(알파 크롭판). 세 걸음 아이콘.
+  - `plant-bud1/flower2/flower1.png` — 본품의 새싹→꽃 아트(알파 크롭판). 세 걸음 아이콘.
+    본품 `bud1~bud3`는 셋 다 사실상 같은 떡잎 싹이라 2단계가 1단계와 구분되지 않는다.
+    그래서 2단계는 오므린 튤립(`flower2`)을 봉오리 대용으로 쓴다 — 싹 → 봉오리 → 활짝.
   - `stamp-good.png` — 본품의 "참 잘했어요" 도장. 일기 카드 연출.
 - `peera-og.png` — 카톡·문자 공유 미리보기(OG) 1200×630. 실제 라이티 통화 화면 목업 포함.
 - `peera-sprout.png` — 예전 새싹 브랜드 이미지(감정카드 앱과의 연결 고리, 보관용).
