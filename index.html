@@ -643,6 +643,8 @@
   .final .status.err { color: #FFAFBE; }
 
   footer { text-align: center; color: var(--ink-soft); font-size: .87rem; padding: 44px 0 58px; }
+  /* 어느 문서가 무엇을 다루는지 — 범위가 다른 두 방침을 헷갈리지 않게 */
+  footer .fsep { color: var(--outline); font-size: .82em; white-space: nowrap; }
   footer .fbrand { display: flex; justify-content: center; align-items: center; gap: 9px; margin-bottom: 10px; }
   footer .fbrand img { width: 34px; height: 34px; }
   footer .fbrand b { font-family: "Jua", sans-serif; font-size: 1.1rem; }
@@ -1049,7 +1051,16 @@
       <b>피어라</b>
     </div>
     <div>만든 팀 <b>Peer</b> · 문의 <a href="mailto:retyper92@gmail.com">retyper92@gmail.com</a></div>
-    <div><a href="privacy.html">개인정보 수집·이용 안내</a></div>
+    <!-- 문서가 둘로 나뉜다: privacy.html은 '이 사전예약 페이지'(이메일·GA4·Formspree),
+         legal/*-peera.html은 '앱'(아이 일기·음성·AI 위탁). 범위가 달라 대체 불가 —
+         사전예약 동의 체크박스가 가리키는 건 반드시 privacy.html이어야 한다. -->
+    <div><a href="privacy.html">개인정보 수집·이용 안내</a> <span class="fsep">— 사전예약 페이지</span></div>
+    <div>
+      <a href="https://hephaestosian.github.io/legal/privacy-peera.html" target="_blank" rel="noopener">앱 개인정보처리방침</a>
+      ·
+      <a href="https://hephaestosian.github.io/legal/terms-peera.html" target="_blank" rel="noopener">앱 이용약관</a>
+      <span class="fsep">— 피어라 앱</span>
+    </div>
     <div>© 2026 Peer</div>
     <div class="from-cards">감정카드 앱에서 오셨나요? 반가워요 — 마음의 씨앗이 여기서 손글씨의 꽃으로 피어납니다. 🌱</div>
   </footer>
