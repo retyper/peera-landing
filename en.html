@@ -179,7 +179,29 @@
   }
 
   /* ── 상단 바 ── */
-  header.top { padding: 22px 0 6px; }
+  header.top {
+    padding: 22px 0 6px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+
+  /* ── 상단 언어 토글 ──
+     언어가 잘못 잡힌 방문자(재외 한국인, 한국어 쓰는 외국인)가 페이지 전체를
+     스크롤하지 않고 첫 화면에서 바로 바꿀 수 있어야 한다. 푸터 것과 함께 둘 다 둔다. */
+  .langtop {
+    display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;
+    background: #fff; border: 1.5px solid var(--line); border-radius: 999px; padding: 3px;
+  }
+  .langtop a, .langtop b {
+    display: inline-block; padding: 6px 13px 7px; border-radius: 999px; line-height: 1;
+    font-family: "Jua", sans-serif; font-size: .92rem; text-decoration: none;
+  }
+  .langtop b { background: var(--purple); color: #fff; }
+  .langtop a { color: var(--ink-soft); }
+  .langtop a:hover { background: var(--purple-soft); color: var(--purple-dark); }
+  @media (max-width: 420px) {
+    .brand span { display: none; }              /* 좁은 화면에선 부제를 빼서 토글 자리를 만든다 */
+    .langtop a, .langtop b { padding: 6px 10px 7px; font-size: .86rem; }
+  }
   .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
   .brand b { font-family: "Jua", sans-serif; font-size: 1.4rem; }
   .brand span { color: var(--ink-soft); font-size: .82rem; margin-left: 1px; }
@@ -780,6 +802,10 @@
       <img class="avatar" src="laity-avatar.png" width="42" height="42" alt="">
       <b>Peera</b><span>피어라</span>
     </a>
+    <nav class="langtop" aria-label="Language">
+      <a href="index.html?lang=ko" hreflang="ko">한국어</a>
+      <b aria-current="true">EN</b>
+    </nav>
   </header>
 
   <!-- ═════════ 히어로 ═════════ -->
