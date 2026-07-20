@@ -34,8 +34,13 @@
 
 ## 구성
 
-- `index.html` — 랜딩페이지(HTML·CSS·JS 인라인, 폰트만 CDN).
-  히어로의 "라이티 통화 → 손글씨 일기" 데모, 라이티 도감, 정서 안전 약속 섹션 포함.
+- `index.html` — 랜딩페이지 **한국어판(원본)**. HTML·CSS·JS 인라인, 폰트만 CDN.
+  히어로의 "라이티 통화 → 손글씨 일기" 데모, 라이티 도감, 정서 안전 약속, 근거 섹션 포함.
+- `en.html` — **영어판(자동 생성물, 직접 수정 금지)**. 아래 "한국어 / 영어 두 벌" 참고.
+- `privacy.html` / `privacy-en.html` — 사전예약 페이지용 개인정보 안내(한/영).
+  앱 방침과는 **범위가 다르다** — 앱 것은 `hephaestosian.github.io/legal/`에 따로 있다.
+- `tools/` — 빌드 스크립트. `make-en.mjs`(영어판 생성) · `shoot.mjs`(OG 촬영) ·
+  `og-card*.html`(OG 카드 원본).
 - **라이티는 본품(dearmydiary)의 실제 에셋을 그대로 쓴다** (그린 그림 아님):
   - `writy.riv` + `rive.js` + `rive.wasm` — 본품 VoiceTalk의 라이티 Rive를 **라이브 구동**
     (아트보드 `Artboard`, 스테이트머신 `squirrel_state`, 데모가 isTalking/isListening 입력을 조작).
@@ -50,15 +55,50 @@
   > 이 이미지도 같이 바꿔야 한다 — grep에 걸리지 않아 그냥 지나친 적이 있다
   > (본문은 7~11세인데 공유 미리보기만 4~8세로 나가고 있었다).
   >
-  > 재생성: 1200×630 HTML을 만들어 playwright로 촬영한다. 본품 공식 아트
+  > 재생성: `tools/og-card.html`을 고친 뒤 아래를 돌린다. 본품 공식 아트
   > (`writy-still.png`, `laity-avatar.png`)를 넣고 조판만 한다 — 라이티는 다시 그리지 않는다.
   > ```
-  > node shoot.mjs og-card.html peera-og.png   # playwright + 시스템 크롬, deviceScaleFactor 1
+  > node tools/shoot.mjs tools/og-card.html    peera-og.png
+  > node tools/shoot.mjs tools/og-card-en.html peera-og-en.png
   > ```
+- `peera-og-en.png` — 영어판(`en.html`)용 OG. 위와 같은 주의사항이 그대로 적용된다.
 - `peera-sprout.png` — 예전 새싹 브랜드 이미지(감정카드 앱과의 연결 고리, 보관용).
 
 > 본품 에셋을 갱신하면: dearmydiary의 `public/writy.riv`·`laity-avatar.png` 등을 다시 복사하면 된다.
 > Rive 런타임은 dearmydiary `node_modules/@rive-app/canvas`의 `rive.js`/`rive.wasm`.
+
+## 한국어 / 영어 두 벌 — ★수정 순서를 반드시 지킬 것
+
+`en.html`은 **손으로 고치지 않는다.** `index.html`에서 스크립트로 생성한다
+(문구 매핑 135건). 영어판을 직접 고치면 다음 생성 때 그대로 덮어써진다.
+
+```
+1. index.html 을 고친다            ← 한국어판이 언제나 원본
+2. node tools/make-en.mjs index.html en.html
+3. 문구를 새로 추가했다면 MISS 가 뜬다 → tools/make-en.mjs 의 매핑 표에 추가하고 2번 재실행
+```
+
+`make-en.mjs`는 **치환 실패가 하나라도 있으면 종료코드 1**로 끝난다. 한국어가 섞인 채
+배포되는 걸 막기 위한 것이니, 실패를 무시하고 넘어가지 말 것. 마지막에 "남은 한국어"도
+같이 찍는다 — 브랜드명 `피어라`와 손글씨 일기 샘플은 **의도적으로 한국어로 남긴다**
+(한글 쓰기 자체가 셀링 포인트라 외국인에게도 그대로 보여준다).
+
+**폼 필드의 `name`은 한국어를 유지한다.** JS가 `[name="신청위치"]`로 찾고, 알림 메일을
+받는 쪽도 한국어라 양쪽 페이지가 같은 형식으로 와야 한다. 값만 `(EN)`으로 구분한다.
+(이걸 영어로 바꿨다가 JS가 null을 만나 스크립트 전체가 죽은 적이 있다.)
+
+### 언어 라우팅
+기기 언어가 한국어면 `index.html`, 그 외 전부 `en.html`. 단:
+- **사용자 선택이 자동 감지를 이긴다** — 상단/하단 토글이 `localStorage.peeraLang`에 고정한다
+- `?lang=ko|en` 으로도 지정된다(공유 링크·QA용)
+- `replace()`라 뒤로가기가 막히지 않고, 목적지는 언어가 일치하므로 루프가 없다
+- 페이지를 추가하면 `hreflang` 3줄(ko/en/x-default)도 같이 넣을 것
+
+### 쿠키 동의
+GA4는 **배너에서 "동의"를 누르기 전까지 아예 로드되지 않는다**(GDPR). 거부하면 영구히 꺼지고
+`track()`도 조용히 무시된다. 계측 코드를 만질 때 이 게이트를 우회하지 말 것.
+
+> ⚠️ 동의 도입 이후 GA4 수치는 **동의한 방문자만** 잡힌다. 도입 이전 기간과 직접 비교하지 말 것.
 
 ## 디자인 시스템
 
@@ -80,6 +120,14 @@
       ⚠️ **`claude-opus-4-8`(모델 ID)와 `~4~8s`(지연시간)는 "4-8"을 포함하지만 건드리면 안 된다.**
       반드시 `4~8세`·`age 4-8` 같은 좁은 패턴으로만 치환할 것.
       (UI 문구의 '빨간펜' 제거는 커밋 `8c5c9b0`으로 이미 반영됨)
+
+**본품 영어화 — 랜딩보다 먼저 끝나야 한다**
+- [ ] 앱 UI에 i18n이 없다. 화면 문자열이 **한국어로 약 1,056개 하드코딩**돼 있고
+      `lang === "en"` 분기는 10개 파일(AI 프롬프트·OCR·TTS)뿐이다.
+      즉 지금은 라이티가 영어로 말하고 영어 일기를 첨삭할 뿐, **버튼·메뉴·설정·부모 리포트는
+      전부 한국어**다(`voiceTalkLocale.ts` 주석이 "화면 뼈대는 한국 아동 대상"이라고 명시).
+      영어 랜딩은 출시 시점 제품을 기준으로 쓴 것이므로, **출시 전까지 이 작업이 끝나야
+      약속이 지켜진다.** 감정카드 170개국 유입이 여기로 온다.
 
 **랜딩**
 - [ ] 인터뷰 최대 페인인 "외동이라 다른 사람 생각을 들어볼 기회가 없다"는 아직 로드맵
