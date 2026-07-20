@@ -45,7 +45,16 @@
     본품 `bud1~bud3`는 셋 다 사실상 같은 떡잎 싹이라 2단계가 1단계와 구분되지 않는다.
     그래서 2단계는 오므린 튤립(`flower2`)을 봉오리 대용으로 쓴다 — 싹 → 봉오리 → 활짝.
   - `stamp-good.png` — 본품의 "참 잘했어요" 도장. 일기 카드 연출.
-- `peera-og.png` — 카톡·문자 공유 미리보기(OG) 1200×630. 실제 라이티 통화 화면 목업 포함.
+- `peera-og.png` — 카톡·문자 공유 미리보기(OG) 1200×630.
+  > ⚠️ **카피가 이미지 안에 글자로 구워져 있다.** 대상 연령·헤드라인을 바꾸면
+  > 이 이미지도 같이 바꿔야 한다 — grep에 걸리지 않아 그냥 지나친 적이 있다
+  > (본문은 7~11세인데 공유 미리보기만 4~8세로 나가고 있었다).
+  >
+  > 재생성: 1200×630 HTML을 만들어 playwright로 촬영한다. 본품 공식 아트
+  > (`writy-still.png`, `laity-avatar.png`)를 넣고 조판만 한다 — 라이티는 다시 그리지 않는다.
+  > ```
+  > node shoot.mjs og-card.html peera-og.png   # playwright + 시스템 크롬, deviceScaleFactor 1
+  > ```
 - `peera-sprout.png` — 예전 새싹 브랜드 이미지(감정카드 앱과의 연결 고리, 보관용).
 
 > 본품 에셋을 갱신하면: dearmydiary의 `public/writy.riv`·`laity-avatar.png` 등을 다시 복사하면 된다.
