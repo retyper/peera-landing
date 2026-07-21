@@ -33,16 +33,19 @@ function doPost(e) {
     sheet.getRange(nextRow, 1, 1, row.length).setValues([row]);
 
     // Formspree가 하던 "신청 오면 메일로 알림"을 대신한다. 안 받고 싶으면 이 블록만 지우면 됨.
-    try {
-      MailApp.sendEmail(
-        'retyper92@gmail.com',
-        params['_subject'] || '[피어라] 사전예약 신청',
-        'email: ' + (params['email'] || '') +
-          '\n신청위치: ' + (params['신청위치'] || '') +
-          '\n유입경로: ' + (params['유입경로'] || '')
-      );
-    } catch (mailErr) {
-      // 메일 발송 실패해도 시트 저장은 이미 끝났으니 신청 자체는 성공으로 본다.
+    // 지불의향(WTP) 2차 응답(신청위치='WTP')은 같은 사람의 후속 행이라 알림 메일은 생략한다(중복 방지).
+    if (params['신청위치'] !== 'WTP') {
+      try {
+        MailApp.sendEmail(
+          'retyper92@gmail.com',
+          params['_subject'] || '[피어라] 사전예약 신청',
+          'email: ' + (params['email'] || '') +
+            '\n신청위치: ' + (params['신청위치'] || '') +
+            '\n유입경로: ' + (params['유입경로'] || '')
+        );
+      } catch (mailErr) {
+        // 메일 발송 실패해도 시트 저장은 이미 끝났으니 신청 자체는 성공으로 본다.
+      }
     }
 
     return ContentService.createTextOutput(JSON.stringify({ result: 'success' }))

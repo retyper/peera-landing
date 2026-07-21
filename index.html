@@ -288,6 +288,31 @@
   .status.ok { color: var(--green); }
   .status.err { color: #C6566B; }
 
+  /* 히어로 태블릿 안심 한 줄(개정안 2 — #2 "패드 부셔버리겠다" 정면 대응) */
+  .reassure { max-width: 27em; margin: 14px 0 0; font-size: 1.02rem; line-height: 1.55; color: var(--ink-soft); word-break: keep-all; }
+  .reassure b { color: var(--writy-deep); }
+
+  /* 제출 직후 지불의향(WTP) — 1차 전환에 마찰을 안 주려고 성공 뒤에만 나타난다 */
+  .wtp { margin: 16px 2px 0; }
+  .wtp[hidden] { display: none; }
+  .wtp-q { font-size: .98rem; font-weight: 700; color: var(--ink); margin: 0 0 9px; line-height: 1.5; }
+  .wtp-q b { color: var(--purple-dark); }
+  .wtp-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wtp-opts button {
+    font: inherit; font-size: .95rem; cursor: pointer;
+    padding: 9px 14px; border-radius: 12px;
+    border: 2px solid var(--line); background: #fff; color: var(--ink);
+    transition: border-color .12s, background .12s, color .12s;
+  }
+  .wtp-opts button:hover { border-color: var(--purple); }
+  .wtp-opts button[aria-pressed="true"] { border-color: var(--purple); background: var(--purple-soft); color: var(--purple-dark); font-weight: 700; }
+  .wtp-opts button[disabled] { cursor: default; }
+  .wtp-opts button[disabled]:not([aria-pressed="true"]) { opacity: .5; }
+  .wtp-thanks { margin: 11px 2px 0; font-size: .92rem; font-weight: 700; color: var(--green); }
+  .wtp-thanks[hidden] { display: none; }
+  .final .wtp-q, .final .wtp-q b { color: #fff; }
+  .final .wtp-thanks { color: #8FE39C; }
+
   /* ═══════════════ 폰 데모(시그니처) ═══════════════ */
   .demo-col { display: flex; justify-content: center; }
   .phone {
@@ -811,13 +836,14 @@
   <!-- ═════════ 히어로 ═════════ -->
   <section class="hero">
     <div class="hero-copy">
-      <span class="eyebrow rise in"><span class="dot"></span> 7~11세 · 출시 준비 중 · 사전예약 받는 중</span>
+      <span class="eyebrow rise in"><span class="dot"></span> 7~11세 · 매일 한 번 · 사전예약 받는 중</span>
       <h1 class="rise in"><span class="hl-writy">라이티</span>한테 문자가 왔어요<br>
         <span class="sms">“오늘 있었던 일 통화하자!”</span></h1>
       <p class="lead rise in">
-        <b>아이가 먼저 전화를 겁니다.</b><br>
-        오늘 나눈 이야기가 그대로 일기가 돼요.
+        <b>아이가 먼저 전화를 걸어,</b> 오늘 있었던 일을 자기 말로 이야기해요.<br>
+        그 이야기가 <b>매일</b> 한 편의 일기가 됩니다.
       </p>
+      <p class="reassure rise in">게임 없어요. 시간 정해 아이랑 싸울 필요도 없어요 — <b>라이티가 먼저 부르니까요.</b></p>
 
       <form class="signup rise in" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
         <!-- 메일 제목·유입 위치 구분(히어로 vs 마무리 CTA). _gotcha는 스팸 트랩(Code.gs가 체크) -->
@@ -840,6 +866,16 @@
         </label>
         <p class="note">출시되면 이 메일로 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
         <p class="status" role="status" aria-live="polite"></p>
+        <div class="wtp" data-wtp hidden>
+          <p class="wtp-q">마지막으로 하나만요 🙏 출시되면 <b>월 얼마</b>면 신청하시겠어요?</p>
+          <div class="wtp-opts" role="group" aria-label="지불의향">
+            <button type="button" data-wtp-val="무료여야 신청" aria-pressed="false">무료여야 신청해요</button>
+            <button type="button" data-wtp-val="~1만원" aria-pressed="false">~1만원</button>
+            <button type="button" data-wtp-val="1~2만원" aria-pressed="false">1~2만원</button>
+            <button type="button" data-wtp-val="2만원 이상도" aria-pressed="false">2만원 이상도</button>
+          </div>
+          <p class="wtp-thanks" hidden>솔직한 답 고마워요. 가격을 정하는 데 큰 도움이 됩니다.</p>
+        </div>
       </form>
     </div>
 
@@ -1144,6 +1180,16 @@
         </label>
         <p class="note">출시되면 <b>딱 한 번</b> 알려드려요. 광고는 보내지 않습니다.</p>
         <p class="status" role="status" aria-live="polite"></p>
+        <div class="wtp" data-wtp hidden>
+          <p class="wtp-q">마지막으로 하나만요 🙏 출시되면 <b>월 얼마</b>면 신청하시겠어요?</p>
+          <div class="wtp-opts" role="group" aria-label="지불의향">
+            <button type="button" data-wtp-val="무료여야 신청" aria-pressed="false">무료여야 신청해요</button>
+            <button type="button" data-wtp-val="~1만원" aria-pressed="false">~1만원</button>
+            <button type="button" data-wtp-val="1~2만원" aria-pressed="false">1~2만원</button>
+            <button type="button" data-wtp-val="2만원 이상도" aria-pressed="false">2만원 이상도</button>
+          </div>
+          <p class="wtp-thanks" hidden>솔직한 답 고마워요. 가격을 정하는 데 큰 도움이 됩니다.</p>
+        </div>
       </form>
     </div>
   </section>
@@ -1467,6 +1513,10 @@
     const button = form.querySelector('button[type=submit]');
     const consent = form.querySelector('[data-consent]');
     const where = form.querySelector('[name="신청위치"]').value;
+    const emailInput = form.querySelector('input[type=email]');
+    const sourceField = form.querySelector('[name="유입경로"]');
+    const wtp = form.querySelector('[data-wtp]');
+    let submittedEmail = '';
 
     /* 동의 전에는 버튼을 잠근다. JS가 죽어도 checkbox의 required가 막아준다. */
     const syncConsent = () => { button.disabled = !consent.checked; };
@@ -1494,12 +1544,14 @@
         let data = null;
         try { data = await res.json(); } catch (_) {}
         if (res.ok && data && data.result === 'success') {
+          submittedEmail = emailInput.value;   // reset() 전에 WTP 2차 전송용으로 붙잡아둔다
           form.reset();
           syncConsent();  // reset()으로 체크가 풀리므로 버튼도 다시 잠근다
           status.className = 'status ok';
           status.textContent = '고마워요! 라이티의 첫 소식, 이 메일로 가장 먼저 알려드릴게요. 🌱';
           // ★ 이 랜딩의 유일한 전환. GA4에서 '주요 이벤트'로 표시할 것.
           track('generate_lead', { cta_location: where, traffic_source: trafficSource });
+          if (wtp) wtp.hidden = false;   // 1차 전환 성공 뒤에만 지불의향을 묻는다(마찰 최소화)
         } else {
           let msg = '전송이 잘 안 됐어요. 잠시 후 다시 시도해 주세요.';
           if (data && data.error) msg = '전송이 잘 안 됐어요: ' + data.error;
@@ -1515,6 +1567,33 @@
         syncConsent();
       }
     });
+
+    /* 지불의향(WTP) — 이메일 제출 성공 뒤에만 보인다. 별도 POST로 시트에 한 행 더 남긴다
+       (email을 키로 신청 행과 매칭). Code.gs는 헤더 '지불의향'으로 값을 넣고, 없어도 raw에 남는다. */
+    if (wtp) {
+      const opts = wtp.querySelectorAll('[data-wtp-val]');
+      const wtpThanks = wtp.querySelector('.wtp-thanks');
+      opts.forEach((opt) => {
+        opt.addEventListener('click', async () => {
+          const val = opt.getAttribute('data-wtp-val');
+          opts.forEach((o) => {
+            o.setAttribute('aria-pressed', o === opt ? 'true' : 'false');
+            o.disabled = true;   // 한 번만 응답. 재클릭·집계 오염 방지
+          });
+          track('wtp_answer', { cta_location: where, wtp: val });
+          try {
+            const fd = new FormData();
+            fd.append('email', submittedEmail);
+            fd.append('신청위치', 'WTP');
+            fd.append('유입경로', sourceField ? sourceField.value : '');
+            fd.append('지불의향', val);
+            fd.append('_subject', '[피어라] 지불의향 응답');
+            await fetch(form.action, { method: 'POST', body: fd });
+          } catch (_) { /* WTP 전송 실패해도 1차 전환은 이미 성공 — 조용히 넘어간다 */ }
+          if (wtpThanks) wtpThanks.hidden = false;
+        });
+      });
+    }
   });
 
   /* ── 스크롤 깊이 ──
