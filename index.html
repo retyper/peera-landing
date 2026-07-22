@@ -134,9 +134,13 @@
     --writy-tail:  #CE5F10;
     --cream-face:  #FFE9C9;
 
-    --purple:      #7C3AED;  /* 피어라 보라 포인트 */
+    --purple:      #7C3AED;  /* (구) 보라 포인트 — 소형 액센트 잔존 */
     --purple-dark: #5B21C0;
     --purple-soft: #F1EAFE;
+
+    --gold:        #EFA00B;  /* CTA 금색(딥 앰버) — 2026-07-22 결정. 연노랑 금지 */
+    --gold-dark:   #B8760A;
+    --gold-soft:   #FCEFD2;
 
     --green:       #43A047;  /* 새싹 */
     --green-soft:  #E8F5E9;
@@ -259,14 +263,14 @@
   .btn {
     border: none; cursor: pointer; font: inherit; font-family: "Jua", sans-serif;
     font-size: 1.2rem; letter-spacing: .01em;
-    background: var(--purple); color: #fff;
+    background: var(--gold); color: var(--ink);
     padding: 14px 24px 15px; border-radius: 16px;
-    box-shadow: 0 5px 0 var(--purple-dark);
+    box-shadow: 0 5px 0 var(--gold-dark);
     transition: transform .07s ease, box-shadow .07s ease, filter .15s;
     white-space: nowrap;
   }
   .btn:hover { filter: brightness(1.07); }
-  .btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--purple-dark); }
+  .btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--gold-dark); }
   .btn:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--purple); outline-offset: 2px; }
   .note { margin: 12px 2px 0; font-size: .94rem; color: var(--ink-soft); }
   .note b { color: var(--ink); }
@@ -282,7 +286,7 @@
     accent-color: var(--purple); cursor: pointer;
   }
   .consent a { color: inherit; text-underline-offset: 2px; }
-  .btn[disabled] { opacity: .45; box-shadow: 0 5px 0 var(--purple-dark); cursor: not-allowed; }
+  .btn[disabled] { opacity: .45; box-shadow: 0 5px 0 var(--gold-dark); cursor: not-allowed; }
   .btn[disabled]:hover { filter: none; }
   .status { margin: 10px 2px 0; font-size: .93rem; font-weight: 700; min-height: 1.3em; }
   .status.ok { color: var(--green); }
