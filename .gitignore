@@ -4,3 +4,7 @@ Thumbs.db
 *~
 .vscode/
 .idea/
+
+# 실사 장면 원본(대용량) — 재편집용으로 로컬 보존, 배포엔 압축 JPG만 사용
+scene-worry.png
+scene-diary.png

@@ -42,12 +42,14 @@ rep('"description": "숲속 다람쥐 라이티가 하루 한 번 문자를 보�
     '"description": "A squirrel named Writy texts once a day. The child calls, talks about their day, and turns it into a handwritten diary in Korean and English. For ages 7–11. Pre-registration open before launch.",');
 
 // ── 헤더/히어로 ──
-rep('<span class="eyebrow rise in"><span class="dot"></span> 7~11세 · 출시 준비 중 · 사전예약 받는 중</span>',
-    '<span class="eyebrow rise in"><span class="dot"></span> Ages 7–11 · In development · Pre-registration open</span>');
+rep('<span class="eyebrow rise in"><span class="dot"></span> 7~11세 · 매일 한 번 · 사전예약 받는 중</span>',
+    '<span class="eyebrow rise in"><span class="dot"></span> Ages 7–11 · Once a day · Pre-registration open</span>');
 rep('<h1 class="rise in"><span class="hl-writy">라이티</span>한테 문자가 왔어요<br>\n        <span class="sms">“오늘 있었던 일 통화하자!”</span></h1>',
     '<h1 class="rise in"><span class="hl-writy">Writy</span> just texted<br>\n        <span class="sms">“Tell me about your day!”</span></h1>');
-rep('<b>아이가 먼저 전화를 겁니다.</b><br>\n        오늘 나눈 이야기가 그대로 일기가 돼요.',
-    '<b>Your child calls first.</b><br>\n        Today’s story becomes today’s diary.');
+rep('<b>아이가 먼저 전화를 걸어,</b> 오늘 있었던 일을 자기 말로 이야기해요.<br>\n        그 이야기가 <b>매일</b> 한 편의 일기가 됩니다.',
+    '<b>Your child calls first</b> and tells the day in their own words.<br>\n        That story becomes <b>one diary, every day.</b>');
+rep('<p class="reassure rise in">게임 없어요. 시간 정해 아이랑 싸울 필요도 없어요 — <b>라이티가 먼저 부르니까요.</b></p>',
+    '<p class="reassure rise in">No games. No fighting over screen-time limits — <b>because Writy calls first.</b></p>');
 
 // 폼
 rep('placeholder="이메일 주소" required aria-label="이메일 주소"', 'placeholder="Email address" required aria-label="Email address"');
@@ -67,9 +69,50 @@ rep('name="신청위치" value="마무리 CTA"', 'name="신청위치" value="마
 rep('name="유입경로" data-source-field value="(직접 방문)"', 'name="유입경로" data-source-field value="(직접 방문)"');
 rep('name="개인정보동의" value="동의함"', 'name="개인정보동의" value="동의함"');
 
+// 지불의향(WTP) — 보이는 문구만 치환. data-wtp-val 값(시트로 전송)과 필드명은 한국어 유지.
+rep('<p class="wtp-q">마지막으로 하나만요 🙏 출시되면 <b>월 얼마</b>면 신청하시겠어요?</p>',
+    '<p class="wtp-q">One last thing 🙏 At launch, <b>how much a month</b> would you sign up for?</p>');
+rep('aria-label="지불의향"', 'aria-label="Willingness to pay"');
+rep('<button type="button" data-wtp-val="무료여야 신청" aria-pressed="false">무료여야 신청해요</button>',
+    '<button type="button" data-wtp-val="무료여야 신청" aria-pressed="false">Only if it’s free</button>');
+rep('<button type="button" data-wtp-val="~1만원" aria-pressed="false">~1만원</button>',
+    '<button type="button" data-wtp-val="~1만원" aria-pressed="false">Up to ₩10,000</button>');
+rep('<button type="button" data-wtp-val="1~2만원" aria-pressed="false">1~2만원</button>',
+    '<button type="button" data-wtp-val="1~2만원" aria-pressed="false">₩10,000–20,000</button>');
+rep('<button type="button" data-wtp-val="2만원 이상도" aria-pressed="false">2만원 이상도</button>',
+    '<button type="button" data-wtp-val="2만원 이상도" aria-pressed="false">Even ₩20,000+</button>');
+rep('<p class="wtp-thanks" hidden>솔직한 답 고마워요. 가격을 정하는 데 큰 도움이 됩니다.</p>',
+    '<p class="wtp-thanks" hidden>Thanks for the honest answer. It really helps us set the price.</p>');
+
 // 폰 데모 접근성 라벨
 rep('aria-label="피어라 앱 미리보기: 다람쥐 라이티가 문자를 보내고, 아이가 전화를 걸어 이야기를 나눈 뒤, 그 마음이 손글씨 일기가 되는 장면"',
     'aria-label="Peera app preview: Writy the squirrel sends a text, the child calls and talks, and that story becomes a handwritten diary"');
+
+// ── 문제/해결 장면(실사 이미지 자리 안내 포함) ──
+rep('<span class="tag">이미지 자리</span>', '<span class="tag">Image slot</span>');
+rep('alt="어린이집·학교 얘기를 물어도 앞에서 울기만 하는 아이"',
+    'alt="A child who only cries when asked about daycare or school"');
+rep('실사 3D · 유치원/학교 얘기에<br>앞에서 울기만 하는 아이<br>',
+    'Photoreal 3D · a child who only cries<br>when asked about school<br>');
+rep('<code>scene-worry.jpg</code> · 권장 1200×1500', '<code>scene-worry.jpg</code> · Suggested 1200×1500');
+rep('<span class="kicker">이런 순간, 있으셨죠</span>', '<span class="kicker">You know this moment</span>');
+rep('<h2>무슨 일 있었냐 물어도<br>울기만 하는 아이</h2>', '<h2>You ask what happened —<br>they just cry</h2>');
+rep('<p>어린이집에서, 학교에서 오늘 무슨 일이 있었는지 물어도 앞에서 울기만 할 때.</p>',
+    '<p>When you ask what happened at daycare or school today, and they only cry in front of you.</p>');
+rep('<p><b>답답하고, 또 걱정되셨을 거예요.</b></p>', '<p><b>It’s frustrating — and worrying.</b></p>');
+rep('<p class="turn">말하기 싫은 게 아니라,<br>아직 꺼내는 법을 모를 뿐이에요.</p>',
+    '<p class="turn">It’s not that they won’t talk.<br>They just don’t know how to yet.</p>');
+
+rep('alt="라이티와 전화하며 태블릿에 일기를 쓰는, 웃는 아이"',
+    'alt="A smiling child writing a diary while on a call with Writy"');
+rep('실사 3D · 라이티와 전화하며<br>태블릿에 일기 쓰는 아이(웃는 얼굴)<br>',
+    'Photoreal 3D · a smiling child on a call<br>with Writy, writing in a diary<br>');
+rep('<code>scene-diary.jpg</code> · 권장 1600×1000', '<code>scene-diary.jpg</code> · Suggested 1600×1000');
+rep('<span class="kicker">피어라를 만나면</span>', '<span class="kicker">With Peera</span>');
+rep('<h2>라이티랑 통화하다 보면<br>일기가 저절로 써져요</h2>',
+    '<h2>Talking with Writy,<br>the diary writes itself</h2>');
+rep('<p>울던 아이가 신나서 오늘 이야기를 꺼내요.<br>그 이야기가 그대로 오늘 일기가 됩니다.</p>',
+    '<p>The child who was crying can’t wait to share the day.<br>And that story becomes today’s diary.</p>');
 
 // ── 세 걸음 ──
 rep('<span class="kicker">피어라의 세 걸음</span>', '<span class="kicker">Three steps</span>');
@@ -173,25 +216,96 @@ rep('<h2>근거 위에 만듭니다</h2>', '<h2>Built on evidence</h2>');
 rep('<p>재미있게만 만들지 않았어요.<br class="desk">쌓인 연구가 가리키는 쪽으로 만들었습니다.</p>',
     '<p>We didn’t only make it fun.<br class="desk">We built toward what the research points to.</p>');
 
+// 근거 카드 — 신뢰칩(세리프 기관명은 라틴 문자라 그대로, sub만 치환) + 본문 + 결론(evid-does) 분리.
+// ★스탠퍼드 칩은 드웩 '현직'만 가리킨다. sub의 '논문은 1998, 컬럼비아대'를 반드시 함께 옮긴다.
+rep('<span class="cred-sub">미국 국가조기문해패널</span>', '<span class="cred-sub">United States</span>');
+rep('<span class="cred-sub">2011 · 카네기재단 지원 메타분석</span>', '<span class="cred-sub">2011 · Carnegie-funded meta-analysis</span>');
+rep('<span class="cred-sub">미국 교육부 검토</span>', '<span class="cred-sub">Reviewed by the U.S. Dept. of Education</span>');
+rep('<span class="cred-sub">캐럴 드웩 현 교수 · 논문은 1998, 컬럼비아대</span>', '<span class="cred-sub">Carol Dweck teaches here now · 1998 paper: Columbia</span>');
+
+// 뇌과학 결론 한 줄 + 실제 논문 그림 3장(fMRI) — Kersey & James (2013), CC BY 4.0
+rep('<p class="brain-headline rise">손으로 써야 <b>뇌가 켜집니다</b></p>',
+    '<p class="brain-headline rise">Writing by hand <b>switches the brain on</b></p>');
+rep('<span class="rf-tag">실제 논문 그림 · 아동 fMRI 연구</span>',
+    '<span class="rf-tag">Real published figures · child fMRI studies</span>');
+rep('alt="아동 fMRI: 직접 써서 배운 글자(B)와 눈으로만 배운 글자(C)를 볼 때의 뇌 활성 차이"',
+    'alt="Child fMRI: brain activity differs for letters learned by writing (B) vs. letters only watched (C)"');
+rep('alt="막대그래프: 직접 써서 배운 글자의 뇌 활성이 눈으로만 배운 글자보다 약 2배 이상 높음"',
+    'alt="Bar chart: brain activation for letters learned by writing is more than double that for letters only watched"');
+rep('alt="뇌 단면: 손으로 써서 배운 글자가 눈으로만 본 것보다 더 활성화되는 영역"',
+    'alt="Brain slices: regions that activate more for letters learned by writing than only watched"');
+rep('<figcaption>Fig. 4 · <b>직접 써서 배운 글자(B)</b> vs <b>눈으로만 배운 글자(C)</b> — 나중에 볼 때 뇌가 켜지는 모습이 다릅니다</figcaption>',
+    '<figcaption>Fig. 4 · <b>Letters learned by writing (B)</b> vs <b>letters only watched (C)</b> — the brain lights up differently later</figcaption>');
+rep('<figcaption>Fig. 8 · 직접 써서 배운 글자를 볼 때 <b>뇌 활성이 두 배 이상</b> (능동 vs 수동 vs 안 배움)</figcaption>',
+    '<figcaption>Fig. 8 · Letters learned by writing drive <b>more than double</b> the brain activation (active vs. passive vs. not learned)</figcaption>');
+rep('<figcaption>Fig. 6 · 손으로 써서 배운 글자가 <b>눈으로만 본 것보다 더 켜지는</b> 뇌 영역</figcaption>',
+    '<figcaption>Fig. 6 · Brain regions that light up <b>more for hand-written letters</b> than only-watched ones</figcaption>');
+rep('alt="아동 fMRI: 철자 훈련 전(Pre)과 후(Post)의 뇌 활성 변화 — 훈련군(TG)과 대기군(WG) 비교"',
+    'alt="Child fMRI: brain activation before (Pre) and after (Post) spelling intervention — training group (TG) vs. waiting group (WG)"');
+rep('<figcaption><b>다른 연구</b> · 훈련을 <b>받은 아이(TG)</b>는 훈련 뒤(Post) 뇌 활성이 뚜렷이 바뀌었지만, <b>안 받고 기다린 아이(WG)</b>는 거의 그대로 — <b>훈련이 뇌를 바꿉니다</b></figcaption>',
+    '<figcaption><b>A different study</b> · children who <b>got the training (TG)</b> showed clear brain-activation changes afterward, while those who <b>only waited (WG)</b> barely changed — <b>training reshapes the brain</b></figcaption>');
+rep('출처: Kersey &amp; James (2013), <i>Frontiers in Psychology</i> 4:567 (Fig. 4·8·6) · Gebauer 외 (2012), <i>PLOS ONE</i> 7:e38201 (Fig. 5) — 모두 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY</a>, <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00567/full" target="_blank" rel="noopener">원문1</a> · <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0038201" target="_blank" rel="noopener">원문2</a> (형식·크기 조정). 아동 fMRI 연구들이며, 피어라를 검증한 것이 아니라 설계가 따른 원리를 보여줍니다.',
+    'Sources: Kersey &amp; James (2013), <i>Frontiers in Psychology</i> 4:567 (Figs. 4·8·6) · Gebauer et al. (2012), <i>PLOS ONE</i> 7:e38201 (Fig. 5) — both <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY</a>, <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00567/full" target="_blank" rel="noopener">source 1</a> · <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0038201" target="_blank" rel="noopener">source 2</a> (reformatted/resized). These are fMRI studies in children; they do not validate Peera, but show the principle Peera was designed around.');
+
 rep('<h3>말이 먼저, 글은 그다음</h3>', '<h3>Talking comes first</h3>');
 rep('<p class="big">어릴 때 말한 만큼<br>나중에 씁니다.</p>', '<p class="big">What they say early<br>shapes what they write later.</p>');
-rep('유아·초기 아동기의 <b>구어(말하기) 능력이 이후의 쓰기 능력을 예측</b>한다는 연구가 반복해서\n          보고됩니다.\n          미국 국가조기문해패널(NELP)은 어휘·구어 발달을 이후 문해력의 핵심 예측 요인으로 꼽았습니다.\n          <br>→ 그래서 피어라는 <b>쓰기 전에 통화</b>부터 합니다.',
-    'Studies repeatedly report that <b>oral language in early childhood predicts later writing ability.</b>\n          The U.S. National Early Literacy Panel identified vocabulary and oral language development as core\n          predictors of later literacy.\n          <br>→ That’s why Peera <b>starts with a call, not a page.</b>');
+rep('유아·초기 아동기의 <b>구어(말하기) 능력이 이후의 쓰기 능력을 예측</b>한다는 연구가 반복해서 보고됩니다.\n          NELP은 어휘·구어 발달을 이후 문해력의 핵심 예측 요인으로 꼽았습니다.',
+    'Studies repeatedly report that <b>oral language in early childhood predicts later writing ability.</b>\n          The panel identified vocabulary and oral language development as core predictors of later literacy.');
+rep('<span class="arw">→</span> 그래서 피어라는 <b>쓰기 전에 통화</b>부터 합니다.',
+    '<span class="arw">→</span> That’s why Peera <b>starts with a call, not a page.</b>');
 
 rep('<h3>쓰면 읽기가 자란다</h3>', '<h3>Writing lifts reading</h3>');
 rep('<p class="big">쓰기는 읽기를<br>같이 끌어올려요.</p>', '<p class="big">Writing pulls reading<br>up along with it.</p>');
-rep('Graham &amp; Hebert, <b>「Writing to Read」</b>(Harvard Educational Review, 2011 · 카네기재단 지원 메타분석).\n          읽은 것에 대해 글을 쓰면 읽기 이해가 향상됐고(효과크기 .40~.51), 철자·문장 구성 지도는 .79였습니다.\n          <br>→ 그래서 피어라는 <b>매일 조금씩 씁니다.</b>',
-    'Graham &amp; Hebert, <b>“Writing to Read”</b> (Harvard Educational Review, 2011 · Carnegie-funded meta-analysis).\n          Writing about what students read improved reading comprehension (effect sizes .40–.51); teaching spelling\n          and sentence construction, .79.\n          <br>→ That’s why Peera <b>writes a little every day.</b>');
+rep('Graham &amp; Hebert, <b>「Writing to Read」</b>.\n          읽은 것에 대해 글을 쓰면 읽기 이해가 향상됐고(효과크기 .40~.51), 철자·문장 구성 지도는 .79였습니다.',
+    'Graham &amp; Hebert, <b>“Writing to Read.”</b>\n          Writing about what students read improved reading comprehension (effect sizes .40–.51); teaching spelling and sentence construction, .79.');
+rep('<span class="arw">→</span> 그래서 피어라는 <b>매일 조금씩 씁니다.</b>',
+    '<span class="arw">→</span> That’s why Peera <b>writes a little every day.</b>');
 
 rep('<h3>고쳐쓰기까지가 한 세트</h3>', '<h3>Rewriting completes it</h3>');
 rep('<p class="big">쓰고 → 봐주고 →<br>다시 쓰기.</p>', '<p class="big">Write → look →<br>write again.</p>');
-rep('쓰기 전략을 단계적으로 가르치고 스스로 점검하게 하는 <b>SRSD(자기조절 전략 개발)</b>는 초등\n          쓰기 지도에서 근거가 가장 두텁게 쌓인 접근으로 꼽힙니다(Graham·Harris 등, 미국 교육부 WWC 검토 대상).\n          <br>→ 그래서 첨삭에서 끝내지 않고 <b>고쳐쓰기까지</b> 갑니다.',
-    '<b>SRSD (Self-Regulated Strategy Development)</b> — teaching writing strategies step by step and building\n          self-monitoring — is among the most heavily evidenced approaches in elementary writing instruction\n          (Graham, Harris et al.; reviewed by the U.S. Department of Education’s What Works Clearinghouse).\n          <br>→ That’s why we don’t stop at feedback — <b>the child rewrites.</b>');
+rep('쓰기 전략을 단계적으로 가르치고 스스로 점검하게 하는 <b>SRSD(자기조절 전략 개발)</b>는\n          초등 쓰기 지도에서 근거가 가장 두텁게 쌓인 접근으로 꼽힙니다(Graham·Harris 등).',
+    '<b>SRSD (Self-Regulated Strategy Development)</b> — teaching writing strategies step by step and building\n          self-monitoring — is among the most heavily evidenced approaches in elementary writing instruction (Graham, Harris et al.).');
+rep('<span class="arw">→</span> 그래서 첨삭에서 끝내지 않고 <b>고쳐쓰기까지</b> 갑니다.',
+    '<span class="arw">→</span> That’s why we don’t stop at feedback — <b>the child rewrites.</b>');
 
 rep('<h3>칭찬은 능력이 아니라 과정에</h3>', '<h3>Praise the process, not the ability</h3>');
 rep('<p class="big">"똑똑하네" 대신<br>"해냈구나".</p>', '<p class="big">“You worked hard”<br>over “You’re smart.”</p>');
-rep('Mueller &amp; Dweck(1998), <i>Journal of Personality and Social Psychology</i>. <b>능력을\n          칭찬받은 아이는 실패한 뒤 더 빨리 포기</b>했고, 과정을 칭찬받은 아이는 계속 시도했습니다.\n          (캐럴 드웩 — 현 스탠퍼드대 교수)\n          <br>→ 그래서 피어라엔 <b>점수도 등수도 없습니다.</b>',
-    'Mueller &amp; Dweck (1998), <i>Journal of Personality and Social Psychology</i>. <b>Children praised for\n          ability gave up faster after failure</b>; children praised for effort kept trying.\n          (Carol Dweck — now at Stanford)\n          <br>→ That’s why Peera has <b>no scores and no ranking.</b>');
+rep('Mueller &amp; Dweck(1998), <i>Journal of Personality and Social Psychology</i>.\n          <b>능력을 칭찬받은 아이는 실패한 뒤 더 빨리 포기</b>했고, 과정을 칭찬받은 아이는 계속 시도했습니다.',
+    'Mueller &amp; Dweck (1998), <i>Journal of Personality and Social Psychology</i>.\n          <b>Children praised for ability gave up faster after failure</b>; children praised for effort kept trying.');
+rep('<span class="arw">→</span> 그래서 피어라엔 <b>점수도 등수도 없습니다.</b>',
+    '<span class="arw">→</span> That’s why Peera has <b>no scores and no ranking.</b>');
+
+// 핵심 메커니즘 카드 ①②(Graham & Perin 2007) — cred-sub는 두 카드 공통(전역 치환)
+rep('<span class="cred-sub">Graham &amp; Perin, 2007 · 카네기 Writing Next</span>',
+    '<span class="cred-sub">Graham &amp; Perin, 2007 · Carnegie Writing Next</span>');
+rep('<h3>말로 예열하면 쉽게 써져요</h3>', '<h3>Talk first, and writing flows</h3>');
+rep('<p class="big">쓰기 전에 말하면,<br>쓸 말이 먼저 생겨요.</p>',
+    '<p class="big">Talk before writing,<br>and the words come first.</p>');
+rep('쓰기 전에 <b>먼저 말로 이야기(구술 예행연습·사전쓰기)</b>하면 어휘가 다양해지고 문장이 정교해지며 쓸 내용이 풍부해진다고 보고됩니다. 대규모 메타분석에서도 <b>사전쓰기 활동</b>이 글쓰기 질을 높이는 방법으로 확인됐어요(효과크기 .32).',
+    'Talking through ideas first (<b>oral rehearsal / prewriting</b>) is reported to broaden vocabulary, sharpen sentences, and give children more to say. A large meta-analysis also confirmed <b>prewriting activities</b> as a way to improve writing quality (effect size .32).');
+rep('<span class="arw">→</span> 그래서 라이티가 <b>쓰기 전에 통화로 예열</b>해요.',
+    '<span class="arw">→</span> That’s why Writy <b>warms up with a call before writing.</b>');
+rep('<h3>도우며 쓰면 훨씬 쉬워요</h3>', '<h3>Help makes writing easier</h3>');
+rep('<p class="big">막혀도 옆에서<br>도와주면 계속 써요.</p>',
+    '<p class="big">Stuck? A little help<br>keeps them writing.</p>');
+rep('혼자 쓰게 두지 않고 <b>옆에서 함께 도우며 쓰기(또래·협력 지원)</b>는 글쓰기를 높이는 방법 중 <b>효과가 큰 편</b>으로 꼽혔습니다(효과크기 .75). 좋은 도움은 막힐 때 <b>즉각 힌트·예시</b>를 주고 어려운 과제를 잘게 쪼개 줍니다.',
+    'Rather than leaving them alone, <b>writing with help (peer/collaborative support)</b> ranked among the <b>most effective</b> ways to improve writing (effect size .75). Good help gives <b>hints and examples right when they’re stuck</b> and breaks hard tasks into smaller steps.');
+rep('<span class="arw">→</span> 그래서 <b>쓰는 중에도 라이티가</b> 옆에서 도와줘요.',
+    '<span class="arw">→</span> That’s why <b>Writy helps as they write</b>, right beside them.');
+
+// 도우며 쓰기 결과 막대그래프(실제 논문 데이터로 구성)
+rep('<span class="rf-tag">실제 논문 데이터로 구성 · 도우며 쓰기 결과</span>',
+    '<span class="rf-tag">Built from real published data · writing-with-help results</span>');
+rep('<h4 class="df-title">도우며 쓴 그룹이 <b>약 2배</b> 더 늘었어요</h4>',
+    '<h4 class="df-title">Writing with help improved <b>about twice</b> as much</h4>');
+rep('aria-label="글쓰기 점수 향상: 혼자 쓰기 +7.7점, 도움받아 쓰기 +15.4점"',
+    'aria-label="Writing-score gain: writing alone +7.7 points, writing with help +15.4 points"');
+rep('<div class="df-labels"><span>혼자 쓰기</span><span>도움받아 쓰기</span></div>',
+    '<div class="df-labels"><span>Writing alone</span><span>Writing with help</span></div>');
+rep('<p class="df-cap">도움받으며 쓴 그룹은 대조군보다 글쓰기 점수가 <b>약 두 배 더 향상</b>됐어요. 다른 연구에서도 <b>도우면 덜 힘들게(인지부하 ↓)</b> 더 잘 썼습니다.</p>',
+    '<p class="df-cap">The group that wrote with help improved <b>about twice as much</b> as the control group. In another study, <b>help also lowered mental effort (cognitive load ↓)</b>, and they wrote better.</p>');
+rep('데이터 출처: Li (2023) · Jiang &amp; Kalyuga (2022), <i>Frontiers in Psychology</i> — 실제 보고된 수치로 구성한 그래프입니다. 피어라를 검증한 것이 아니라 설계가 따른 원리를 보여줍니다.',
+    'Data: Li (2023) · Jiang &amp; Kalyuga (2022), <i>Frontiers in Psychology</i> — a chart built from the figures these studies report. It does not validate Peera, but shows the principle Peera was designed around.');
 
 rep('※ 위 연구들은 <b>피어라를 검증한 것이 아닙니다.</b> 피어라가 어떤 원리를 따라 설계됐는지를 밝히는\n      근거입니다. 피어라는 아직 출시 전이며, 저희 앱의 학습 효과는 검증된 바 없습니다. 확인되지 않은\n      효과를 약속드리지 않겠습니다.',
     '※ These studies <b>do not validate Peera.</b> They explain the principles Peera was designed around.\n      Peera has not launched yet, and our app’s learning outcomes have not been measured. We will not promise\n      results we haven’t verified.');
@@ -199,6 +313,20 @@ rep('※ 위 연구들은 <b>피어라를 검증한 것이 아닙니다.</b> 피
 // ── 마무리 CTA ──
 rep('<h2>라이티의 첫 문자,<br>우리 아이에게 닿게 해주세요</h2>', '<h2>Let Writy’s first text<br>reach your child</h2>');
 rep('<p>준비되는 대로 가장 먼저 알려드릴게요.</p>', '<p>We’ll tell you the moment it’s ready.</p>');
+
+// ── 30일 체험단(선착순 30명) ──
+rep('선착순 30명 · 30일 무료 체험단', 'First 30 only · 30-day free trial');
+rep('<h2>무료로 먼저 써볼 30명을 찾아요</h2>', '<h2>Looking for 30 to try it free first</h2>');
+rep('<p>출시 전, <b>30일 무료 체험</b>을 딱 30명만 모십니다.<br>아이와 써보고 솔직한 후기를 들려주세요.</p>',
+    '<p>Before launch, just <b>30 families</b> get a 30-day free trial.<br>Try it with your child and tell us honestly.</p>');
+rep('value="[피어라] 30일 체험단 신청"', 'value="[Peera] 30-day trial application (EN)"');
+rep('name="신청위치" value="30일 체험단"', 'name="신청위치" value="30일 체험단 (EN)"');
+rep('<button class="btn" type="submit" disabled>무료로 먼저 써보기</button>',
+    '<button class="btn" type="submit" disabled>Try it free first</button>');
+rep('<span>체험단 안내를 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다.\n            선정 안내 발송 후 지체 없이 파기해요.\n            <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span>',
+    '<span>I agree to the <b>collection and use of my email address</b> to receive trial information.\n            It is deleted as soon as the selection notice is sent.\n            <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>');
+rep('<p class="note"><b>선착순 30명</b>에 선정되면 개별 안내드려요. 광고는 보내지 않습니다.</p>',
+    '<p class="note"><b>The first 30</b> selected are contacted individually. No marketing.</p>');
 
 // ── 푸터 ──
 rep('<b>피어라</b>\n    </div>', '<b>Peera</b>\n    </div>');
