@@ -60,8 +60,8 @@ rep('aria-label="아이가 오늘 하루를 자기 말로 들려주는 순간"',
     'aria-label="A child telling their day in their own words"');
 rep('<b>라이티가 하루 한 번 문자를 보냅니다.</b><br>\n        대화 직후, 아이가 직접 하루를 손글씨로 남깁니다.',
     '<b>Writy texts once a day.</b><br>\n        Right after the call, your child writes the day by hand.');
-rep('<p class="sms-line rise in"><span class="sms">“오늘 있었던 일 통화하자!”</span></p>',
-    '<p class="sms-line rise in"><span class="sms">“Tell me about your day!”</span></p>');
+rep('<p class="sms-line rise in"><span class="sms">“오늘 가장 마음에 남은 일은 뭐였어?”</span></p>',
+    '<p class="sms-line rise in"><span class="sms">“What stayed with you most today?”</span></p>');
 
 // 폼
 rep('placeholder="이메일 주소" required aria-label="이메일 주소"', 'placeholder="Email address" required aria-label="Email address"');
