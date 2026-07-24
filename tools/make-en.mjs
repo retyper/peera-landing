@@ -17,14 +17,14 @@ const rep = (a, b) => R.push([a, b]);
 
 // ── head ──
 rep('<html lang="ko">', '<html lang="en">');
-rep('<title>피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다</title>',
-    '<title>Peera — Writy just texted. Your child calls first.</title>');
-rep('content="라이티한테 문자가 오면, 아이가 먼저 전화를 겁니다. 오늘 나눈 이야기가 그대로 손글씨 일기가 돼요. 잘한 건 확실히 칭찬하고, 고칠 건 살짝. 7~11세를 위한 피어라, 출시 소식을 가장 먼저 받아보세요."',
-    'content="Writy texts. Your child calls first. Today\'s story becomes today\'s handwritten diary — in Korean and English. Praise loudly, correct gently. Peera, for ages 7–11. Be first to hear when it launches."');
-rep('<meta property="og:title" content="피어라 — 라이티한테 문자가 왔어요, 아이가 먼저 전화를 겁니다">',
-    '<meta property="og:title" content="Peera — Writy just texted. Your child calls first.">');
-rep('<meta property="og:description" content="숲속 친구 라이티의 하루 한 번 문자. 아이가 전화를 걸어 나눈 이야기가 한글·영어 손글씨 일기로 피어납니다.">',
-    '<meta property="og:description" content="One text a day from Writy, a squirrel in the forest. Your child calls, talks, and turns that story into a handwritten diary — Korean and English.">');
+rep('<title>피어라 | 화난 게 아니라 아쉬웠던 거야, 손글씨 일기 앱</title>',
+    '<title>Peera | Not angry — just let down. A handwritten diary app.</title>');
+rep('content="라이티가 하루 한 번 문자를 보내면 아이가 통화로 오늘 이야기를 들려줍니다. 그 이야기가 손글씨 일기가 되는 초등학생용 앱입니다."',
+    'content="Writy texts once a day, your child calls and tells the day, and it becomes a handwritten diary. A diary app for elementary-age kids."');
+rep('<meta property="og:title" content="화난 게 아니라 아쉬웠던 거야 | 피어라">',
+    '<meta property="og:title" content="Not angry — just a little let down. | Peera">');
+rep('<meta property="og:description" content="오늘 들려준 이야기가 손글씨 일기가 됩니다. 초등학생용 앱 피어라.">',
+    '<meta property="og:description" content="What your child tells becomes a handwritten diary. Peera, for elementary-age kids.">');
 rep('<meta property="og:url" content="https://retyper.github.io/peera-landing/">',
     '<meta property="og:url" content="https://retyper.github.io/peera-landing/en.html">');
 rep('peera-og.png">\n<meta property="og:image:width"', 'peera-og-en.png">\n<meta property="og:image:width"');
@@ -38,21 +38,27 @@ rep("var THIS = 'ko', OTHER = 'en.html';", "var THIS = 'en', OTHER = 'index.html
 // 구조화 데이터
 rep('"name": "피어라 (Peera)"', '"name": "Peera"');
 rep('"url": "https://retyper.github.io/peera-landing/",', '"url": "https://retyper.github.io/peera-landing/en.html",');
-rep('"description": "숲속 다람쥐 라이티가 하루 한 번 문자를 보내면 아이가 직접 전화를 걸어 오늘 하루를 이야기하고, 그 마음을 한글·영어 손글씨 일기로 쓰는 7~11세 대상 앱. 출시 전 사전예약 진행 중.",',
-    '"description": "A squirrel named Writy texts once a day. The child calls, talks about their day, and turns it into a handwritten diary in Korean and English. For ages 7–11. Pre-registration open before launch.",');
+rep('"description": "라이티가 하루 한 번 문자를 보내고, 아이가 통화로 오늘 일을 들려주면 손글씨 일기로 이어지는 초등학생용 앱입니다.",',
+    '"description": "Writy texts once a day; the child calls, tells the day, and it becomes a handwritten diary. A diary app for elementary-age kids.",');
+rep('"audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": "예비초·초등학생" },',
+    '"audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": "elementary-age children" },');
 
 // ── 헤더/히어로 ──
-rep('<span class="eyebrow rise in"><span class="dot"></span> 7~11세 · 매일 한 번 · 사전예약 받는 중</span>',
-    '<span class="eyebrow rise in"><span class="dot"></span> Ages 7–11 · Once a day · Pre-registration open</span>');
-rep('<h1 class="rise in"><span class="hl-writy">라이티</span>한테 문자가 왔어요<br>\n        <span class="sms">“오늘 있었던 일 통화하자!”</span></h1>',
-    '<h1 class="rise in"><span class="hl-writy">Writy</span> just texted<br>\n        <span class="sms">“Tell me about your day!”</span></h1>');
-rep('<b>아이가 먼저 전화를 걸어,</b> 오늘 있었던 일을 자기 말로 이야기해요.<br>\n        그 이야기가 <b>매일</b> 한 편의 일기가 됩니다.',
-    '<b>Your child calls first</b> and tells the day in their own words.<br>\n        That story becomes <b>one diary, every day.</b>');
-rep('<p class="reassure rise in">게임 없어요. 시간 정해 아이랑 싸울 필요도 없어요 — <b>라이티가 먼저 부르니까요.</b></p>',
-    '<p class="reassure rise in">No games. No fighting over screen-time limits — <b>because Writy calls first.</b></p>');
+rep('<span class="eyebrow rise in"><span class="dot"></span> 매일 한 번, 오늘을 들려주는 시간</span>',
+    '<span class="eyebrow rise in"><span class="dot"></span> A daily moment to share today</span>');
+rep('<h1 class="rise in">화난 게 아니라<br>아쉬웠던 거야</h1>',
+    '<h1 class="rise in">Not angry —<br>just a little let down.</h1>');
+rep('<b>라이티가 하루 한 번 문자를 보냅니다.</b><br>\n        아이가 들려준 이야기가 손글씨 일기가 됩니다.',
+    '<b>Writy texts once a day.</b><br>\n        What your child tells becomes a handwritten diary.');
+rep('<p class="sms-line rise in"><span class="sms">“오늘 있었던 일 통화하자!”</span></p>',
+    '<p class="sms-line rise in"><span class="sms">“Tell me about your day!”</span></p>');
+rep('<p class="reassure rise in">아이는 자기 손으로 직접 씁니다.</p>',
+    '<p class="reassure rise in">Your child writes it out by hand.</p>');
 
 // 폼
 rep('placeholder="이메일 주소" required aria-label="이메일 주소"', 'placeholder="Email address" required aria-label="Email address"');
+// 히어로 버튼만 라벨이 다르다(ChatGPT 안1). 마무리 CTA는 아래 rep가 그대로 처리.
+rep('<button class="btn" type="submit" disabled>먼저 알림받기</button>', '<button class="btn" type="submit" disabled>Get notified first</button>');
 rep('<button class="btn" type="submit" disabled>출시 소식 받기</button>', '<button class="btn" type="submit" disabled>Get launch news</button>');
 rep('<span>출시 알림을 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다.\n            출시 안내 발송 후 지체 없이 파기해요.\n            <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span>',
     '<span>I agree to the <b>collection and use of my email address</b> to receive the launch notice.\n            It is deleted as soon as the notice is sent.\n            <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>');

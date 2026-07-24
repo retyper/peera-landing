@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Peera — Writy just texted. Your child calls first.</title>
-<meta name="description" content="Writy texts. Your child calls first. Today's story becomes today's handwritten diary — in Korean and English. Praise loudly, correct gently. Peera, for ages 7–11. Be first to hear when it launches.">
+<title>Peera | Not angry — just let down. A handwritten diary app.</title>
+<meta name="description" content="Writy texts once a day, your child calls and tells the day, and it becomes a handwritten diary. A diary app for elementary-age kids.">
 
 <!-- ★ 사이트 정본 주소 — 여기 한 곳만 고치면 OG·canonical·구조화데이터가 함께 따라온다.
      지금은 GitHub Pages. peera.co 도메인을 사서 연결하면 아래 세 줄을
@@ -40,8 +40,8 @@
 </script>
 
 <!-- 오픈그래프(카톡·문자 공유 시 미리보기) — og:image는 반드시 살아 있는 절대 URL이어야 뜬다 -->
-<meta property="og:title" content="Peera — Writy just texted. Your child calls first.">
-<meta property="og:description" content="One text a day from Writy, a squirrel in the forest. Your child calls, talks, and turns that story into a handwritten diary — Korean and English.">
+<meta property="og:title" content="Not angry — just a little let down. | Peera">
+<meta property="og:description" content="What your child tells becomes a handwritten diary. Peera, for elementary-age kids.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://retyper.github.io/peera-landing/en.html">
 <meta property="og:image" content="https://retyper.github.io/peera-landing/peera-og-en.png">
@@ -61,8 +61,8 @@
   "url": "https://retyper.github.io/peera-landing/en.html",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "iOS, Android",
-  "description": "A squirrel named Writy texts once a day. The child calls, talks about their day, and turns it into a handwritten diary in Korean and English. For ages 7–11. Pre-registration open before launch.",
-  "audience": { "@type": "PeopleAudience", "suggestedMinAge": 7, "suggestedMaxAge": 11 },
+  "description": "Writy texts once a day; the child calls, tells the day, and it becomes a handwritten diary. A diary app for elementary-age kids.",
+  "audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": "elementary-age children" },
   "creator": { "@type": "Organization", "name": "Peer" }
 }
 </script>
@@ -71,7 +71,7 @@
      GA_ID를 비우면 gtag.js를 아예 내려받지 않는다 — 로컬에서 지표를 더럽히고
      싶지 않을 때 한 줄만 비우면 계측 전체가 꺼진다(track()도 조용히 무시된다).
 
-     7~11세 아동 대상 서비스라 광고·개인화 신호는 전부 끈다:
+     예비초·초등학생 대상 서비스라 광고·개인화 신호는 전부 끈다:
      - allow_google_signals:false            → 구글 계정 기반 크로스디바이스 추적 off
      - allow_ad_personalization_signals:false → 수집 데이터의 광고 활용 off
      이 조합이면 GA4는 광고 쿠키 없이 분석 목적으로만 동작한다. -->
@@ -228,18 +228,23 @@
   }
   .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(67,160,71,.16); }
   h1 {
+    /* 최대값을 더 키우면 히어로 h1의 긴 줄이 의도한 2줄에서 3줄로 접힌다.
+       카피를 바꿀 때는 두 줄 다 한 줄에 들어가는지 확인할 것(1120 기준 컬럼 폭 544px). */
     font-size: clamp(2.55rem, 6.1vw, 4.3rem);
     line-height: 1.28; margin: 18px 0 0; word-break: keep-all;
   }
   h1 .hl-writy { color: var(--writy); }
   h1 .hl-bloom { color: var(--bloom); }
   /* 라이티가 보낸 문자를 그대로 인용 — 말풍선 꼬리를 단 한 줄 */
-  h1 .sms {
+  /* 라이티가 보낸 문자 — 제목의 주인공이 아니라 lead 뒤에 놓는 '증거' 조각이다.
+     첫 문장은 부모의 긴장을 건드리고, 그다음 이 말풍선이 그걸 눈으로 확인시킨다. */
+  .sms-line { margin: 16px 0 0; font-family: "Jua", sans-serif; font-size: clamp(1.25rem, 2.6vw, 1.7rem); }
+  .sms {
     position: relative; display: inline-block; color: var(--writy-deep);
     background: #FFF3E2; border-radius: 20px; padding: .04em .4em .1em;
     box-shadow: 0 3px 0 #F0DCC0;
   }
-  h1 .sms::after {
+  .sms::after {
     content: ""; position: absolute; left: 1.2em; bottom: -18px;
     width: 24px; height: 20px; background: #FFF3E2;
     clip-path: polygon(0 0, 100% 0, 0 100%);
@@ -1071,14 +1076,14 @@
   <!-- ═════════ 히어로 ═════════ -->
   <section class="hero">
     <div class="hero-copy">
-      <span class="eyebrow rise in"><span class="dot"></span> Ages 7–11 · Once a day · Pre-registration open</span>
-      <h1 class="rise in"><span class="hl-writy">Writy</span> just texted<br>
-        <span class="sms">“Tell me about your day!”</span></h1>
+      <span class="eyebrow rise in"><span class="dot"></span> A daily moment to share today</span>
+      <h1 class="rise in">Not angry —<br>just a little let down.</h1>
       <p class="lead rise in">
-        <b>Your child calls first</b> and tells the day in their own words.<br>
-        That story becomes <b>one diary, every day.</b>
+        <b>Writy texts once a day.</b><br>
+        What your child tells becomes a handwritten diary.
       </p>
-      <p class="reassure rise in">No games. No fighting over screen-time limits — <b>because Writy calls first.</b></p>
+      <p class="sms-line rise in"><span class="sms">“Tell me about your day!”</span></p>
+      <p class="reassure rise in">Your child writes it out by hand.</p>
 
       <form class="signup rise in" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
         <!-- 메일 제목·유입 위치 구분(히어로 vs 마무리 CTA). _gotcha는 스팸 트랩(Code.gs가 체크) -->
@@ -1091,7 +1096,7 @@
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
                  placeholder="Email address" required aria-label="Email address">
-          <button class="btn" type="submit" disabled>Get launch news</button>
+          <button class="btn" type="submit" disabled>Get notified first</button>
         </div>
         <label class="consent">
           <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
