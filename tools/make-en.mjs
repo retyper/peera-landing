@@ -336,6 +336,8 @@ rep('<p>라이티를 쓰다 보면, 오늘의 이야기가 즐거운 글이 됩�
 // ── 30일 체험단(선착순 30명) ──
 rep('선착순 30명 · 30일 무료 체험단', 'First 30 only · 30-day free trial');
 rep('<h2>무료로 먼저 써볼 30명을 찾아요</h2>', '<h2>Looking for 30 to try it free first</h2>');
+rep('<a class="trial-scroll rise" href="#hero">어떤 앱인지 먼저 보기<span class="chev" aria-hidden="true"></span></a>',
+    '<a class="trial-scroll rise" href="#hero">See what it is first<span class="chev" aria-hidden="true"></span></a>');
 rep('<p>출시 전, <b>30일 무료 체험</b>을 딱 30명만 모십니다.<br>아이와 써보고 솔직한 후기를 들려주세요.</p>',
     '<p>Before launch, just <b>30 families</b> get a 30-day free trial.<br>Try it with your child and tell us honestly.</p>');
 rep('value="[피어라] 30일 체험단 신청"', 'value="[Peera] 30-day trial application (EN)"');

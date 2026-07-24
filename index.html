@@ -928,26 +928,48 @@
     .caro-dots { margin-top: 20px; min-height: 40px; align-items: center; }
   }
 
-  /* ── 30일 체험단(선착순 30명) ──
-     사전예약(이메일)보다 강한 의사. 신청위치 '30일 체험단'으로 시트에서 구분한다.
-     WTP는 넣지 않는다(이미 고관여). '30명'은 카피상 한정 — 실집계는 시트에서 수동 확인. */
+  /* ── 최상단 체험단 초대(무료 체험 '초대권') ──
+     첫 화면. 강한 오퍼를 즉시 노출하되, 아래 이야기로 내려가고 싶게 만든다.
+     · 앰버 밴드(#trial) 위에 흰 초대권 카드 · 폼은 '뜯는 선'(점선) 아래 스텁으로 분리
+     · 좌석 배지(펄스) + 아래로 유도 화살표(nudge) + 히어로가 살짝 보이는 여백
+     신청위치 '30일 체험단'으로 시트 구분. WTP 없음. '30명'은 카피상 한정. */
+  #trial {
+    position: relative;
+    background:
+      radial-gradient(720px 360px at 84% 4%, #FFEFCC 0%, rgba(255,239,204,0) 62%),
+      linear-gradient(172deg, #FFF7E9 0%, #FBE7C4 100%);
+    padding: clamp(34px, 5.2vw, 52px) 20px 26px;
+  }
   .trial {
-    max-width: 660px; margin: 30px auto 0; text-align: center;
-    background: linear-gradient(168deg, #FFFBF0, #FCEFD2);
-    border: 2px solid var(--gold); border-radius: 30px;
-    padding: 36px 30px; box-shadow: var(--shadow);
+    position: relative;
+    max-width: 600px; margin: 0 auto; text-align: center;
+    background: #fff; border-radius: 24px;
+    padding: 32px clamp(22px, 5vw, 40px) 30px;
+    box-shadow: 0 22px 48px rgba(184,118,10,.18);
   }
   .trial-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    font-family: "Jua", sans-serif; font-size: .92rem; color: var(--gold-dark);
-    background: #fff; border: 1.5px solid var(--gold); border-radius: 999px;
-    padding: 5px 16px; margin-bottom: 14px;
+    font-family: "Jua", sans-serif; font-size: .95rem; color: #fff;
+    background: var(--gold); border: none; border-radius: 999px;
+    padding: 7px 18px 8px; margin-bottom: 16px;
+    box-shadow: 0 6px 16px rgba(239,160,11,.34);
   }
-  .trial-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(239,160,11,.16); }
-  .trial h2 { font-size: clamp(1.72rem, 4vw, 2.32rem); margin: 0 0 8px; }
-  .trial > p { color: var(--ink-soft); font-size: 1.14rem; margin: 0 auto 20px; max-width: 25em; word-break: keep-all; }
-  .trial > p b { color: var(--ink); }
-  .trial .signup { margin: 0 auto; }
+  .trial-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.4); animation: seatpulse 1.8s ease-in-out infinite; }
+  @keyframes seatpulse { 50% { box-shadow: 0 0 0 7px rgba(255,255,255,.12); } }
+  .trial h2 { font-size: clamp(1.85rem, 4.4vw, 2.55rem); margin: 0 0 10px; line-height: 1.26; color: var(--ink); }
+  .trial > p { color: var(--ink-soft); font-size: 1.1rem; margin: 0 auto 22px; max-width: 26em; word-break: keep-all; line-height: 1.6; }
+  .trial > p b { color: var(--writy-deep); }
+  /* 폼 = '뜯는 선' 아래 스텁 */
+  .trial .signup { margin: 4px auto 0; border-top: 2px dashed #F0DEBB; padding-top: 22px; }
+  /* 아래로 유도 — 어떤 앱인지 먼저 보게 한다 */
+  .trial-scroll {
+    display: flex; flex-direction: column; align-items: center; gap: 7px;
+    width: max-content; margin: 22px auto 0;
+    font-family: "Jua", sans-serif; font-size: 1rem; color: var(--gold-dark); text-decoration: none;
+  }
+  .trial-scroll:hover { color: var(--writy-deep); }
+  .trial-scroll .chev { width: 14px; height: 14px; border-right: 3px solid currentColor; border-bottom: 3px solid currentColor; transform: rotate(45deg); animation: nudge 1.6s ease-in-out infinite; }
+  @keyframes nudge { 0%, 100% { transform: translateY(0) rotate(45deg); } 50% { transform: translateY(6px) rotate(45deg); } }
 
   /* ── 마무리 CTA ── */
   .final {
@@ -1065,6 +1087,7 @@
     .mk .star, .mk .fix, .mk .join, .p-comment { transition: none; }
     .diary { transition: none; }
     .diary .d-stamp { transition: none; }
+    .trial-badge .dot, .trial-scroll .chev { animation: none !important; }
   }
 </style>
 </head>
@@ -1112,10 +1135,12 @@
         <p class="status" role="status" aria-live="polite"></p>
       </form>
     </div>
+    <!-- 아래로 유도 — 어떤 앱인지 먼저 보고 신청하게 한다(히어로가 살짝 보이는 여백과 함께) -->
+    <a class="trial-scroll rise" href="#hero">어떤 앱인지 먼저 보기<span class="chev" aria-hidden="true"></span></a>
   </section>
 
   <!-- ═════════ 히어로 ═════════ -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-copy">
       <span class="eyebrow rise in"><span class="dot"></span> 매일 한 번, 오늘을 들려주는 시간</span>
       <!-- 라이티의 질문(SMS)을 아이의 대답(h1) 위에 둔다 — 질문 ↓ 대답 순서.
