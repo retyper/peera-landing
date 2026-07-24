@@ -246,7 +246,9 @@
   /* 라이티가 보낸 문자를 그대로 인용 — 말풍선 꼬리를 단 한 줄 */
   /* 라이티가 보낸 문자 — 제목의 주인공이 아니라 lead 뒤에 놓는 '증거' 조각이다.
      첫 문장은 부모의 긴장을 건드리고, 그다음 이 말풍선이 그걸 눈으로 확인시킨다. */
-  .sms-line { margin: 16px 0 0; font-family: "Jua", sans-serif; font-size: clamp(1.25rem, 2.6vw, 1.7rem); }
+  /* h1(아이 대답) 위에 놓인다. 아래 여백을 h1의 margin-top(18px)보다 크게 줘야(마진 상쇄)
+     실제 간격이 벌어지고, 말풍선 꼬리(18px)가 답변을 가리키되 겹치지 않는다. */
+  .sms-line { margin: 14px 0 28px; font-family: "Jua", sans-serif; font-size: clamp(1.25rem, 2.6vw, 1.7rem); }
   .sms {
     position: relative; display: inline-block; color: var(--writy-deep);
     background: #FFF3E2; border-radius: 20px; padding: .04em .4em .1em;
@@ -1085,6 +1087,9 @@
   <section class="hero">
     <div class="hero-copy">
       <span class="eyebrow rise in"><span class="dot"></span> A daily moment to share today</span>
+      <!-- 라이티의 질문(SMS)을 아이의 대답(h1) 위에 둔다 — 질문 ↓ 대답 순서.
+           말풍선 꼬리가 아래를 향해 대답 쪽을 가리킨다. -->
+      <p class="sms-line rise in"><span class="sms">“What stayed with you most today?”</span></p>
       <h1 class="rise in" aria-label="A child telling their day in their own words">
         <span class="rot" data-rot aria-hidden="true">
           <span class="rot-q is-on"><span class="q">“</span>Actually, they left me out,<br>and it stung<span class="q">”</span></span>
@@ -1097,7 +1102,6 @@
         <b>Writy texts once a day.</b><br>
         Right after the call, your child writes the day by hand.
       </p>
-      <p class="sms-line rise in"><span class="sms">“What stayed with you most today?”</span></p>
 
       <form class="signup rise in" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
         <!-- 메일 제목·유입 위치 구분(히어로 vs 마무리 CTA). _gotcha는 스팸 트랩(Code.gs가 체크) -->
