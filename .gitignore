@@ -5,9 +5,13 @@ Thumbs.db
 .vscode/
 .idea/
 
-# 실사 장면 원본(대용량) — 재편집용으로 로컬 보존, 배포엔 압축 JPG만 사용
+# 이미지 원본·레퍼런스(대용량) — 재편집용으로 로컬 보존, 배포엔 압축 JPG만 사용
 scene-worry.png
 scene-diary.png
 expert.png
 scene-diary2.png
+exampleimg.jpg
+expert2d.png
+peera-sprout.png
+dump/
 HANDOFF.md
