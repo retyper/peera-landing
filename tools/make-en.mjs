@@ -104,11 +104,11 @@ rep('aria-label="피어라 앱 미리보기: 다람쥐 라이티가 문자를 �
 
 // ── 문제/해결 장면(실사 이미지 자리 안내 포함) ──
 rep('<span class="tag">이미지 자리</span>', '<span class="tag">Image slot</span>');
-rep('alt="어린이집·학교 얘기를 물어도 앞에서 울기만 하는 아이"',
-    'alt="A child who only cries when asked about daycare or school"');
-rep('실사 3D · 유치원/학교 얘기에<br>앞에서 울기만 하는 아이<br>',
-    'Photoreal 3D · a child who only cries<br>when asked about school<br>');
-rep('<code>scene-worry.jpg</code> · 권장 1200×1500', '<code>scene-worry.jpg</code> · Suggested 1200×1500');
+rep('alt="빈 일기장 앞에서 무엇을 쓸지 몰라 막막해하는 아이와 곁을 지키는 엄마"',
+    'alt="A child stuck at a blank diary, unsure what to write, with a mother beside them"');
+rep('일기장 앞에서 막막한 아이 +<br>곁을 지키는 엄마<br>',
+    'A child stuck at a diary +<br>a mother beside them<br>');
+rep('<code>scene-worry.jpg</code> · 가로 16:10', '<code>scene-worry.jpg</code> · 16:10 landscape');
 rep('<span class="kicker">이런 순간, 있으셨죠</span>', '<span class="kicker">You know this moment</span>');
 rep('<h2>“일기 써볼까?” 말하면<br>“뭐라고 써야 할지 모르겠어”</h2>', '<h2>“Let’s write a diary?”<br>“I don’t know what to write.”</h2>');
 rep('<p>아니면 학교에서 자기 의견을 똑똑히 말하지 못할까 봐.</p>',
@@ -326,7 +326,7 @@ rep('데이터 출처: Li (2023) · Jiang &amp; Kalyuga (2022), <i>Frontiers in 
 
 rep('※ 위 연구들은 <b>피어라를 검증한 것이 아닙니다.</b> 피어라가 어떤 원리를 따라 설계됐는지를 밝히는\n      근거입니다. 피어라는 아직 출시 전이며, 저희 앱의 학습 효과는 검증된 바 없습니다. 확인되지 않은\n      효과를 약속드리지 않겠습니다.',
     '※ These studies <b>do not validate Peera.</b> They explain the principles Peera was designed around.\n      Peera has not launched yet, and our app’s learning outcomes have not been measured. We will not promise\n      results we haven’t verified.');
-rep('슬라이드의 인물 사진은 <b>AI로 만든 가상 인물</b>이며, 실존 인물이나 해당 연구의 연구자가 아닙니다.',
+rep('슬라이드의 인물 그림은 <b>AI로 만든 가상 인물</b>이며, 실존 인물이나 해당 연구의 연구자가 아닙니다.',
     'The people pictured in the slides are <b>AI-generated fictional people</b> — not real individuals, and not the researchers behind these studies.');
 
 // ── 마무리 CTA ──
