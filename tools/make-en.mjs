@@ -119,13 +119,13 @@ rep('<span class="kicker">피어라의 세 걸음</span>', '<span class="kicker"
 rep('<h2>말한 마음이<br class="desk">글이 되기까지</h2>', '<h2>From spoken<br class="desk">to written</h2>');
 rep('<p>쓰기를 가르치기 전에,<br class="desk">쓰고 싶은 이야기부터 만들어 줍니다.</p>',
     '<p>Before teaching how to write,<br class="desk">we give them something worth writing.</p>');
-rep('<h3>1 · 문자를 받고,<br>전화를 걸어요</h3>', '<h3>1 · A text arrives,<br>they call back</h3>');
+rep('<h3>문자를 받고,<br>전화를 걸어요</h3>', '<h3>A text arrives,<br>they call back</h3>');
 rep('<p>하루 한 통, 라이티가 문자를 보내요.<br>궁금해진 아이가 먼저 전화를 겁니다.</p>',
     '<p>One text a day from Writy.<br>Curious, your child calls first.</p>');
-rep('<h3>2 · 태블릿에<br>손으로 써요</h3>', '<h3>2 · They write it<br>by hand</h3>');
+rep('<h3>태블릿에<br>손으로 써요</h3>', '<h3>They write it<br>by hand</h3>');
 rep('<p>통화에서 꺼낸 이야기가 글감이 돼요.<br>막히면 <b>"이거 어떻게 써?"</b> 하고 물어봐요.</p>',
     '<p>The call gives them something to say.<br>Stuck? They ask <b>“How do I write this?”</b></p>');
-rep('<h3>3 · 봐주고,<br>다시 써요</h3>', '<h3>3 · Feedback,<br>then rewrite</h3>');
+rep('<h3>봐주고,<br>다시 써요</h3>', '<h3>Feedback,<br>then rewrite</h3>');
 rep('<p><b>잘한 건 확실히 칭찬하고,</b><br>주의할 곳만 살짝 짚어줘요.</p>',
     '<p><b>What they did well, said clearly.</b><br>One thing to watch, said lightly.</p>');
 rep('<div class="en"><span>한글 쓰기</span><span>영어 쓰기</span><span>그림일기</span></div>',
@@ -216,13 +216,6 @@ rep('<h2>근거 위에 만듭니다</h2>', '<h2>Built on evidence</h2>');
 rep('<p>재미있게만 만들지 않았어요.<br class="desk">쌓인 연구가 가리키는 쪽으로 만들었습니다.</p>',
     '<p>We didn’t only make it fun.<br class="desk">We built toward what the research points to.</p>');
 
-// 근거 카드 — 신뢰칩(세리프 기관명은 라틴 문자라 그대로, sub만 치환) + 본문 + 결론(evid-does) 분리.
-// ★스탠퍼드 칩은 드웩 '현직'만 가리킨다. sub의 '논문은 1998, 컬럼비아대'를 반드시 함께 옮긴다.
-rep('<span class="cred-sub">미국 국가조기문해패널</span>', '<span class="cred-sub">United States</span>');
-rep('<span class="cred-sub">2011 · 카네기재단 지원 메타분석</span>', '<span class="cred-sub">2011 · Carnegie-funded meta-analysis</span>');
-rep('<span class="cred-sub">미국 교육부 검토</span>', '<span class="cred-sub">Reviewed by the U.S. Dept. of Education</span>');
-rep('<span class="cred-sub">캐럴 드웩 현 교수 · 논문은 1998, 컬럼비아대</span>', '<span class="cred-sub">Carol Dweck teaches here now · 1998 paper: Columbia</span>');
-
 // 뇌과학 결론 한 줄 + 실제 논문 그림 3장(fMRI) — Kersey & James (2013), CC BY 4.0
 rep('<p class="brain-headline rise">손으로 써야 <b>뇌가 켜집니다</b></p>',
     '<p class="brain-headline rise">Writing by hand <b>switches the brain on</b></p>');
@@ -247,51 +240,63 @@ rep('<figcaption><b>다른 연구</b> · 훈련을 <b>받은 아이(TG)</b>는 �
 rep('출처: Kersey &amp; James (2013), <i>Frontiers in Psychology</i> 4:567 (Fig. 4·8·6) · Gebauer 외 (2012), <i>PLOS ONE</i> 7:e38201 (Fig. 5) — 모두 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY</a>, <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00567/full" target="_blank" rel="noopener">원문1</a> · <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0038201" target="_blank" rel="noopener">원문2</a> (형식·크기 조정). 아동 fMRI 연구들이며, 피어라를 검증한 것이 아니라 설계가 따른 원리를 보여줍니다.',
     'Sources: Kersey &amp; James (2013), <i>Frontiers in Psychology</i> 4:567 (Figs. 4·8·6) · Gebauer et al. (2012), <i>PLOS ONE</i> 7:e38201 (Fig. 5) — both <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY</a>, <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00567/full" target="_blank" rel="noopener">source 1</a> · <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0038201" target="_blank" rel="noopener">source 2</a> (reformatted/resized). These are fMRI studies in children; they do not validate Peera, but show the principle Peera was designed around.');
 
-rep('<h3>말이 먼저, 글은 그다음</h3>', '<h3>Talking comes first</h3>');
-rep('<p class="big">어릴 때 말한 만큼<br>나중에 씁니다.</p>', '<p class="big">What they say early<br>shapes what they write later.</p>');
-rep('유아·초기 아동기의 <b>구어(말하기) 능력이 이후의 쓰기 능력을 예측</b>한다는 연구가 반복해서 보고됩니다.\n          NELP은 어휘·구어 발달을 이후 문해력의 핵심 예측 요인으로 꼽았습니다.',
-    'Studies repeatedly report that <b>oral language in early childhood predicts later writing ability.</b>\n          The panel identified vocabulary and oral language development as core predictors of later literacy.');
-rep('<span class="arw">→</span> 그래서 피어라는 <b>쓰기 전에 통화</b>부터 합니다.',
-    '<span class="arw">→</span> That’s why Peera <b>starts with a call, not a page.</b>');
-
-rep('<h3>쓰면 읽기가 자란다</h3>', '<h3>Writing lifts reading</h3>');
-rep('<p class="big">쓰기는 읽기를<br>같이 끌어올려요.</p>', '<p class="big">Writing pulls reading<br>up along with it.</p>');
-rep('Graham &amp; Hebert, <b>「Writing to Read」</b>.\n          읽은 것에 대해 글을 쓰면 읽기 이해가 향상됐고(효과크기 .40~.51), 철자·문장 구성 지도는 .79였습니다.',
-    'Graham &amp; Hebert, <b>“Writing to Read.”</b>\n          Writing about what students read improved reading comprehension (effect sizes .40–.51); teaching spelling and sentence construction, .79.');
-rep('<span class="arw">→</span> 그래서 피어라는 <b>매일 조금씩 씁니다.</b>',
-    '<span class="arw">→</span> That’s why Peera <b>writes a little every day.</b>');
-
-rep('<h3>고쳐쓰기까지가 한 세트</h3>', '<h3>Rewriting completes it</h3>');
-rep('<p class="big">쓰고 → 봐주고 →<br>다시 쓰기.</p>', '<p class="big">Write → look →<br>write again.</p>');
-rep('쓰기 전략을 단계적으로 가르치고 스스로 점검하게 하는 <b>SRSD(자기조절 전략 개발)</b>는\n          초등 쓰기 지도에서 근거가 가장 두텁게 쌓인 접근으로 꼽힙니다(Graham·Harris 등).',
-    '<b>SRSD (Self-Regulated Strategy Development)</b> — teaching writing strategies step by step and building\n          self-monitoring — is among the most heavily evidenced approaches in elementary writing instruction (Graham, Harris et al.).');
-rep('<span class="arw">→</span> 그래서 첨삭에서 끝내지 않고 <b>고쳐쓰기까지</b> 갑니다.',
-    '<span class="arw">→</span> That’s why we don’t stop at feedback — <b>the child rewrites.</b>');
-
-rep('<h3>칭찬은 능력이 아니라 과정에</h3>', '<h3>Praise the process, not the ability</h3>');
-rep('<p class="big">"똑똑하네" 대신<br>"해냈구나".</p>', '<p class="big">“You worked hard”<br>over “You’re smart.”</p>');
-rep('Mueller &amp; Dweck(1998), <i>Journal of Personality and Social Psychology</i>.\n          <b>능력을 칭찬받은 아이는 실패한 뒤 더 빨리 포기</b>했고, 과정을 칭찬받은 아이는 계속 시도했습니다.',
-    'Mueller &amp; Dweck (1998), <i>Journal of Personality and Social Psychology</i>.\n          <b>Children praised for ability gave up faster after failure</b>; children praised for effort kept trying.');
-rep('<span class="arw">→</span> 그래서 피어라엔 <b>점수도 등수도 없습니다.</b>',
-    '<span class="arw">→</span> That’s why Peera has <b>no scores and no ranking.</b>');
-
-// 핵심 메커니즘 카드 ①②(Graham & Perin 2007) — cred-sub는 두 카드 공통(전역 치환)
-rep('<span class="cred-sub">Graham &amp; Perin, 2007 · 카네기 Writing Next</span>',
-    '<span class="cred-sub">Graham &amp; Perin, 2007 · Carnegie Writing Next</span>');
-rep('<h3>말로 예열하면 쉽게 써져요</h3>', '<h3>Talk first, and writing flows</h3>');
-rep('<p class="big">쓰기 전에 말하면,<br>쓸 말이 먼저 생겨요.</p>',
-    '<p class="big">Talk before writing,<br>and the words come first.</p>');
-rep('쓰기 전에 <b>먼저 말로 이야기(구술 예행연습·사전쓰기)</b>하면 어휘가 다양해지고 문장이 정교해지며 쓸 내용이 풍부해진다고 보고됩니다. 대규모 메타분석에서도 <b>사전쓰기 활동</b>이 글쓰기 질을 높이는 방법으로 확인됐어요(효과크기 .32).',
-    'Talking through ideas first (<b>oral rehearsal / prewriting</b>) is reported to broaden vocabulary, sharpen sentences, and give children more to say. A large meta-analysis also confirmed <b>prewriting activities</b> as a way to improve writing quality (effect size .32).');
-rep('<span class="arw">→</span> 그래서 라이티가 <b>쓰기 전에 통화로 예열</b>해요.',
-    '<span class="arw">→</span> That’s why Writy <b>warms up with a call before writing.</b>');
-rep('<h3>도우며 쓰면 훨씬 쉬워요</h3>', '<h3>Help makes writing easier</h3>');
-rep('<p class="big">막혀도 옆에서<br>도와주면 계속 써요.</p>',
-    '<p class="big">Stuck? A little help<br>keeps them writing.</p>');
-rep('혼자 쓰게 두지 않고 <b>옆에서 함께 도우며 쓰기(또래·협력 지원)</b>는 글쓰기를 높이는 방법 중 <b>효과가 큰 편</b>으로 꼽혔습니다(효과크기 .75). 좋은 도움은 막힐 때 <b>즉각 힌트·예시</b>를 주고 어려운 과제를 잘게 쪼개 줍니다.',
-    'Rather than leaving them alone, <b>writing with help (peer/collaborative support)</b> ranked among the <b>most effective</b> ways to improve writing (effect size .75). Good help gives <b>hints and examples right when they’re stuck</b> and breaks hard tasks into smaller steps.');
-rep('<span class="arw">→</span> 그래서 <b>쓰는 중에도 라이티가</b> 옆에서 도와줘요.',
-    '<span class="arw">→</span> That’s why <b>Writy helps as they write</b>, right beside them.');
+// ── 논문 근거 캐러셀(넘기는 카드) — 전문가 일러스트(가상)+기관 이름표+말풍선+보조글+피어라 적용 ──
+rep('<div class="carousel" id="evidCarousel" aria-roledescription="carousel" aria-label="피어라 설계 근거">',
+    '<div class="carousel" id="evidCarousel" aria-roledescription="carousel" aria-label="What Peera is built on">');
+rep('<button class="caro-arw prev" type="button" aria-label="이전 근거">‹</button>',
+    '<button class="caro-arw prev" type="button" aria-label="Previous">‹</button>');
+rep('<button class="caro-arw next" type="button" aria-label="다음 근거">›</button>',
+    '<button class="caro-arw next" type="button" aria-label="Next">›</button>');
+rep('<div class="caro-dots" role="tablist" aria-label="근거 넘기기"></div>',
+    '<div class="caro-dots" role="tablist" aria-label="Browse the evidence"></div>');
+rep('전문가 사진', 'Expert photo');  // 슬라이드별 expert-1..6.jpg (파일명은 라틴이라 그대로)
+rep("(i + 1) + '번째 근거'", "'Evidence ' + (i + 1)");
+// 이름표(한글 포함분만; 라틴 전용 이름표는 그대로)
+rep('<figcaption class="slide-name">미국 국가조기문해패널 · NELP</figcaption>',
+    '<figcaption class="slide-name">U.S. National Early Literacy Panel</figcaption>');
+rep('<figcaption class="slide-name">미국 교육부 · What Works Clearinghouse</figcaption>',
+    '<figcaption class="slide-name">U.S. Dept. of Education · What Works Clearinghouse</figcaption>');
+// ※ 이름표에 실존 연구자 이름을 쓰지 않는다 — 바로 위 일러스트가 그 사람의 초상으로 읽히기 때문.
+//    연구자 이름은 본문(slide-sub) 인용으로만 둔다.
+// 말풍선
+rep('<p class="slide-quote">어릴 때 말한 만큼,<br>나중에 씁니다.</p>',
+    '<p class="slide-quote">What they say early<br>shapes what they write.</p>');
+rep('<p class="slide-quote">쓰기는 읽기를<br>같이 끌어올립니다.</p>',
+    '<p class="slide-quote">Writing pulls<br>reading up too.</p>');
+rep('<p class="slide-quote">한 번 쓰고 끝내지 않고,<br>고쳐 쓸 때 늡니다.</p>',
+    '<p class="slide-quote">They grow when they revise,<br>not at the first draft.</p>');
+rep('<p class="slide-quote">‘똑똑하네’ 대신<br>‘해냈구나’.</p>',
+    '<p class="slide-quote">‘You worked hard’<br>over ‘You’re smart.’</p>');
+rep('<p class="slide-quote">말로 예열하면<br>쉽게 써집니다.</p>',
+    '<p class="slide-quote">Talk first,<br>and writing flows.</p>');
+rep('<p class="slide-quote">도우며 쓰면<br>훨씬 쉬워집니다.</p>',
+    '<p class="slide-quote">Help makes<br>writing easier.</p>');
+// 보조글
+rep('<p class="slide-sub">유아·초기 아동기의 <b>구어(말하기) 능력이 이후 쓰기 능력을 예측</b>한다고 반복해서 보고됩니다.</p>',
+    '<p class="slide-sub">Studies repeatedly find that <b>early oral language predicts later writing ability.</b></p>');
+rep('<p class="slide-sub">읽은 것에 대해 글을 쓰면 <b>읽기 이해가 향상</b>됐습니다(카네기재단 지원 메타분석).</p>',
+    '<p class="slide-sub">Writing about what you read <b>improved reading comprehension</b> (Carnegie-funded meta-analysis).</p>');
+rep('<p class="slide-sub">전략을 단계로 가르치고 스스로 점검하는 <b>SRSD</b>가 초등 쓰기에서 근거가 가장 두텁습니다.</p>',
+    '<p class="slide-sub"><b>SRSD</b> — teaching strategies step by step with self-checking — has the strongest evidence base in elementary writing.</p>');
+rep('<p class="slide-sub"><b>능력을 칭찬받은 아이는 실패 뒤 더 빨리 포기</b>했고, 과정을 칭찬받으면 계속 시도했습니다(뮬러·드웩 1998, 당시 컬럼비아대).</p>',
+    '<p class="slide-sub"><b>Children praised for ability gave up faster after failure</b>; those praised for effort kept trying (Mueller &amp; Dweck 1998, then at Columbia).</p>');
+rep('<p class="slide-sub">쓰기 전에 말로 이야기(사전쓰기)하면 어휘·문장·내용이 좋아집니다(<b>효과크기 .32</b>, 그레이엄·페린 메타분석).</p>',
+    '<p class="slide-sub">Talking ideas through first (prewriting) improves vocabulary, sentences, and content (<b>effect size .32</b>, Graham &amp; Perin meta-analysis).</p>');
+rep('<p class="slide-sub">옆에서 함께 도우며 쓰기는 <b>효과가 큰 편입니다(효과크기 .75, 그레이엄·페린)</b>. 막힐 때 즉각 힌트·예시를 줍니다.</p>',
+    '<p class="slide-sub">Writing with side-by-side help is <b>highly effective (effect size .75, Graham &amp; Perin)</b>, giving hints and examples right when stuck.</p>');
+// 피어라 적용(ap-tag 포함)
+rep('<p class="slide-apply"><span class="ap-tag">피어라는 이렇게</span> 쓰기 전에 <b>통화</b>부터 합니다.</p>',
+    '<p class="slide-apply"><span class="ap-tag">In Peera</span> we start with a <b>call</b> before writing.</p>');
+rep('<p class="slide-apply"><span class="ap-tag">피어라는 이렇게</span> <b>매일 조금씩</b> 써요.</p>',
+    '<p class="slide-apply"><span class="ap-tag">In Peera</span> we write <b>a little every day.</b></p>');
+rep('<p class="slide-apply"><span class="ap-tag">피어라는 이렇게</span> 첨삭에서 끝내지 않고 <b>고쳐쓰기까지</b> 가요.</p>',
+    '<p class="slide-apply"><span class="ap-tag">In Peera</span> we don’t stop at feedback — <b>the child rewrites.</b></p>');
+rep('<p class="slide-apply"><span class="ap-tag">피어라는 이렇게</span> <b>점수도 등수도</b> 없어요.</p>',
+    '<p class="slide-apply"><span class="ap-tag">In Peera</span> there are <b>no scores, no ranking.</b></p>');
+rep('<p class="slide-apply"><span class="ap-tag">피어라는 이렇게</span> 쓰기 전에 <b>통화로 예열</b>해요.</p>',
+    '<p class="slide-apply"><span class="ap-tag">In Peera</span> Writy <b>warms up with a call</b> before writing.</p>');
+rep('<p class="slide-apply"><span class="ap-tag">피어라는 이렇게</span> 쓰는 중에도 <b>라이티가</b> 도와줘요.</p>',
+    '<p class="slide-apply"><span class="ap-tag">In Peera</span> <b>Writy helps</b> as they write.</p>');
 
 // 도우며 쓰기 결과 막대그래프(실제 논문 데이터로 구성)
 rep('<span class="rf-tag">실제 논문 데이터로 구성 · 도우며 쓰기 결과</span>',
@@ -309,6 +314,8 @@ rep('데이터 출처: Li (2023) · Jiang &amp; Kalyuga (2022), <i>Frontiers in 
 
 rep('※ 위 연구들은 <b>피어라를 검증한 것이 아닙니다.</b> 피어라가 어떤 원리를 따라 설계됐는지를 밝히는\n      근거입니다. 피어라는 아직 출시 전이며, 저희 앱의 학습 효과는 검증된 바 없습니다. 확인되지 않은\n      효과를 약속드리지 않겠습니다.',
     '※ These studies <b>do not validate Peera.</b> They explain the principles Peera was designed around.\n      Peera has not launched yet, and our app’s learning outcomes have not been measured. We will not promise\n      results we haven’t verified.');
+rep('슬라이드의 인물 사진은 <b>AI로 만든 가상 인물</b>이며, 실존 인물이나 해당 연구의 연구자가 아닙니다.',
+    'The people pictured in the slides are <b>AI-generated fictional people</b> — not real individuals, and not the researchers behind these studies.');
 
 // ── 마무리 CTA ──
 rep('<h2>라이티의 첫 문자,<br>우리 아이에게 닿게 해주세요</h2>', '<h2>Let Writy’s first text<br>reach your child</h2>');
