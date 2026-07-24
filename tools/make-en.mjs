@@ -46,8 +46,18 @@ rep('"audience": { "@type": "EducationalAudience", "educationalRole": "student",
 // ── 헤더/히어로 ──
 rep('<span class="eyebrow rise in"><span class="dot"></span> 매일 한 번, 오늘을 들려주는 시간</span>',
     '<span class="eyebrow rise in"><span class="dot"></span> A daily moment to share today</span>');
-rep('<h1 class="rise in">화난 게 아니라<br>아쉬웠던 거야</h1>',
-    '<h1 class="rise in">Not angry —<br>just a little let down.</h1>');
+// 히어로 h1 아이 인용 순환 — 4개 각각 매핑(구조·클래스는 그대로 두고 문구만 치환)
+// EN은 한 줄이 길면 3줄로 접혀 순환 시 높이가 튄다 → 각 문장을 2줄로 짧게 유지(줄1 ≤ 약 18자).
+rep('<span class="q">“</span>친구가 다른 친구랑만 놀아서<br>좀 서운했어<span class="q">”</span>',
+    '<span class="q">“</span>They left me out,<br>and it stung<span class="q">”</span>');
+rep('<span class="q">“</span>안 그랬는데 내 탓이라서<br>억울했어<span class="q">”</span>',
+    '<span class="q">“</span>Blamed for nothing,<br>so unfair<span class="q">”</span>');
+rep('<span class="q">“</span>친구가 먼저 가버려서<br>서운했어<span class="q">”</span>',
+    '<span class="q">“</span>Left without me,<br>and it hurt<span class="q">”</span>');
+rep('<span class="q">“</span>종이접기를 나만 못 해서<br>속상했어<span class="q">”</span>',
+    '<span class="q">“</span>I couldn’t keep up,<br>and I felt sad<span class="q">”</span>');
+rep('aria-label="아이가 오늘 하루를 자기 말로 들려주는 순간"',
+    'aria-label="A child telling their day in their own words"');
 rep('<b>라이티가 하루 한 번 문자를 보냅니다.</b><br>\n        아이가 들려준 이야기가 손글씨 일기가 됩니다.',
     '<b>Writy texts once a day.</b><br>\n        What your child tells becomes a handwritten diary.');
 rep('<p class="sms-line rise in"><span class="sms">“오늘 있었던 일 통화하자!”</span></p>',

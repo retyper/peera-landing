@@ -228,13 +228,20 @@
   }
   .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(67,160,71,.16); }
   h1 {
-    /* 최대값을 더 키우면 히어로 h1의 긴 줄이 의도한 2줄에서 3줄로 접힌다.
-       카피를 바꿀 때는 두 줄 다 한 줄에 들어가는지 확인할 것(1120 기준 컬럼 폭 544px). */
-    font-size: clamp(2.55rem, 6.1vw, 4.3rem);
-    line-height: 1.28; margin: 18px 0 0; word-break: keep-all;
+    /* 순환 인용문은 한 줄이 최대 14자쯤이라 기존 4.3rem이면 3줄로 접힌다 → 상한을 낮춘다. */
+    font-size: clamp(1.95rem, 4.4vw, 3rem);
+    line-height: 1.32; margin: 18px 0 0; word-break: keep-all; color: var(--ink);
   }
   h1 .hl-writy { color: var(--writy); }
   h1 .hl-bloom { color: var(--bloom); }
+  /* 아이 인용 순환 — 네 개의 두 줄 인용문을 몇 초마다 교차 페이드한다.
+     ① 높이 고정: 얹혀 있는 조각만 relative(2줄 높이 확보)라 순환해도 레이아웃이 안 흔들린다.
+     ② 나머지는 absolute로 겹쳐 두고 opacity로만 전환.
+     ③ 모션 최소화(prefers-reduced-motion)면 JS가 인터벌을 안 건다 → 첫 문장 고정. */
+  .rot { position: relative; display: block; }
+  .rot-q { position: absolute; left: 0; top: 0; width: 100%; opacity: 0; transition: opacity .55s ease; }
+  .rot-q.is-on { position: relative; opacity: 1; }
+  .rot-q .q { color: var(--writy-deep); }
   /* 라이티가 보낸 문자를 그대로 인용 — 말풍선 꼬리를 단 한 줄 */
   /* 라이티가 보낸 문자 — 제목의 주인공이 아니라 lead 뒤에 놓는 '증거' 조각이다.
      첫 문장은 부모의 긴장을 건드리고, 그다음 이 말풍선이 그걸 눈으로 확인시킨다. */
@@ -1077,7 +1084,14 @@
   <section class="hero">
     <div class="hero-copy">
       <span class="eyebrow rise in"><span class="dot"></span> 매일 한 번, 오늘을 들려주는 시간</span>
-      <h1 class="rise in">화난 게 아니라<br>아쉬웠던 거야</h1>
+      <h1 class="rise in" aria-label="아이가 오늘 하루를 자기 말로 들려주는 순간">
+        <span class="rot" data-rot aria-hidden="true">
+          <span class="rot-q is-on"><span class="q">“</span>친구가 다른 친구랑만 놀아서<br>좀 서운했어<span class="q">”</span></span>
+          <span class="rot-q"><span class="q">“</span>안 그랬는데 내 탓이라서<br>억울했어<span class="q">”</span></span>
+          <span class="rot-q"><span class="q">“</span>친구가 먼저 가버려서<br>서운했어<span class="q">”</span></span>
+          <span class="rot-q"><span class="q">“</span>종이접기를 나만 못 해서<br>속상했어<span class="q">”</span></span>
+        </span>
+      </h1>
       <p class="lead rise in">
         <b>라이티가 하루 한 번 문자를 보냅니다.</b><br>
         아이가 들려준 이야기가 손글씨 일기가 됩니다.
@@ -1682,6 +1696,20 @@
 <script src="rive.js"></script>
 <script>
   const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── 히어로 h1 아이 인용 순환 — 네 문장을 3.6초마다 교차 페이드. ── */
+  (function () {
+    const rot = document.querySelector('[data-rot]');
+    if (!rot) return;
+    const items = rot.querySelectorAll('.rot-q');
+    if (items.length < 2 || prefersReduced) return;   // 모션 최소화면 첫 문장 고정
+    let i = 0;
+    setInterval(() => {
+      items[i].classList.remove('is-on');
+      i = (i + 1) % items.length;
+      items[i].classList.add('is-on');
+    }, 3600);
+  })();
 
   /* ── 첨삭 표시 — 종이가 화면에 들어오면 마크가 순서대로 찍힌다. ── */
   const markedPaper = document.getElementById('markedPaper');
