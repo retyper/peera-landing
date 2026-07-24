@@ -1083,6 +1083,37 @@
     </nav>
   </header>
 
+  <!-- ═════════ 30일 체험단(선착순 30명) — 사용자 지시로 최상단 배치 ═════════
+       가장 강한 오퍼(무료 체험)를 방문 즉시 노출. 신청위치 '30일 체험단'으로 시트 구분.
+       WTP는 넣지 않는다(이미 고관여). 이 폼은 data-wtp가 없어도 핸들러가 if(wtp)로 안전. -->
+  <section id="trial">
+    <div class="trial rise">
+      <span class="trial-badge"><span class="dot"></span> First 30 only · 30-day free trial</span>
+      <h2>Looking for 30 to try it free first</h2>
+      <p>Before launch, just <b>30 families</b> get a 30-day free trial.<br>Try it with your child and tell us honestly.</p>
+      <form class="signup" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
+        <input type="hidden" name="_subject" value="[Peera] 30-day trial application (EN)">
+        <input type="hidden" name="신청위치" value="30일 체험단 (EN)">
+        <input type="hidden" name="유입경로" data-source-field value="(직접 방문)">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div class="row">
+          <input type="email" name="email" inputmode="email" autocomplete="email"
+                 placeholder="Email address" required aria-label="Email address">
+          <button class="btn" type="submit" disabled>Try it free first</button>
+        </div>
+        <label class="consent">
+          <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
+          <span>I agree to the <b>collection and use of my email address</b> to receive trial information.
+            It is deleted as soon as the selection notice is sent.
+            <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>
+        </label>
+        <p class="note"><b>The first 30</b> selected are contacted individually. No marketing.</p>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
   <!-- ═════════ 히어로 ═════════ -->
   <section class="hero">
     <div class="hero-copy">
@@ -1201,9 +1232,9 @@
       </figure>
       <div class="scene-copy">
         <span class="kicker">You know this moment</span>
-        <h2>You ask what happened —<br>they just cry</h2>
-        <p>When you ask what happened at daycare or school today, and they only cry in front of you.</p>
-        <p><b>It’s frustrating — and worrying.</b></p>
+        <h2>“Let’s write a diary?”<br>“I don’t know what to write.”</h2>
+        <p>Or you worry they can’t speak their mind clearly at school.</p>
+        <p><b>It’s frustrating — and you wonder what to do.</b></p>
         <p class="turn">It’s not that they won’t talk.<br>They just don’t know how to yet.</p>
       </div>
     </div>
@@ -1237,8 +1268,8 @@
   <section id="why">
     <div class="section-head rise">
       <span class="kicker">Why we built it this way</span>
-      <h2>Built on evidence</h2>
-      <p>We didn’t only make it fun.<br class="desk">We built toward what the research points to.</p>
+      <h2>Built on scientific evidence</h2>
+      <p>We didn’t only make it fun.<br class="desk">We designed it based on research.</p>
     </div>
 
     <div class="evids">
@@ -1587,8 +1618,8 @@
   <section>
     <div class="final rise">
       <img class="avatar" src="writy-avatar.png" alt="">
-      <h2>Let Writy’s first text<br>reach your child</h2>
-      <p>We’ll tell you the moment it’s ready.</p>
+      <h2>Give your child<br>the joy of writing</h2>
+      <p>With Writy, today’s story becomes a piece of writing they enjoy.</p>
       <form class="signup" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
         <input type="hidden" name="_subject" value="[Peera] Pre-registration — final CTA (EN)">
         <input type="hidden" name="신청위치" value="마무리 CTA (EN)">
@@ -1618,37 +1649,6 @@
           </div>
           <p class="wtp-thanks" hidden>Thanks for the honest answer. It really helps us set the price.</p>
         </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- ═════════ 30일 체험단(선착순 30명) ═════════
-       사전예약(이메일)보다 강한 의사. 신청위치 '30일 체험단'으로 시트에서 구분한다.
-       WTP는 넣지 않는다(이미 고관여). 이 폼은 data-wtp가 없어도 핸들러가 if(wtp)로 안전. -->
-  <section id="trial">
-    <div class="trial rise">
-      <span class="trial-badge"><span class="dot"></span> First 30 only · 30-day free trial</span>
-      <h2>Looking for 30 to try it free first</h2>
-      <p>Before launch, just <b>30 families</b> get a 30-day free trial.<br>Try it with your child and tell us honestly.</p>
-      <form class="signup" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
-        <input type="hidden" name="_subject" value="[Peera] 30-day trial application (EN)">
-        <input type="hidden" name="신청위치" value="30일 체험단 (EN)">
-        <input type="hidden" name="유입경로" data-source-field value="(직접 방문)">
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
-               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <div class="row">
-          <input type="email" name="email" inputmode="email" autocomplete="email"
-                 placeholder="Email address" required aria-label="Email address">
-          <button class="btn" type="submit" disabled>Try it free first</button>
-        </div>
-        <label class="consent">
-          <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
-          <span>I agree to the <b>collection and use of my email address</b> to receive trial information.
-            It is deleted as soon as the selection notice is sent.
-            <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>
-        </label>
-        <p class="note"><b>The first 30</b> selected are contacted individually. No marketing.</p>
-        <p class="status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>

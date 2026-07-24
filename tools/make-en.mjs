@@ -110,10 +110,10 @@ rep('실사 3D · 유치원/학교 얘기에<br>앞에서 울기만 하는 아�
     'Photoreal 3D · a child who only cries<br>when asked about school<br>');
 rep('<code>scene-worry.jpg</code> · 권장 1200×1500', '<code>scene-worry.jpg</code> · Suggested 1200×1500');
 rep('<span class="kicker">이런 순간, 있으셨죠</span>', '<span class="kicker">You know this moment</span>');
-rep('<h2>무슨 일 있었냐 물어도<br>울기만 하는 아이</h2>', '<h2>You ask what happened —<br>they just cry</h2>');
-rep('<p>어린이집에서, 학교에서 오늘 무슨 일이 있었는지 물어도 앞에서 울기만 할 때.</p>',
-    '<p>When you ask what happened at daycare or school today, and they only cry in front of you.</p>');
-rep('<p><b>답답하고, 또 걱정되셨을 거예요.</b></p>', '<p><b>It’s frustrating — and worrying.</b></p>');
+rep('<h2>“일기 써볼까?” 말하면<br>“뭐라고 써야 할지 모르겠어”</h2>', '<h2>“Let’s write a diary?”<br>“I don’t know what to write.”</h2>');
+rep('<p>아니면 학교에서 자기 의견을 똑똑히 말하지 못할까 봐.</p>',
+    '<p>Or you worry they can’t speak their mind clearly at school.</p>');
+rep('<p><b>답답하기도 하고, 어떻게 해야 하나 고민되셨을 거예요.</b></p>', '<p><b>It’s frustrating — and you wonder what to do.</b></p>');
 rep('<p class="turn">말하기 싫은 게 아니라,<br>아직 꺼내는 법을 모를 뿐이에요.</p>',
     '<p class="turn">It’s not that they won’t talk.<br>They just don’t know how to yet.</p>');
 
@@ -224,9 +224,9 @@ rep('<p>틀린 말은 <b>바른 말로 다시 들려줄 뿐</b>이에요.<br>광
 
 // ── 근거 ──
 rep('<span class="kicker">왜 이렇게 만들었나</span>', '<span class="kicker">Why we built it this way</span>');
-rep('<h2>근거 위에 만듭니다</h2>', '<h2>Built on evidence</h2>');
-rep('<p>재미있게만 만들지 않았어요.<br class="desk">쌓인 연구가 가리키는 쪽으로 만들었습니다.</p>',
-    '<p>We didn’t only make it fun.<br class="desk">We built toward what the research points to.</p>');
+rep('<h2>과학적 근거를 바탕으로 만듭니다</h2>', '<h2>Built on scientific evidence</h2>');
+rep('<p>재미있게만 만들지 않았어요.<br class="desk">연구를 바탕으로 설계했습니다.</p>',
+    '<p>We didn’t only make it fun.<br class="desk">We designed it based on research.</p>');
 
 // 뇌과학 결론 한 줄 + 실제 논문 그림 3장(fMRI) — Kersey & James (2013), CC BY 4.0
 rep('<p class="brain-headline rise">손으로 써야 <b>뇌가 켜집니다</b></p>',
@@ -330,8 +330,8 @@ rep('슬라이드의 인물 사진은 <b>AI로 만든 가상 인물</b>이며, �
     'The people pictured in the slides are <b>AI-generated fictional people</b> — not real individuals, and not the researchers behind these studies.');
 
 // ── 마무리 CTA ──
-rep('<h2>라이티의 첫 문자,<br>우리 아이에게 닿게 해주세요</h2>', '<h2>Let Writy’s first text<br>reach your child</h2>');
-rep('<p>준비되는 대로 가장 먼저 알려드릴게요.</p>', '<p>We’ll tell you the moment it’s ready.</p>');
+rep('<h2>아이에게 글쓰는 즐거움을<br>선물해주세요</h2>', '<h2>Give your child<br>the joy of writing</h2>');
+rep('<p>라이티를 쓰다 보면, 오늘의 이야기가 즐거운 글이 됩니다.</p>', '<p>With Writy, today’s story becomes a piece of writing they enjoy.</p>');
 
 // ── 30일 체험단(선착순 30명) ──
 rep('선착순 30명 · 30일 무료 체험단', 'First 30 only · 30-day free trial');

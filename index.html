@@ -1083,6 +1083,37 @@
     </nav>
   </header>
 
+  <!-- ═════════ 30일 체험단(선착순 30명) — 사용자 지시로 최상단 배치 ═════════
+       가장 강한 오퍼(무료 체험)를 방문 즉시 노출. 신청위치 '30일 체험단'으로 시트 구분.
+       WTP는 넣지 않는다(이미 고관여). 이 폼은 data-wtp가 없어도 핸들러가 if(wtp)로 안전. -->
+  <section id="trial">
+    <div class="trial rise">
+      <span class="trial-badge"><span class="dot"></span> 선착순 30명 · 30일 무료 체험단</span>
+      <h2>무료로 먼저 써볼 30명을 찾아요</h2>
+      <p>출시 전, <b>30일 무료 체험</b>을 딱 30명만 모십니다.<br>아이와 써보고 솔직한 후기를 들려주세요.</p>
+      <form class="signup" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
+        <input type="hidden" name="_subject" value="[피어라] 30일 체험단 신청">
+        <input type="hidden" name="신청위치" value="30일 체험단">
+        <input type="hidden" name="유입경로" data-source-field value="(직접 방문)">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div class="row">
+          <input type="email" name="email" inputmode="email" autocomplete="email"
+                 placeholder="이메일 주소" required aria-label="이메일 주소">
+          <button class="btn" type="submit" disabled>무료로 먼저 써보기</button>
+        </div>
+        <label class="consent">
+          <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
+          <span>체험단 안내를 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다.
+            선정 안내 발송 후 지체 없이 파기해요.
+            <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span>
+        </label>
+        <p class="note"><b>선착순 30명</b>에 선정되면 개별 안내드려요. 광고는 보내지 않습니다.</p>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
   <!-- ═════════ 히어로 ═════════ -->
   <section class="hero">
     <div class="hero-copy">
@@ -1201,9 +1232,9 @@
       </figure>
       <div class="scene-copy">
         <span class="kicker">이런 순간, 있으셨죠</span>
-        <h2>무슨 일 있었냐 물어도<br>울기만 하는 아이</h2>
-        <p>어린이집에서, 학교에서 오늘 무슨 일이 있었는지 물어도 앞에서 울기만 할 때.</p>
-        <p><b>답답하고, 또 걱정되셨을 거예요.</b></p>
+        <h2>“일기 써볼까?” 말하면<br>“뭐라고 써야 할지 모르겠어”</h2>
+        <p>아니면 학교에서 자기 의견을 똑똑히 말하지 못할까 봐.</p>
+        <p><b>답답하기도 하고, 어떻게 해야 하나 고민되셨을 거예요.</b></p>
         <p class="turn">말하기 싫은 게 아니라,<br>아직 꺼내는 법을 모를 뿐이에요.</p>
       </div>
     </div>
@@ -1237,8 +1268,8 @@
   <section id="why">
     <div class="section-head rise">
       <span class="kicker">왜 이렇게 만들었나</span>
-      <h2>근거 위에 만듭니다</h2>
-      <p>재미있게만 만들지 않았어요.<br class="desk">쌓인 연구가 가리키는 쪽으로 만들었습니다.</p>
+      <h2>과학적 근거를 바탕으로 만듭니다</h2>
+      <p>재미있게만 만들지 않았어요.<br class="desk">연구를 바탕으로 설계했습니다.</p>
     </div>
 
     <div class="evids">
@@ -1587,8 +1618,8 @@
   <section>
     <div class="final rise">
       <img class="avatar" src="writy-avatar.png" alt="">
-      <h2>라이티의 첫 문자,<br>우리 아이에게 닿게 해주세요</h2>
-      <p>준비되는 대로 가장 먼저 알려드릴게요.</p>
+      <h2>아이에게 글쓰는 즐거움을<br>선물해주세요</h2>
+      <p>라이티를 쓰다 보면, 오늘의 이야기가 즐거운 글이 됩니다.</p>
       <form class="signup" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
         <input type="hidden" name="_subject" value="[피어라] 사전예약 신청 — 마무리 CTA">
         <input type="hidden" name="신청위치" value="마무리 CTA">
@@ -1618,37 +1649,6 @@
           </div>
           <p class="wtp-thanks" hidden>솔직한 답 고마워요. 가격을 정하는 데 큰 도움이 됩니다.</p>
         </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- ═════════ 30일 체험단(선착순 30명) ═════════
-       사전예약(이메일)보다 강한 의사. 신청위치 '30일 체험단'으로 시트에서 구분한다.
-       WTP는 넣지 않는다(이미 고관여). 이 폼은 data-wtp가 없어도 핸들러가 if(wtp)로 안전. -->
-  <section id="trial">
-    <div class="trial rise">
-      <span class="trial-badge"><span class="dot"></span> 선착순 30명 · 30일 무료 체험단</span>
-      <h2>무료로 먼저 써볼 30명을 찾아요</h2>
-      <p>출시 전, <b>30일 무료 체험</b>을 딱 30명만 모십니다.<br>아이와 써보고 솔직한 후기를 들려주세요.</p>
-      <form class="signup" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
-        <input type="hidden" name="_subject" value="[피어라] 30일 체험단 신청">
-        <input type="hidden" name="신청위치" value="30일 체험단">
-        <input type="hidden" name="유입경로" data-source-field value="(직접 방문)">
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
-               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <div class="row">
-          <input type="email" name="email" inputmode="email" autocomplete="email"
-                 placeholder="이메일 주소" required aria-label="이메일 주소">
-          <button class="btn" type="submit" disabled>무료로 먼저 써보기</button>
-        </div>
-        <label class="consent">
-          <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
-          <span>체험단 안내를 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다.
-            선정 안내 발송 후 지체 없이 파기해요.
-            <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span>
-        </label>
-        <p class="note"><b>선착순 30명</b>에 선정되면 개별 안내드려요. 광고는 보내지 않습니다.</p>
-        <p class="status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
