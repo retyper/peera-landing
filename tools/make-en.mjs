@@ -144,8 +144,6 @@ rep('<p><b>잘한 건 확실히 칭찬하고,</b><br>주의할 곳만 살짝 짚
     '<p><b>What they did well, said clearly.</b><br>One thing to watch, said lightly.</p>');
 rep('<div class="en"><span>한글 쓰기</span><span>영어 쓰기</span><span>그림일기</span></div>',
     '<div class="en"><span>Korean writing</span><span>English writing</span><span>Picture diary</span></div>');
-rep('<b>7세에 시작해서, 11세까지.</b>', '<b>Start at 7. Stay through 11.</b>');
-rep('<span>학년이 바뀌어도 같은 친구와 씁니다.</span>', '<span>The same friend, grade after grade.</span>');
 
 // ── 쓰기 섹션 ──
 rep('<span class="kicker">태블릿 + 펜</span>', '<span class="kicker">Tablet + pen</span>');
