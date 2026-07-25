@@ -169,6 +169,7 @@
   .hand { font-family: "Gaegu", "Jua", cursive; }
   a { color: var(--purple-dark); }
   img { max-width: 100%; }
+  html { overflow-x: hidden; }
 
   .wrap { width: min(1080px, 100% - 44px); margin-inline: auto; }
 
@@ -810,6 +811,8 @@
     border-radius: 999px; padding: 4px 13px; margin-bottom: 16px;
   }
   .rf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  /* 모바일 우측 오버플로우 방지: 그리드 아이템이 큰 이미지 min-content로 트랙을 밀어내지 않게 */
+  .evids > *, .rf-grid > *, .rfig, .rfig-frame { min-width: 0; }
   .rfig { margin: 0; }
   .rfig.wide { grid-column: 1 / -1; }
   .rfig-frame { background: #000; border-radius: 12px; overflow: hidden; }
