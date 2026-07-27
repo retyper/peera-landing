@@ -292,7 +292,7 @@
   .note { margin: 12px 2px 0; font-size: .94rem; color: var(--ink-soft); }
   .note b { color: var(--ink); }
 
-  /* 개인정보 수집 동의 — 이메일을 받는 이상 필수. 체크 전엔 버튼이 잠긴다. */
+  /* 개인정보 수집 동의 — 이메일을 받는 이상 필수. 기본 체크이고, 해제하면 required가 제출을 막는다. */
   .consent {
     display: flex; align-items: flex-start; gap: 8px;
     margin: 12px 2px 0; font-size: .92rem; line-height: 1.5; color: var(--ink-soft);
@@ -1126,10 +1126,10 @@
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
                  placeholder="Email address" required aria-label="Email address">
-          <button class="btn" type="submit" disabled>Try it free first</button>
+          <button class="btn" type="submit">Try it free first</button>
         </div>
         <label class="consent">
-          <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
+          <input type="checkbox" name="개인정보동의" value="동의함" required checked data-consent>
           <span>I agree to the <b>collection and use of my email address</b> to receive trial information.
             It is deleted as soon as the selection notice is sent.
             <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>
@@ -1173,10 +1173,10 @@
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
                  placeholder="Email address" required aria-label="Email address">
-          <button class="btn" type="submit" disabled>Get notified first</button>
+          <button class="btn" type="submit">Get notified first</button>
         </div>
         <label class="consent">
-          <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
+          <input type="checkbox" name="개인정보동의" value="동의함" required checked data-consent>
           <span>I agree to the <b>collection and use of my email address</b> to receive the launch notice.
             It is deleted as soon as the notice is sent.
             <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>
@@ -1657,10 +1657,10 @@
         <div class="row">
           <input type="email" name="email" inputmode="email" autocomplete="email"
                  placeholder="Email address" required aria-label="Email address">
-          <button class="btn" type="submit" disabled>Get launch news</button>
+          <button class="btn" type="submit">Get launch news</button>
         </div>
         <label class="consent">
-          <input type="checkbox" name="개인정보동의" value="동의함" required data-consent>
+          <input type="checkbox" name="개인정보동의" value="동의함" required checked data-consent>
           <span>I agree to the <b>collection and use of my email address</b> to receive the launch notice.
             It is deleted as soon as the notice is sent.
             <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>
@@ -2019,8 +2019,13 @@
     const wtp = form.querySelector('[data-wtp]');
     let submittedEmail = '';
 
-    /* 동의 전에는 버튼을 잠근다. JS가 죽어도 checkbox의 required가 막아준다. */
-    const syncConsent = () => { button.disabled = !consent.checked; };
+    /* ★버튼을 잠그지 않는다 (2026-07-27).
+       회색 버튼은 "왜 안 눌리지"가 아니라 "이미 제출됐나 보다"로 읽혀서,
+       이메일을 다 쓰고도 그냥 나가버리는 이탈을 만들고 있었다.
+       동의는 기본 체크이고, 사용자가 굳이 해제하면 checkbox의 required가
+       네이티브 검증("이 확인란을 선택하세요")으로 막아준다 — JS가 죽어도 동작한다.
+       이 함수는 이제 '제출 중 잠금'을 되돌리는 역할만 한다. */
+    const syncConsent = () => { button.disabled = false; };
     consent.addEventListener('change', syncConsent);
     syncConsent();
 
@@ -2047,7 +2052,7 @@
         if (res.ok && data && data.result === 'success') {
           submittedEmail = emailInput.value;   // reset() 전에 WTP 2차 전송용으로 붙잡아둔다
           form.reset();
-          syncConsent();  // reset()으로 체크가 풀리므로 버튼도 다시 잠근다
+          syncConsent();  // reset()은 HTML 기본값(checked)으로 되돌린다. 버튼도 다시 연다
           status.className = 'status ok';
           status.textContent = '고마워요! 라이티의 첫 소식, 이 메일로 가장 먼저 알려드릴게요. 🌱';
           // ★ 이 랜딩의 유일한 전환. GA4에서 '주요 이벤트'로 표시할 것.
