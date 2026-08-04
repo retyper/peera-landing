@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>피어라 | 화난 게 아니라 아쉬웠던 거야, 손글씨 일기 앱</title>
-<meta name="description" content="라이티가 하루 한 번 문자를 보내면 아이가 통화로 오늘 이야기를 들려줍니다. 그 이야기가 손글씨 일기가 되는 초등학생용 앱입니다.">
+<meta name="description" content="라이티가 하루 한 번 먼저 전화를 걸면 아이가 다시 전화를 걸어 오늘 이야기를 들려줍니다. 그 이야기가 손글씨 일기가 되는 초등학생용 앱입니다.">
 
 <!-- ★ 사이트 정본 주소 — 여기 한 곳만 고치면 OG·canonical·구조화데이터가 함께 따라온다.
      지금은 GitHub Pages. peera.co 도메인을 사서 연결하면 아래 세 줄을
@@ -61,7 +61,7 @@
   "url": "https://retyper.github.io/peera-landing/",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "iOS, Android",
-  "description": "라이티가 하루 한 번 문자를 보내고, 아이가 통화로 오늘 일을 들려주면 손글씨 일기로 이어지는 초등학생용 앱입니다.",
+  "description": "라이티가 하루 한 번 먼저 전화를 걸고, 아이가 다시 전화를 걸어 오늘 일을 들려주면 손글씨 일기로 이어지는 초등학생용 앱입니다.",
   "audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": "예비초·초등학생" },
   "creator": { "@type": "Organization", "name": "Peer" }
 }
@@ -1168,7 +1168,7 @@
         </span>
       </h1>
       <p class="lead rise in">
-        <b>라이티가 하루 한 번 문자를 보냅니다.</b><br>
+        <b>라이티가 하루 한 번 먼저 전화를 겁니다.</b><br>
         대화 직후, 아이가 직접 하루를 손글씨로 남깁니다.
       </p>
 
@@ -1211,7 +1211,7 @@
     <!-- 시그니처: 라이티 통화 데모 — 본품의 writy.riv(라이티)가 실제로 여기서 구동된다 -->
     <div class="demo-col rise in">
       <div class="phone" id="phoneDemo" role="img"
-           aria-label="피어라 앱 미리보기: 다람쥐 라이티가 문자를 보내고, 아이가 전화를 걸어 이야기를 나눈 뒤, 그 마음이 손글씨 일기가 되는 장면">
+           aria-label="피어라 앱 미리보기: 다람쥐 라이티가 먼저 전화를 걸고, 알림을 본 아이가 다시 전화를 걸어 이야기를 나눈 뒤, 그 마음이 손글씨 일기가 되는 장면">
         <div class="screen">
           <canvas class="rive" id="riveCanvas" aria-hidden="true"></canvas>
           <div class="shade top" aria-hidden="true"></div>
@@ -1229,7 +1229,7 @@
             <span class="mic">🎙️</span><br>버튼 없이, 아이가 말하면 라이티가 들어요
           </div>
 
-          <!-- 1막: 라이티가 보낸 문자 -->
+          <!-- 1막: 라이티의 전화 알림 -->
           <div class="notif" id="notif" aria-hidden="true">
             <img src="writy-avatar.png" alt="">
             <div class="n-body">
@@ -1491,8 +1491,8 @@
     <div class="steps">
       <div class="step rise">
         <span class="step-num">1</span>
-        <h3>문자를 받고,<br>전화를 걸어요</h3>
-        <p>하루 한 통, 라이티가 문자를 보내요.<br>궁금해진 아이가 먼저 전화를 겁니다.</p>
+        <h3>전화가 오고,<br>다시 걸어요</h3>
+        <p>하루 한 번, 라이티가 먼저 전화를 걸어요.<br>알림을 본 아이가 다시 전화를 겁니다.</p>
       </div>
       <div class="step rise">
         <span class="step-num">2</span>
@@ -1659,7 +1659,7 @@
           </div>
           <div class="promise rise">
             <h3><span class="pi">🔋</span>붙잡지 않아요</h3>
-            <p>문자는 <b>하루 딱 한 통</b>.<br>라이티 폰 배터리가 다 되면 통화도 끝나요.</p>
+            <p>전화 알림은 <b>하루 딱 한 번</b>.<br>라이티 폰 배터리가 다 되면 통화도 끝나요.</p>
           </div>
           <div class="promise rise">
             <h3><span class="pi">✏️</span>틀려도 괜찮아요</h3>
@@ -1834,12 +1834,12 @@
 
   /* ── 폰 데모: 라이티와의 통화 → 일기 ──
      실제 앱의 대화 루프(아이 말 짚어주기 → 감정 묻기 → 일기 권유)를 30초로 압축한 연출. */
-  // 실제 앱의 하루: 라이티가 문자를 보내고(writyMessages) → 아이가 전화를 걸고 → 통화 → 일기.
-  const NOTIF_TEXT = '나 오늘 진짜 커다란 도토리를 주웠어!';
+  // 실제 앱의 하루: 라이티가 먼저 전화를 걸고(부재중 알림) → 아이가 다시 전화를 걸고 → 통화 → 일기.
+  const NOTIF_TEXT = '라이티가 전화했어요! 📞';
   const SCRIPT = [
     { who: 'writy', text: '어? 지우야, 안녕! 오늘 하루 어땠어?' },
-    { who: 'kid',   text: '라이티야! 아까 문자 봤어. 도토리 어디서 주웠어?' },
-    { who: 'writy', text: '참나무 밑에서! 너무 커서 들고 오다 데굴데굴 굴렀지 뭐야. 너는 오늘 뭐 했어?' },
+    { who: 'kid',   text: '라이티야! 아까 전화했었지? 무슨 일이야?' },
+    { who: 'writy', text: '나 오늘 진짜 커다란 도토리를 주웠거든! 들고 오다 데굴데굴 굴렀지 뭐야. 너는 오늘 뭐 했어?' },
     { who: 'kid',   text: '학교에서 종이접기 했어. 어려웠는데 끝까지 했어' },
     { who: 'writy', text: '끝까지 해냈구나, 멋지다! 그때 기분이 어땠어?' },
     { who: 'kid',   text: '뿌듯했어!' },
@@ -1924,14 +1924,14 @@
     callTime.textContent = fmt(secs);
     callRunning = false;
 
-    // ── 1막 · 라이티가 문자를 보낸다 ──
+    // ── 1막 · 라이티가 먼저 전화를 건다(부재중 알림) ──
     if (!await wait(700, gen)) return;
     notif.classList.add('show');
     if (!await typeInto(notifText, NOTIF_TEXT, gen, 30)) return;
     if (!await wait(1700, gen)) return;
     notif.classList.remove('show');
 
-    // ── 2막 · 궁금해진 아이가 전화를 건다 ──
+    // ── 2막 · 알림을 본 아이가 다시 전화를 건다 ──
     if (!await wait(500, gen)) return;
     calling.classList.add('show');
     if (!await wait(2100, gen)) return;
