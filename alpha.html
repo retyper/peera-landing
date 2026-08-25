@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peera iOS Alpha — Write. Draw. Make a storybook.</title>
+<meta name="description" content="Peera is opening an early iOS alpha through TestFlight for iPad + Apple Pencil users. Requirements, what to expect, and how to join.">
+<link rel="canonical" href="https://retyper.github.io/peera-landing/alpha.html">
+<meta name="robots" content="noindex">
+
+<meta property="og:title" content="Peera iOS Alpha — Write. Draw. Make a storybook.">
+<meta property="og:description" content="An early iOS alpha for iPad + Apple Pencil users, via TestFlight.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://retyper.github.io/peera-landing/alpha.html">
+<meta property="og:image" content="https://retyper.github.io/peera-landing/peera-og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://retyper.github.io/peera-landing/peera-og-en.png">
+
+<link rel="icon" href="writy-avatar.png">
+<link rel="apple-touch-icon" href="writy-avatar.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FFFDF8; --ink:#3D2B1F; --orange:#E1751F; --purple:#7C3AED; --green:#43A047;
+    --card:#FFFFFF; --line:#EDE3D3; --muted:#7A6A58;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Nunito',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.55;
+  }
+  .wrap{max-width:680px; margin:0 auto; padding:40px 20px 80px}
+  header.top{display:flex; align-items:center; gap:10px; margin-bottom:28px}
+  header.top img{width:36px; height:36px; border-radius:50%}
+  header.top span{font-weight:800; font-size:1.1rem}
+
+  .badge{
+    display:inline-flex; align-items:center; gap:6px; background:#FFF3E6; color:var(--orange);
+    border:1px solid #FBD9B8; padding:6px 12px; border-radius:999px; font-weight:700; font-size:.85rem;
+  }
+  .badge .dot{width:6px; height:6px; border-radius:50%; background:var(--orange)}
+
+  h1{font-size:clamp(1.6rem,4.5vw,2.2rem); margin:16px 0 6px; line-height:1.25}
+  .sub{color:var(--muted); font-size:1.05rem; margin:0 0 28px}
+
+  .req{
+    background:#FFF8ED; border:1px solid #FBD9B8; border-radius:16px; padding:20px 22px; margin:0 0 28px;
+  }
+  .req h2{margin:0 0 10px; font-size:1.05rem}
+  .req ul{margin:0; padding-left:20px}
+  .req li{margin:4px 0}
+  .req .note{margin:12px 0 0; font-size:.92rem; color:var(--muted)}
+
+  h2.section{font-size:1.2rem; margin:36px 0 12px}
+  p{margin:0 0 14px}
+  ul.feat{padding-left:20px; margin:0 0 14px}
+  ul.feat li{margin:4px 0}
+
+  .btn{
+    display:inline-block; background:var(--orange); color:#fff; text-decoration:none;
+    font-weight:800; padding:14px 26px; border-radius:14px; font-size:1.05rem;
+    box-shadow:0 3px 0 #B85A0F;
+  }
+  .btn:active{transform:translateY(2px); box-shadow:0 1px 0 #B85A0F}
+  .cta{text-align:center; margin:22px 0}
+  .cta .small{display:block; margin-top:10px; font-size:.85rem; color:var(--muted)}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin:0 0 20px}
+  .card h3{margin:0 0 8px; font-size:1rem}
+  .card ul{margin:0; padding-left:20px}
+  .card li{margin:4px 0}
+
+  form.signup{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px}
+  form.signup .row{display:flex; gap:10px; flex-wrap:wrap}
+  form.signup input[type=email]{
+    flex:1 1 200px; padding:12px 14px; border-radius:12px; border:1px solid var(--line);
+    font-size:1rem; font-family:inherit;
+  }
+  form.signup button{
+    background:var(--ink); color:#fff; border:none; border-radius:12px; padding:12px 20px;
+    font-weight:700; font-size:1rem; cursor:pointer;
+  }
+  form.signup button:disabled{opacity:.6; cursor:default}
+  label.consent{display:flex; gap:8px; align-items:flex-start; margin-top:14px; font-size:.85rem; color:var(--muted)}
+  label.consent input{margin-top:3px}
+  label.consent a{color:var(--ink)}
+  p.status{margin:10px 0 0; font-size:.9rem; min-height:1.2em}
+  p.status.ok{color:var(--green)}
+  p.status.err{color:#C0392B}
+
+  footer{margin-top:48px; font-size:.8rem; color:var(--muted); border-top:1px solid var(--line); padding-top:18px}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="writy-avatar.png" alt="Writy, the squirrel character in Peera">
+    <span>Peera</span>
+  </header>
+
+  <span class="badge"><span class="dot"></span> iOS alpha · TestFlight</span>
+  <h1>Write. Draw. Make a storybook.</h1>
+  <p class="sub">Peera is a children's writing app where Writy, a small squirrel character, calls first. A child can talk about their day in Korean or English, then write a diary or story directly on an iPad using a stylus or their finger.</p>
+  <p>Children can also turn up to 8 of their own stories into a storybook by drawing a cover, adding a title, and publishing it to their bookshelf.</p>
+
+  <div class="req">
+    <h2>What you need</h2>
+    <p><b>Required:</b></p>
+    <ul>
+      <li>An iPad</li>
+      <li>iPadOS 15.0 or later</li>
+    </ul>
+    <p><b>Strongly preferred:</b></p>
+    <ul>
+      <li>Apple Pencil or another stylus</li>
+    </ul>
+    <p class="note">Handwriting works with either a stylus or a finger, but this alpha is specifically looking for people who can try the handwriting experience with an Apple Pencil. If you don't have an iPad, or don't plan to try the handwriting feature, this particular alpha probably won't be very useful for you.</p>
+  </div>
+
+  <h2 class="section">How to join</h2>
+  <p>Peera is currently available as an iOS-only TestFlight alpha. You do not need to register by email before installing — you just need an Apple account to use TestFlight.</p>
+
+  <div class="cta">
+    <a class="btn" href="https://testflight.apple.com/join/6Z7rE7dk" target="_blank" rel="noopener">Join the alpha on TestFlight</a>
+    <span class="small">Opens the TestFlight app · Apple account required</span>
+  </div>
+
+  <h2 class="section">A few things to know before you join</h2>
+  <div class="card">
+    <p>By installing/joining the alpha, you agree that:</p>
+    <ul>
+      <li>This is an alpha version, so bugs and errors may occur.</li>
+      <li>We may occasionally contact you by email to ask about your experience. We will not contact you frequently or use this as a promotional mailing list.</li>
+      <li>Please join only if you're comfortable testing an early version and encountering things that may not work perfectly yet.</li>
+    </ul>
+  </div>
+
+  <h2 class="section">How long can I use it?</h2>
+  <p>The alpha is free to use for at least 90 days. The current TestFlight build is set to expire 90 days after its upload on August 25, 2026. This is a TestFlight platform limitation, not a period we're defining as a commercial free trial.</p>
+  <p>If we need to end the alpha earlier than that, we will notify participants at least 7 days in advance.</p>
+
+  <h2 class="section">Korean and English</h2>
+  <p>Peera supports Korean and English conversations and writing. If you're learning Korean, you're welcome to try it as well.</p>
+  <p>One note: the English UI is still being worked on. Some buttons, menus, settings, or parent-facing screens may still appear in Korean while we're improving the interface.</p>
+
+  <h2 class="section">Optional: early-termination notice by email</h2>
+  <p>Would you like us to email you if the alpha needs to end before the expected TestFlight expiration? Leave your email below — this is entirely optional.</p>
+
+  <form class="signup" data-signup action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
+    <input type="hidden" name="_subject" value="[Peera] Reddit alpha — early-termination notice opt-in">
+    <input type="hidden" name="신청위치" value="레딧 알파 종료안내">
+    <input type="hidden" name="유입경로" data-source-field value="(direct)">
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+           style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <div class="row">
+      <input type="email" name="email" inputmode="email" autocomplete="email"
+             placeholder="you@example.com" required aria-label="Email address">
+      <button class="btn" type="submit">Notify me</button>
+    </div>
+    <label class="consent">
+      <input type="checkbox" name="개인정보동의" value="동의함" required checked data-consent>
+      <span>Your email will be collected only for alpha-test communication and early-termination notices — it will not be used for other purposes.
+        <a href="privacy-en.html" target="_blank" rel="noopener">Privacy notice</a></span>
+    </label>
+    <p class="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <h2 class="section">Before you install</h2>
+  <div class="card">
+    <p>Please make sure you have:</p>
+    <ul>
+      <li>An iPad running iPadOS 15.0 or later</li>
+      <li>An Apple Pencil or other stylus, if possible</li>
+      <li>An Apple account for TestFlight</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="https://testflight.apple.com/join/6Z7rE7dk" target="_blank" rel="noopener">Join the alpha on TestFlight</a>
+  </div>
+
+  <footer>
+    Peera (피어라) · <a href="https://retyper.github.io/peera-landing/en.html">About Peera</a> · <a href="privacy-en.html">Privacy</a>
+  </footer>
+
+</div>
+
+<script>
+  /* Same UTM-capture pattern as index.html — records the actual campaign
+     (e.g. utm_source=reddit&utm_medium=r_alphaandbetausers&utm_campaign=peera_reddit_alpha)
+     into the sheet row, without needing GA. */
+  const trafficSource = (() => {
+    const q = new URLSearchParams(location.search);
+    const src = q.get('utm_source');
+    if (src) {
+      const medium = q.get('utm_medium');
+      const campaign = q.get('utm_campaign');
+      return [src, medium, campaign].filter(Boolean).join(' / ');
+    }
+    if (!document.referrer) return '(direct)';
+    try {
+      const host = new URL(document.referrer).hostname.replace(/^www\./, '');
+      return host === location.hostname ? '(direct)' : host;
+    } catch (_) { return '(direct)'; }
+  })();
+  document.querySelectorAll('input[data-source-field]').forEach((el) => { el.value = trafficSource; });
+
+  document.querySelectorAll('form[data-signup]').forEach((form) => {
+    const status = form.querySelector('.status');
+    const button = form.querySelector('button[type=submit]');
+    const consent = form.querySelector('[data-consent]');
+    const syncConsent = () => { button.disabled = false; };
+    consent.addEventListener('change', syncConsent);
+    syncConsent();
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className = 'status';
+      status.textContent = 'Sending…';
+      button.disabled = true;
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+        let data = null;
+        try { data = await res.json(); } catch (_) {}
+        if (res.ok && data && data.result === 'success') {
+          form.reset();
+          syncConsent();
+          status.className = 'status ok';
+          status.textContent = "Thanks — we'll only email you if the alpha needs to end early.";
+        } else {
+          status.className = 'status err';
+          status.textContent = data && data.error ? 'Something went wrong: ' + data.error : 'Something went wrong. Please try again.';
+        }
+      } catch (_) {
+        status.className = 'status err';
+        status.textContent = 'Please check your network connection.';
+      } finally {
+        syncConsent();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
