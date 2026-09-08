@@ -1,0 +1,5627 @@
+{
+ "source": "교육부 고시 제2022-33호 [별책 14] 영어과 교육과정 [별표 3] 기본 어휘 (pp.254-290)",
+ "license": "저작권법 제7조 제2호(국가의 고시·공고·훈령) — 보호받지 못하는 저작물. 자유 이용 가능.",
+ "note": "별표 3에서 * 표시된 어휘 = 초등학교에서 사용하기를 권장하는 어휘. variants는 원문에 슬래시로 함께 제시된 철자 변형(예: color / colour).",
+ "count": 800,
+ "items": [
+  {
+   "word": "a",
+   "variants": [
+    "a"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "about",
+   "variants": [
+    "about"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "above",
+   "variants": [
+    "above"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "across",
+   "variants": [
+    "across"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "act",
+   "variants": [
+    "act"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "add",
+   "variants": [
+    "add"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "address",
+   "variants": [
+    "address"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "adult",
+   "variants": [
+    "adult"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "afraid",
+   "variants": [
+    "afraid"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "after",
+   "variants": [
+    "after"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "afternoon",
+   "variants": [
+    "afternoon"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "again",
+   "variants": [
+    "again"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "against",
+   "variants": [
+    "against"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "age",
+   "variants": [
+    "age"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ago",
+   "variants": [
+    "ago"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "agree",
+   "variants": [
+    "agree"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ahead",
+   "variants": [
+    "ahead"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "air",
+   "variants": [
+    "air"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "airplane",
+   "variants": [
+    "airplane",
+    "aeroplane"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "album",
+   "variants": [
+    "album"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "all",
+   "variants": [
+    "all"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "almost",
+   "variants": [
+    "almost"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "alone",
+   "variants": [
+    "alone"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "along",
+   "variants": [
+    "along"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "already",
+   "variants": [
+    "already"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "alright",
+   "variants": [
+    "alright"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "also",
+   "variants": [
+    "also"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "always",
+   "variants": [
+    "always"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "and",
+   "variants": [
+    "and"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "animal",
+   "variants": [
+    "animal"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "another",
+   "variants": [
+    "another"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "answer",
+   "variants": [
+    "answer"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "any",
+   "variants": [
+    "any"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "apartment",
+   "variants": [
+    "apartment"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "apple",
+   "variants": [
+    "apple"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "area",
+   "variants": [
+    "area"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "arm",
+   "variants": [
+    "arm"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "around",
+   "variants": [
+    "around"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "arrive",
+   "variants": [
+    "arrive"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "art",
+   "variants": [
+    "art"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "as",
+   "variants": [
+    "as"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ask",
+   "variants": [
+    "ask"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "at",
+   "variants": [
+    "at"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "aunt",
+   "variants": [
+    "aunt"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "autumn",
+   "variants": [
+    "autumn"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "away",
+   "variants": [
+    "away"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "baby",
+   "variants": [
+    "baby"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "back",
+   "variants": [
+    "back"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bad",
+   "variants": [
+    "bad"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "badminton",
+   "variants": [
+    "badminton"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bag",
+   "variants": [
+    "bag"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bake",
+   "variants": [
+    "bake"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ball",
+   "variants": [
+    "ball"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "banana",
+   "variants": [
+    "banana"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bank",
+   "variants": [
+    "bank"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "base",
+   "variants": [
+    "base"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "baseball",
+   "variants": [
+    "baseball"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "basket",
+   "variants": [
+    "basket"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "basketball",
+   "variants": [
+    "basketball"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bat",
+   "variants": [
+    "bat"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bath",
+   "variants": [
+    "bath"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "be",
+   "variants": [
+    "be"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "beach",
+   "variants": [
+    "beach"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bear",
+   "variants": [
+    "bear"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "beauty",
+   "variants": [
+    "beauty"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "because",
+   "variants": [
+    "because"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "become",
+   "variants": [
+    "become"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bed",
+   "variants": [
+    "bed"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bee",
+   "variants": [
+    "bee"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "beef",
+   "variants": [
+    "beef"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "before",
+   "variants": [
+    "before"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "begin",
+   "variants": [
+    "begin"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "behind",
+   "variants": [
+    "behind"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "believe",
+   "variants": [
+    "believe"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bell",
+   "variants": [
+    "bell"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "below",
+   "variants": [
+    "below"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "belt",
+   "variants": [
+    "belt"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "beside",
+   "variants": [
+    "beside"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "between",
+   "variants": [
+    "between"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "big",
+   "variants": [
+    "big"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bike",
+   "variants": [
+    "bike"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bill",
+   "variants": [
+    "bill"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bird",
+   "variants": [
+    "bird"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "birth",
+   "variants": [
+    "birth"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "biscuit",
+   "variants": [
+    "biscuit"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "black",
+   "variants": [
+    "black"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "blood",
+   "variants": [
+    "blood"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "blue",
+   "variants": [
+    "blue"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "board",
+   "variants": [
+    "board"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "boat",
+   "variants": [
+    "boat"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "body",
+   "variants": [
+    "body"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bone",
+   "variants": [
+    "bone"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "book",
+   "variants": [
+    "book"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "borrow",
+   "variants": [
+    "borrow"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "both",
+   "variants": [
+    "both"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bottle",
+   "variants": [
+    "bottle"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bottom",
+   "variants": [
+    "bottom"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "box",
+   "variants": [
+    "box"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "boy",
+   "variants": [
+    "boy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "brave",
+   "variants": [
+    "brave"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bread",
+   "variants": [
+    "bread"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "break",
+   "variants": [
+    "break"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "breakfast",
+   "variants": [
+    "breakfast"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bridge",
+   "variants": [
+    "bridge"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bright",
+   "variants": [
+    "bright"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bring",
+   "variants": [
+    "bring"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "brother",
+   "variants": [
+    "brother"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "brown",
+   "variants": [
+    "brown"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "brush",
+   "variants": [
+    "brush"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "build",
+   "variants": [
+    "build"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "burn",
+   "variants": [
+    "burn"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "bus",
+   "variants": [
+    "bus"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "business",
+   "variants": [
+    "business"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "busy",
+   "variants": [
+    "busy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "but",
+   "variants": [
+    "but"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "butter",
+   "variants": [
+    "butter"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "button",
+   "variants": [
+    "button"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "buy",
+   "variants": [
+    "buy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "by",
+   "variants": [
+    "by"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cake",
+   "variants": [
+    "cake"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "call",
+   "variants": [
+    "call"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "camera",
+   "variants": [
+    "camera"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "camp",
+   "variants": [
+    "camp"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "campaign",
+   "variants": [
+    "campaign"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "can",
+   "variants": [
+    "can"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "candy",
+   "variants": [
+    "candy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cap",
+   "variants": [
+    "cap"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "car",
+   "variants": [
+    "car"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "card",
+   "variants": [
+    "card"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "care",
+   "variants": [
+    "care"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "carrot",
+   "variants": [
+    "carrot"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "carry",
+   "variants": [
+    "carry"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "case",
+   "variants": [
+    "case"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cash",
+   "variants": [
+    "cash"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cat",
+   "variants": [
+    "cat"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "catch",
+   "variants": [
+    "catch"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "center",
+   "variants": [
+    "center"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "certain",
+   "variants": [
+    "certain"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "chair",
+   "variants": [
+    "chair"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "chance",
+   "variants": [
+    "chance"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "change",
+   "variants": [
+    "change"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cheap",
+   "variants": [
+    "cheap"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "check",
+   "variants": [
+    "check",
+    "cheque"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cheese",
+   "variants": [
+    "cheese"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "chicken",
+   "variants": [
+    "chicken"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "child",
+   "variants": [
+    "child"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "chocolate",
+   "variants": [
+    "chocolate"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "choose",
+   "variants": [
+    "choose"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "church",
+   "variants": [
+    "church"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "circle",
+   "variants": [
+    "circle"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "city",
+   "variants": [
+    "city"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "class",
+   "variants": [
+    "class"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "clean",
+   "variants": [
+    "clean"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "clear",
+   "variants": [
+    "clear"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "clever",
+   "variants": [
+    "clever"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "climb",
+   "variants": [
+    "climb"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "clock",
+   "variants": [
+    "clock"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "close",
+   "variants": [
+    "close"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "clothes",
+   "variants": [
+    "clothes"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cloud",
+   "variants": [
+    "cloud"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "club",
+   "variants": [
+    "club"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "coat",
+   "variants": [
+    "coat"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "coffee",
+   "variants": [
+    "coffee"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cold",
+   "variants": [
+    "cold"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "collect",
+   "variants": [
+    "collect"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "college",
+   "variants": [
+    "college"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "color",
+   "variants": [
+    "color",
+    "colour"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "come",
+   "variants": [
+    "come"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "comic",
+   "variants": [
+    "comic"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "company",
+   "variants": [
+    "company"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "compute",
+   "variants": [
+    "compute"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "condition",
+   "variants": [
+    "condition"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "congratulate",
+   "variants": [
+    "congratulate"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "control",
+   "variants": [
+    "control"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cook",
+   "variants": [
+    "cook"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cookie",
+   "variants": [
+    "cookie",
+    "cooky"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cool",
+   "variants": [
+    "cool"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "corner",
+   "variants": [
+    "corner"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cost",
+   "variants": [
+    "cost"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "could",
+   "variants": [
+    "could"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "country",
+   "variants": [
+    "country"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "couple",
+   "variants": [
+    "couple"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "course",
+   "variants": [
+    "course"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "court",
+   "variants": [
+    "court"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cousin",
+   "variants": [
+    "cousin"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cover",
+   "variants": [
+    "cover"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cow",
+   "variants": [
+    "cow"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "crayon",
+   "variants": [
+    "crayon"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cream",
+   "variants": [
+    "cream"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cross",
+   "variants": [
+    "cross"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cry",
+   "variants": [
+    "cry"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "culture",
+   "variants": [
+    "culture"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cup",
+   "variants": [
+    "cup"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "curtain",
+   "variants": [
+    "curtain"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "customer",
+   "variants": [
+    "customer"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "cut",
+   "variants": [
+    "cut"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "dance",
+   "variants": [
+    "dance"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "danger",
+   "variants": [
+    "danger"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "dark",
+   "variants": [
+    "dark"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "date",
+   "variants": [
+    "date"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "daughter",
+   "variants": [
+    "daughter"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "day",
+   "variants": [
+    "day"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "dead",
+   "variants": [
+    "dead"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "death",
+   "variants": [
+    "death"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "decide",
+   "variants": [
+    "decide"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "deep",
+   "variants": [
+    "deep"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "delicious",
+   "variants": [
+    "delicious"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "design",
+   "variants": [
+    "design"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "desk",
+   "variants": [
+    "desk"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "dialogue",
+   "variants": [
+    "dialogue",
+    "dialog"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "die",
+   "variants": [
+    "die"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "difficult",
+   "variants": [
+    "difficult"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "dinner",
+   "variants": [
+    "dinner"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "discuss",
+   "variants": [
+    "discuss"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "do",
+   "variants": [
+    "do"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "doctor",
+   "variants": [
+    "doctor"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "dog",
+   "variants": [
+    "dog"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "doll",
+   "variants": [
+    "doll"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "door",
+   "variants": [
+    "door"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "double",
+   "variants": [
+    "double"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "doughnut",
+   "variants": [
+    "doughnut"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "down",
+   "variants": [
+    "down"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "draw",
+   "variants": [
+    "draw"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "dream",
+   "variants": [
+    "dream"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "dress",
+   "variants": [
+    "dress"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "drink",
+   "variants": [
+    "drink"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "drive",
+   "variants": [
+    "drive"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "drop",
+   "variants": [
+    "drop"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "drum",
+   "variants": [
+    "drum"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "dry",
+   "variants": [
+    "dry"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "duck",
+   "variants": [
+    "duck"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "during",
+   "variants": [
+    "during"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ear",
+   "variants": [
+    "ear"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "early",
+   "variants": [
+    "early"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "earth",
+   "variants": [
+    "earth"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "east",
+   "variants": [
+    "east"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "eat",
+   "variants": [
+    "eat"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "egg",
+   "variants": [
+    "egg"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "eight",
+   "variants": [
+    "eight"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "elephant",
+   "variants": [
+    "elephant"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "eleven",
+   "variants": [
+    "eleven"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "end",
+   "variants": [
+    "end"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "energy",
+   "variants": [
+    "energy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "enough",
+   "variants": [
+    "enough"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "enter",
+   "variants": [
+    "enter"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "evening",
+   "variants": [
+    "evening"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "every",
+   "variants": [
+    "every"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "example",
+   "variants": [
+    "example"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "exercise",
+   "variants": [
+    "exercise"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "eye",
+   "variants": [
+    "eye"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "face",
+   "variants": [
+    "face"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fact",
+   "variants": [
+    "fact"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fail",
+   "variants": [
+    "fail"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fall",
+   "variants": [
+    "fall"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "family",
+   "variants": [
+    "family"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fan",
+   "variants": [
+    "fan"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "far",
+   "variants": [
+    "far"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "farm",
+   "variants": [
+    "farm"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fast",
+   "variants": [
+    "fast"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fat",
+   "variants": [
+    "fat"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "father",
+   "variants": [
+    "father"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "favorite",
+   "variants": [
+    "favorite",
+    "favourite"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "feel",
+   "variants": [
+    "feel"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "festival",
+   "variants": [
+    "festival"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "field",
+   "variants": [
+    "field"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fight",
+   "variants": [
+    "fight"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "file",
+   "variants": [
+    "file"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fill",
+   "variants": [
+    "fill"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "film",
+   "variants": [
+    "film"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "find",
+   "variants": [
+    "find"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fine",
+   "variants": [
+    "fine"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "finger",
+   "variants": [
+    "finger"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "finish",
+   "variants": [
+    "finish"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fire",
+   "variants": [
+    "fire"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "first",
+   "variants": [
+    "first"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fish",
+   "variants": [
+    "fish"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "five",
+   "variants": [
+    "five"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fix",
+   "variants": [
+    "fix"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "floor",
+   "variants": [
+    "floor"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "flower",
+   "variants": [
+    "flower"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fly",
+   "variants": [
+    "fly"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "focus",
+   "variants": [
+    "focus"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "food",
+   "variants": [
+    "food"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fool",
+   "variants": [
+    "fool"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "foot",
+   "variants": [
+    "foot"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "football",
+   "variants": [
+    "football"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "for",
+   "variants": [
+    "for"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "forest",
+   "variants": [
+    "forest"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "forget",
+   "variants": [
+    "forget"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fork",
+   "variants": [
+    "fork"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "form",
+   "variants": [
+    "form"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "four",
+   "variants": [
+    "four"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fox",
+   "variants": [
+    "fox"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "free",
+   "variants": [
+    "free"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fresh",
+   "variants": [
+    "fresh"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "friend",
+   "variants": [
+    "friend"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "from",
+   "variants": [
+    "from"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "front",
+   "variants": [
+    "front"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fruit",
+   "variants": [
+    "fruit"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "full",
+   "variants": [
+    "full"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "fun",
+   "variants": [
+    "fun"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "future",
+   "variants": [
+    "future"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "game",
+   "variants": [
+    "game"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "garden",
+   "variants": [
+    "garden"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "gas",
+   "variants": [
+    "gas"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "gentleman",
+   "variants": [
+    "gentleman"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "get",
+   "variants": [
+    "get"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "girl",
+   "variants": [
+    "girl"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "give",
+   "variants": [
+    "give"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "glad",
+   "variants": [
+    "glad"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "glass",
+   "variants": [
+    "glass"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "go",
+   "variants": [
+    "go"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "goal",
+   "variants": [
+    "goal"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "god",
+   "variants": [
+    "god"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "gold",
+   "variants": [
+    "gold"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "good",
+   "variants": [
+    "good"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "goodbye",
+   "variants": [
+    "goodbye"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "grandfather",
+   "variants": [
+    "grandfather"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "grape",
+   "variants": [
+    "grape"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "grass",
+   "variants": [
+    "grass"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "gray",
+   "variants": [
+    "gray",
+    "grey"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "great",
+   "variants": [
+    "great"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "green",
+   "variants": [
+    "green"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ground",
+   "variants": [
+    "ground"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "group",
+   "variants": [
+    "group"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "grow",
+   "variants": [
+    "grow"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "guess",
+   "variants": [
+    "guess"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "guitar",
+   "variants": [
+    "guitar"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "gum",
+   "variants": [
+    "gum"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "guy",
+   "variants": [
+    "guy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "habit",
+   "variants": [
+    "habit"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hair",
+   "variants": [
+    "hair"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hamburger",
+   "variants": [
+    "hamburger"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hand",
+   "variants": [
+    "hand"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hang",
+   "variants": [
+    "hang"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "happy",
+   "variants": [
+    "happy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hard",
+   "variants": [
+    "hard"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hat",
+   "variants": [
+    "hat"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hate",
+   "variants": [
+    "hate"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "have",
+   "variants": [
+    "have"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "he",
+   "variants": [
+    "he"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "head",
+   "variants": [
+    "head"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "heart",
+   "variants": [
+    "heart"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "heat",
+   "variants": [
+    "heat"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "heavy",
+   "variants": [
+    "heavy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hello",
+   "variants": [
+    "hello",
+    "hey",
+    "hi"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "helmet",
+   "variants": [
+    "helmet"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "help",
+   "variants": [
+    "help"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "here",
+   "variants": [
+    "here"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hero",
+   "variants": [
+    "hero"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "high",
+   "variants": [
+    "high"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hike",
+   "variants": [
+    "hike"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hill",
+   "variants": [
+    "hill"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "history",
+   "variants": [
+    "history"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hit",
+   "variants": [
+    "hit"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hobby",
+   "variants": [
+    "hobby"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hold",
+   "variants": [
+    "hold"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "holiday",
+   "variants": [
+    "holiday"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "home",
+   "variants": [
+    "home"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "homework",
+   "variants": [
+    "homework"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "honest",
+   "variants": [
+    "honest"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hope",
+   "variants": [
+    "hope"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "horse",
+   "variants": [
+    "horse"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hospital",
+   "variants": [
+    "hospital"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hot",
+   "variants": [
+    "hot"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hour",
+   "variants": [
+    "hour"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "house",
+   "variants": [
+    "house"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "how",
+   "variants": [
+    "how"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "however",
+   "variants": [
+    "however"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "human",
+   "variants": [
+    "human"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hundred",
+   "variants": [
+    "hundred"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hunt",
+   "variants": [
+    "hunt"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "hurry",
+   "variants": [
+    "hurry"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "husband",
+   "variants": [
+    "husband"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "I",
+   "variants": [
+    "I"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ice",
+   "variants": [
+    "ice"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "idea",
+   "variants": [
+    "idea"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "if",
+   "variants": [
+    "if"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "image",
+   "variants": [
+    "image"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "in",
+   "variants": [
+    "in"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "inside",
+   "variants": [
+    "inside"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "internet",
+   "variants": [
+    "internet"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "into",
+   "variants": [
+    "into"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "introduce",
+   "variants": [
+    "introduce"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "invite",
+   "variants": [
+    "invite"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "issue",
+   "variants": [
+    "issue"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "it",
+   "variants": [
+    "it"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "jacket",
+   "variants": [
+    "jacket"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "jam",
+   "variants": [
+    "jam"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "job",
+   "variants": [
+    "job"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "join",
+   "variants": [
+    "join"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "juice",
+   "variants": [
+    "juice"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "jump",
+   "variants": [
+    "jump"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "just",
+   "variants": [
+    "just"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "keep",
+   "variants": [
+    "keep"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "key",
+   "variants": [
+    "key"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "kick",
+   "variants": [
+    "kick"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "kid",
+   "variants": [
+    "kid"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "kill",
+   "variants": [
+    "kill"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "kind",
+   "variants": [
+    "kind"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "king",
+   "variants": [
+    "king"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "kiss",
+   "variants": [
+    "kiss"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "kitchen",
+   "variants": [
+    "kitchen"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "knife",
+   "variants": [
+    "knife"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "know",
+   "variants": [
+    "know"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "lady",
+   "variants": [
+    "lady"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "lake",
+   "variants": [
+    "lake"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "land",
+   "variants": [
+    "land"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "large",
+   "variants": [
+    "large"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "laser",
+   "variants": [
+    "laser"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "last",
+   "variants": [
+    "last"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "late",
+   "variants": [
+    "late"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "lazy",
+   "variants": [
+    "lazy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "learn",
+   "variants": [
+    "learn"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "left",
+   "variants": [
+    "left"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "leg",
+   "variants": [
+    "leg"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "lesson",
+   "variants": [
+    "lesson"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "letter",
+   "variants": [
+    "letter"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "library",
+   "variants": [
+    "library"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "lie",
+   "variants": [
+    "lie"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "life",
+   "variants": [
+    "life"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "light",
+   "variants": [
+    "light"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "like",
+   "variants": [
+    "like"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "line",
+   "variants": [
+    "line"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "lion",
+   "variants": [
+    "lion"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "lip",
+   "variants": [
+    "lip"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "listen",
+   "variants": [
+    "listen"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "little",
+   "variants": [
+    "little"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "live",
+   "variants": [
+    "live"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "long",
+   "variants": [
+    "long"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "look",
+   "variants": [
+    "look"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "love",
+   "variants": [
+    "love"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "low",
+   "variants": [
+    "low"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "luck",
+   "variants": [
+    "luck"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "lunch",
+   "variants": [
+    "lunch"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "mad",
+   "variants": [
+    "mad"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "mail",
+   "variants": [
+    "mail"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "make",
+   "variants": [
+    "make"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "man",
+   "variants": [
+    "man"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "many",
+   "variants": [
+    "many"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "map",
+   "variants": [
+    "map"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "marathon",
+   "variants": [
+    "marathon"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "market",
+   "variants": [
+    "market"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "marry",
+   "variants": [
+    "marry"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "mathematics",
+   "variants": [
+    "mathematics",
+    "maths",
+    "math"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "may",
+   "variants": [
+    "may"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "meat",
+   "variants": [
+    "meat"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "medal",
+   "variants": [
+    "medal"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "meet",
+   "variants": [
+    "meet"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "member",
+   "variants": [
+    "member"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "memory",
+   "variants": [
+    "memory"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "middle",
+   "variants": [
+    "middle"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "might",
+   "variants": [
+    "might"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "milk",
+   "variants": [
+    "milk"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "mind",
+   "variants": [
+    "mind"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "miss",
+   "variants": [
+    "miss"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "model",
+   "variants": [
+    "model"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "money",
+   "variants": [
+    "money"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "monkey",
+   "variants": [
+    "monkey"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "month",
+   "variants": [
+    "month"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "moon",
+   "variants": [
+    "moon"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "morning",
+   "variants": [
+    "morning"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "mother",
+   "variants": [
+    "mother"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "mountain",
+   "variants": [
+    "mountain"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "mouse",
+   "variants": [
+    "mouse"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "mouth",
+   "variants": [
+    "mouth"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "move",
+   "variants": [
+    "move"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "movie",
+   "variants": [
+    "movie"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "much",
+   "variants": [
+    "much"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "music",
+   "variants": [
+    "music"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "must",
+   "variants": [
+    "must"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "name",
+   "variants": [
+    "name"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "nation",
+   "variants": [
+    "nation"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "nature",
+   "variants": [
+    "nature"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "near",
+   "variants": [
+    "near"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "neck",
+   "variants": [
+    "neck"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "need",
+   "variants": [
+    "need"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "never",
+   "variants": [
+    "never"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "new",
+   "variants": [
+    "new"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "news",
+   "variants": [
+    "news"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "newspaper",
+   "variants": [
+    "newspaper"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "next",
+   "variants": [
+    "next"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "nice",
+   "variants": [
+    "nice"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "night",
+   "variants": [
+    "night"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "nine",
+   "variants": [
+    "nine"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "no",
+   "variants": [
+    "no",
+    "nope",
+    "nay"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "north",
+   "variants": [
+    "north"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "nose",
+   "variants": [
+    "nose"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "not",
+   "variants": [
+    "not"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "note",
+   "variants": [
+    "note"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "notebook",
+   "variants": [
+    "notebook"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "nothing",
+   "variants": [
+    "nothing"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "now",
+   "variants": [
+    "now"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "number",
+   "variants": [
+    "number"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "nurse",
+   "variants": [
+    "nurse"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "of",
+   "variants": [
+    "of"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "off",
+   "variants": [
+    "off"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "office",
+   "variants": [
+    "office"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "often",
+   "variants": [
+    "often"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "oil",
+   "variants": [
+    "oil"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "okay",
+   "variants": [
+    "okay",
+    "okey",
+    "OK"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "old",
+   "variants": [
+    "old"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "on",
+   "variants": [
+    "on"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "one",
+   "variants": [
+    "one"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "only",
+   "variants": [
+    "only"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "open",
+   "variants": [
+    "open"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "or",
+   "variants": [
+    "or"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "orange",
+   "variants": [
+    "orange"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "out",
+   "variants": [
+    "out"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "over",
+   "variants": [
+    "over"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "page",
+   "variants": [
+    "page"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "paint",
+   "variants": [
+    "paint"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pants",
+   "variants": [
+    "pants"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "paper",
+   "variants": [
+    "paper"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "parent",
+   "variants": [
+    "parent"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "park",
+   "variants": [
+    "park"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "part",
+   "variants": [
+    "part"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "partner",
+   "variants": [
+    "partner"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "party",
+   "variants": [
+    "party"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pass",
+   "variants": [
+    "pass"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pay",
+   "variants": [
+    "pay"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pen",
+   "variants": [
+    "pen"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pencil",
+   "variants": [
+    "pencil"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "people",
+   "variants": [
+    "people"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "piano",
+   "variants": [
+    "piano"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pick",
+   "variants": [
+    "pick"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "picture",
+   "variants": [
+    "picture"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pig",
+   "variants": [
+    "pig"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pilot",
+   "variants": [
+    "pilot"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pink",
+   "variants": [
+    "pink"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pizza",
+   "variants": [
+    "pizza"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "place",
+   "variants": [
+    "place"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "plan",
+   "variants": [
+    "plan"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "plastic",
+   "variants": [
+    "plastic"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "play",
+   "variants": [
+    "play"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "please",
+   "variants": [
+    "please"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "point",
+   "variants": [
+    "point"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "police",
+   "variants": [
+    "police"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "poor",
+   "variants": [
+    "poor"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "potato",
+   "variants": [
+    "potato"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "power",
+   "variants": [
+    "power"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "present",
+   "variants": [
+    "present"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "pretty",
+   "variants": [
+    "pretty"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "prince",
+   "variants": [
+    "prince"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "print",
+   "variants": [
+    "print"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "problem",
+   "variants": [
+    "problem"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "program",
+   "variants": [
+    "program",
+    "programme"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "project",
+   "variants": [
+    "project"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "puppy",
+   "variants": [
+    "puppy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "push",
+   "variants": [
+    "push"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "put",
+   "variants": [
+    "put"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "queen",
+   "variants": [
+    "queen"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "question",
+   "variants": [
+    "question"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "quick",
+   "variants": [
+    "quick"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "quiet",
+   "variants": [
+    "quiet"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "quiz",
+   "variants": [
+    "quiz"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "rabbit",
+   "variants": [
+    "rabbit"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "race",
+   "variants": [
+    "race"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "radio",
+   "variants": [
+    "radio"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "rain",
+   "variants": [
+    "rain"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "read",
+   "variants": [
+    "read"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ready",
+   "variants": [
+    "ready"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "recreation",
+   "variants": [
+    "recreation"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "red",
+   "variants": [
+    "red"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "remember",
+   "variants": [
+    "remember"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "restaurant",
+   "variants": [
+    "restaurant"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "restroom",
+   "variants": [
+    "restroom"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "return",
+   "variants": [
+    "return"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ribbon",
+   "variants": [
+    "ribbon"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "rich",
+   "variants": [
+    "rich"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "right",
+   "variants": [
+    "right"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ring",
+   "variants": [
+    "ring"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "river",
+   "variants": [
+    "river"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "road",
+   "variants": [
+    "road"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "robot",
+   "variants": [
+    "robot"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "rock",
+   "variants": [
+    "rock"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "room",
+   "variants": [
+    "room"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "rose",
+   "variants": [
+    "rose"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "run",
+   "variants": [
+    "run"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sad",
+   "variants": [
+    "sad"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "safe",
+   "variants": [
+    "safe"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "salad",
+   "variants": [
+    "salad"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sale",
+   "variants": [
+    "sale"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "salt",
+   "variants": [
+    "salt"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "same",
+   "variants": [
+    "same"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sand",
+   "variants": [
+    "sand"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sandwich",
+   "variants": [
+    "sandwich"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "save",
+   "variants": [
+    "save"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "say",
+   "variants": [
+    "say"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "school",
+   "variants": [
+    "school"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "science",
+   "variants": [
+    "science"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "scissors",
+   "variants": [
+    "scissors"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "score",
+   "variants": [
+    "score"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sea",
+   "variants": [
+    "sea"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "season",
+   "variants": [
+    "season"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "second",
+   "variants": [
+    "second"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "see",
+   "variants": [
+    "see"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sell",
+   "variants": [
+    "sell"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "send",
+   "variants": [
+    "send"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "service",
+   "variants": [
+    "service"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "set",
+   "variants": [
+    "set"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "seven",
+   "variants": [
+    "seven"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "she",
+   "variants": [
+    "she"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ship",
+   "variants": [
+    "ship"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "shirt",
+   "variants": [
+    "shirt"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "shoe",
+   "variants": [
+    "shoe"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "shop",
+   "variants": [
+    "shop"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "short",
+   "variants": [
+    "short"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "should",
+   "variants": [
+    "should"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "show",
+   "variants": [
+    "show"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "shy",
+   "variants": [
+    "shy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sick",
+   "variants": [
+    "sick"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "side",
+   "variants": [
+    "side"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sing",
+   "variants": [
+    "sing"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sister",
+   "variants": [
+    "sister"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sit",
+   "variants": [
+    "sit"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "six",
+   "variants": [
+    "six"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "size",
+   "variants": [
+    "size"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "skate",
+   "variants": [
+    "skate"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ski",
+   "variants": [
+    "ski"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "skin",
+   "variants": [
+    "skin"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "skirt",
+   "variants": [
+    "skirt"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sky",
+   "variants": [
+    "sky"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sleep",
+   "variants": [
+    "sleep"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "slow",
+   "variants": [
+    "slow"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "small",
+   "variants": [
+    "small"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "smell",
+   "variants": [
+    "smell"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "smile",
+   "variants": [
+    "smile"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "snow",
+   "variants": [
+    "snow"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "so",
+   "variants": [
+    "so"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "soccer",
+   "variants": [
+    "soccer"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sock",
+   "variants": [
+    "sock"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "soft",
+   "variants": [
+    "soft"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "software",
+   "variants": [
+    "software"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "some",
+   "variants": [
+    "some"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "son",
+   "variants": [
+    "son"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "song",
+   "variants": [
+    "song"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sorry",
+   "variants": [
+    "sorry"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sound",
+   "variants": [
+    "sound"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "soup",
+   "variants": [
+    "soup"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "south",
+   "variants": [
+    "south"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "space",
+   "variants": [
+    "space"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "spaghetti",
+   "variants": [
+    "spaghetti"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "speak",
+   "variants": [
+    "speak"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "speed",
+   "variants": [
+    "speed"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "spoon",
+   "variants": [
+    "spoon"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sport",
+   "variants": [
+    "sport"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "spring",
+   "variants": [
+    "spring"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "staff",
+   "variants": [
+    "staff"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "stand",
+   "variants": [
+    "stand"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "star",
+   "variants": [
+    "star"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "start",
+   "variants": [
+    "start"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "stay",
+   "variants": [
+    "stay"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "steak",
+   "variants": [
+    "steak"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "stone",
+   "variants": [
+    "stone"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "stop",
+   "variants": [
+    "stop"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "store",
+   "variants": [
+    "store"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "story",
+   "variants": [
+    "story"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "street",
+   "variants": [
+    "street"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "strong",
+   "variants": [
+    "strong"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "study",
+   "variants": [
+    "study"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "style",
+   "variants": [
+    "style"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "subway",
+   "variants": [
+    "subway"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sugar",
+   "variants": [
+    "sugar"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "summer",
+   "variants": [
+    "summer"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sun",
+   "variants": [
+    "sun"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "sure",
+   "variants": [
+    "sure"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "swim",
+   "variants": [
+    "swim"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "table",
+   "variants": [
+    "table"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tail",
+   "variants": [
+    "tail"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "take",
+   "variants": [
+    "take"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "talk",
+   "variants": [
+    "talk"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tall",
+   "variants": [
+    "tall"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tape",
+   "variants": [
+    "tape"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "taste",
+   "variants": [
+    "taste"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "taxi",
+   "variants": [
+    "taxi"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "teach",
+   "variants": [
+    "teach"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "team",
+   "variants": [
+    "team"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "telephone",
+   "variants": [
+    "telephone",
+    "phone"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "television",
+   "variants": [
+    "television"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tell",
+   "variants": [
+    "tell"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ten",
+   "variants": [
+    "ten"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tennis",
+   "variants": [
+    "tennis"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tent",
+   "variants": [
+    "tent"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "test",
+   "variants": [
+    "test"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "textbook",
+   "variants": [
+    "textbook"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "than",
+   "variants": [
+    "than"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "thank",
+   "variants": [
+    "thank"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "that",
+   "variants": [
+    "that"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "the",
+   "variants": [
+    "the"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "there",
+   "variants": [
+    "there"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "they",
+   "variants": [
+    "they"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "thing",
+   "variants": [
+    "thing"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "think",
+   "variants": [
+    "think"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "third",
+   "variants": [
+    "third"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "thirst",
+   "variants": [
+    "thirst"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "thirteen",
+   "variants": [
+    "thirteen"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "thirty",
+   "variants": [
+    "thirty"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "this",
+   "variants": [
+    "this"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "three",
+   "variants": [
+    "three"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ticket",
+   "variants": [
+    "ticket"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tiger",
+   "variants": [
+    "tiger"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "time",
+   "variants": [
+    "time"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tire",
+   "variants": [
+    "tire"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "to",
+   "variants": [
+    "to"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "today",
+   "variants": [
+    "today"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "together",
+   "variants": [
+    "together"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tomato",
+   "variants": [
+    "tomato"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tomorrow",
+   "variants": [
+    "tomorrow"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tonight",
+   "variants": [
+    "tonight"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "too",
+   "variants": [
+    "too"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tooth",
+   "variants": [
+    "tooth"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "top",
+   "variants": [
+    "top"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "touch",
+   "variants": [
+    "touch"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "town",
+   "variants": [
+    "town"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "toy",
+   "variants": [
+    "toy"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "track",
+   "variants": [
+    "track"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "train",
+   "variants": [
+    "train"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "travel",
+   "variants": [
+    "travel"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "tree",
+   "variants": [
+    "tree"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "trip",
+   "variants": [
+    "trip"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "truck",
+   "variants": [
+    "truck"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "true",
+   "variants": [
+    "true"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "try",
+   "variants": [
+    "try"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "turn",
+   "variants": [
+    "turn"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "twelve",
+   "variants": [
+    "twelve"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "twenty",
+   "variants": [
+    "twenty"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "twenty-first",
+   "variants": [
+    "twenty-first"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "twenty-second",
+   "variants": [
+    "twenty-second"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "twenty-third",
+   "variants": [
+    "twenty-third"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "twice",
+   "variants": [
+    "twice"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "two",
+   "variants": [
+    "two"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "type",
+   "variants": [
+    "type"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "ugly",
+   "variants": [
+    "ugly"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "umbrella",
+   "variants": [
+    "umbrella"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "uncle",
+   "variants": [
+    "uncle"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "under",
+   "variants": [
+    "under"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "understand",
+   "variants": [
+    "understand"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "up",
+   "variants": [
+    "up"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "use",
+   "variants": [
+    "use"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "vegetable",
+   "variants": [
+    "vegetable"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "very",
+   "variants": [
+    "very"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "video",
+   "variants": [
+    "video"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "violin",
+   "variants": [
+    "violin"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "visit",
+   "variants": [
+    "visit"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "voice",
+   "variants": [
+    "voice"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wait",
+   "variants": [
+    "wait"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wake",
+   "variants": [
+    "wake"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "walk",
+   "variants": [
+    "walk"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wall",
+   "variants": [
+    "wall"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "want",
+   "variants": [
+    "want"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "war",
+   "variants": [
+    "war"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "warm",
+   "variants": [
+    "warm"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wash",
+   "variants": [
+    "wash"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "watch",
+   "variants": [
+    "watch"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "water",
+   "variants": [
+    "water"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "watermelon",
+   "variants": [
+    "watermelon"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "way",
+   "variants": [
+    "way"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "we",
+   "variants": [
+    "we"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wear",
+   "variants": [
+    "wear"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "weather",
+   "variants": [
+    "weather"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "website",
+   "variants": [
+    "website"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wedding",
+   "variants": [
+    "wedding"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "week",
+   "variants": [
+    "week"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "weekend",
+   "variants": [
+    "weekend"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "weight",
+   "variants": [
+    "weight"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "welcome",
+   "variants": [
+    "welcome"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "well",
+   "variants": [
+    "well"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "west",
+   "variants": [
+    "west"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wet",
+   "variants": [
+    "wet"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "what",
+   "variants": [
+    "what"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "when",
+   "variants": [
+    "when"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "where",
+   "variants": [
+    "where"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "white",
+   "variants": [
+    "white"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "who",
+   "variants": [
+    "who"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "why",
+   "variants": [
+    "why"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wife",
+   "variants": [
+    "wife"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "will",
+   "variants": [
+    "will"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "win",
+   "variants": [
+    "win"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wind",
+   "variants": [
+    "wind"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "window",
+   "variants": [
+    "window"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wine",
+   "variants": [
+    "wine"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "winter",
+   "variants": [
+    "winter"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wish",
+   "variants": [
+    "wish"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "with",
+   "variants": [
+    "with"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "woman",
+   "variants": [
+    "woman"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wood",
+   "variants": [
+    "wood"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "word",
+   "variants": [
+    "word"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "work",
+   "variants": [
+    "work"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "world",
+   "variants": [
+    "world"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "worry",
+   "variants": [
+    "worry"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "write",
+   "variants": [
+    "write"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "wrong",
+   "variants": [
+    "wrong"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "year",
+   "variants": [
+    "year"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "yellow",
+   "variants": [
+    "yellow"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "yes",
+   "variants": [
+    "yes",
+    "yeah",
+    "yep"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "yesterday",
+   "variants": [
+    "yesterday"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "you",
+   "variants": [
+    "you"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "young",
+   "variants": [
+    "young"
+   ],
+   "level": "초등"
+  },
+  {
+   "word": "zoo",
+   "variants": [
+    "zoo"
+   ],
+   "level": "초등"
+  }
+ ]
+}
