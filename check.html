@@ -81,6 +81,7 @@
     <button class="btn" id="bCopy">복사</button>
     <button class="btn ghost" id="bReset">처음부터</button>
   </div>
+  <div class="row" style="margin-top:8px"><button class="btn" id="bApp" style="border-color:#1F7A4D;color:#1F7A4D">이 복습 목록으로 피어라 시작하기 →</button></div>
 </div>
 
 <section class="grp" data-letter="A"><h3>A <span class="n">0 / 46</span></h3><div class="btns">
@@ -1013,6 +1014,18 @@
       else { x.fillStyle='#2B2622'; x.fillText(r.w,px,py); } });
     x.fillStyle='#8B8178'; x.font='20px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText('수준이나 점수가 아닙니다 · retyper.github.io/peera-landing/check.html',pad,H-48);
     cv.toBlob(function(b){ var a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='복습할 영단어 '+c.u+'개.png'; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(a.href);},2000); track('export_image',{unknown:c.u}); toast('이미지를 저장했습니다.'); },'image/png');
+  });
+  /* 피어라(말의 정원)로 보내기 — 800비트(1=아는 낱말)를 base64url로 URL에 싣는다.
+     순서 규약: 소문자로 바꿔 코드포인트 순 단순 정렬. 앱 쪽 lib/vocabImport.ts와 동일해야 한다. */
+  document.getElementById('bApp').addEventListener('click',function(){
+    var order=btns.map(function(b){return b.dataset.w;}).map(function(w){return {k:w.toLowerCase(),w:w};})
+      .sort(function(a,b){return a.k<b.k?-1:a.k>b.k?1:0;}).map(function(x){return x.w;});
+    var bytes=new Uint8Array(Math.ceil(order.length/8));
+    order.forEach(function(w,i){ if(known[w]) bytes[i>>3] |= (128>>(i&7)); });
+    var s=''; for(var i=0;i<bytes.length;i++) s+=String.fromCharCode(bytes[i]);
+    var b64=btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    var c=counts(); track('send_to_app',{unknown:c.u});
+    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&utm_source=check&utm_medium=page&utm_campaign=peera_check';
   });
   document.getElementById('bReset').addEventListener('click',function(){ if(Object.keys(known).length===0) return; known={}; save(); render(); toast('처음부터 다시 시작합니다.'); });
 
