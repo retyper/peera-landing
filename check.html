@@ -69,7 +69,7 @@
   <h1>초등 영단어 <b>800개</b>,<br>아이가 아는 것만 눌러 보세요.</h1>
   <p class="lede">교육부가 초등학교에서 쓰라고 지정한 800개입니다. 아이와 같이 보면서, <b>보자마자 뜻을 말할 수 있는 낱말</b>만 누르세요.
      모르거나 헷갈리면 그대로 두세요. 누르지 않은 낱말이 그 아이의 복습 목록이 됩니다.</p>
-  <div class="how"><b>저장은 이 기기 안에서만 됩니다.</b> 서버로 보내지 않고 이메일도 받지 않습니다. 다음에 다시 열면 체크한 그대로 남아 있습니다.</div>
+  <div class="how"><b>체크는 이 기기 안에만 저장됩니다.</b> 다음에 다시 열면 그대로 남아 있습니다. 다 누르신 뒤 <b>익명으로 보내기</b>를 누르면 어느 낱말을 누르지 않았는지만 통계에 보태집니다. 이름·이메일·기기 정보는 함께 가지 않습니다.</div>
 </header>
 
 <div class="bar">
@@ -81,7 +81,7 @@
     <button class="btn" id="bCopy">복사</button>
     <button class="btn ghost" id="bReset">처음부터</button>
   </div>
-  <div class="row" style="margin-top:8px"><button class="btn" id="bApp" style="border-color:#1F7A4D;color:#1F7A4D">이 복습 목록으로 피어라 시작하기 →</button></div>
+  <div class="row" style="margin-top:8px"><button class="btn" id="bApp" style="border-color:#1F7A4D;color:#1F7A4D">이 복습 목록으로 피어라 시작하기 →</button><button class="btn ghost" id="bSend">익명으로 보내기 · 어느 낱말에서 막히는지 모으는 중</button></div>
 </div>
 
 <section class="grp" data-letter="A"><h3>A <span class="n">0 / 46</span></h3><div class="btns">
@@ -1030,6 +1030,21 @@
     var v=h.toString(16); while(v.length<8) v='0'+v;
     var c=counts(); track('send_to_app',{unknown:c.u});
     location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&utm_source=check&utm_medium=page&utm_campaign=peera_check';
+  });
+  /* 익명 통계(옵트인): 800비트(1=아는 낱말)만 보낸다. 식별자는 이 페이지가 만든 랜덤 ID. 이름·이메일·기기 정보 없음. */
+  document.getElementById('bSend').addEventListener('click',function(){
+    var c=counts(); if(c.k===0){ toast('먼저 아는 낱말을 눌러 주세요.'); return; }
+    var order=btns.map(function(b){return b.dataset.w;}).map(function(w){return {k:w.toLowerCase(),w:w};}).sort(function(a,b){return a.k<b.k?-1:a.k>b.k?1:0;}).map(function(x){return x.w;});
+    var bytes=new Uint8Array(Math.ceil(order.length/8)); order.forEach(function(w,i){ if(known[w]) bytes[i>>3] |= (128>>(i&7)); });
+    var s=''; for(var i=0;i<bytes.length;i++) s+=String.fromCharCode(bytes[i]);
+    var b64=btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    var rid; try{ rid=localStorage.getItem('check800_rid'); if(!rid){ rid=(crypto.randomUUID?crypto.randomUUID():('r'+Date.now()+Math.random().toString(36).slice(2))); localStorage.setItem('check800_rid',rid);} }catch(e){ rid='r'+Date.now(); }
+    var now=Date.now();
+    fetch('https://dearmydiary.vercel.app/api/sync',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({userId:'check800',store:'check800',entries:[{id:rid,data:{bits:b64,n:order.length,known:c.k,unknown:c.u,at:now},updatedAt:now}]})})
+      .then(function(r){ return r.ok?r.json():Promise.reject(r.status); })
+      .then(function(){ toast('고맙습니다. 모아서 올리겠습니다.'); track('send_anon',{unknown:c.u}); })
+      .catch(function(){ toast('지금은 보내지 못했어요. 나중에 다시 눌러 주세요.'); });
   });
   document.getElementById('bReset').addEventListener('click',function(){ if(Object.keys(known).length===0) return; known={}; save(); render(); toast('처음부터 다시 시작합니다.'); });
 
