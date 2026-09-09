@@ -1,0 +1,1031 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>초등 영단어 800 — 아는 낱말 체크</title>
+<meta name="description" content="교육부가 초등용으로 지정한 영단어 800개를 눌러서 아는 낱말을 표시하고, 모르는 낱말만 복습 목록으로 저장하세요. 무료, 이메일 없음.">
+<style>
+  :root{--bg:#FFFDF8;--ink:#2B2622;--sub:#6B625A;--line:#EDE4D8;--accent:#C2410C;--soft:#FFF6EC;--card:#fff;--ok:#1F7A4D;--okbg:#E6F4EC}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-text-size-adjust:100%}
+  .wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+  header{padding:40px 0 18px}
+  .eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700;margin:0 0 10px}
+  h1{font-size:28px;line-height:1.3;margin:0 0 12px;letter-spacing:-.02em}
+  h1 b{color:var(--accent)}
+  .lede{font-size:16px;color:var(--sub);margin:0}
+  .how{background:var(--soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 16px;margin:16px 0 0;font-size:15px}
+  .how b{color:var(--accent)}
+
+  .bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;margin:14px -16px 0;padding-left:16px;padding-right:16px}
+  .bar .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .cnt{font-size:15px;font-weight:700}
+  .cnt b{color:var(--ok)}
+  .cnt i{font-style:normal;color:var(--accent)}
+  .bar .sp{flex:1}
+  .btn{border:1.5px solid var(--accent);background:var(--card);color:var(--accent);border-radius:10px;padding:9px 13px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+  .btn.pri{background:var(--accent);color:#fff}
+  .btn.ghost{border-color:var(--line);color:var(--sub);font-weight:600}
+
+  .grp{margin:22px 0}
+  .grp h3{font-size:17px;margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .grp h3 .n{font-size:12px;color:var(--sub);font-weight:500;margin-left:6px}
+  .btns{display:flex;flex-wrap:wrap;gap:8px}
+  .w{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 14px;font-size:16px;font-family:inherit;cursor:pointer;line-height:1.2;
+     -webkit-tap-highlight-color:transparent;user-select:none;transition:background .08s,border-color .08s}
+  .w.on{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:700}
+  .w.on::before{content:"✓ ";font-size:13px}
+
+  .app{margin:40px 0 0;padding:18px 20px;background:var(--soft);border:1px solid #F3D6BE;border-radius:16px;display:flex;gap:16px;align-items:center}
+  .app img{flex:0 0 96px;width:96px;height:96px;object-fit:cover;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+  .app h2{margin:0 0 6px;font-size:17px;line-height:1.4}
+  .app p{font-size:14px;color:var(--sub);margin:0 0 10px}
+  .app a{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:11px 18px;border-radius:10px;font-weight:700;font-size:15px}
+  footer{margin:36px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#2B2622;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}
+  .toast.show{opacity:1}
+
+  /* 인쇄 = 복습 목록만 */
+  #print{display:none}
+  @media print{
+    body{background:#fff} .wrap,.toast{display:none!important}
+    #print{display:block;font-family:'Pretendard','Malgun Gothic','Noto Sans KR',sans-serif;color:#2B2622;padding:0}
+    #print h1{font-size:18pt;margin:0 0 4pt} #print h1 b{color:#C2410C}
+    #print .meta{font-size:9pt;color:#6B625A;margin:0 0 10pt}
+    #print ul{list-style:none;margin:0;padding:0;column-count:4;column-gap:12pt}
+    #print li{font-size:11pt;line-height:1.6;border-bottom:.4pt solid #EDE4D8;break-inside:avoid}
+    #print li.h{font-weight:800;color:#C2410C;border:0;margin-top:6pt}
+    #print .foot{font-size:8pt;color:#8B8178;margin-top:10pt}
+    @page{size:A4;margin:14mm 12mm}
+  }
+  @media (max-width:560px){ h1{font-size:23px} .w{font-size:15px;padding:8px 12px} .app{flex-direction:column;align-items:flex-start} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="eyebrow">아는 낱말 체크</p>
+  <h1>초등 영단어 <b>800개</b>,<br>아이가 아는 것만 눌러 보세요.</h1>
+  <p class="lede">교육부가 초등학교에서 쓰라고 지정한 800개입니다. 아이와 같이 보면서, <b>보자마자 뜻을 말할 수 있는 낱말</b>만 누르세요.
+     모르거나 헷갈리면 그대로 두세요. 누르지 않은 낱말이 그 아이의 복습 목록이 됩니다.</p>
+  <div class="how"><b>저장은 이 기기 안에서만 됩니다.</b> 서버로 보내지 않고 이메일도 받지 않습니다. 다음에 다시 열면 체크한 그대로 남아 있습니다.</div>
+</header>
+
+<div class="bar">
+  <div class="row">
+    <span class="cnt">아는 낱말 <b id="kn">0</b> · 복습할 낱말 <i id="un">800</i></span>
+    <span class="sp"></span>
+    <button class="btn pri" id="bPdf">복습 목록 PDF로 저장</button>
+    <button class="btn" id="bImg">이미지로 저장</button>
+    <button class="btn" id="bCopy">복사</button>
+    <button class="btn ghost" id="bReset">처음부터</button>
+  </div>
+</div>
+
+<section class="grp" data-letter="A"><h3>A <span class="n">0 / 46</span></h3><div class="btns">
+<button type="button" class="w" data-w="a">a</button>
+<button type="button" class="w" data-w="about">about</button>
+<button type="button" class="w" data-w="above">above</button>
+<button type="button" class="w" data-w="across">across</button>
+<button type="button" class="w" data-w="act">act</button>
+<button type="button" class="w" data-w="add">add</button>
+<button type="button" class="w" data-w="address">address</button>
+<button type="button" class="w" data-w="adult">adult</button>
+<button type="button" class="w" data-w="afraid">afraid</button>
+<button type="button" class="w" data-w="after">after</button>
+<button type="button" class="w" data-w="afternoon">afternoon</button>
+<button type="button" class="w" data-w="again">again</button>
+<button type="button" class="w" data-w="against">against</button>
+<button type="button" class="w" data-w="age">age</button>
+<button type="button" class="w" data-w="ago">ago</button>
+<button type="button" class="w" data-w="agree">agree</button>
+<button type="button" class="w" data-w="ahead">ahead</button>
+<button type="button" class="w" data-w="air">air</button>
+<button type="button" class="w" data-w="airplane">airplane</button>
+<button type="button" class="w" data-w="album">album</button>
+<button type="button" class="w" data-w="all">all</button>
+<button type="button" class="w" data-w="almost">almost</button>
+<button type="button" class="w" data-w="alone">alone</button>
+<button type="button" class="w" data-w="along">along</button>
+<button type="button" class="w" data-w="already">already</button>
+<button type="button" class="w" data-w="alright">alright</button>
+<button type="button" class="w" data-w="also">also</button>
+<button type="button" class="w" data-w="always">always</button>
+<button type="button" class="w" data-w="and">and</button>
+<button type="button" class="w" data-w="animal">animal</button>
+<button type="button" class="w" data-w="another">another</button>
+<button type="button" class="w" data-w="answer">answer</button>
+<button type="button" class="w" data-w="any">any</button>
+<button type="button" class="w" data-w="apartment">apartment</button>
+<button type="button" class="w" data-w="apple">apple</button>
+<button type="button" class="w" data-w="area">area</button>
+<button type="button" class="w" data-w="arm">arm</button>
+<button type="button" class="w" data-w="around">around</button>
+<button type="button" class="w" data-w="arrive">arrive</button>
+<button type="button" class="w" data-w="art">art</button>
+<button type="button" class="w" data-w="as">as</button>
+<button type="button" class="w" data-w="ask">ask</button>
+<button type="button" class="w" data-w="at">at</button>
+<button type="button" class="w" data-w="aunt">aunt</button>
+<button type="button" class="w" data-w="autumn">autumn</button>
+<button type="button" class="w" data-w="away">away</button>
+</div></section>
+<section class="grp" data-letter="B"><h3>B <span class="n">0 / 73</span></h3><div class="btns">
+<button type="button" class="w" data-w="baby">baby</button>
+<button type="button" class="w" data-w="back">back</button>
+<button type="button" class="w" data-w="bad">bad</button>
+<button type="button" class="w" data-w="badminton">badminton</button>
+<button type="button" class="w" data-w="bag">bag</button>
+<button type="button" class="w" data-w="bake">bake</button>
+<button type="button" class="w" data-w="ball">ball</button>
+<button type="button" class="w" data-w="banana">banana</button>
+<button type="button" class="w" data-w="bank">bank</button>
+<button type="button" class="w" data-w="base">base</button>
+<button type="button" class="w" data-w="baseball">baseball</button>
+<button type="button" class="w" data-w="basket">basket</button>
+<button type="button" class="w" data-w="basketball">basketball</button>
+<button type="button" class="w" data-w="bat">bat</button>
+<button type="button" class="w" data-w="bath">bath</button>
+<button type="button" class="w" data-w="be">be</button>
+<button type="button" class="w" data-w="beach">beach</button>
+<button type="button" class="w" data-w="bear">bear</button>
+<button type="button" class="w" data-w="beauty">beauty</button>
+<button type="button" class="w" data-w="because">because</button>
+<button type="button" class="w" data-w="become">become</button>
+<button type="button" class="w" data-w="bed">bed</button>
+<button type="button" class="w" data-w="bee">bee</button>
+<button type="button" class="w" data-w="beef">beef</button>
+<button type="button" class="w" data-w="before">before</button>
+<button type="button" class="w" data-w="begin">begin</button>
+<button type="button" class="w" data-w="behind">behind</button>
+<button type="button" class="w" data-w="believe">believe</button>
+<button type="button" class="w" data-w="bell">bell</button>
+<button type="button" class="w" data-w="below">below</button>
+<button type="button" class="w" data-w="belt">belt</button>
+<button type="button" class="w" data-w="beside">beside</button>
+<button type="button" class="w" data-w="between">between</button>
+<button type="button" class="w" data-w="big">big</button>
+<button type="button" class="w" data-w="bike">bike</button>
+<button type="button" class="w" data-w="bill">bill</button>
+<button type="button" class="w" data-w="bird">bird</button>
+<button type="button" class="w" data-w="birth">birth</button>
+<button type="button" class="w" data-w="biscuit">biscuit</button>
+<button type="button" class="w" data-w="black">black</button>
+<button type="button" class="w" data-w="blood">blood</button>
+<button type="button" class="w" data-w="blue">blue</button>
+<button type="button" class="w" data-w="board">board</button>
+<button type="button" class="w" data-w="boat">boat</button>
+<button type="button" class="w" data-w="body">body</button>
+<button type="button" class="w" data-w="bone">bone</button>
+<button type="button" class="w" data-w="book">book</button>
+<button type="button" class="w" data-w="borrow">borrow</button>
+<button type="button" class="w" data-w="both">both</button>
+<button type="button" class="w" data-w="bottle">bottle</button>
+<button type="button" class="w" data-w="bottom">bottom</button>
+<button type="button" class="w" data-w="box">box</button>
+<button type="button" class="w" data-w="boy">boy</button>
+<button type="button" class="w" data-w="brave">brave</button>
+<button type="button" class="w" data-w="bread">bread</button>
+<button type="button" class="w" data-w="break">break</button>
+<button type="button" class="w" data-w="breakfast">breakfast</button>
+<button type="button" class="w" data-w="bridge">bridge</button>
+<button type="button" class="w" data-w="bright">bright</button>
+<button type="button" class="w" data-w="bring">bring</button>
+<button type="button" class="w" data-w="brother">brother</button>
+<button type="button" class="w" data-w="brown">brown</button>
+<button type="button" class="w" data-w="brush">brush</button>
+<button type="button" class="w" data-w="build">build</button>
+<button type="button" class="w" data-w="burn">burn</button>
+<button type="button" class="w" data-w="bus">bus</button>
+<button type="button" class="w" data-w="business">business</button>
+<button type="button" class="w" data-w="busy">busy</button>
+<button type="button" class="w" data-w="but">but</button>
+<button type="button" class="w" data-w="butter">butter</button>
+<button type="button" class="w" data-w="button">button</button>
+<button type="button" class="w" data-w="buy">buy</button>
+<button type="button" class="w" data-w="by">by</button>
+</div></section>
+<section class="grp" data-letter="C"><h3>C <span class="n">0 / 77</span></h3><div class="btns">
+<button type="button" class="w" data-w="cake">cake</button>
+<button type="button" class="w" data-w="call">call</button>
+<button type="button" class="w" data-w="camera">camera</button>
+<button type="button" class="w" data-w="camp">camp</button>
+<button type="button" class="w" data-w="campaign">campaign</button>
+<button type="button" class="w" data-w="can">can</button>
+<button type="button" class="w" data-w="candy">candy</button>
+<button type="button" class="w" data-w="cap">cap</button>
+<button type="button" class="w" data-w="car">car</button>
+<button type="button" class="w" data-w="card">card</button>
+<button type="button" class="w" data-w="care">care</button>
+<button type="button" class="w" data-w="carrot">carrot</button>
+<button type="button" class="w" data-w="carry">carry</button>
+<button type="button" class="w" data-w="case">case</button>
+<button type="button" class="w" data-w="cash">cash</button>
+<button type="button" class="w" data-w="cat">cat</button>
+<button type="button" class="w" data-w="catch">catch</button>
+<button type="button" class="w" data-w="center">center</button>
+<button type="button" class="w" data-w="certain">certain</button>
+<button type="button" class="w" data-w="chair">chair</button>
+<button type="button" class="w" data-w="chance">chance</button>
+<button type="button" class="w" data-w="change">change</button>
+<button type="button" class="w" data-w="cheap">cheap</button>
+<button type="button" class="w" data-w="check">check</button>
+<button type="button" class="w" data-w="cheese">cheese</button>
+<button type="button" class="w" data-w="chicken">chicken</button>
+<button type="button" class="w" data-w="child">child</button>
+<button type="button" class="w" data-w="chocolate">chocolate</button>
+<button type="button" class="w" data-w="choose">choose</button>
+<button type="button" class="w" data-w="church">church</button>
+<button type="button" class="w" data-w="circle">circle</button>
+<button type="button" class="w" data-w="city">city</button>
+<button type="button" class="w" data-w="class">class</button>
+<button type="button" class="w" data-w="clean">clean</button>
+<button type="button" class="w" data-w="clear">clear</button>
+<button type="button" class="w" data-w="clever">clever</button>
+<button type="button" class="w" data-w="climb">climb</button>
+<button type="button" class="w" data-w="clock">clock</button>
+<button type="button" class="w" data-w="close">close</button>
+<button type="button" class="w" data-w="clothes">clothes</button>
+<button type="button" class="w" data-w="cloud">cloud</button>
+<button type="button" class="w" data-w="club">club</button>
+<button type="button" class="w" data-w="coat">coat</button>
+<button type="button" class="w" data-w="coffee">coffee</button>
+<button type="button" class="w" data-w="cold">cold</button>
+<button type="button" class="w" data-w="collect">collect</button>
+<button type="button" class="w" data-w="college">college</button>
+<button type="button" class="w" data-w="color">color</button>
+<button type="button" class="w" data-w="come">come</button>
+<button type="button" class="w" data-w="comic">comic</button>
+<button type="button" class="w" data-w="company">company</button>
+<button type="button" class="w" data-w="compute">compute</button>
+<button type="button" class="w" data-w="condition">condition</button>
+<button type="button" class="w" data-w="congratulate">congratulate</button>
+<button type="button" class="w" data-w="control">control</button>
+<button type="button" class="w" data-w="cook">cook</button>
+<button type="button" class="w" data-w="cookie">cookie</button>
+<button type="button" class="w" data-w="cool">cool</button>
+<button type="button" class="w" data-w="corner">corner</button>
+<button type="button" class="w" data-w="cost">cost</button>
+<button type="button" class="w" data-w="could">could</button>
+<button type="button" class="w" data-w="country">country</button>
+<button type="button" class="w" data-w="couple">couple</button>
+<button type="button" class="w" data-w="course">course</button>
+<button type="button" class="w" data-w="court">court</button>
+<button type="button" class="w" data-w="cousin">cousin</button>
+<button type="button" class="w" data-w="cover">cover</button>
+<button type="button" class="w" data-w="cow">cow</button>
+<button type="button" class="w" data-w="crayon">crayon</button>
+<button type="button" class="w" data-w="cream">cream</button>
+<button type="button" class="w" data-w="cross">cross</button>
+<button type="button" class="w" data-w="cry">cry</button>
+<button type="button" class="w" data-w="culture">culture</button>
+<button type="button" class="w" data-w="cup">cup</button>
+<button type="button" class="w" data-w="curtain">curtain</button>
+<button type="button" class="w" data-w="customer">customer</button>
+<button type="button" class="w" data-w="cut">cut</button>
+</div></section>
+<section class="grp" data-letter="D"><h3>D <span class="n">0 / 36</span></h3><div class="btns">
+<button type="button" class="w" data-w="dance">dance</button>
+<button type="button" class="w" data-w="danger">danger</button>
+<button type="button" class="w" data-w="dark">dark</button>
+<button type="button" class="w" data-w="date">date</button>
+<button type="button" class="w" data-w="daughter">daughter</button>
+<button type="button" class="w" data-w="day">day</button>
+<button type="button" class="w" data-w="dead">dead</button>
+<button type="button" class="w" data-w="death">death</button>
+<button type="button" class="w" data-w="decide">decide</button>
+<button type="button" class="w" data-w="deep">deep</button>
+<button type="button" class="w" data-w="delicious">delicious</button>
+<button type="button" class="w" data-w="design">design</button>
+<button type="button" class="w" data-w="desk">desk</button>
+<button type="button" class="w" data-w="dialogue">dialogue</button>
+<button type="button" class="w" data-w="die">die</button>
+<button type="button" class="w" data-w="difficult">difficult</button>
+<button type="button" class="w" data-w="dinner">dinner</button>
+<button type="button" class="w" data-w="discuss">discuss</button>
+<button type="button" class="w" data-w="do">do</button>
+<button type="button" class="w" data-w="doctor">doctor</button>
+<button type="button" class="w" data-w="dog">dog</button>
+<button type="button" class="w" data-w="doll">doll</button>
+<button type="button" class="w" data-w="door">door</button>
+<button type="button" class="w" data-w="double">double</button>
+<button type="button" class="w" data-w="doughnut">doughnut</button>
+<button type="button" class="w" data-w="down">down</button>
+<button type="button" class="w" data-w="draw">draw</button>
+<button type="button" class="w" data-w="dream">dream</button>
+<button type="button" class="w" data-w="dress">dress</button>
+<button type="button" class="w" data-w="drink">drink</button>
+<button type="button" class="w" data-w="drive">drive</button>
+<button type="button" class="w" data-w="drop">drop</button>
+<button type="button" class="w" data-w="drum">drum</button>
+<button type="button" class="w" data-w="dry">dry</button>
+<button type="button" class="w" data-w="duck">duck</button>
+<button type="button" class="w" data-w="during">during</button>
+</div></section>
+<section class="grp" data-letter="E"><h3>E <span class="n">0 / 18</span></h3><div class="btns">
+<button type="button" class="w" data-w="ear">ear</button>
+<button type="button" class="w" data-w="early">early</button>
+<button type="button" class="w" data-w="earth">earth</button>
+<button type="button" class="w" data-w="east">east</button>
+<button type="button" class="w" data-w="eat">eat</button>
+<button type="button" class="w" data-w="egg">egg</button>
+<button type="button" class="w" data-w="eight">eight</button>
+<button type="button" class="w" data-w="elephant">elephant</button>
+<button type="button" class="w" data-w="eleven">eleven</button>
+<button type="button" class="w" data-w="end">end</button>
+<button type="button" class="w" data-w="energy">energy</button>
+<button type="button" class="w" data-w="enough">enough</button>
+<button type="button" class="w" data-w="enter">enter</button>
+<button type="button" class="w" data-w="evening">evening</button>
+<button type="button" class="w" data-w="every">every</button>
+<button type="button" class="w" data-w="example">example</button>
+<button type="button" class="w" data-w="exercise">exercise</button>
+<button type="button" class="w" data-w="eye">eye</button>
+</div></section>
+<section class="grp" data-letter="F"><h3>F <span class="n">0 / 52</span></h3><div class="btns">
+<button type="button" class="w" data-w="face">face</button>
+<button type="button" class="w" data-w="fact">fact</button>
+<button type="button" class="w" data-w="fail">fail</button>
+<button type="button" class="w" data-w="fall">fall</button>
+<button type="button" class="w" data-w="family">family</button>
+<button type="button" class="w" data-w="fan">fan</button>
+<button type="button" class="w" data-w="far">far</button>
+<button type="button" class="w" data-w="farm">farm</button>
+<button type="button" class="w" data-w="fast">fast</button>
+<button type="button" class="w" data-w="fat">fat</button>
+<button type="button" class="w" data-w="father">father</button>
+<button type="button" class="w" data-w="favorite">favorite</button>
+<button type="button" class="w" data-w="feel">feel</button>
+<button type="button" class="w" data-w="festival">festival</button>
+<button type="button" class="w" data-w="field">field</button>
+<button type="button" class="w" data-w="fight">fight</button>
+<button type="button" class="w" data-w="file">file</button>
+<button type="button" class="w" data-w="fill">fill</button>
+<button type="button" class="w" data-w="film">film</button>
+<button type="button" class="w" data-w="find">find</button>
+<button type="button" class="w" data-w="fine">fine</button>
+<button type="button" class="w" data-w="finger">finger</button>
+<button type="button" class="w" data-w="finish">finish</button>
+<button type="button" class="w" data-w="fire">fire</button>
+<button type="button" class="w" data-w="first">first</button>
+<button type="button" class="w" data-w="fish">fish</button>
+<button type="button" class="w" data-w="five">five</button>
+<button type="button" class="w" data-w="fix">fix</button>
+<button type="button" class="w" data-w="floor">floor</button>
+<button type="button" class="w" data-w="flower">flower</button>
+<button type="button" class="w" data-w="fly">fly</button>
+<button type="button" class="w" data-w="focus">focus</button>
+<button type="button" class="w" data-w="food">food</button>
+<button type="button" class="w" data-w="fool">fool</button>
+<button type="button" class="w" data-w="foot">foot</button>
+<button type="button" class="w" data-w="football">football</button>
+<button type="button" class="w" data-w="for">for</button>
+<button type="button" class="w" data-w="forest">forest</button>
+<button type="button" class="w" data-w="forget">forget</button>
+<button type="button" class="w" data-w="fork">fork</button>
+<button type="button" class="w" data-w="form">form</button>
+<button type="button" class="w" data-w="four">four</button>
+<button type="button" class="w" data-w="fox">fox</button>
+<button type="button" class="w" data-w="free">free</button>
+<button type="button" class="w" data-w="fresh">fresh</button>
+<button type="button" class="w" data-w="friend">friend</button>
+<button type="button" class="w" data-w="from">from</button>
+<button type="button" class="w" data-w="front">front</button>
+<button type="button" class="w" data-w="fruit">fruit</button>
+<button type="button" class="w" data-w="full">full</button>
+<button type="button" class="w" data-w="fun">fun</button>
+<button type="button" class="w" data-w="future">future</button>
+</div></section>
+<section class="grp" data-letter="G"><h3>G <span class="n">0 / 28</span></h3><div class="btns">
+<button type="button" class="w" data-w="game">game</button>
+<button type="button" class="w" data-w="garden">garden</button>
+<button type="button" class="w" data-w="gas">gas</button>
+<button type="button" class="w" data-w="gentleman">gentleman</button>
+<button type="button" class="w" data-w="get">get</button>
+<button type="button" class="w" data-w="girl">girl</button>
+<button type="button" class="w" data-w="give">give</button>
+<button type="button" class="w" data-w="glad">glad</button>
+<button type="button" class="w" data-w="glass">glass</button>
+<button type="button" class="w" data-w="go">go</button>
+<button type="button" class="w" data-w="goal">goal</button>
+<button type="button" class="w" data-w="god">god</button>
+<button type="button" class="w" data-w="gold">gold</button>
+<button type="button" class="w" data-w="good">good</button>
+<button type="button" class="w" data-w="goodbye">goodbye</button>
+<button type="button" class="w" data-w="grandfather">grandfather</button>
+<button type="button" class="w" data-w="grape">grape</button>
+<button type="button" class="w" data-w="grass">grass</button>
+<button type="button" class="w" data-w="gray">gray</button>
+<button type="button" class="w" data-w="great">great</button>
+<button type="button" class="w" data-w="green">green</button>
+<button type="button" class="w" data-w="ground">ground</button>
+<button type="button" class="w" data-w="group">group</button>
+<button type="button" class="w" data-w="grow">grow</button>
+<button type="button" class="w" data-w="guess">guess</button>
+<button type="button" class="w" data-w="guitar">guitar</button>
+<button type="button" class="w" data-w="gum">gum</button>
+<button type="button" class="w" data-w="guy">guy</button>
+</div></section>
+<section class="grp" data-letter="H"><h3>H <span class="n">0 / 44</span></h3><div class="btns">
+<button type="button" class="w" data-w="habit">habit</button>
+<button type="button" class="w" data-w="hair">hair</button>
+<button type="button" class="w" data-w="hamburger">hamburger</button>
+<button type="button" class="w" data-w="hand">hand</button>
+<button type="button" class="w" data-w="hang">hang</button>
+<button type="button" class="w" data-w="happy">happy</button>
+<button type="button" class="w" data-w="hard">hard</button>
+<button type="button" class="w" data-w="hat">hat</button>
+<button type="button" class="w" data-w="hate">hate</button>
+<button type="button" class="w" data-w="have">have</button>
+<button type="button" class="w" data-w="he">he</button>
+<button type="button" class="w" data-w="head">head</button>
+<button type="button" class="w" data-w="heart">heart</button>
+<button type="button" class="w" data-w="heat">heat</button>
+<button type="button" class="w" data-w="heavy">heavy</button>
+<button type="button" class="w" data-w="hello">hello</button>
+<button type="button" class="w" data-w="helmet">helmet</button>
+<button type="button" class="w" data-w="help">help</button>
+<button type="button" class="w" data-w="here">here</button>
+<button type="button" class="w" data-w="hero">hero</button>
+<button type="button" class="w" data-w="high">high</button>
+<button type="button" class="w" data-w="hike">hike</button>
+<button type="button" class="w" data-w="hill">hill</button>
+<button type="button" class="w" data-w="history">history</button>
+<button type="button" class="w" data-w="hit">hit</button>
+<button type="button" class="w" data-w="hobby">hobby</button>
+<button type="button" class="w" data-w="hold">hold</button>
+<button type="button" class="w" data-w="holiday">holiday</button>
+<button type="button" class="w" data-w="home">home</button>
+<button type="button" class="w" data-w="homework">homework</button>
+<button type="button" class="w" data-w="honest">honest</button>
+<button type="button" class="w" data-w="hope">hope</button>
+<button type="button" class="w" data-w="horse">horse</button>
+<button type="button" class="w" data-w="hospital">hospital</button>
+<button type="button" class="w" data-w="hot">hot</button>
+<button type="button" class="w" data-w="hour">hour</button>
+<button type="button" class="w" data-w="house">house</button>
+<button type="button" class="w" data-w="how">how</button>
+<button type="button" class="w" data-w="however">however</button>
+<button type="button" class="w" data-w="human">human</button>
+<button type="button" class="w" data-w="hundred">hundred</button>
+<button type="button" class="w" data-w="hunt">hunt</button>
+<button type="button" class="w" data-w="hurry">hurry</button>
+<button type="button" class="w" data-w="husband">husband</button>
+</div></section>
+<section class="grp" data-letter="I"><h3>I <span class="n">0 / 13</span></h3><div class="btns">
+<button type="button" class="w" data-w="I">I</button>
+<button type="button" class="w" data-w="ice">ice</button>
+<button type="button" class="w" data-w="idea">idea</button>
+<button type="button" class="w" data-w="if">if</button>
+<button type="button" class="w" data-w="image">image</button>
+<button type="button" class="w" data-w="in">in</button>
+<button type="button" class="w" data-w="inside">inside</button>
+<button type="button" class="w" data-w="internet">internet</button>
+<button type="button" class="w" data-w="into">into</button>
+<button type="button" class="w" data-w="introduce">introduce</button>
+<button type="button" class="w" data-w="invite">invite</button>
+<button type="button" class="w" data-w="issue">issue</button>
+<button type="button" class="w" data-w="it">it</button>
+</div></section>
+<section class="grp" data-letter="J"><h3>J <span class="n">0 / 7</span></h3><div class="btns">
+<button type="button" class="w" data-w="jacket">jacket</button>
+<button type="button" class="w" data-w="jam">jam</button>
+<button type="button" class="w" data-w="job">job</button>
+<button type="button" class="w" data-w="join">join</button>
+<button type="button" class="w" data-w="juice">juice</button>
+<button type="button" class="w" data-w="jump">jump</button>
+<button type="button" class="w" data-w="just">just</button>
+</div></section>
+<section class="grp" data-letter="K"><h3>K <span class="n">0 / 11</span></h3><div class="btns">
+<button type="button" class="w" data-w="keep">keep</button>
+<button type="button" class="w" data-w="key">key</button>
+<button type="button" class="w" data-w="kick">kick</button>
+<button type="button" class="w" data-w="kid">kid</button>
+<button type="button" class="w" data-w="kill">kill</button>
+<button type="button" class="w" data-w="kind">kind</button>
+<button type="button" class="w" data-w="king">king</button>
+<button type="button" class="w" data-w="kiss">kiss</button>
+<button type="button" class="w" data-w="kitchen">kitchen</button>
+<button type="button" class="w" data-w="knife">knife</button>
+<button type="button" class="w" data-w="know">know</button>
+</div></section>
+<section class="grp" data-letter="L"><h3>L <span class="n">0 / 30</span></h3><div class="btns">
+<button type="button" class="w" data-w="lady">lady</button>
+<button type="button" class="w" data-w="lake">lake</button>
+<button type="button" class="w" data-w="land">land</button>
+<button type="button" class="w" data-w="large">large</button>
+<button type="button" class="w" data-w="laser">laser</button>
+<button type="button" class="w" data-w="last">last</button>
+<button type="button" class="w" data-w="late">late</button>
+<button type="button" class="w" data-w="lazy">lazy</button>
+<button type="button" class="w" data-w="learn">learn</button>
+<button type="button" class="w" data-w="left">left</button>
+<button type="button" class="w" data-w="leg">leg</button>
+<button type="button" class="w" data-w="lesson">lesson</button>
+<button type="button" class="w" data-w="letter">letter</button>
+<button type="button" class="w" data-w="library">library</button>
+<button type="button" class="w" data-w="lie">lie</button>
+<button type="button" class="w" data-w="life">life</button>
+<button type="button" class="w" data-w="light">light</button>
+<button type="button" class="w" data-w="like">like</button>
+<button type="button" class="w" data-w="line">line</button>
+<button type="button" class="w" data-w="lion">lion</button>
+<button type="button" class="w" data-w="lip">lip</button>
+<button type="button" class="w" data-w="listen">listen</button>
+<button type="button" class="w" data-w="little">little</button>
+<button type="button" class="w" data-w="live">live</button>
+<button type="button" class="w" data-w="long">long</button>
+<button type="button" class="w" data-w="look">look</button>
+<button type="button" class="w" data-w="love">love</button>
+<button type="button" class="w" data-w="low">low</button>
+<button type="button" class="w" data-w="luck">luck</button>
+<button type="button" class="w" data-w="lunch">lunch</button>
+</div></section>
+<section class="grp" data-letter="M"><h3>M <span class="n">0 / 36</span></h3><div class="btns">
+<button type="button" class="w" data-w="mad">mad</button>
+<button type="button" class="w" data-w="mail">mail</button>
+<button type="button" class="w" data-w="make">make</button>
+<button type="button" class="w" data-w="man">man</button>
+<button type="button" class="w" data-w="many">many</button>
+<button type="button" class="w" data-w="map">map</button>
+<button type="button" class="w" data-w="marathon">marathon</button>
+<button type="button" class="w" data-w="market">market</button>
+<button type="button" class="w" data-w="marry">marry</button>
+<button type="button" class="w" data-w="mathematics">mathematics</button>
+<button type="button" class="w" data-w="may">may</button>
+<button type="button" class="w" data-w="meat">meat</button>
+<button type="button" class="w" data-w="medal">medal</button>
+<button type="button" class="w" data-w="meet">meet</button>
+<button type="button" class="w" data-w="member">member</button>
+<button type="button" class="w" data-w="memory">memory</button>
+<button type="button" class="w" data-w="middle">middle</button>
+<button type="button" class="w" data-w="might">might</button>
+<button type="button" class="w" data-w="milk">milk</button>
+<button type="button" class="w" data-w="mind">mind</button>
+<button type="button" class="w" data-w="miss">miss</button>
+<button type="button" class="w" data-w="model">model</button>
+<button type="button" class="w" data-w="money">money</button>
+<button type="button" class="w" data-w="monkey">monkey</button>
+<button type="button" class="w" data-w="month">month</button>
+<button type="button" class="w" data-w="moon">moon</button>
+<button type="button" class="w" data-w="morning">morning</button>
+<button type="button" class="w" data-w="mother">mother</button>
+<button type="button" class="w" data-w="mountain">mountain</button>
+<button type="button" class="w" data-w="mouse">mouse</button>
+<button type="button" class="w" data-w="mouth">mouth</button>
+<button type="button" class="w" data-w="move">move</button>
+<button type="button" class="w" data-w="movie">movie</button>
+<button type="button" class="w" data-w="much">much</button>
+<button type="button" class="w" data-w="music">music</button>
+<button type="button" class="w" data-w="must">must</button>
+</div></section>
+<section class="grp" data-letter="N"><h3>N <span class="n">0 / 24</span></h3><div class="btns">
+<button type="button" class="w" data-w="name">name</button>
+<button type="button" class="w" data-w="nation">nation</button>
+<button type="button" class="w" data-w="nature">nature</button>
+<button type="button" class="w" data-w="near">near</button>
+<button type="button" class="w" data-w="neck">neck</button>
+<button type="button" class="w" data-w="need">need</button>
+<button type="button" class="w" data-w="never">never</button>
+<button type="button" class="w" data-w="new">new</button>
+<button type="button" class="w" data-w="news">news</button>
+<button type="button" class="w" data-w="newspaper">newspaper</button>
+<button type="button" class="w" data-w="next">next</button>
+<button type="button" class="w" data-w="nice">nice</button>
+<button type="button" class="w" data-w="night">night</button>
+<button type="button" class="w" data-w="nine">nine</button>
+<button type="button" class="w" data-w="no">no</button>
+<button type="button" class="w" data-w="north">north</button>
+<button type="button" class="w" data-w="nose">nose</button>
+<button type="button" class="w" data-w="not">not</button>
+<button type="button" class="w" data-w="note">note</button>
+<button type="button" class="w" data-w="notebook">notebook</button>
+<button type="button" class="w" data-w="nothing">nothing</button>
+<button type="button" class="w" data-w="now">now</button>
+<button type="button" class="w" data-w="number">number</button>
+<button type="button" class="w" data-w="nurse">nurse</button>
+</div></section>
+<section class="grp" data-letter="O"><h3>O <span class="n">0 / 15</span></h3><div class="btns">
+<button type="button" class="w" data-w="of">of</button>
+<button type="button" class="w" data-w="off">off</button>
+<button type="button" class="w" data-w="office">office</button>
+<button type="button" class="w" data-w="often">often</button>
+<button type="button" class="w" data-w="oil">oil</button>
+<button type="button" class="w" data-w="okay">okay</button>
+<button type="button" class="w" data-w="old">old</button>
+<button type="button" class="w" data-w="on">on</button>
+<button type="button" class="w" data-w="one">one</button>
+<button type="button" class="w" data-w="only">only</button>
+<button type="button" class="w" data-w="open">open</button>
+<button type="button" class="w" data-w="or">or</button>
+<button type="button" class="w" data-w="orange">orange</button>
+<button type="button" class="w" data-w="out">out</button>
+<button type="button" class="w" data-w="over">over</button>
+</div></section>
+<section class="grp" data-letter="P"><h3>P <span class="n">0 / 41</span></h3><div class="btns">
+<button type="button" class="w" data-w="page">page</button>
+<button type="button" class="w" data-w="paint">paint</button>
+<button type="button" class="w" data-w="pants">pants</button>
+<button type="button" class="w" data-w="paper">paper</button>
+<button type="button" class="w" data-w="parent">parent</button>
+<button type="button" class="w" data-w="park">park</button>
+<button type="button" class="w" data-w="part">part</button>
+<button type="button" class="w" data-w="partner">partner</button>
+<button type="button" class="w" data-w="party">party</button>
+<button type="button" class="w" data-w="pass">pass</button>
+<button type="button" class="w" data-w="pay">pay</button>
+<button type="button" class="w" data-w="pen">pen</button>
+<button type="button" class="w" data-w="pencil">pencil</button>
+<button type="button" class="w" data-w="people">people</button>
+<button type="button" class="w" data-w="piano">piano</button>
+<button type="button" class="w" data-w="pick">pick</button>
+<button type="button" class="w" data-w="picture">picture</button>
+<button type="button" class="w" data-w="pig">pig</button>
+<button type="button" class="w" data-w="pilot">pilot</button>
+<button type="button" class="w" data-w="pink">pink</button>
+<button type="button" class="w" data-w="pizza">pizza</button>
+<button type="button" class="w" data-w="place">place</button>
+<button type="button" class="w" data-w="plan">plan</button>
+<button type="button" class="w" data-w="plastic">plastic</button>
+<button type="button" class="w" data-w="play">play</button>
+<button type="button" class="w" data-w="please">please</button>
+<button type="button" class="w" data-w="point">point</button>
+<button type="button" class="w" data-w="police">police</button>
+<button type="button" class="w" data-w="poor">poor</button>
+<button type="button" class="w" data-w="potato">potato</button>
+<button type="button" class="w" data-w="power">power</button>
+<button type="button" class="w" data-w="present">present</button>
+<button type="button" class="w" data-w="pretty">pretty</button>
+<button type="button" class="w" data-w="prince">prince</button>
+<button type="button" class="w" data-w="print">print</button>
+<button type="button" class="w" data-w="problem">problem</button>
+<button type="button" class="w" data-w="program">program</button>
+<button type="button" class="w" data-w="project">project</button>
+<button type="button" class="w" data-w="puppy">puppy</button>
+<button type="button" class="w" data-w="push">push</button>
+<button type="button" class="w" data-w="put">put</button>
+</div></section>
+<section class="grp" data-letter="Q"><h3>Q <span class="n">0 / 5</span></h3><div class="btns">
+<button type="button" class="w" data-w="queen">queen</button>
+<button type="button" class="w" data-w="question">question</button>
+<button type="button" class="w" data-w="quick">quick</button>
+<button type="button" class="w" data-w="quiet">quiet</button>
+<button type="button" class="w" data-w="quiz">quiz</button>
+</div></section>
+<section class="grp" data-letter="R"><h3>R <span class="n">0 / 23</span></h3><div class="btns">
+<button type="button" class="w" data-w="rabbit">rabbit</button>
+<button type="button" class="w" data-w="race">race</button>
+<button type="button" class="w" data-w="radio">radio</button>
+<button type="button" class="w" data-w="rain">rain</button>
+<button type="button" class="w" data-w="read">read</button>
+<button type="button" class="w" data-w="ready">ready</button>
+<button type="button" class="w" data-w="recreation">recreation</button>
+<button type="button" class="w" data-w="red">red</button>
+<button type="button" class="w" data-w="remember">remember</button>
+<button type="button" class="w" data-w="restaurant">restaurant</button>
+<button type="button" class="w" data-w="restroom">restroom</button>
+<button type="button" class="w" data-w="return">return</button>
+<button type="button" class="w" data-w="ribbon">ribbon</button>
+<button type="button" class="w" data-w="rich">rich</button>
+<button type="button" class="w" data-w="right">right</button>
+<button type="button" class="w" data-w="ring">ring</button>
+<button type="button" class="w" data-w="river">river</button>
+<button type="button" class="w" data-w="road">road</button>
+<button type="button" class="w" data-w="robot">robot</button>
+<button type="button" class="w" data-w="rock">rock</button>
+<button type="button" class="w" data-w="room">room</button>
+<button type="button" class="w" data-w="rose">rose</button>
+<button type="button" class="w" data-w="run">run</button>
+</div></section>
+<section class="grp" data-letter="S"><h3>S <span class="n">0 / 89</span></h3><div class="btns">
+<button type="button" class="w" data-w="sad">sad</button>
+<button type="button" class="w" data-w="safe">safe</button>
+<button type="button" class="w" data-w="salad">salad</button>
+<button type="button" class="w" data-w="sale">sale</button>
+<button type="button" class="w" data-w="salt">salt</button>
+<button type="button" class="w" data-w="same">same</button>
+<button type="button" class="w" data-w="sand">sand</button>
+<button type="button" class="w" data-w="sandwich">sandwich</button>
+<button type="button" class="w" data-w="save">save</button>
+<button type="button" class="w" data-w="say">say</button>
+<button type="button" class="w" data-w="school">school</button>
+<button type="button" class="w" data-w="science">science</button>
+<button type="button" class="w" data-w="scissors">scissors</button>
+<button type="button" class="w" data-w="score">score</button>
+<button type="button" class="w" data-w="sea">sea</button>
+<button type="button" class="w" data-w="season">season</button>
+<button type="button" class="w" data-w="second">second</button>
+<button type="button" class="w" data-w="see">see</button>
+<button type="button" class="w" data-w="sell">sell</button>
+<button type="button" class="w" data-w="send">send</button>
+<button type="button" class="w" data-w="service">service</button>
+<button type="button" class="w" data-w="set">set</button>
+<button type="button" class="w" data-w="seven">seven</button>
+<button type="button" class="w" data-w="she">she</button>
+<button type="button" class="w" data-w="ship">ship</button>
+<button type="button" class="w" data-w="shirt">shirt</button>
+<button type="button" class="w" data-w="shoe">shoe</button>
+<button type="button" class="w" data-w="shop">shop</button>
+<button type="button" class="w" data-w="short">short</button>
+<button type="button" class="w" data-w="should">should</button>
+<button type="button" class="w" data-w="show">show</button>
+<button type="button" class="w" data-w="shy">shy</button>
+<button type="button" class="w" data-w="sick">sick</button>
+<button type="button" class="w" data-w="side">side</button>
+<button type="button" class="w" data-w="sing">sing</button>
+<button type="button" class="w" data-w="sister">sister</button>
+<button type="button" class="w" data-w="sit">sit</button>
+<button type="button" class="w" data-w="six">six</button>
+<button type="button" class="w" data-w="size">size</button>
+<button type="button" class="w" data-w="skate">skate</button>
+<button type="button" class="w" data-w="ski">ski</button>
+<button type="button" class="w" data-w="skin">skin</button>
+<button type="button" class="w" data-w="skirt">skirt</button>
+<button type="button" class="w" data-w="sky">sky</button>
+<button type="button" class="w" data-w="sleep">sleep</button>
+<button type="button" class="w" data-w="slow">slow</button>
+<button type="button" class="w" data-w="small">small</button>
+<button type="button" class="w" data-w="smell">smell</button>
+<button type="button" class="w" data-w="smile">smile</button>
+<button type="button" class="w" data-w="snow">snow</button>
+<button type="button" class="w" data-w="so">so</button>
+<button type="button" class="w" data-w="soccer">soccer</button>
+<button type="button" class="w" data-w="sock">sock</button>
+<button type="button" class="w" data-w="soft">soft</button>
+<button type="button" class="w" data-w="software">software</button>
+<button type="button" class="w" data-w="some">some</button>
+<button type="button" class="w" data-w="son">son</button>
+<button type="button" class="w" data-w="song">song</button>
+<button type="button" class="w" data-w="sorry">sorry</button>
+<button type="button" class="w" data-w="sound">sound</button>
+<button type="button" class="w" data-w="soup">soup</button>
+<button type="button" class="w" data-w="south">south</button>
+<button type="button" class="w" data-w="space">space</button>
+<button type="button" class="w" data-w="spaghetti">spaghetti</button>
+<button type="button" class="w" data-w="speak">speak</button>
+<button type="button" class="w" data-w="speed">speed</button>
+<button type="button" class="w" data-w="spoon">spoon</button>
+<button type="button" class="w" data-w="sport">sport</button>
+<button type="button" class="w" data-w="spring">spring</button>
+<button type="button" class="w" data-w="staff">staff</button>
+<button type="button" class="w" data-w="stand">stand</button>
+<button type="button" class="w" data-w="star">star</button>
+<button type="button" class="w" data-w="start">start</button>
+<button type="button" class="w" data-w="stay">stay</button>
+<button type="button" class="w" data-w="steak">steak</button>
+<button type="button" class="w" data-w="stone">stone</button>
+<button type="button" class="w" data-w="stop">stop</button>
+<button type="button" class="w" data-w="store">store</button>
+<button type="button" class="w" data-w="story">story</button>
+<button type="button" class="w" data-w="street">street</button>
+<button type="button" class="w" data-w="strong">strong</button>
+<button type="button" class="w" data-w="study">study</button>
+<button type="button" class="w" data-w="style">style</button>
+<button type="button" class="w" data-w="subway">subway</button>
+<button type="button" class="w" data-w="sugar">sugar</button>
+<button type="button" class="w" data-w="summer">summer</button>
+<button type="button" class="w" data-w="sun">sun</button>
+<button type="button" class="w" data-w="sure">sure</button>
+<button type="button" class="w" data-w="swim">swim</button>
+</div></section>
+<section class="grp" data-letter="T"><h3>T <span class="n">0 / 65</span></h3><div class="btns">
+<button type="button" class="w" data-w="table">table</button>
+<button type="button" class="w" data-w="tail">tail</button>
+<button type="button" class="w" data-w="take">take</button>
+<button type="button" class="w" data-w="talk">talk</button>
+<button type="button" class="w" data-w="tall">tall</button>
+<button type="button" class="w" data-w="tape">tape</button>
+<button type="button" class="w" data-w="taste">taste</button>
+<button type="button" class="w" data-w="taxi">taxi</button>
+<button type="button" class="w" data-w="teach">teach</button>
+<button type="button" class="w" data-w="team">team</button>
+<button type="button" class="w" data-w="telephone">telephone</button>
+<button type="button" class="w" data-w="television">television</button>
+<button type="button" class="w" data-w="tell">tell</button>
+<button type="button" class="w" data-w="ten">ten</button>
+<button type="button" class="w" data-w="tennis">tennis</button>
+<button type="button" class="w" data-w="tent">tent</button>
+<button type="button" class="w" data-w="test">test</button>
+<button type="button" class="w" data-w="textbook">textbook</button>
+<button type="button" class="w" data-w="than">than</button>
+<button type="button" class="w" data-w="thank">thank</button>
+<button type="button" class="w" data-w="that">that</button>
+<button type="button" class="w" data-w="the">the</button>
+<button type="button" class="w" data-w="there">there</button>
+<button type="button" class="w" data-w="they">they</button>
+<button type="button" class="w" data-w="thing">thing</button>
+<button type="button" class="w" data-w="think">think</button>
+<button type="button" class="w" data-w="third">third</button>
+<button type="button" class="w" data-w="thirst">thirst</button>
+<button type="button" class="w" data-w="thirteen">thirteen</button>
+<button type="button" class="w" data-w="thirty">thirty</button>
+<button type="button" class="w" data-w="this">this</button>
+<button type="button" class="w" data-w="three">three</button>
+<button type="button" class="w" data-w="ticket">ticket</button>
+<button type="button" class="w" data-w="tiger">tiger</button>
+<button type="button" class="w" data-w="time">time</button>
+<button type="button" class="w" data-w="tire">tire</button>
+<button type="button" class="w" data-w="to">to</button>
+<button type="button" class="w" data-w="today">today</button>
+<button type="button" class="w" data-w="together">together</button>
+<button type="button" class="w" data-w="tomato">tomato</button>
+<button type="button" class="w" data-w="tomorrow">tomorrow</button>
+<button type="button" class="w" data-w="tonight">tonight</button>
+<button type="button" class="w" data-w="too">too</button>
+<button type="button" class="w" data-w="tooth">tooth</button>
+<button type="button" class="w" data-w="top">top</button>
+<button type="button" class="w" data-w="touch">touch</button>
+<button type="button" class="w" data-w="town">town</button>
+<button type="button" class="w" data-w="toy">toy</button>
+<button type="button" class="w" data-w="track">track</button>
+<button type="button" class="w" data-w="train">train</button>
+<button type="button" class="w" data-w="travel">travel</button>
+<button type="button" class="w" data-w="tree">tree</button>
+<button type="button" class="w" data-w="trip">trip</button>
+<button type="button" class="w" data-w="truck">truck</button>
+<button type="button" class="w" data-w="true">true</button>
+<button type="button" class="w" data-w="try">try</button>
+<button type="button" class="w" data-w="turn">turn</button>
+<button type="button" class="w" data-w="twelve">twelve</button>
+<button type="button" class="w" data-w="twenty">twenty</button>
+<button type="button" class="w" data-w="twenty-first">twenty-first</button>
+<button type="button" class="w" data-w="twenty-second">twenty-second</button>
+<button type="button" class="w" data-w="twenty-third">twenty-third</button>
+<button type="button" class="w" data-w="twice">twice</button>
+<button type="button" class="w" data-w="two">two</button>
+<button type="button" class="w" data-w="type">type</button>
+</div></section>
+<section class="grp" data-letter="U"><h3>U <span class="n">0 / 7</span></h3><div class="btns">
+<button type="button" class="w" data-w="ugly">ugly</button>
+<button type="button" class="w" data-w="umbrella">umbrella</button>
+<button type="button" class="w" data-w="uncle">uncle</button>
+<button type="button" class="w" data-w="under">under</button>
+<button type="button" class="w" data-w="understand">understand</button>
+<button type="button" class="w" data-w="up">up</button>
+<button type="button" class="w" data-w="use">use</button>
+</div></section>
+<section class="grp" data-letter="V"><h3>V <span class="n">0 / 6</span></h3><div class="btns">
+<button type="button" class="w" data-w="vegetable">vegetable</button>
+<button type="button" class="w" data-w="very">very</button>
+<button type="button" class="w" data-w="video">video</button>
+<button type="button" class="w" data-w="violin">violin</button>
+<button type="button" class="w" data-w="visit">visit</button>
+<button type="button" class="w" data-w="voice">voice</button>
+</div></section>
+<section class="grp" data-letter="W"><h3>W <span class="n">0 / 47</span></h3><div class="btns">
+<button type="button" class="w" data-w="wait">wait</button>
+<button type="button" class="w" data-w="wake">wake</button>
+<button type="button" class="w" data-w="walk">walk</button>
+<button type="button" class="w" data-w="wall">wall</button>
+<button type="button" class="w" data-w="want">want</button>
+<button type="button" class="w" data-w="war">war</button>
+<button type="button" class="w" data-w="warm">warm</button>
+<button type="button" class="w" data-w="wash">wash</button>
+<button type="button" class="w" data-w="watch">watch</button>
+<button type="button" class="w" data-w="water">water</button>
+<button type="button" class="w" data-w="watermelon">watermelon</button>
+<button type="button" class="w" data-w="way">way</button>
+<button type="button" class="w" data-w="we">we</button>
+<button type="button" class="w" data-w="wear">wear</button>
+<button type="button" class="w" data-w="weather">weather</button>
+<button type="button" class="w" data-w="website">website</button>
+<button type="button" class="w" data-w="wedding">wedding</button>
+<button type="button" class="w" data-w="week">week</button>
+<button type="button" class="w" data-w="weekend">weekend</button>
+<button type="button" class="w" data-w="weight">weight</button>
+<button type="button" class="w" data-w="welcome">welcome</button>
+<button type="button" class="w" data-w="well">well</button>
+<button type="button" class="w" data-w="west">west</button>
+<button type="button" class="w" data-w="wet">wet</button>
+<button type="button" class="w" data-w="what">what</button>
+<button type="button" class="w" data-w="when">when</button>
+<button type="button" class="w" data-w="where">where</button>
+<button type="button" class="w" data-w="white">white</button>
+<button type="button" class="w" data-w="who">who</button>
+<button type="button" class="w" data-w="why">why</button>
+<button type="button" class="w" data-w="wife">wife</button>
+<button type="button" class="w" data-w="will">will</button>
+<button type="button" class="w" data-w="win">win</button>
+<button type="button" class="w" data-w="wind">wind</button>
+<button type="button" class="w" data-w="window">window</button>
+<button type="button" class="w" data-w="wine">wine</button>
+<button type="button" class="w" data-w="winter">winter</button>
+<button type="button" class="w" data-w="wish">wish</button>
+<button type="button" class="w" data-w="with">with</button>
+<button type="button" class="w" data-w="woman">woman</button>
+<button type="button" class="w" data-w="wood">wood</button>
+<button type="button" class="w" data-w="word">word</button>
+<button type="button" class="w" data-w="work">work</button>
+<button type="button" class="w" data-w="world">world</button>
+<button type="button" class="w" data-w="worry">worry</button>
+<button type="button" class="w" data-w="write">write</button>
+<button type="button" class="w" data-w="wrong">wrong</button>
+</div></section>
+<section class="grp" data-letter="Y"><h3>Y <span class="n">0 / 6</span></h3><div class="btns">
+<button type="button" class="w" data-w="year">year</button>
+<button type="button" class="w" data-w="yellow">yellow</button>
+<button type="button" class="w" data-w="yes">yes</button>
+<button type="button" class="w" data-w="yesterday">yesterday</button>
+<button type="button" class="w" data-w="you">you</button>
+<button type="button" class="w" data-w="young">young</button>
+</div></section>
+<section class="grp" data-letter="Z"><h3>Z <span class="n">0 / 1</span></h3><div class="btns">
+<button type="button" class="w" data-w="zoo">zoo</button>
+</div></section>
+
+<div class="app">
+  <img src="writy-avatar.png" alt="라이티" width="96" height="96">
+  <div>
+    <h2>이 800개를 매일 조금씩 연습하고 쓰게 하는 앱을 만들었습니다</h2>
+    <p>라이티가 하루에 몇 개씩만 보여 주고, 맞힌 낱말은 점점 긴 간격으로 다시 꺼냅니다. 위에서 남긴 복습 목록이 그 출발점이 됩니다. 지금은 알파라 무료로 써 보실 수 있습니다.</p>
+    <a href="https://retyper.github.io/peera-landing/?utm_source=check&utm_medium=page&utm_campaign=peera_check">무료로 써 보기 신청</a>
+  </div>
+</div>
+
+<footer>
+  출처: 교육부 고시 제2022-33호 [별책 14] 영어과 교육과정 [별표 3] 기본 어휘 중 초등학교 사용 권장 800개 · 800개를 다 배우는 게 아니라 학년군당 300개 이내, 합해서 600개 이내로 골라 쓰라고 지정된 목록입니다 ·
+  전체 목록과 PDF: <a href="words.html">낱말 목록 페이지</a><br>
+  이 페이지는 아이가 아는 낱말을 표시하는 도구입니다. 어떤 수준·평가도 매기지 않고, 어떤 학습 효과도 주장하지 않습니다.
+</footer>
+</div>
+
+<div id="print"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var KEY='check800_v1';
+  var btns=[].slice.call(document.querySelectorAll('.w'));
+  var known={};
+  try{ known=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ known={}; }
+
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(known)); }catch(e){} }
+  function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},1600); }
+  function render(){
+    var k=0;
+    btns.forEach(function(b){ var on=!!known[b.dataset.w]; b.classList.toggle('on',on); if(on)k++; });
+    document.getElementById('kn').textContent=k;
+    document.getElementById('un').textContent=btns.length-k;
+    document.querySelectorAll('.grp').forEach(function(g){
+      var all=g.querySelectorAll('.w').length, on=g.querySelectorAll('.w.on').length;
+      g.querySelector('.n').textContent=on+' / '+all;
+    });
+  }
+  btns.forEach(function(b){ b.addEventListener('click',function(){ var w=b.dataset.w; if(known[w]) delete known[w]; else known[w]=1; save(); render(); }); });
+  render();
+
+  function unknownByLetter(){
+    var out=[]; document.querySelectorAll('.grp').forEach(function(g){
+      var ws=[].slice.call(g.querySelectorAll('.w:not(.on)')).map(function(b){return b.dataset.w;});
+      if(ws.length) out.push({letter:g.dataset.letter, words:ws});
+    }); return out;
+  }
+  function today(){ var d=new Date(); return d.getFullYear()+'.'+(d.getMonth()+1)+'.'+d.getDate(); }
+  function counts(){ var k=Object.keys(known).length; return {k:k,u:btns.length-k}; }
+
+  document.getElementById('bPdf').addEventListener('click',function(){
+    var c=counts(), list=unknownByLetter(), p=document.getElementById('print');
+    var h='<h1>복습할 영단어 <b>'+c.u+'개</b></h1><p class="meta">'+today()+' · 교육부 초등 영단어 800개 중 아직 누르지 않은 낱말 · 아는 낱말 '+c.k+'개 · retyper.github.io/peera-landing/check.html</p><ul>';
+    list.forEach(function(g){ h+='<li class="h">'+g.letter+'</li>'; g.words.forEach(function(w){ h+='<li>'+w+'</li>'; }); });
+    h+='</ul><p class="foot">이 목록은 아이가 아직 뜻을 말하지 못한 낱말을 모은 것입니다. 수준이나 점수가 아닙니다. 출처: 교육부 고시 제2022-33호 [별책 14] [별표 3].</p>';
+    p.innerHTML=h; track('export_pdf',{unknown:c.u}); window.print();
+  });
+  document.getElementById('bCopy').addEventListener('click',function(){
+    var c=counts(), list=unknownByLetter();
+    var t='복습할 영단어 '+c.u+'개 ('+today()+')\n'+list.map(function(g){return g.letter+': '+g.words.join(', ');}).join('\n')+'\n— retyper.github.io/peera-landing/check.html';
+    function done(){ toast('복사했습니다. 카톡이나 메모에 붙여 넣으세요.'); track('export_copy',{unknown:c.u}); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done,function(){fallback(t);}); } else fallback(t);
+    function fallback(s){ var ta=document.createElement('textarea'); ta.value=s; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');done();}catch(e){toast('복사가 막혔습니다. PDF로 저장을 써 주세요.');} document.body.removeChild(ta); }
+  });
+  document.getElementById('bImg').addEventListener('click',function(){
+    var c=counts(), list=unknownByLetter();
+    var W=1080, pad=56, cols=4, colW=(W-pad*2)/cols, lh=42, font='26px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif';
+    var rows=[]; list.forEach(function(g){ rows.push({h:g.letter}); g.words.forEach(function(w){rows.push({w:w});}); });
+    var perCol=Math.ceil(rows.length/cols)||1, H=pad+120+perCol*lh+140;
+    var cv=document.createElement('canvas'); cv.width=W; cv.height=H; var x=cv.getContext('2d');
+    x.fillStyle='#FFFDF8'; x.fillRect(0,0,W,H);
+    x.fillStyle='#2B2622'; x.font='bold 44px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText('복습할 영단어 '+c.u+'개',pad,pad+44);
+    x.fillStyle='#6B625A'; x.font='22px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(today()+' · 교육부 초등 영단어 800개 중 아직 누르지 않은 낱말 · 아는 낱말 '+c.k+'개',pad,pad+84);
+    x.font=font;
+    rows.forEach(function(r,i){ var ci=Math.floor(i/perCol), ri=i%perCol, px=pad+ci*colW, py=pad+140+ri*lh;
+      if(r.h){ x.fillStyle='#C2410C'; x.font='bold 26px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(r.h,px,py); x.font=font; }
+      else { x.fillStyle='#2B2622'; x.fillText(r.w,px,py); } });
+    x.fillStyle='#8B8178'; x.font='20px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText('수준이나 점수가 아닙니다 · retyper.github.io/peera-landing/check.html',pad,H-48);
+    cv.toBlob(function(b){ var a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='복습할 영단어 '+c.u+'개.png'; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(a.href);},2000); track('export_image',{unknown:c.u}); toast('이미지를 저장했습니다.'); },'image/png');
+  });
+  document.getElementById('bReset').addEventListener('click',function(){ if(Object.keys(known).length===0) return; known={}; save(); render(); toast('처음부터 다시 시작합니다.'); });
+
+  /* 계측: 쿠키 없이 익명 핑만(words.html과 같은 방식·같은 속성). 광고 신호 off. */
+  window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
+  var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-VK77HTLEQH'; document.head.appendChild(s);
+  gtag('js',new Date()); gtag('config','G-VK77HTLEQH',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false,page_title:'check'});
+  function track(n,p){ try{gtag('event',n,p||{});}catch(e){} }
+  document.querySelector('.app a').addEventListener('click',function(){ track('app_cta_click',{page:'check'}); });
+  if('scrollRestoration' in history){history.scrollRestoration='manual';}
+  window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,0); });
+})();
+</script>
+</body>
+</html>
