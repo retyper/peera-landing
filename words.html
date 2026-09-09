@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>초등 낱말 목록 — 교육부 영단어 800 · 국립국어원 우리말 기초 어휘</title>
-<meta name="description" content="교육부가 초등용으로 지정한 영단어 800개와 국립국어원이 정리한 우리말 기초 어휘를 원문 그대로 공개합니다. 이메일 없이 그냥 가져가세요.">
+<meta name="description" content="교육부가 초등용으로 지정한 영단어 800개와 국립국어원이 정리한 우리말 기초 어휘를 원문 그대로 공개합니다. PDF와 이미지로 그냥 가져가세요. 이메일 없음.">
 <style>
   :root{
     --bg:#FFFDF8; --ink:#2B2622; --sub:#6B625A; --line:#EDE4D8;
@@ -14,7 +14,9 @@
   body{margin:0;background:var(--bg);color:var(--ink);
     font-family:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     line-height:1.7;-webkit-text-size-adjust:100%}
-  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px;min-width:0}
+  html,body{overflow-x:hidden}
+  h1,p,li,td,th,a{overflow-wrap:anywhere;word-break:keep-all}
   header{padding:56px 0 40px;border-bottom:1px solid var(--line)}
   .eyebrow{font-size:14px;letter-spacing:.12em;color:var(--accent);font-weight:700;margin:0 0 14px}
   h1{font-size:32px;line-height:1.35;margin:0 0 16px;letter-spacing:-.02em}
@@ -23,7 +25,15 @@
   .free{display:inline-block;margin-top:22px;padding:9px 15px;border:1.5px solid var(--accent);
     border-radius:999px;font-size:14px;font-weight:700;color:var(--accent)}
 
-  /* 800 대 18,000 */
+  /* 내려받기 — 페이지의 주인공 */
+  .get{margin:28px 0 0;display:grid;gap:12px}
+  .get a{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;min-width:0;
+    background:var(--accent);color:#fff;text-decoration:none;padding:16px 20px;border-radius:14px;
+    font-weight:800;font-size:17px}
+  .get a small{font-weight:600;font-size:13px;opacity:.9}
+  .get a.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--accent)}
+  .get a.alt small{color:var(--sub)}
+
   .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:40px 0 8px}
   .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
   .box .lab{font-size:13px;color:var(--sub);margin:0 0 6px}
@@ -41,12 +51,10 @@
     padding:15px 18px;margin:20px 0;font-size:15px}
   .callout b{color:var(--accent)}
 
-  .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:20px 0 6px}
-  .tools input{flex:1;min-width:180px;padding:11px 14px;border:1px solid var(--line);
-    border-radius:10px;font-size:15px;font-family:inherit;background:var(--card)}
-  .dl{display:inline-block;padding:11px 15px;border:1px solid var(--line);border-radius:10px;
-    background:var(--card);color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}
-  .dl:hover{border-color:var(--accent);color:var(--accent)}
+  .dl{display:inline-block;padding:9px 14px;border:1.5px solid var(--accent);border-radius:10px;
+    background:var(--card);color:var(--accent);text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap}
+  .dl:hover{background:var(--accent);color:#fff}
+  .dl.tiny{border-color:var(--line);color:var(--sub);font-weight:600;padding:5px 9px;font-size:12px}
 
   .grp{margin:26px 0}
   .grp h3{font-size:18px;margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid var(--line)}
@@ -70,6 +78,8 @@
     border-radius:14px;padding:22px;margin:20px 0}
   .src p{margin:0 0 10px}
   .src p:last-child{margin:0}
+  .raw{font-size:13px;color:var(--sub);margin:14px 0 0}
+  .raw a{color:var(--sub)}
 
   .app{margin:56px 0 0;padding:26px 24px;background:var(--card);
     border:1px solid var(--line);border-radius:16px}
@@ -79,14 +89,14 @@
     padding:13px 22px;border-radius:10px;font-weight:700;font-size:15px}
   footer{margin:44px 0 70px;padding-top:22px;border-top:1px solid var(--line);
     font-size:13px;color:var(--sub)}
-  .empty{color:var(--sub);font-size:15px;padding:12px 0}
 
   @media (max-width:560px){
     h1{font-size:26px} header{padding:38px 0 30px}
     .box .num{font-size:32px} .compare{gap:10px}
+    .get a{font-size:15px;padding:14px 16px}
   }
   @media print{
-    body{background:#fff} .tools,.app{display:none}
+    body{background:#fff} .get,.app,.dl{display:none}
     .grp{break-inside:avoid} a{text-decoration:none;color:inherit}
   }
 </style>
@@ -100,6 +110,14 @@
   <p class="lede">둘 다 정부가 세어 둔 목록입니다. 원문 그대로 옮겨 왔습니다.<br>
      가져가시는 데 아무 조건이 없습니다. 이메일도 받지 않습니다.</p>
   <span class="free">이메일 없음 · 회원가입 없음 · 그냥 가져가세요</span>
+
+  <div class="get">
+    <a href="data/pdf/elementary-english-800.pdf" download="교육부 초등 영단어 800.pdf">
+      교육부 초등 영단어 800개 — PDF <small>인쇄용 · A4 7장</small></a>
+    <a class="alt" href="data/img/elementary-english-800.png" download="교육부 초등 영단어 800.png">
+      같은 목록을 이미지 한 장으로 <small>휴대폰에 저장</small></a>
+    <a class="alt" href="#ko">우리말 기초 어휘 — 등급별 PDF <small>아래 표에서 고르세요</small></a>
+  </div>
 </header>
 
 <div class="compare">
@@ -126,7 +144,8 @@
 <h2>1. 교육부 지정 초등 영단어 <span class="cnt">800개 전체</span></h2>
 <p class="note">2022 개정 영어과 교육과정 기본 어휘 3,000개 가운데
   <b>*</b> 표시가 붙은, 초등학교에서 사용하기를 권장하는 낱말입니다.
-  괄호로 묶인 것은 원문에 함께 적힌 철자 변형입니다(color / colour처럼 한 낱말로 셉니다).</p>
+  괄호로 묶인 것은 원문에 함께 적힌 철자 변형입니다(color / colour처럼 한 낱말로 셉니다).
+  원문에 뜻은 없습니다. 낱말만 있는 목록입니다.</p>
 
 <div class="callout">
   <b>800개를 다 배우는 게 아닙니다.</b> 같은 문서에 학년군별 권장 어휘 수가 따로 적혀 있습니다 —
@@ -134,12 +153,10 @@
   800개는 <b>그중에서 골라 쓰라고 지정해 둔 낱말 주머니</b>입니다.
 </div>
 
-<div class="tools">
-  <input id="q" type="search" placeholder="영단어 검색 (예: apple)" autocomplete="off">
-  <a class="dl" href="data/초등필수영단어-800-목록.txt" download>목록 파일 내려받기 (.txt)</a>
-  <a class="dl" href="data/초등필수영단어-800-교육부.json" download>.json</a>
-</div>
-<p class="empty" id="noeng" hidden>찾는 낱말이 목록에 없습니다.</p>
+<p style="margin:18px 0 6px">
+  <a class="dl" href="data/pdf/elementary-english-800.pdf" download="교육부 초등 영단어 800.pdf">PDF로 저장</a>
+  <a class="dl" href="data/img/elementary-english-800.png" download="교육부 초등 영단어 800.png">이미지로 저장</a>
+</p>
 
 <div id="englist">
 <section class="grp"><h3>A <span class="n">46</span></h3><ul class="words">
@@ -994,33 +1011,28 @@
 </ul></section>
 </div>
 
-<h2>2. 국립국어원 우리말 기초 어휘</h2>
+<h2 id="ko">2. 국립국어원 우리말 기초 어휘</h2>
 <p class="note">국립국어원이 2017년부터 2023년까지 6년에 걸쳐 정리한
   <b>국어 기초 어휘 40,000개</b>입니다. “일상 언어생활을 하는 데 꼭 필요한 어휘”를
-  습득 시기에 따라 5등급으로 나눈 것입니다.</p>
+  습득 시기에 따라 5등급으로 나눈 것입니다. PDF에는 낱말과 품사만 실었습니다.</p>
 
 <table>
-  <tr><th>등급</th><th>습득 시기</th><th>낱말 수</th><th></th></tr>
+  <tr><th>등급</th><th>습득 시기</th><th>낱말 수</th><th>PDF</th></tr>
   <tr><td>1등급</td><td>학령 전기 (4~6세)</td><td>5,000</td>
-      <td><a class="dl" href="data/국어기초어휘-1등급.json" download>.json</a></td></tr>
+      <td><a class="dl" href="data/pdf/korean-grade1.pdf" download="우리말 기초 어휘 1등급 (학령 전).pdf">PDF</a></td></tr>
   <tr class="mark"><td>2등급</td><td>초등 1~2학년</td><td><b>2,500</b></td>
-      <td><a class="dl" href="data/국어기초어휘-2등급.json" download>.json</a></td></tr>
+      <td><a class="dl" href="data/pdf/korean-grade2.pdf" download="우리말 기초 어휘 2등급 (초1~2).pdf">PDF</a></td></tr>
   <tr class="mark"><td>3등급</td><td>초등 3~4학년</td><td><b>5,500</b></td>
-      <td><a class="dl" href="data/국어기초어휘-3등급.json" download>.json</a></td></tr>
+      <td><a class="dl" href="data/pdf/korean-grade3.pdf" download="우리말 기초 어휘 3등급 (초3~4).pdf">PDF</a></td></tr>
   <tr class="mark"><td>4등급</td><td>초등 5~6학년</td><td><b>10,000</b></td>
-      <td><a class="dl" href="data/국어기초어휘-4등급.json" download>.json</a></td></tr>
+      <td><a class="dl" href="data/pdf/korean-grade4.pdf" download="우리말 기초 어휘 4등급 (초5~6).pdf">PDF</a></td></tr>
   <tr><td>5등급</td><td>중학 1~3학년</td><td>17,000</td>
-      <td><a class="dl" href="data/국어기초어휘-5등급.json" download>.json</a></td></tr>
+      <td><a class="dl" href="data/pdf/korean-grade5.pdf" download="우리말 기초 어휘 5등급 (중등).pdf">PDF</a></td></tr>
 </table>
-<p class="note">색이 칠해진 세 줄을 더한 <b>18,000개</b>가 초등학교 6년에 해당합니다.
-  내려받는 파일에는 품사·어종·한자·뜻풀이가 함께 들어 있습니다.</p>
+<p class="note">색이 칠해진 세 줄을 더한 <b>18,000개</b>가 초등학교 6년에 해당합니다.</p>
 
 <h3 style="font-size:19px;margin:34px 0 0">초등 1~2학년 시기 낱말 <span style="font-size:14px;color:#C2410C">2,500개 전체</span></h3>
-<p class="note">아래는 2등급 전체 목록입니다. 나머지 등급은 위에서 파일로 내려받으세요.</p>
-<div class="tools">
-  <input id="qk" type="search" placeholder="우리말 검색 (예: 가방)" autocomplete="off">
-</div>
-<p class="empty" id="noko" hidden>찾는 낱말이 이 등급에 없습니다.</p>
+<p class="note">아래는 2등급 전체 목록입니다. 나머지 등급은 위 표에서 PDF로 받으세요.</p>
 <ul class="ko" id="kolist">
 <li>가능성<em>명사</em></li>
 <li>가닥<em>명사</em></li>
@@ -3532,19 +3544,26 @@
   <p><b>우리말 40,000개</b> — 국립국어원 「국어 기초 어휘 선정 및 어휘 등급화 연구」(2017~2023).
      등급별 습득 시기는 해당 연구 최종보고서 27쪽에 적힌 정의를 따랐습니다.
      공공누리 제1유형으로 공개된 자료입니다. 출처: 국립국어원.</p>
-  <p><b>뜻풀이는 손대지 않았습니다.</b> 영어 목록에는 원문에 뜻이 아예 없어서 낱말만 있고,
-     우리말 파일의 뜻풀이는 표준국어대사전 문장이라 어른 기준입니다. 아이가 읽기엔 어렵습니다.</p>
+  <p><b>뜻풀이는 싣지 않았습니다.</b> 영어 목록에는 원문에 뜻이 아예 없고,
+     우리말 원본의 뜻풀이는 표준국어대사전 문장이라 어른 기준입니다. 아이가 읽기엔 어렵습니다.</p>
   <p><b>고쳐야 할 것이 보이면 알려주세요.</b> 원문에서 직접 뽑았고 개수까지 맞춰 확인했지만
      (초등 800 · 중고 1,200 · 그 외 1,000 = 3,000), 사람이 한 일이라 틀릴 수 있습니다.</p>
+  <p class="raw">파일 원본이 필요한 분(교사·개발자):
+     영단어 <a href="data/초등필수영단어-800-목록.txt" download>txt</a> ·
+     <a href="data/초등필수영단어-800-교육부.json" download>json</a> /
+     우리말(뜻풀이·한자 포함)
+     <a href="data/국어기초어휘-1등급.json" download>1</a> ·
+     <a href="data/국어기초어휘-2등급.json" download>2</a> ·
+     <a href="data/국어기초어휘-3등급.json" download>3</a> ·
+     <a href="data/국어기초어휘-4등급.json" download>4</a> ·
+     <a href="data/국어기초어휘-5등급.json" download>5등급 json</a></p>
 </div>
 
 <div class="app">
   <h2>낱말을 매일 조금씩 복습하는 앱을 만들고 있습니다</h2>
   <p>피어라에는 낱말을 하루에 몇 개씩만 보여 주고, 맞힌 낱말은 점점 긴 간격으로 다시 꺼내는
-     복습 기능이 있습니다. 지금은 알파 단계라 무료로 쓰실 수 있고, 써 보고 싶으신 분만 신청하시면 됩니다.
-     위 목록은 신청과 상관없이 그냥 가져가시면 됩니다.</p>
-  <p style="font-size:14px">다만 지금 앱에 들어 있는 낱말은 위 목록과 별개로 고른 것입니다.
-     위 목록을 앱에 넣는 일은 아직 하는 중이라, 미리 말씀드립니다.</p>
+     복습 기능이 있습니다. 위 영단어 800개가 들어 있습니다. 지금은 알파 단계라 무료로 쓰실 수 있고,
+     써 보고 싶으신 분만 신청하시면 됩니다. 위 목록은 신청과 상관없이 그냥 가져가시면 됩니다.</p>
   <a href="https://retyper.github.io/peera-landing/?utm_source=words&utm_medium=page&utm_campaign=peera_vocab">앱 써 보기 신청</a>
 </div>
 
@@ -3554,34 +3573,5 @@
 </footer>
 
 </div>
-
-<script>
-(function(){
-  function hook(inputId, listSel, itemSel, emptyId){
-    var input = document.getElementById(inputId);
-    var items = document.querySelectorAll(listSel + ' ' + itemSel);
-    var empty = document.getElementById(emptyId);
-    if(!input) return;
-    input.addEventListener('input', function(){
-      var q = input.value.trim().toLowerCase();
-      var shown = 0;
-      for(var i=0;i<items.length;i++){
-        var hit = !q || items[i].textContent.toLowerCase().indexOf(q) !== -1;
-        items[i].hidden = !hit;
-        if(hit) shown++;
-      }
-      // 글자 구간 제목은 그 안에 보이는 낱말이 없으면 같이 숨긴다
-      var grps = document.querySelectorAll(listSel + ' .grp');
-      for(var g=0; g<grps.length; g++){
-        var vis = grps[g].querySelectorAll('li:not([hidden])').length;
-        grps[g].hidden = (vis === 0);
-      }
-      if(empty) empty.hidden = (shown !== 0);
-    });
-  }
-  hook('q', '#englist', 'li', 'noeng');
-  hook('qk', '#kolist', 'li', 'noko');
-})();
-</script>
 </body>
 </html>
