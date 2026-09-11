@@ -3583,13 +3583,14 @@
 </div>
 <script>
 /* ── 계측: 내려받기·앱 신청 클릭 수만 센다 ─────────────────────────────────
-   랜딩(index.html)과 같은 GA4 속성. 다만 이 페이지는 동의 배너가 없으므로
-   Consent Mode로 analytics_storage='denied'를 기본값으로 둔다 → GA가 쿠키를 심지 않고
-   식별자 없는 핑만 보낸다(개인 식별 불가). 광고 신호·개인화도 전부 끈다(랜딩과 동일 방침).
-   ★쿠키 없는 핑은 GA 보고서에서 '모델링'으로 잡히거나 일부 누락될 수 있다 — 방향 지표로만 쓴다. */
+   랜딩(index.html)과 같은 GA4 속성. 광고 신호 셋은 denied로 고정한다(아동 대상).
+   🟥 2026-09-11: analytics_storage를 denied → granted로 바꿨다. denied일 때는 쿠키 없는 핑만 나가서
+   GA4 표준 보고서에 사용자로 잡히지 않았다 — 9/9 낱말 목록 글로 들어온 690명이 GA에 한 명도 안 남았다.
+   granted면 측정용 첫 번째 파티 쿠키(_ga) 하나가 생긴다. 이름·이메일은 여전히 받지 않고,
+   어떤 낱말을 눌렀는지도 보내지 않는다. 동의 배너는 이 페이지에 없다(랜딩에만 있다). */
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
-gtag('consent', 'default', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied' });
+gtag('consent', 'default', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'granted' });
 (function(){ var s=document.createElement('script'); s.async=true;
   s.src='https://www.googletagmanager.com/gtag/js?id=G-VK77HTLEQH'; document.head.appendChild(s); })();
 gtag('js', new Date());

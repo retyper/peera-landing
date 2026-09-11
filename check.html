@@ -1287,9 +1287,10 @@
     toast('처음부터 다시 시작합니다.');
   });
 
-  /* 계측: 쿠키 없이 익명 핑만(words.html과 같은 방식·같은 속성). 광고 신호 off. */
+  /* 계측: words.html과 같은 방식·같은 속성. 광고 신호 셋은 denied 고정.
+     2026-09-11 analytics_storage denied → granted. denied일 때 GA 보고서에 아무것도 안 잡혔다. */
   window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);}
-  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});
   var sc=document.createElement('script'); sc.async=true; sc.src='https://www.googletagmanager.com/gtag/js?id=G-VK77HTLEQH'; document.head.appendChild(sc);
   gtag('js',new Date()); gtag('config','G-VK77HTLEQH',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false,page_title:'check'});
   function track(n,p){ try{gtag('event',n,p||{});}catch(e){} }
