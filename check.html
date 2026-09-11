@@ -1238,8 +1238,29 @@
       if(r.h){ x.fillStyle='#C2410C'; x.font='bold 26px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(r.h,px,py); x.font=font; }
       else { x.fillStyle='#2B2622'; x.fillText(r.w,px,py); } });
     x.fillStyle='#8B8178'; x.font='20px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif';
-    x.fillText((tailLine()||'수준이나 점수가 아닙니다')+' · retyper.github.io/peera-landing/check.html',pad,H-48);
-    cv.toBlob(function(b){ var a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='복습할 영단어 '+t.unknown+'개.png'; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(a.href);},2000); track('export_image',{unknown:t.unknown,letters:t.done}); toast('이미지를 저장했습니다.'); },'image/png');
+    /* 아래 두 줄은 캔버스 폭을 넘기 쉽다. 넘치면 글자 목록을 줄여서 자른 티가 안 나게 한다. */
+    var maxW=W-pad*2, f1=tailLine()||'수준이나 점수가 아닙니다', f2='retyper.github.io/peera-landing/check.html';
+    if(x.measureText(f1).width>maxW){
+      var rest=restLetters();
+      while(rest.length>1 && x.measureText('아직 안 보신 글자: '+rest.join(' ')+' 외 '+(restLetters().length-rest.length)+'개').width>maxW) rest.pop();
+      f1='아직 안 보신 글자: '+rest.join(' ')+' 외 '+(restLetters().length-rest.length)+'개';
+    }
+    x.fillText(f1,pad,H-74);
+    x.fillText(f2,pad,H-44);
+    cv.toBlob(function(b){
+      var url=URL.createObjectURL(b), a=document.createElement('a');
+      var canDl = 'download' in a;   /* 일부 iOS 사파리는 download를 무시한다 */
+      if(canDl){
+        a.href=url; a.download='복습할 영단어 '+t.unknown+'개.png';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        toast('이미지를 저장했습니다.');
+      } else {
+        window.open(url,'_blank');   /* 새 탭에서 열어 길게 눌러 저장하게 */
+        toast('새 창에 열었습니다. 이미지를 길게 눌러 저장하세요.');
+      }
+      setTimeout(function(){URL.revokeObjectURL(url);},4000);
+      track('export_image',{unknown:t.unknown,letters:t.done});
+    },'image/png');
   });
 
   /* 피어라(말의 정원)로 보내기 — 800비트(1=아는 낱말)를 base64url로 URL에 싣는다.
