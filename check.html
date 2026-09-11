@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>초등 영단어 800 — 아는 낱말 체크</title>
-<meta name="description" content="초등 필수 영단어 800개를 눌러서 아이가 아는 낱말을 표시하고, 모르는 낱말만 복습 목록으로 저장하세요. 무료, 이메일 없음.">
+<meta name="description" content="초등 필수 영단어 800개를 A부터 Z까지 한 글자씩 확인하고, 안 누른 낱말만 복습 목록으로 저장하세요. 나갔다 오셔도 이어서 할 수 있습니다. 이메일·가입 없음.">
 <!-- 오픈그래프(카톡·스레드·인스타 링크 미리보기) — og:image는 살아 있는 절대 URL이어야 뜬다 -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="초등 필수 영단어 800개, 아이가 아는 것만 눌러 보세요">
-<meta property="og:description" content="누르지 않은 낱말이 그 아이의 복습 목록이 됩니다. PDF·이미지로 저장. 무료, 이메일 없음.">
+<meta property="og:description" content="안 누른 낱말이 복습 목록이 됩니다. A 한 글자만 하고 나가셔도 이어서 하실 수 있어요. 이메일·가입 없음.">
 <meta property="og:url" content="https://retyper.github.io/peera-landing/check.html">
 <meta property="og:image" content="https://retyper.github.io/peera-landing/check-og.png">
 <meta property="og:image:width" content="1200">
@@ -49,7 +49,8 @@
   .app.top{margin:14px 0 0;padding:14px 16px;gap:14px}
   .app.top h2{font-size:15px;margin-bottom:4px}
   .app.top p{font-size:13px;margin-bottom:8px}
-  .app.top img{flex:0 0 72px;width:72px;height:72px}
+  .app.top img{flex:0 0 44px;width:44px;height:44px}
+  .app.top .row .btn{background:var(--card);color:var(--accent);padding:8px 12px;font-size:13.5px;border-radius:9px;font-weight:700;display:inline-block;text-decoration:none}
   .app.top .row{display:flex;gap:8px;flex-wrap:wrap}
   .app.top .btn small{font-weight:500;color:var(--sub);margin-left:4px}
   .app{margin:40px 0 0;padding:18px 20px;background:var(--soft);border:1px solid #F3D6BE;border-radius:16px;display:flex;gap:16px;align-items:center}
@@ -74,40 +75,66 @@
     #print .foot{font-size:8pt;color:#8B8178;margin-top:10pt}
     @page{size:A4;margin:14mm 12mm}
   }
-  @media (max-width:560px){ h1{font-size:23px} .w{font-size:15px;padding:8px 12px} .app{flex-direction:column;align-items:flex-start}
+  @media (max-width:560px){ h1{font-size:22px;margin-bottom:8px} header{padding:26px 0 12px} .grp{margin-top:14px} .w{font-size:15px;padding:8px 12px} .app{flex-direction:column;align-items:flex-start}
     .lede{font-size:15px} .how{font-size:13px;padding:10px 12px;margin-top:12px}
     .bar{padding:8px 0} .btn{font-size:13px;padding:7px 10px;border-radius:8px} .cnt{font-size:14px}
     .bar .row{gap:6px} .bar .note{display:none}
-    .app.top{flex-direction:row;align-items:flex-start;padding:12px} .app.top img{flex:0 0 52px;width:52px;height:52px} .app.top h2{font-size:14px} .app.top p{font-size:12.5px} }
+    .app.top{flex-direction:row;align-items:center;padding:10px 12px;gap:10px} .app.top img{flex:0 0 40px;width:40px;height:40px} .app.top h2{font-size:13.5px;margin-bottom:6px} }
+
+  /* ── 한 글자씩 하기 (2026-09-11) ── */
+  .chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0 2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;border:1.5px solid var(--line);background:var(--card);color:var(--sub);border-radius:9px;
+        min-width:34px;padding:5px 8px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;line-height:1.2;text-align:center;
+        -webkit-tap-highlight-color:transparent}
+  .chip.has{border-color:var(--accent);color:var(--accent)}
+  .chip.done{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+  .chip.now{background:var(--accent);border-color:var(--accent);color:#fff}
+  .chip.done.now{background:var(--ok);border-color:var(--ok);color:#fff}
+  .resume[hidden]{display:none!important}
+  .resume{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--okbg);border:1px solid #BFE0CD;border-radius:12px;padding:10px 14px;margin:14px 0 0;font-size:14px}
+  .resume b{color:var(--ok)}
+  .resume .btn{border-color:var(--ok);color:var(--ok);padding:7px 12px}
+  .grpfoot{margin:16px 0 6px;padding:14px 16px;background:var(--soft);border-radius:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .grpfoot .t{font-size:14px;color:var(--sub);flex:1;min-width:180px}
+  .grpfoot .t b{color:var(--ink)}
+  .grpfoot .again{background:none;border:0;color:var(--sub);font-size:13px;text-decoration:underline;cursor:pointer;font-family:inherit;padding:4px}
+  .save{margin:28px 0 0;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+  .save h2{font-size:17px;margin:0 0 6px}
+  .save p{font-size:14px;color:var(--sub);margin:0 0 12px}
+  .save .row{display:flex;gap:8px;flex-wrap:wrap}
+  .hid{display:none!important}
+  @media (max-width:560px){
+    .chips{gap:5px;padding-top:6px} .chip{min-width:31px;padding:5px 7px;font-size:13px}
+    .grpfoot{padding:12px} .grpfoot .t{font-size:13px} .save{padding:14px 16px}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <p class="eyebrow">아는 낱말 체크</p>
-  <h1>초등 영단어 <b>800개</b>,<br>아이가 아는 것만 눌러 보세요.</h1>
-  <p class="lede">초등 필수 영단어 800개입니다(출처는 맨 아래). 아이와 같이 보면서, <b>보자마자 뜻을 말할 수 있는 낱말</b>만 누르세요.
-     <b>'아는 것 같은' 낱말은 누르지 마세요.</b> 아이 입으로 뜻이 나와야 아는 겁니다. 모르거나 헷갈리면 그대로 두세요. 누르지 않은 낱말이 그 아이의 복습 목록이 됩니다.</p>
+  <h1>초등 필수 영단어 <b>800개</b>,<br>아이가 아는 것만 눌러 보세요.</h1>
+  <p class="lede">아이한테 보여주고, <b>뜻이 바로 나오는 낱말만</b> 누르세요. 헷갈리면 그냥 두시면 됩니다.
+     안 누른 낱말이 복습 목록이 됩니다.</p>
+  <p class="lede" style="margin-top:6px">800개를 한 번에 다 하실 필요 없습니다. <b>A 한 글자만 하고 나가셔도</b> 그대로 남아 있습니다.</p>
 </header>
 
 <div class="bar">
   <div class="row">
-    <span class="cnt">아는 낱말 <b id="kn">0</b> · 복습할 낱말 <i id="un">800</i></span>
+    <span class="cnt">끝낸 글자 <b id="dn">0</b> / <span id="tt">25</span> · 아는 낱말 <b id="kn">0</b> · 복습 목록 <i id="un">0</i></span>
     <span class="sp"></span>
-    <button class="btn pri" id="bPdf">복습 목록 PDF로 저장</button>
-    <button class="btn" id="bImg">이미지로 저장</button>
-    <button class="btn" id="bCopy">복사</button>
-    <button class="btn ghost" id="bReset">처음부터</button>
+    <button class="btn ghost" id="bMode">전부 보기</button>
   </div>
-  <p id="sum" style="font-size:13px;color:var(--sub);margin:6px 0 0"></p>
+  <nav class="chips" id="chips"></nav>
 </div>
+<div class="resume" id="resume" hidden></div>
 
 <div class="app top">
-  <img src="writy-avatar.png" alt="라이티" width="72" height="72">
+  <img src="writy-avatar.png" alt="라이티" width="44" height="44">
   <div>
-    <h2>이 복습 목록으로 매일 몇 개씩 연습하는 앱이 있습니다</h2>
-    <p>라이티가 하루에 몇 개씩만 보여 주고, 맞힌 낱말은 다음 날, 3일, 7일, 16일, 35일 뒤에 다시 꺼냅니다. 틀리면 처음부터 다시 자주 나옵니다. 지금은 알파라 무료입니다.</p>
-    <div class="row"><button class="btn" id="bApp" style="border-color:#1F7A4D;color:#1F7A4D">웹에서 바로 시작하기 → <small>로그인 필요</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=check&utm_medium=page&utm_campaign=peera_check" style="text-decoration:none">폰 앱 신청</a></div>
+    <h2>안 누른 낱말은 앱으로 그대로 가져갈 수 있습니다</h2>
+    <div class="row"><button class="btn" id="bApp" style="border-color:#1F7A4D;color:#1F7A4D">웹에서 시작<small>로그인 필요</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=check&utm_medium=page&utm_campaign=peera_check" style="text-decoration:none">폰 앱 신청</a></div>
   </div>
 </div>
 
@@ -962,11 +989,22 @@
 <button type="button" class="w" data-w="zoo">zoo</button>
 </div></section>
 
+<section class="save" id="save">
+  <h2 id="saveH">복습 목록 저장하기</h2>
+  <p id="saveP">끝낸 글자에서 안 누른 낱말만 모읍니다.</p>
+  <div class="row">
+    <button class="btn pri" id="bPdf">PDF로 저장</button>
+    <button class="btn" id="bImg">이미지로 저장</button>
+    <button class="btn" id="bCopy">복사</button>
+    <button class="btn ghost" id="bReset">처음부터</button>
+  </div>
+</section>
+
 <div class="app">
   <img src="writy-avatar.png" alt="라이티" width="96" height="96">
   <div>
-    <h2>이 800개를 매일 조금씩 연습하고 쓰게 하는 앱을 만들었습니다</h2>
-    <p>라이티가 하루에 몇 개씩만 보여 주고, 맞힌 낱말은 다음 날, 3일, 7일, 16일, 35일 뒤에 다시 꺼냅니다. 위에서 남긴 복습 목록이 그 출발점이 됩니다. 지금은 알파라 무료로 써 보실 수 있습니다.</p>
+    <h2>목록을 뽑고 나면, 매일 뭘 시킬지가 진짜 문제더라고요</h2>
+    <p>저도 800개를 정리해 놓고 그 다음이 제일 막혔습니다. 그래서 하루에 몇 개씩만 꺼내 주고, 맞힌 낱말은 다음 날·3일·7일·16일·35일 뒤에 다시 물어보는 앱을 만들고 있습니다. 틀린 낱말은 더 자주 나옵니다. 위에서 남은 복습 목록을 그대로 가져갈 수 있어요. 알파라 무료입니다.</p>
     <a href="https://retyper.github.io/peera-landing/?utm_source=check&utm_medium=page&utm_campaign=peera_check">무료로 써 보기 신청</a>
   </div>
 </div>
@@ -974,7 +1012,8 @@
 <footer>
   출처: 교육부 고시 제2022-33호 [별책 14] 영어과 교육과정 [별표 3] 기본 어휘 중 초등학교 사용 권장 800개 · 800개를 다 배우는 게 아니라 학년군당 300개 이내, 합해서 600개 이내로 골라 쓰라고 지정된 목록입니다 ·
   전체 목록과 PDF: <a href="words.html">낱말 목록 페이지</a><br>
-  이 페이지는 아이가 아는 낱말을 표시하는 도구입니다. 어떤 수준·평가도 매기지 않고, 어떤 학습 효과도 주장하지 않습니다.
+  누른 기록은 이 브라우저에만 남습니다. 어떤 낱말을 눌렀는지는 밖으로 나가지 않고, 이름도 이메일도 받지 않습니다.<br>
+  아이가 아는 낱말을 표시하는 도구일 뿐입니다. 수준을 매기거나 학습 효과를 주장하지 않습니다.
 </footer>
 </div>
 
@@ -983,67 +1022,173 @@
 
 <script>
 (function(){
-  var KEY='check800_v1';
+  var KEY='check800_v1', DKEY='check800_done_v1', LKEY='check800_last_v1', MKEY='check800_mode_v1';
   var btns=[].slice.call(document.querySelectorAll('.w'));
-  var known={};
+  var grps=[].slice.call(document.querySelectorAll('.grp'));
+  var letters=grps.map(function(g){return g.dataset.letter;});
+  var known={}, done={}, last=null, mode='one';
   try{ known=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ known={}; }
+  try{ done=JSON.parse(localStorage.getItem(DKEY)||'{}')||{}; }catch(e){ done={}; }
+  try{ last=localStorage.getItem(LKEY)||null; }catch(e){ last=null; }
+  try{ mode=localStorage.getItem(MKEY)||'one'; }catch(e){ mode='one'; }
+  if(letters.indexOf(last)<0) last=null;
+  var cur = last || letters[0];
 
   function save(){ try{ localStorage.setItem(KEY, JSON.stringify(known)); }catch(e){} }
-  function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},1600); }
-  function render(){
-    var k=0;
-    btns.forEach(function(b){ var on=!!known[b.dataset.w]; b.classList.toggle('on',on); if(on)k++; });
-    document.getElementById('kn').textContent=k;
-    document.getElementById('un').textContent=btns.length-k;
-    document.querySelectorAll('.grp').forEach(function(g){
-      var all=g.querySelectorAll('.w').length, on=g.querySelectorAll('.w.on').length;
-      g.querySelector('.n').textContent=on+' / '+all;
-    });
-    var rest=[].slice.call(document.querySelectorAll('.grp')).map(function(g){return {l:g.dataset.letter,n:g.querySelectorAll('.w:not(.on)').length};}).filter(function(x){return x.n>0;}).sort(function(a,b){return b.n-a.n;}).slice(0,3);
-    var el=document.getElementById('sum'); if(el) el.textContent = k===0 ? '' : ('복습할 낱말이 가장 많이 남은 글자: '+rest.map(function(x){return x.l+' '+x.n+'개';}).join(' · '));
+  function saveDone(){ try{ localStorage.setItem(DKEY, JSON.stringify(done)); }catch(e){} }
+  function saveLast(){ try{ localStorage.setItem(LKEY, cur); }catch(e){} }
+  function saveMode(){ try{ localStorage.setItem(MKEY, mode); }catch(e){} }
+  function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},2200); }
+  function grpOf(l){ for(var i=0;i<grps.length;i++) if(grps[i].dataset.letter===l) return grps[i]; return null; }
+  function nextLetter(l){ var i=letters.indexOf(l); for(var j=i+1;j<letters.length;j++) if(!done[letters[j]]) return letters[j];
+                          for(var k=0;k<letters.length;k++) if(!done[letters[k]]) return letters[k]; return null; }
+  function stat(l){ var g=grpOf(l), a=g.querySelectorAll('.w').length, k=g.querySelectorAll('.w.on').length; return {all:a,known:k,rest:a-k}; }
+  function totals(){
+    var k=0,u=0,d=0;
+    grps.forEach(function(g){ var l=g.dataset.letter, on=g.querySelectorAll('.w.on').length;
+      k+=on; if(done[l]){ d++; u+=g.querySelectorAll('.w').length-on; } });
+    return {known:k,unknown:u,done:d};
   }
-  btns.forEach(function(b){ b.addEventListener('click',function(){ var w=b.dataset.w; if(known[w]) delete known[w]; else known[w]=1; save(); render(); }); });
-  render();
 
+  /* 글자별 마무리 칸 */
+  grps.forEach(function(g){
+    var f=document.createElement('div'); f.className='grpfoot'; f.dataset.for=g.dataset.letter;
+    f.innerHTML='<span class="t"></span><button type="button" class="btn pri go"></button><button type="button" class="again"></button>';
+    g.appendChild(f);
+    f.querySelector('.go').addEventListener('click',function(){
+      var l=g.dataset.letter;
+      if(!done[l]){ var s=stat(l); done[l]=1; saveDone(); track('letter_done',{letter:l,known:s.known,total:s.all});
+        toast(l+' 끝. 아는 낱말 '+s.known+'개, 복습할 낱말 '+s.rest+'개.'); }
+      var n=nextLetter(l);
+      if(n){ show(n,true); } else { render(); var sv=document.getElementById('save'); if(sv) sv.scrollIntoView({block:'center'}); }
+    });
+    f.querySelector('.again').addEventListener('click',function(){
+      var l=g.dataset.letter;
+      if(done[l]){ delete done[l]; saveDone(); render(); var y=g.getBoundingClientRect().top+window.pageYOffset-96; window.scrollTo(0,y<0?0:y); }
+      else { var n=nextLetter(l); if(n) show(n,true); }
+    });
+  });
+
+  /* 글자 칩 */
+  var chips=document.getElementById('chips');
+  letters.forEach(function(l){
+    var b=document.createElement('button'); b.type='button'; b.className='chip'; b.dataset.letter=l; b.textContent=l;
+    b.addEventListener('click',function(){ show(l,true); });
+    chips.appendChild(b);
+  });
+
+  function show(l,scroll){
+    cur=l; saveLast();
+    if(mode==='one'){ grps.forEach(function(g){ g.classList.toggle('hid', g.dataset.letter!==l); }); }
+    render();
+    if(scroll){ var g=grpOf(l); if(g){ var y=g.getBoundingClientRect().top+window.pageYOffset-96; window.scrollTo(0,y<0?0:y); } }
+  }
+
+  function render(){
+    btns.forEach(function(b){ b.classList.toggle('on',!!known[b.dataset.w]); });
+    var t=totals();
+    document.getElementById('kn').textContent=t.known;
+    document.getElementById('un').textContent=t.unknown;
+    document.getElementById('dn').textContent=t.done;
+    document.getElementById('tt').textContent=letters.length;
+    grps.forEach(function(g){
+      var l=g.dataset.letter, s=stat(l), f=g.querySelector('.grpfoot');
+      g.querySelector('.n').textContent=s.known+' / '+s.all;
+      if(done[l]){
+        f.querySelector('.t').innerHTML='<b>'+l+' 끝.</b> 아는 낱말 '+s.known+'개, 복습할 낱말 '+s.rest+'개.';
+        var n=nextLetter(l);
+        f.querySelector('.go').textContent = n ? n+' 하러 가기' : '복습 목록 저장하기';
+        f.querySelector('.again').textContent=l+' 다시 고치기';
+      } else {
+        f.querySelector('.t').innerHTML = s.known ? (l+'에서 '+s.known+'개 누르셨습니다.') : (l+'은 '+s.all+'개입니다. 아는 것만 누르세요.');
+        f.querySelector('.go').textContent=l+' 다 봤어요';
+        var n2=nextLetter(l);
+        f.querySelector('.again').textContent = n2 ? '건너뛰고 '+n2+'로' : '';
+      }
+    });
+    [].slice.call(chips.children).forEach(function(c){
+      var l=c.dataset.letter, s=stat(l);
+      c.className='chip'+(done[l]?' done':(s.known?' has':''))+((mode==='one'&&l===cur)?' now':'');
+      c.textContent = done[l] ? l+'✓' : l;
+    });
+    var r=document.getElementById('resume'), rest=letters.length-t.done, n3;
+    if(t.done>0 && rest>0){
+      n3=(!done[cur]?cur:nextLetter(cur))||nextLetter(letters[0]);
+      r.innerHTML='<span>여기까지 <b>'+t.done+'글자</b> 하셨습니다. 누른 건 그대로 있어요.</span><button type="button" class="btn" id="bGo">'+n3+'부터 이어서</button>';
+      r.hidden=false;
+      document.getElementById('bGo').addEventListener('click',function(){ show(n3,true); track('resume_click',{letter:n3}); });
+    } else if(rest===0 && letters.length){
+      r.innerHTML='<span><b>'+letters.length+'글자 다 하셨습니다.</b> 복습할 낱말 '+t.unknown+'개를 아래에서 저장하세요.</span>';
+      r.hidden=false;
+    } else { r.hidden=true; }
+    var sp=document.getElementById('saveP');
+    sp.textContent = t.done===0 ? '먼저 한 글자라도 다 봤어요를 눌러 주세요. 끝낸 글자에서만 목록을 만듭니다.'
+      : ('끝낸 '+t.done+'글자에서 안 누른 낱말 '+t.unknown+'개입니다.'+(rest>0?' 나머지 '+rest+'글자는 나중에 하셔도 됩니다.':''));
+    document.getElementById('bMode').textContent = mode==='one' ? '전부 보기' : '한 글자씩';
+  }
+
+  btns.forEach(function(b){ b.addEventListener('click',function(){
+    var w=b.dataset.w; if(known[w]) delete known[w]; else known[w]=1; save(); render(); }); });
+
+  document.getElementById('bMode').addEventListener('click',function(){
+    mode = mode==='one' ? 'all' : 'one'; saveMode(); track('mode_toggle',{mode:mode});
+    if(mode==='all'){ grps.forEach(function(g){ g.classList.remove('hid'); }); render(); }
+    else { show(cur,true); }
+  });
+
+  if(mode==='one') show(cur,false); else render();
+
+  /* 내보내기 = 끝낸 글자만 */
   function unknownByLetter(){
-    var out=[]; document.querySelectorAll('.grp').forEach(function(g){
+    var out=[]; grps.forEach(function(g){ var l=g.dataset.letter; if(!done[l]) return;
       var ws=[].slice.call(g.querySelectorAll('.w:not(.on)')).map(function(b){return b.dataset.w;});
-      if(ws.length) out.push({letter:g.dataset.letter, words:ws});
-    }); return out;
+      if(ws.length) out.push({letter:l, words:ws}); }); return out;
   }
   function today(){ var d=new Date(); return d.getFullYear()+'.'+(d.getMonth()+1)+'.'+d.getDate(); }
-  function counts(){ var k=Object.keys(known).length; return {k:k,u:btns.length-k}; }
+  function restLetters(){ return letters.filter(function(l){return !done[l];}); }
+  function gate(){ var t=totals(); if(t.done===0){ toast('한 글자라도 다 봤어요를 먼저 눌러 주세요.');
+      var g=grpOf(cur); if(g) g.querySelector('.grpfoot').scrollIntoView({block:'center'}); return false; } return true; }
+  function tailLine(){ var r=restLetters(); return r.length ? '아직 안 보신 글자: '+r.join(' ')+' (다시 오시면 이어서 하실 수 있습니다)' : ''; }
 
   document.getElementById('bPdf').addEventListener('click',function(){
-    var c=counts(), list=unknownByLetter(), p=document.getElementById('print');
-    var h='<h1>복습할 영단어 <b>'+c.u+'개</b></h1><p class="meta">'+today()+' · 교육부 초등 영단어 800개 중 아직 누르지 않은 낱말 · 아는 낱말 '+c.k+'개 · retyper.github.io/peera-landing/check.html</p><ul>';
+    if(!gate()) return;
+    var t=totals(), list=unknownByLetter(), p=document.getElementById('print');
+    var h='<h1>복습할 영단어 <b>'+t.unknown+'개</b></h1><p class="meta">'+today()+' · 초등 필수 영단어 800개 중 '+t.done+'글자를 확인한 결과 · 아는 낱말 '+t.known+'개 · retyper.github.io/peera-landing/check.html</p><ul>';
     list.forEach(function(g){ h+='<li class="h">'+g.letter+'</li>'; g.words.forEach(function(w){ h+='<li>'+w+'</li>'; }); });
-    h+='</ul><p class="foot">이 목록은 아이가 아직 뜻을 말하지 못한 낱말을 모은 것입니다. 수준이나 점수가 아닙니다. 출처: 교육부 고시 제2022-33호 [별책 14] [별표 3].</p>';
-    p.innerHTML=h; track('export_pdf',{unknown:c.u}); window.print();
+    h+='</ul><p class="foot">아이가 아직 뜻을 말하지 못한 낱말입니다. 수준이나 점수가 아닙니다. '+tailLine()+'</p>';
+    p.innerHTML=h; track('export_pdf',{unknown:t.unknown,letters:t.done}); window.print();
   });
+
   document.getElementById('bCopy').addEventListener('click',function(){
-    var c=counts(), list=unknownByLetter();
-    var t='복습할 영단어 '+c.u+'개 ('+today()+')\n'+list.map(function(g){return g.letter+': '+g.words.join(', ');}).join('\n')+'\n— retyper.github.io/peera-landing/check.html';
-    function done(){ toast('복사했습니다. 카톡이나 메모에 붙여 넣으세요.'); track('export_copy',{unknown:c.u}); }
-    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done,function(){fallback(t);}); } else fallback(t);
-    function fallback(s){ var ta=document.createElement('textarea'); ta.value=s; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');done();}catch(e){toast('복사가 막혔습니다. PDF로 저장을 써 주세요.');} document.body.removeChild(ta); }
+    if(!gate()) return;
+    var t=totals(), list=unknownByLetter();
+    var s='복습할 영단어 '+t.unknown+'개 ('+today()+')\n'+list.map(function(g){return g.letter+': '+g.words.join(', ');}).join('\n');
+    var tl=tailLine(); if(tl) s+='\n'+tl;
+    s+='\n— retyper.github.io/peera-landing/check.html';
+    function ok(){ toast('복사했습니다. 카톡이나 메모에 붙여 넣으세요.'); track('export_copy',{unknown:t.unknown,letters:t.done}); }
+    function fallback(x){ var ta=document.createElement('textarea'); ta.value=x; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');ok();}catch(e){toast('복사가 막혔습니다. PDF로 저장을 써 주세요.');} document.body.removeChild(ta); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(s).then(ok,function(){fallback(s);}); } else fallback(s);
   });
+
   document.getElementById('bImg').addEventListener('click',function(){
-    var c=counts(), list=unknownByLetter();
+    if(!gate()) return;
+    var t=totals(), list=unknownByLetter();
     var W=1080, pad=56, cols=4, colW=(W-pad*2)/cols, lh=42, font='26px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif';
     var rows=[]; list.forEach(function(g){ rows.push({h:g.letter}); g.words.forEach(function(w){rows.push({w:w});}); });
     var perCol=Math.ceil(rows.length/cols)||1, H=pad+120+perCol*lh+140;
     var cv=document.createElement('canvas'); cv.width=W; cv.height=H; var x=cv.getContext('2d');
     x.fillStyle='#FFFDF8'; x.fillRect(0,0,W,H);
-    x.fillStyle='#2B2622'; x.font='bold 44px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText('복습할 영단어 '+c.u+'개',pad,pad+44);
-    x.fillStyle='#6B625A'; x.font='22px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(today()+' · 교육부 초등 영단어 800개 중 아직 누르지 않은 낱말 · 아는 낱말 '+c.k+'개',pad,pad+84);
+    x.fillStyle='#2B2622'; x.font='bold 44px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText('복습할 영단어 '+t.unknown+'개',pad,pad+44);
+    x.fillStyle='#6B625A'; x.font='22px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(today()+' · 초등 필수 영단어 800개 중 '+t.done+'글자 확인 · 아는 낱말 '+t.known+'개',pad,pad+84);
     x.font=font;
     rows.forEach(function(r,i){ var ci=Math.floor(i/perCol), ri=i%perCol, px=pad+ci*colW, py=pad+140+ri*lh;
       if(r.h){ x.fillStyle='#C2410C'; x.font='bold 26px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(r.h,px,py); x.font=font; }
       else { x.fillStyle='#2B2622'; x.fillText(r.w,px,py); } });
-    x.fillStyle='#8B8178'; x.font='20px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText('수준이나 점수가 아닙니다 · retyper.github.io/peera-landing/check.html',pad,H-48);
-    cv.toBlob(function(b){ var a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='복습할 영단어 '+c.u+'개.png'; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(a.href);},2000); track('export_image',{unknown:c.u}); toast('이미지를 저장했습니다.'); },'image/png');
+    x.fillStyle='#8B8178'; x.font='20px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif';
+    x.fillText((tailLine()||'수준이나 점수가 아닙니다')+' · retyper.github.io/peera-landing/check.html',pad,H-48);
+    cv.toBlob(function(b){ var a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='복습할 영단어 '+t.unknown+'개.png'; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(a.href);},2000); track('export_image',{unknown:t.unknown,letters:t.done}); toast('이미지를 저장했습니다.'); },'image/png');
   });
+
   /* 피어라(말의 정원)로 보내기 — 800비트(1=아는 낱말)를 base64url로 URL에 싣는다.
      순서 규약: 소문자로 바꿔 코드포인트 순 단순 정렬. 앱 쪽 lib/vocabImport.ts와 동일해야 한다. */
   document.getElementById('bApp').addEventListener('click',function(){
@@ -1057,33 +1202,24 @@
     var joined=order.map(function(w){return w.toLowerCase();}).join('\n'), h=0x811c9dc5;
     for(var j=0;j<joined.length;j++){ h^=joined.charCodeAt(j); h=Math.imul(h,0x01000193)>>>0; }
     var v=h.toString(16); while(v.length<8) v='0'+v;
-    var c=counts(); track('send_to_app',{unknown:c.u});
+    var t=totals(); track('send_to_app',{unknown:t.unknown,letters:t.done});
     location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&utm_source=check&utm_medium=page&utm_campaign=peera_check';
   });
-  /* 익명 보내기(옵트인): 800비트(1=아는 낱말)만 보낸다. 식별자는 이 페이지가 만든 랜덤 ID. */
-  var bSendEl=document.getElementById('bSend'); if(bSendEl) bSendEl.addEventListener('click',function(){
-    var c=counts(); if(c.k===0){ toast('먼저 아는 낱말을 눌러 주세요.'); return; }
-    var order=btns.map(function(b){return b.dataset.w;}).map(function(w){return {k:w.toLowerCase(),w:w};}).sort(function(a,b){return a.k<b.k?-1:a.k>b.k?1:0;}).map(function(x){return x.w;});
-    var bytes=new Uint8Array(Math.ceil(order.length/8)); order.forEach(function(w,i){ if(known[w]) bytes[i>>3] |= (128>>(i&7)); });
-    var s=''; for(var i=0;i<bytes.length;i++) s+=String.fromCharCode(bytes[i]);
-    var b64=btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
-    var rid; try{ rid=localStorage.getItem('check800_rid'); if(!rid){ rid=(crypto.randomUUID?crypto.randomUUID():('r'+Date.now()+Math.random().toString(36).slice(2))); localStorage.setItem('check800_rid',rid);} }catch(e){ rid='r'+Date.now(); }
-    var now=Date.now();
-    fetch('https://dearmydiary.vercel.app/api/sync',{method:'POST',headers:{'content-type':'application/json'},
-      body:JSON.stringify({userId:'check800',store:'check800',entries:[{id:rid,data:{bits:b64,n:order.length,known:c.k,unknown:c.u,at:now},updatedAt:now}]})})
-      .then(function(r){ return r.ok?r.json():Promise.reject(r.status); })
-      .then(function(){ toast('고맙습니다.'); track('send_anon',{unknown:c.u}); })
-      .catch(function(){ toast('지금은 보내지 못했어요. 나중에 다시 눌러 주세요.'); });
+
+  document.getElementById('bReset').addEventListener('click',function(){
+    if(Object.keys(known).length===0 && Object.keys(done).length===0) return;
+    known={}; done={}; save(); saveDone(); cur=letters[0]; saveLast();
+    if(mode==='one') show(cur,true); else render();
+    toast('처음부터 다시 시작합니다.');
   });
-  document.getElementById('bReset').addEventListener('click',function(){ if(Object.keys(known).length===0) return; known={}; save(); render(); toast('처음부터 다시 시작합니다.'); });
 
   /* 계측: 쿠키 없이 익명 핑만(words.html과 같은 방식·같은 속성). 광고 신호 off. */
   window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);}
   gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
-  var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-VK77HTLEQH'; document.head.appendChild(s);
+  var sc=document.createElement('script'); sc.async=true; sc.src='https://www.googletagmanager.com/gtag/js?id=G-VK77HTLEQH'; document.head.appendChild(sc);
   gtag('js',new Date()); gtag('config','G-VK77HTLEQH',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false,page_title:'check'});
   function track(n,p){ try{gtag('event',n,p||{});}catch(e){} }
-  document.querySelector('.app a').addEventListener('click',function(){ track('app_cta_click',{page:'check'}); });
+  var appA=document.querySelector('.app a'); if(appA) appA.addEventListener('click',function(){ track('app_cta_click',{page:'check'}); });
   if('scrollRestoration' in history){history.scrollRestoration='manual';}
   window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,0); });
 })();
