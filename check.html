@@ -103,6 +103,17 @@
   .save h2{font-size:17px;margin:0 0 6px}
   .save p{font-size:14px;color:var(--sub);margin:0 0 12px}
   .save .row{display:flex;gap:8px;flex-wrap:wrap}
+  .prog{margin:14px 0 0}
+  .prog .pt{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--sub);margin:0 0 6px}
+  .prog .pt .sp{flex:1}
+  .prog .pt b{font-size:15px;color:var(--accent);font-variant-numeric:tabular-nums}
+  .prog .pbar{height:10px;border-radius:999px;background:#F1E7DA;overflow:hidden}
+  .prog .pbar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#E0803F,var(--accent));transition:width .25s ease}
+  .prog.full .pbar i{background:linear-gradient(90deg,#3F9E6B,var(--ok))}
+  .prog.full .pt b{color:var(--ok)}
+  .barline{position:absolute;left:0;right:0;bottom:-1px;height:3px}
+  .barline i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s ease}
+  .barline.full i{background:var(--ok)}
   .hid{display:none!important}
   @media (max-width:560px){
     .chips{gap:5px;padding-top:6px} .chip{min-width:31px;padding:5px 7px;font-size:13px}
@@ -127,6 +138,7 @@
     <button class="btn ghost" id="bMode">전부 보기</button>
   </div>
   <nav class="chips" id="chips"></nav>
+  <div class="barline" id="barline"><i></i></div>
 </div>
 <div class="resume" id="resume" hidden></div>
 
@@ -136,6 +148,11 @@
     <h2>안 누른 낱말은 앱으로 그대로 가져갈 수 있습니다</h2>
     <div class="row"><button class="btn" id="bApp" style="border-color:#1F7A4D;color:#1F7A4D">웹에서 시작<small>로그인 필요</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=check&utm_medium=page&utm_campaign=peera_check" style="text-decoration:none">폰 앱 신청</a></div>
   </div>
+</div>
+
+<div class="prog" id="prog">
+  <p class="pt"><span id="progT">아직 시작 전입니다. 낱말을 하나 누르면 채워집니다.</span><span class="sp"></span><b id="progP">0%</b></p>
+  <div class="pbar"><i id="progF"></i></div>
 </div>
 
 <section class="grp" data-letter="A"><h3>A <span class="n">0 / 46</span></h3><div class="btns">
@@ -1125,6 +1142,17 @@
     sp.textContent = t.done===0 ? '먼저 한 글자라도 다 봤어요를 눌러 주세요. 끝낸 글자에서만 목록을 만듭니다.'
       : ('끝낸 '+t.done+'글자에서 안 누른 낱말 '+t.unknown+'개입니다.'+(rest>0?' 나머지 '+rest+'글자는 나중에 하셔도 됩니다.':''));
     document.getElementById('bMode').textContent = mode==='one' ? '전부 보기' : '한 글자씩';
+    var conf=t.known+t.unknown, total=btns.length, ratio=conf/total, pct=Math.round(ratio*100);
+    var pw = conf===0 ? '0' : (ratio*100 < 0.6 ? '0.6' : (ratio*100).toFixed(2)) + '%';
+    document.getElementById('progF').style.width=pw;
+    document.getElementById('progP').textContent=pct+'%';
+    document.getElementById('progT').textContent = conf===0
+      ? '아직 시작 전입니다. 낱말을 하나 누르면 채워집니다.'
+      : (conf===total ? '800개 다 확인하셨습니다.' : '확인한 낱말 '+conf+' / '+total+'개');
+    document.getElementById('prog').classList.toggle('full',conf===total);
+    var bl=document.getElementById('barline');
+    bl.firstElementChild.style.width=pw;
+    bl.classList.toggle('full',conf===total);
   }
 
   btns.forEach(function(b){ b.addEventListener('click',function(){
