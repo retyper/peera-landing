@@ -303,6 +303,39 @@
     accent-color: var(--purple); cursor: pointer;
   }
   .consent a { color: inherit; text-underline-offset: 2px; }
+
+  /* ═══ 기기 선택 — 2026-09-11 신설 ═══
+     🟥 이메일 도메인으로 거르지 않는다. 도메인은 틀린 기준이다:
+        · 네이버 주소도 구글 계정일 수 있다(우리 테스터 목록의 ssjjok33@naver.com이 실제로 그렇다)
+        · gmail 주소를 적어도 그게 폰에 로그인된 계정이 아니면 Play 초대는 안 간다
+        ⇒ 도메인으로 거르면 맞는 사람을 거르고 틀린 사람을 통과시킨다.
+     물어야 할 건 "어느 폰인가" 하나다. 그 답이 왕복을 없애거나(아이폰) 만든다(안드로이드).
+     경위: peera-growth `운영/첫-UTM-신청자-2026-09-11.md` §10 */
+  .device { border: none; margin: 14px 0 0; padding: 0; }
+  .device legend { padding: 0 2px 8px; font-size: .94rem; font-weight: 700; color: var(--ink-soft); }
+  .device .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .device label {
+    display: flex; align-items: center; gap: 7px; cursor: pointer;
+    padding: 10px 14px; border: 2px solid var(--line); border-radius: 14px;
+    background: #fff; font-size: .95rem; line-height: 1; color: var(--ink);
+  }
+  .device input[type=radio] {
+    flex: none; width: 16px; height: 16px; margin: 0;
+    accent-color: var(--purple); cursor: pointer;
+  }
+  .device label:has(input:checked) { border-color: var(--purple); box-shadow: 0 0 0 3px var(--purple-soft); }
+  .gacct { margin: 12px 0 0; }
+  .gacct > label { display: block; margin: 0 2px 7px; font-size: .94rem; font-weight: 700; color: var(--ink-soft); }
+  .gacct input[type=email] {
+    width: 100%; padding: 13px 16px;
+    border: 2px solid var(--line); border-radius: 14px; background: #fff;
+    font: inherit; color: var(--ink);
+  }
+  /* 아이폰을 고른 사람에게만 완료 직후 뜬다 — 메일 왕복 0 */
+  .tfbox { margin: 14px 0 0; }
+  .tfbox .btn { display: inline-block; text-decoration: none; }
+  [hidden] { display: none !important; }
+
   .btn[disabled] { opacity: .45; box-shadow: 0 5px 0 var(--gold-dark); cursor: not-allowed; }
   .btn[disabled]:hover { filter: none; }
   .status { margin: 10px 2px 0; font-size: .93rem; font-weight: 700; min-height: 1.3em; }
@@ -1138,6 +1171,26 @@
                  placeholder="이메일 주소" required aria-label="이메일 주소">
           <button class="btn" type="submit">무료로 먼저 써보기</button>
         </div>
+
+        <!-- 기기 선택(2026-09-11) — 답 하나가 왕복을 없애거나 만든다.
+             아이폰: 완료 화면에서 TestFlight 링크를 바로 준다. 메일을 기다릴 것도, 우리가 등록할 것도 없다.
+             안드로이드: Play 비공개 테스트는 구글 계정으로만 초대가 가므로 그 주소를 여기서 받는다.
+             이 칸이 없던 8월에 네이버 4명이 전부 막혔고 회신은 0이었다. -->
+        <fieldset class="device" data-device>
+          <legend>아이가 쓸 기기를 골라주세요</legend>
+          <div class="opts">
+            <label><input type="radio" name="기기" value="아이폰" required> 아이폰 · 아이패드</label>
+            <label><input type="radio" name="기기" value="안드로이드"> 안드로이드</label>
+            <label><input type="radio" name="기기" value="아직 모름"> 아직 모르겠어요</label>
+          </div>
+        </fieldset>
+        <div class="gacct" data-gacct hidden>
+          <label for="gacct-trial">폰에 로그인돼 있는 구글 계정(Gmail) 주소</label>
+          <input type="email" name="설치계정" id="gacct-trial" inputmode="email" autocomplete="email"
+                 placeholder="예: myname@gmail.com" aria-label="구글 계정 주소">
+          <p class="note">안드로이드 테스트 초대는 구글 계정으로만 갈 수 있어요. 위에 적으신 주소와 같으면 비워 두셔도 돼요.</p>
+        </div>
+
         <label class="consent">
           <input type="checkbox" name="개인정보동의" value="동의함" required checked data-consent>
           <span>체험단 안내를 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다.
@@ -1146,6 +1199,11 @@
         </label>
         <p class="note"><b>선착순 30명</b>에 선정되면 개별 안내드려요. 광고는 보내지 않습니다.</p>
         <p class="status" role="status" aria-live="polite"></p>
+        <!-- 아이폰을 고른 사람에게만 완료 직후 열린다 -->
+        <div class="tfbox" data-testflight hidden>
+          <a class="btn" href="https://testflight.apple.com/join/6Z7rE7dk" target="_blank" rel="noopener" data-tf-link>TestFlight로 피어라 받기</a>
+          <p class="note">아이폰·아이패드에서 열어 주세요. TestFlight 앱이 없으면 먼저 설치하라고 안내가 떠요.</p>
+        </div>
       </form>
     </div>
     <!-- 아래로 유도 — 어떤 앱인지 먼저 보고 신청하게 한다(히어로가 살짝 보이는 여백과 함께) -->
@@ -2053,6 +2111,31 @@
     const wtp = form.querySelector('[data-wtp]');
     let submittedEmail = '';
 
+    /* 기기 선택(2026-09-11) — 30일 체험단 폼에만 있다. 다른 폼에서는 전부 null이라 그냥 건너뛴다.
+       안드로이드를 고르면 구글 계정 칸을 연다. Play 비공개 테스트는 구글 계정으로만 초대가 가고,
+       신청 이메일이 구글 계정이 아니면 등록 자체가 거부된다("존재하지 않는 이메일 주소", 9/11 실측). */
+    const deviceSet = form.querySelector('[data-device]');
+    const gacct = form.querySelector('[data-gacct]');
+    const tfBox = form.querySelector('[data-testflight]');
+    const deviceNow = () => {
+      const hit = form.querySelector('[name="기기"]:checked');
+      return hit ? hit.value : '';
+    };
+    if (deviceSet) {
+      deviceSet.addEventListener('change', () => {
+        const d = deviceNow();
+        if (gacct) gacct.hidden = (d !== '안드로이드');
+        track('device_pick', { cta_location: where, device: d });
+      });
+    }
+    if (tfBox) {
+      const tfLink = tfBox.querySelector('[data-tf-link]');
+      if (tfLink) tfLink.addEventListener('click', () => {
+        // TestFlight 공개 링크는 UTM을 못 받는다(UTM-링크표 §A-2 주석). 그래서 클릭을 GA로 직접 센다.
+        track('testflight_click', { cta_location: where, traffic_source: trafficSource });
+      });
+    }
+
     /* ★버튼을 잠그지 않는다 (2026-07-27).
        회색 버튼은 "왜 안 눌리지"가 아니라 "이미 제출됐나 보다"로 읽혀서,
        이메일을 다 쓰고도 그냥 나가버리는 이탈을 만들고 있었다.
@@ -2076,6 +2159,8 @@
       status.className = 'status';
       status.textContent = '보내는 중…';
       button.disabled = true;
+      // form.reset()이 라디오를 지우기 전에 붙잡아 둔다. 완료 문구가 이 값으로 갈린다.
+      const pickedDevice = deviceNow();
 
       try {
         const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
@@ -2087,10 +2172,20 @@
           submittedEmail = emailInput.value;   // reset() 전에 WTP 2차 전송용으로 붙잡아둔다
           form.reset();
           syncConsent();  // reset()은 HTML 기본값(checked)으로 되돌린다. 버튼도 다시 연다
+          if (gacct) gacct.hidden = true;   // reset() 뒤 라디오가 비었으니 계정 칸도 같이 닫는다
           status.className = 'status ok';
-          status.textContent = '고마워요! 라이티의 첫 소식, 이 메일로 가장 먼저 알려드릴게요. 🌱';
+          /* 고른 기기에 따라 완료 문구가 갈린다.
+             아이폰은 여기서 끝난다 — 우리가 등록할 것도, 기다릴 것도 없다. */
+          if (pickedDevice === '아이폰') {
+            status.textContent = '고마워요! 아이폰은 지금 바로 시작하실 수 있어요. 아래 버튼으로 설치해 주세요.';
+            if (tfBox) tfBox.hidden = false;
+          } else if (pickedDevice === '안드로이드') {
+            status.textContent = '고마워요! 구글 계정으로 테스터 등록을 해두고, 설치 링크를 메일로 보내드릴게요.';
+          } else {
+            status.textContent = '고마워요! 라이티의 첫 소식, 이 메일로 가장 먼저 알려드릴게요. 🌱';
+          }
           // ★ 이 랜딩의 유일한 전환. GA4에서 '주요 이벤트'로 표시할 것.
-          track('generate_lead', { cta_location: where, traffic_source: trafficSource });
+          track('generate_lead', { cta_location: where, traffic_source: trafficSource, device: pickedDevice });
           if (wtp) wtp.hidden = false;   // 1차 전환 성공 뒤에만 지불의향을 묻는다(마찰 최소화)
         } else {
           let msg = '전송이 잘 안 됐어요. 잠시 후 다시 시도해 주세요.';
