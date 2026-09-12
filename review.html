@@ -54,6 +54,14 @@
   .stat b{display:block;font-size:26px;color:var(--ink);font-weight:800;line-height:1.2}
   .stat .g b{color:var(--ok)}
   .stat .o b{color:var(--accent)}
+  /* 목적지 막대 — 800개 중 어디까지 왔나. 끝 화면과 시작 화면에서 같은 모양으로 쓴다. */
+  .goal{margin:20px 0 0;padding:14px 0 0;border-top:1px solid var(--line)}
+  .gbar{height:8px;background:var(--line);border-radius:999px;overflow:hidden;display:flex}
+  .gbar i{display:block;height:100%;background:var(--ok);width:0;transition:width .4s}
+  .gbar i.rest{background:#F0C9A8}
+  .gtxt{font-size:13px;color:var(--sub);margin:9px 0 0;line-height:1.55}
+  .gtxt b{color:var(--ink)}
+  .gtxt a{color:var(--accent);font-weight:700}
   .app{margin:26px 0 0;padding:18px 20px;background:var(--soft);border:1px solid #F3D6BE;border-radius:16px;display:flex;gap:15px;align-items:center;text-align:left}
   .app img{flex:0 0 76px;width:76px;height:76px;object-fit:cover;border-radius:50%;border:3px solid #fff}
   .app h3{margin:0 0 6px;font-size:16px;line-height:1.4}
@@ -128,6 +136,11 @@
       <div class="o"><b id="dNo">0</b>아직</div>
     </div>
     <p class="progt" id="dNext" style="margin-top:14px"></p>
+    <!-- 목적지(800개)를 끝 화면에서 다시 보여 준다 — 이 사람은 다 외우러 왔다. -->
+    <div class="goal" id="goal">
+      <div class="gbar"><i id="gknown"></i><i class="rest" id="grest"></i></div>
+      <p class="gtxt" id="gtxt"></p>
+    </div>
   </div>
   <div class="app">
     <img src="writy-avatar.png" alt="라이티" width="76" height="76">
@@ -263,10 +276,26 @@
     } catch(e){}
   }
 
+  /* 800개 중 어디까지 왔나 — 아는 낱말, 복습 목록, 아직 확인 안 한 것 셋으로 나눈다.
+     이 사람은 800개를 다 외우러 왔다. 오늘 몇 개 했는지만 말하면 목적지가 안 보인다. */
+  function renderGoal(){
+    var total = ORDER.length;
+    var knownN = ORDER.filter(function(w){ return !!known[w]; }).length;
+    var restN = pool.filter(function(w){ var r = rec[w]; return !r || r[0] < MASTER; }).length;
+    var checked = ORDER.filter(function(w){ return !!doneL[w.charAt(0).toUpperCase()]; }).length;
+    var notYet = total - checked;
+    $("gknown").style.width = (knownN / total * 100) + "%";
+    $("grest").style.width = (restN / total * 100) + "%";
+    var s = "초등 필수 영단어 <b>" + total + "개</b> 가운데 아이가 아는 낱말 <b>" + knownN + "개</b>, 복습할 낱말 <b>" + restN + "개</b>입니다.";
+    if (notYet > 0) s += " 아직 확인하지 않은 낱말이 " + notYet + "개 있어요. <a href=\"check.html\">이어서 확인하기</a>";
+    $("gtxt").innerHTML = s;
+  }
+
   function finish(){
     save(RKEY, rec);
     meta.lastDone = T;
     save(MKEY, meta);
+    renderGoal();
     $("dYes").textContent = cYes;
     $("dNo").textContent = cNo;
     /* 첫 정답의 다음 복습도 하루 뒤다(IV[0]=1). "맞히면 바로 사흘 뒤"라고 쓰면 사실과 다르다. */
