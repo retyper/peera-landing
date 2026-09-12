@@ -165,6 +165,9 @@
   <p class="gtxt" id="gtxt"></p>
 </div>
 
+<!-- 🟥 이 줄의 링크 셋은 관련 페이지 안내이면서 **이 페이지의 유일한 상시 출구**다.
+     오늘 할 복습이 없고 확인할 낱말도 없는 날, 부모가 여기 말고 갈 데가 없다.
+     정리한다고 지우거나 옮기면 막다른 길이 돌아온다(2026-09-12 맥북 감사). -->
 <footer>
   뜻풀이와 예문은 피어라가 아이 눈높이로 새로 썼습니다. 낱말은 교육부 고시 제2022-33호 [별책 14] [별표 3] 기본 어휘 중 초등학교 사용 권장 어휘 800개입니다.<br>
   누른 기록은 이 브라우저에만 남습니다. 이름도 이메일도 받지 않습니다.<br>
@@ -235,6 +238,13 @@
   /* 제목의 숫자도 고른 값을 따른다. 20을 고른 부모에게 제목이 열 개라고 말하면 거짓이다. */
   var SIZE_WORD = { 5: "다섯", 10: "열", 20: "스무" };
   function renderH1(){ var e = $("h1n"); if (e) e.textContent = SIZE_WORD[size] || String(size); }
+  /* 알약의 켜짐 표시도 저장값을 따라와야 한다. HTML은 10개에 on을 박아 두고 있어서,
+     20을 고른 부모가 새로고침하면 "스무 개씩" 옆에 10개가 켜져 보인다. */
+  function renderPills(){
+    Array.prototype.forEach.call(document.querySelectorAll(".pill[data-size]"), function(b){
+      b.classList.toggle("on", parseInt(b.getAttribute("data-size"), 10) === size);
+    });
+  }
 
   function refreshIntro(){
     var d = due().length;
@@ -274,9 +284,8 @@
 
   Array.prototype.forEach.call(document.querySelectorAll(".pill[data-size]"), function(b){
     b.addEventListener("click", function(){
-      Array.prototype.forEach.call(document.querySelectorAll(".pill[data-size]"), function(x){ x.classList.remove("on"); });
-      b.classList.add("on");
       size = parseInt(b.getAttribute("data-size"), 10);
+      renderPills();
       meta.size = size;
       save(SKEY, size);           // 시작을 안 눌러도 남는다
       if (!fresh) save(MKEY, meta);
@@ -384,6 +393,7 @@
   $("bMore").addEventListener("click", function(){ refreshIntro(); show("s-intro"); });
 
   renderH1();
+  renderPills();
   refreshIntro();
   show("s-intro");
 })();
