@@ -100,6 +100,11 @@
     <button type="button" class="pill" data-size="20">20개</button>
   </div>
   <p style="margin:20px 0 0"><button type="button" class="btn pri" id="bStart">시작하기</button></p>
+  <!-- 오늘 꺼낼 낱말이 없을 때의 길 — 아직 확인 안 한 낱말이 남아 있으면 체크로 보낸다.
+       종전엔 '내일부터 나옵니다'로 끝나 버려서, 754개가 남았는데도 막다른 길이었다(9/12 사장님 제보). -->
+  <p class="hide" id="introMore" style="margin:14px 0 0">
+    <a class="btn" style="text-decoration:none;display:inline-block" href="check.html">아는 낱말 더 확인하러 가기</a>
+  </p>
 </section>
 
 <!-- ③ 카드 -->
@@ -136,11 +141,6 @@
       <div class="o"><b id="dNo">0</b>아직</div>
     </div>
     <p class="progt" id="dNext" style="margin-top:14px"></p>
-    <!-- 목적지(800개)를 끝 화면에서 다시 보여 준다 — 이 사람은 다 외우러 왔다. -->
-    <div class="goal" id="goal">
-      <div class="gbar"><i id="gknown"></i><i class="rest" id="grest"></i></div>
-      <p class="gtxt" id="gtxt"></p>
-    </div>
   </div>
   <div class="app">
     <img src="writy-avatar.png" alt="라이티" width="76" height="76">
@@ -157,6 +157,13 @@
     <a class="btn ghost" style="text-decoration:none" href="check.html">아는 낱말 더 확인하기</a>
   </p>
 </section>
+
+<!-- 목적지(800개) — 시작 화면과 끝 화면 둘 다에서 보인다. 카드 푸는 중에는 숨는다.
+     끝 화면에만 뒀더니, 오늘 할 게 없는 날 들어온 사람은 목적지를 아예 못 봤다. -->
+<div class="goal hide" id="goal">
+  <div class="gbar"><i id="gknown"></i><i class="rest" id="grest"></i></div>
+  <p class="gtxt" id="gtxt"></p>
+</div>
 
 <footer>
   뜻풀이와 예문은 피어라가 아이 눈높이로 새로 썼습니다. 낱말은 교육부 고시 제2022-33호 [별책 14] [별표 3] 기본 어휘 중 초등학교 사용 권장 어휘 800개입니다.<br>
@@ -179,7 +186,13 @@
   function save(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
   function today(){ var d = new Date(); return Math.floor((d.getTime() - d.getTimezoneOffset()*60000) / 86400000); }
   function $(id){ return document.getElementById(id); }
-  function show(id){ ["s-none","s-intro","s-card","s-done"].forEach(function(s){ $(s).classList.toggle("hide", s !== id); }); }
+  function show(id){
+    ["s-none","s-intro","s-card","s-done"].forEach(function(s){ $(s).classList.toggle("hide", s !== id); });
+    /* 목적지 막대는 시작·끝 화면에서만. 카드 푸는 중엔 방해가 된다. */
+    var wantGoal = (id === "s-intro" || id === "s-done");
+    $("goal").classList.toggle("hide", !wantGoal);
+    if (wantGoal) renderGoal();
+  }
   function track(n, p){ try { if (window.gtag) gtag("event", n, p || {}); } catch(e){} }
 
   var known = ls(KKEY, {}) || {};
@@ -219,15 +232,25 @@
     var d = due().length;
     var left = pool.filter(function(w){ var r = rec[w]; return !r || r[0] < MASTER; }).length;
     var doneToday = (meta.lastDone === T);
+    var checked = ORDER.filter(function(w){ return !!doneL[w.charAt(0).toUpperCase()]; }).length;
+    var notYet = ORDER.length - checked;
     if (d === 0){
-      $("introCnt").innerHTML = "오늘 꺼낼 낱말이 없습니다. 다음 낱말은 내일부터 나옵니다.";
+      /* 오늘 꺼낼 게 없다. 간격을 뒀으니 정상이다. 다만 여기서 끝내면 막다른 길이 된다 —
+         아직 확인도 안 한 낱말이 남아 있으면 그쪽으로 길을 내 준다(9/12 사장님 제보). */
+      $("introCnt").innerHTML = notYet > 0
+        ? "오늘 꺼낼 낱말은 다 하셨습니다. 복습한 낱말은 내일 다시 나옵니다.<br>아직 확인하지 않은 낱말이 <b>" + notYet + "개</b> 남아 있어요. 더 확인하시면 복습할 낱말이 늘어납니다."
+        : "오늘 꺼낼 낱말은 다 하셨습니다. 내일 다시 오시면 됩니다.";
       $("bStart").disabled = true;
       $("bStart").className = "btn pri";
       $("bStart").textContent = "시작하기";
+      $("bStart").classList.add("hide");
       $("sizeRow").classList.add("hide");
+      $("introMore").classList.toggle("hide", notYet === 0);
       return;
     }
     $("bStart").disabled = false;
+    $("bStart").classList.remove("hide");
+    $("introMore").classList.add("hide");
     $("sizeRow").classList.toggle("hide", doneToday);
     if (doneToday){
       /* 오늘 몫을 이미 끝냈다 — 더 할 수는 있지만, 기본은 내일 다시 오는 것이다. */
@@ -295,7 +318,6 @@
     save(RKEY, rec);
     meta.lastDone = T;
     save(MKEY, meta);
-    renderGoal();
     $("dYes").textContent = cYes;
     $("dNo").textContent = cNo;
     /* 첫 정답의 다음 복습도 하루 뒤다(IV[0]=1). "맞히면 바로 사흘 뒤"라고 쓰면 사실과 다르다. */
