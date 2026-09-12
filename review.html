@@ -68,6 +68,8 @@
   .app p{font-size:14px;color:var(--sub);margin:0 0 9px}
   .app p:last-of-type{margin-bottom:12px}
   .app a{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:10px 16px;border-radius:10px;font-weight:700;font-size:15px}
+  .app .sub2{font-size:13px;color:var(--sub);margin:10px 0 0;line-height:1.6}
+  .app a.plain{display:inline;background:none;color:var(--accent);padding:0;font-size:13px;text-decoration:underline;text-underline-offset:2px}
   footer{margin:32px 0 0;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
   footer a{color:var(--sub)}
   .hide{display:none}
@@ -149,7 +151,9 @@
       <p>이 페이지는 부모님이 곁에서 눌러 주셔야 합니다. 피어라에도 같은 800개가 들어 있고, 앱에서는 아이가 혼자 풀어요.</p>
       <p>맞힌 낱말은 다음 날, 3일, 7일, 16일, 35일 뒤에 다시 나옵니다. 틀린 낱말은 더 자주 나옵니다.</p>
       <p>라이티와 이야기하고 그 낱말을 일기에 써 보는 것도 앱에서 합니다. 알파라 무료입니다.</p>
-      <a id="aApply" href="https://retyper.github.io/peera-landing/?utm_source=review&utm_medium=page&utm_campaign=peera_review">30일 무료로 써 보기</a>
+      <a id="aGarden" href="#">아이 혼자 풀게 하기</a>
+      <p class="sub2">지금까지 하신 것을 그대로 들고 갑니다. 가입은 필요 없고 보호자 동의 한 번이면 열려요.<br>
+        메일로 안내받고 싶으시면 <a class="plain" id="aApply" href="https://retyper.github.io/peera-landing/?utm_source=review&utm_medium=page&utm_campaign=peera_review">30일 체험단 신청</a>도 있습니다.</p>
     </div>
   </div>
   <p class="row" style="margin:18px 0 0">
@@ -360,6 +364,46 @@
     if (idx >= queue.length){ finish(); return; }
     render();
   }
+
+  /* ── 앱으로 넘기기 ──────────────────────────────────────────────
+     규격: peera-landing/FUNNEL-CONTRACT.md §2·§3. 순서는 ORDER 그대로다.
+     known 비트 1 = 체크에서 '안다'고 누른 낱말(앱이 익힘으로 받는다).
+     st 한 자리 = 그 낱말의 복습 상자(0~5). 웹에서 사흘 외운 낱말이
+     앱에서 또 '처음 보는 낱말'로 나오지 않게 한다. */
+  function fnv1a(str){
+    var h = 0x811c9dc5;
+    for (var i = 0; i < str.length; i++){ h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+    var v = h.toString(16); while (v.length < 8) v = "0" + v; return v;
+  }
+  function appUrl(){
+    var bytes = new Uint8Array(Math.ceil(ORDER.length / 8));
+    var st = "";
+    for (var i = 0; i < ORDER.length; i++){
+      var w = ORDER[i];
+      if (known[w]) bytes[i >> 3] |= (128 >> (i & 7));
+      var r = rec[w];
+      st += r ? String(Math.max(0, Math.min(MASTER, r[0]))) : "0";
+    }
+    var bin = ""; for (var j = 0; j < bytes.length; j++) bin += String.fromCharCode(bytes[j]);
+    var b64 = btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    var joined = ORDER.map(function(w){ return w.toLowerCase(); }).join(String.fromCharCode(10));
+    return "https://dearmydiary.vercel.app/vocab-boost"
+      + "?known=" + b64
+      + "&n=" + ORDER.length
+      + "&v=" + fnv1a(joined)
+      + "&st=" + st
+      + "&t=en"
+      + "&utm_source=review&utm_medium=page&utm_campaign=peera_review";
+  }
+  (function(){
+    var g = $("aGarden"); if (!g) return;
+    g.addEventListener("click", function(e){
+      e.preventDefault();
+      var boxed = pool.filter(function(w){ var r = rec[w]; return r && r[0] > 0; }).length;
+      track("to_app", { known: ORDER.filter(function(w){ return !!known[w]; }).length, boxed: boxed, day: dayNo });
+      location.href = appUrl();
+    });
+  })();
 
   $("bSay").addEventListener("click", speak);
 
