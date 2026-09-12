@@ -2155,6 +2155,17 @@
       '안드로이드': '안드로이드 초대는 <b>구글 계정으로만</b> 갈 수 있어요. 폰에 로그인돼 있는 구글 계정 주소로 적어 주세요.',
       '아직 모름': '아직 정하지 않으셨다면 <b>폰에 로그인돼 있는 구글 계정</b> 주소로 적어 주세요. 그러면 아이폰이든 안드로이드든 그대로 보내 드릴 수 있어요.'
     };
+    /* 칸 안의 흐린 글자(placeholder)도 같이 바꾼다 — 안내 줄을 안 읽고 바로 타이핑하는 사람이 많다.
+       아이폰은 등록할 게 없어 아무 주소나 되므로 gmail이 아닌 예를 보여 준다(구글 계정이 필요하다고
+       오해하지 않게). 안드로이드·아직 모름은 gmail 예를 보여 준다. 🟥 그래도 막지는 않는다. */
+    const PH = {
+      '아이폰': '예: myname@naver.com',
+      '안드로이드': '예: myname@gmail.com',
+      '아직 모름': '예: myname@gmail.com'
+    };
+    /* ★위(:2129)에 이미 emailInput이 있다 — 같은 이름을 다시 선언하면 스크립트 전체가 죽는다.
+       2026-09-12에 실제로 한 번 냈던 사고라 이름을 따로 둔다. */
+    const phDefault = emailInput ? emailInput.getAttribute('placeholder') : '';
     if (deviceSet) {
       deviceSet.addEventListener('change', () => {
         const d = deviceNow();
@@ -2162,6 +2173,7 @@
           emailNote.innerHTML = NOTE[d] || '';
           emailNote.hidden = !NOTE[d];
         }
+        if (emailInput) emailInput.placeholder = PH[d] || phDefault;
         // '폰의 구글 계정이 다르다'는 예외 경로다. 안드로이드·아직 모름일 때만 링크를 보여 준다.
         if (gacct) gacct.hidden = (d === '아이폰' || d === '');
         track('device_pick', { cta_location: where, device: d });
