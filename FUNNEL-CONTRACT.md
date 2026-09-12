@@ -31,6 +31,16 @@ https://dearmydiary.vercel.app/vocab-boost?known=<b64url>&n=<수>&v=<해시>&t=<
 앱 구현: `vocabImport.ts`의 `trackOrder(track)` · `fnv1a()`.
 웹 구현: `check.html` 하단 `bApp` 클릭 핸들러.
 
+**현재 값 (2026-09-12 라이브 실측)** — 이 값이 달라졌으면 한쪽 낱말이 바뀐 것이다.
+
+| 트랙 | `n` | `v` |
+|---|---|---|
+| `en` (교육부 초등 800) | 800 | `f23e916d` |
+| `ko` (우리말 기초 어휘) | 569 | `cd86f321` |
+
+`en` 값은 라이브 `check.html`이 실제로 만든 링크에서 읽었고 앱이 거부 없이 받았다
+(`dearmydiary/qa/funnelE2E.mjs` 21/21). `ko`는 양쪽이 독립적으로 계산해 일치를 확인했다.
+
 ## 3. `st` — 상자 상태 (선택)
 
 웹 복습 페이지(`review.html`)가 쌓은 Leitner 상자를 그대로 넘긴다.
