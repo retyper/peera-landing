@@ -266,9 +266,10 @@
     save(MKEY, meta);
     $("dYes").textContent = cYes;
     $("dNo").textContent = cNo;
+    /* 첫 정답의 다음 복습도 하루 뒤다(IV[0]=1). "맞히면 바로 사흘 뒤"라고 쓰면 사실과 다르다. */
     $("dSub").textContent = cNo > 0
-      ? "못 맞힌 낱말은 내일 다시 나옵니다. 맞힌 낱말은 사흘 뒤에 나옵니다."
-      : "맞힌 낱말은 간격을 두고 다시 나옵니다.";
+      ? "못 맞힌 낱말은 내일 다시 나옵니다. 맞힐 때마다 간격이 1일, 3일, 7일, 16일, 35일로 늘어납니다."
+      : "맞힐 때마다 다시 나오는 간격이 1일, 3일, 7일, 16일, 35일로 늘어납니다.";
     var tomorrow = pool.filter(function(w){ var r = rec[w]; if (!r) return false; return r[0] < MASTER && r[1] <= T + 1; }).length;
     var newLeft = pool.filter(function(w){ return !rec[w]; }).length;
     $("dNext").textContent = "내일은 " + tomorrow + "개를 다시 보고, 아직 꺼내지 않은 낱말이 " + newLeft + "개 남아 있습니다.";
