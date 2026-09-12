@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>오늘의 복습 — 안 누른 낱말부터</title>
-<meta name="description" content="「아는 낱말 체크」에서 누르지 않은 낱말을 하루 몇 개씩 꺼내 봅니다. 뜻을 먼저 보여주지 않고, 아이가 떠올려 본 뒤에 확인합니다. 가입·이메일 없음.">
+<meta name="description" content="「아는 낱말 체크」에서 누르지 않은 낱말을 하루 열 개씩 꺼내 봅니다(5개·20개로 바꿀 수 있어요). 뜻을 먼저 보여주지 않고, 아이가 떠올려 본 뒤에 확인합니다. 가입·이메일 없음.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="오늘의 복습 — 안 누른 낱말부터 하루 열 개">
 <meta property="og:description" content="다시 읽히지 말고 떠올리게 해 주세요. 맞힌 낱말은 1일·3일·7일·16일·35일 뒤에 다시 나옵니다.">
@@ -79,7 +79,7 @@
 
 <header>
   <p class="eyebrow" id="eyebrow">오늘의 복습</p>
-  <h1>안 누른 낱말부터 <b>하루 열 개</b>씩.</h1>
+  <h1>안 누른 낱말부터 <b>하루 <span id="h1n">열</span> 개</b>씩.</h1>
   <p class="lede">「아는 낱말 체크」에서 누르지 않은 낱말을 여기서 꺼내 봅니다.</p>
 </header>
 
@@ -179,7 +179,7 @@
   var D = JSON.parse(document.getElementById("moe").textContent);
   var ORDER = D.order, W = D.words;
   var KKEY = "check800_v1", DKEY = "check800_done_v1";
-  var RKEY = "review800_v1", MKEY = "review800_meta_v1";
+  var RKEY = "review800_v1", MKEY = "review800_meta_v1", SKEY = "review800_size_v1";
   var IV = [1,3,7,16,35], MASTER = 5;
 
   function ls(k, f){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : f; } catch(e){ return f; } }
@@ -226,7 +226,15 @@
     track("review_return", { day: dayNo });
   }
 
-  var queue = [], idx = 0, cYes = 0, cNo = 0, revealed = 0, size = meta.size || 10;
+  /* 분량은 meta가 아니라 따로 둔다 — meta를 먼저 저장하면 start(기준일)가 박혀
+     아직 한 판도 안 한 사람이 다음에 와서 2일째로 보인다. */
+  var savedSize = ls(SKEY, null);
+  var queue = [], idx = 0, cYes = 0, cNo = 0, revealed = 0;
+  var size = (savedSize === 5 || savedSize === 10 || savedSize === 20) ? savedSize : (meta.size || 10);
+
+  /* 제목의 숫자도 고른 값을 따른다. 20을 고른 부모에게 제목이 열 개라고 말하면 거짓이다. */
+  var SIZE_WORD = { 5: "다섯", 10: "열", 20: "스무" };
+  function renderH1(){ var e = $("h1n"); if (e) e.textContent = SIZE_WORD[size] || String(size); }
 
   function refreshIntro(){
     var d = due().length;
@@ -270,7 +278,9 @@
       b.classList.add("on");
       size = parseInt(b.getAttribute("data-size"), 10);
       meta.size = size;
+      save(SKEY, size);           // 시작을 안 눌러도 남는다
       if (!fresh) save(MKEY, meta);
+      renderH1();
       refreshIntro();
     });
   });
@@ -373,6 +383,7 @@
 
   $("bMore").addEventListener("click", function(){ refreshIntro(); show("s-intro"); });
 
+  renderH1();
   refreshIntro();
   show("s-intro");
 })();
