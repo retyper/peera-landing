@@ -324,13 +324,26 @@
     accent-color: var(--purple); cursor: pointer;
   }
   .device label:has(input:checked) { border-color: var(--purple); box-shadow: 0 0 0 3px var(--purple-soft); }
-  .gacct { margin: 12px 0 0; }
+  /* ═══ 구글 계정 칸 — 2026-09-12 개정 ═══
+     종전엔 안드로이드를 고르면 이메일 칸이 하나 더 열렸다. 방금 주소를 적은 사람에게 또
+     적으라고 하는 꼴이라 마찰이 컸다. 이제 **기본은 칸 하나**다:
+       · 안드로이드를 고르면 위 이메일 칸의 안내가 "폰에 로그인된 구글 계정으로"로 바뀐다.
+       · 폰의 구글 계정이 그 주소와 다른 사람만 링크를 눌러 칸을 연다.
+     🟥 도메인으로 막지 않는 원칙은 그대로다(바로 위 주석). 거르지 않고 안내만 바꾼다. */
+  .gacct { margin: 10px 0 0; }
   .gacct > label { display: block; margin: 0 2px 7px; font-size: .94rem; font-weight: 700; color: var(--ink-soft); }
   .gacct input[type=email] {
     width: 100%; padding: 13px 16px;
     border: 2px solid var(--line); border-radius: 14px; background: #fff;
     font: inherit; color: var(--ink);
   }
+  .gacct-toggle {
+    border: 0; background: none; padding: 0; margin: 0 2px;
+    font: inherit; font-size: .9rem; color: var(--ink-soft);
+    text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+  }
+  .email-note { margin: 9px 2px 0; font-size: .9rem; line-height: 1.5; color: var(--ink-soft); }
+  .email-note b { color: var(--purple); }
   /* 아이폰을 고른 사람에게만 완료 직후 뜬다 — 메일 왕복 0 */
   .tfbox { margin: 14px 0 0; }
   .tfbox .btn { display: inline-block; text-decoration: none; }
@@ -1171,6 +1184,8 @@
                  placeholder="이메일 주소" required aria-label="이메일 주소">
           <button class="btn" type="submit">무료로 먼저 써보기</button>
         </div>
+        <!-- 기기를 고르면 이 줄이 채워진다(2026-09-12). 칸을 늘리지 않고 안내만 바꾼다. -->
+        <p class="email-note" data-email-note hidden></p>
 
         <!-- 기기 선택(2026-09-11) — 답 하나가 왕복을 없애거나 만든다.
              아이폰: 완료 화면에서 TestFlight 링크를 바로 준다. 메일을 기다릴 것도, 우리가 등록할 것도 없다.
@@ -1184,11 +1199,16 @@
             <label><input type="radio" name="기기" value="아직 모름"> 아직 모르겠어요</label>
           </div>
         </fieldset>
+        <!-- 2026-09-12 — 기본은 칸 하나다. 안드로이드를 골라도 위 이메일 칸을 그대로 쓰고,
+             안내 문구만 바뀐다. 폰의 구글 계정이 그 주소와 다른 사람만 아래 링크로 칸을 연다. -->
         <div class="gacct" data-gacct hidden>
-          <label for="gacct-trial">폰에 로그인돼 있는 구글 계정(Gmail) 주소</label>
-          <input type="email" name="설치계정" id="gacct-trial" inputmode="email" autocomplete="email"
-                 placeholder="예: myname@gmail.com" aria-label="구글 계정 주소">
-          <p class="note">안드로이드 테스트 초대는 구글 계정으로만 갈 수 있어요. 위에 적으신 주소와 같으면 비워 두셔도 돼요.</p>
+          <button type="button" class="gacct-toggle" data-gacct-toggle>폰의 구글 계정이 위 주소와 달라요</button>
+          <div data-gacct-field hidden style="margin-top:10px">
+            <label for="gacct-trial">폰에 로그인돼 있는 구글 계정 주소</label>
+            <input type="email" name="설치계정" id="gacct-trial" inputmode="email" autocomplete="email"
+                   placeholder="예: myname@gmail.com" aria-label="구글 계정 주소">
+            <p class="note">초대는 이 주소로 보냅니다. 안내 메일은 위에 적으신 주소로 갑니다.</p>
+          </div>
         </div>
 
         <label class="consent">
@@ -2116,16 +2136,44 @@
        신청 이메일이 구글 계정이 아니면 등록 자체가 거부된다("존재하지 않는 이메일 주소", 9/11 실측). */
     const deviceSet = form.querySelector('[data-device]');
     const gacct = form.querySelector('[data-gacct]');
+    const gacctField = form.querySelector('[data-gacct-field]');
+    const gacctToggle = form.querySelector('[data-gacct-toggle]');
+    const emailNote = form.querySelector('[data-email-note]');
     const tfBox = form.querySelector('[data-testflight]');
     const deviceNow = () => {
       const hit = form.querySelector('[name="기기"]:checked');
       return hit ? hit.value : '';
     };
+
+    /* 2026-09-12 — 칸을 늘리지 않고 안내만 바꾼다.
+       · 아이폰: 등록할 게 없다(TestFlight 공개 링크). 아무 주소나 된다.
+       · 안드로이드: Play 비공개 테스트는 구글 계정으로만 초대가 간다.
+       · 아직 모름: 구글 계정으로 적어 두면 어느 쪽이든 그대로 된다 → 왕복이 생기지 않는다.
+       🟥 도메인으로 거르지 않는다(CSS 주석 참고). 막지 않고 안내만 한다. */
+    const NOTE = {
+      '아이폰': '완료 화면에서 <b>TestFlight 링크</b>를 바로 드려요. 메일을 기다리실 것 없어요.',
+      '안드로이드': '안드로이드 초대는 <b>구글 계정으로만</b> 갈 수 있어요. 폰에 로그인돼 있는 구글 계정 주소로 적어 주세요.',
+      '아직 모름': '아직 정하지 않으셨다면 <b>폰에 로그인돼 있는 구글 계정</b> 주소로 적어 주세요. 그러면 아이폰이든 안드로이드든 그대로 보내 드릴 수 있어요.'
+    };
     if (deviceSet) {
       deviceSet.addEventListener('change', () => {
         const d = deviceNow();
-        if (gacct) gacct.hidden = (d !== '안드로이드');
+        if (emailNote) {
+          emailNote.innerHTML = NOTE[d] || '';
+          emailNote.hidden = !NOTE[d];
+        }
+        // '폰의 구글 계정이 다르다'는 예외 경로다. 안드로이드·아직 모름일 때만 링크를 보여 준다.
+        if (gacct) gacct.hidden = (d === '아이폰' || d === '');
         track('device_pick', { cta_location: where, device: d });
+      });
+    }
+    if (gacctToggle && gacctField) {
+      gacctToggle.addEventListener('click', () => {
+        gacctField.hidden = false;
+        gacctToggle.hidden = true;
+        const inp = gacctField.querySelector('input');
+        if (inp) inp.focus();
+        track('gacct_open', { cta_location: where, device: deviceNow() });
       });
     }
     if (tfBox) {
