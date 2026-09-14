@@ -1,0 +1,120 @@
+/* peera 자료 페이지 공용 스타일 (2026-09-14)
+ *
+ * 디자인 값은 직접 만들지 않고 아래 오픈소스에서 그대로 가져왔다.
+ *  - Radix Colors 3.0.0 (slate, teal) — MIT License, Copyright (c) 2022 WorkOS — https://github.com/radix-ui/colors
+ *  - Pico CSS 2.1.1 (conditional 빌드, .pico 안에서만 적용) — MIT License, Copyright (c) 2019-2025 Pico — https://github.com/picocss/pico
+ *  - Pretendard 1.3.9 — SIL Open Font License 1.1 — https://github.com/orioncactus/pretendard
+ *
+ * 규칙(사장님 2026-09-13)
+ *  - 주황·테라코타·크림 금지 → 강조는 Radix teal, 바탕·선은 Radix slate
+ *  - 흐린 회색 글씨 금지 → 글자색은 slate-12(본문)·teal-11/12(강조)만. 위계는 크기·굵기로
+ *  - 글자 14px 미만 금지, 본문 17px
+ *
+ * 페이지에서 쓰던 옛 토큰 이름(--bg --ink --sub --line --accent --soft --card --ok --okbg)은
+ * 아래에서 새 값으로 다시 정의한다. 페이지 인라인 CSS를 한 번에 다 고치지 않아도 색이 바뀐다.
+ */
+
+:root {
+  /* Radix slate (light) */
+  --slate-1: #fcfcfd; --slate-2: #f9f9fb; --slate-3: #f0f0f3; --slate-4: #e8e8ec;
+  --slate-5: #e0e1e6; --slate-6: #d9d9e0; --slate-7: #cdced6; --slate-8: #b9bbc6;
+  --slate-9: #8b8d98; --slate-10: #80838d; --slate-11: #60646c; --slate-12: #1c2024;
+  /* Radix teal (light) */
+  --teal-1: #fafefd; --teal-2: #f3fbf9; --teal-3: #e0f8f3; --teal-4: #ccf3ea;
+  --teal-5: #b8eae0; --teal-6: #a1ded2; --teal-7: #83cdc1; --teal-8: #53b9ab;
+  --teal-9: #12a594; --teal-10: #0d9b8a; --teal-11: #008573; --teal-12: #0d3d38;
+
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+
+  /* 옛 토큰 → 새 값 (Radix 단계 규칙: 1–2 바탕, 3–5 부품 바탕, 6–8 선, 9–10 채움, 11–12 글자) */
+  --bg: #ffffff;
+  --card: #ffffff;
+  --ink: var(--slate-12);
+  --sub: var(--slate-12);          /* 흐린 회색 금지 — 보조 글도 본문색 */
+  --line: var(--slate-6);
+  --accent: var(--teal-11);        /* 흰 글자를 올려도 읽히는 단계 */
+  --accent-strong: var(--teal-12);
+  --soft: var(--teal-2);
+  --ok: var(--teal-11);
+  --okbg: var(--teal-3);
+
+  /* Pico(.pico 안) 변수를 Radix 값에 연결 */
+  --pico-font-family: var(--font-sans);
+  --pico-font-family-sans-serif: var(--font-sans);
+  --pico-color: var(--slate-12);
+  --pico-muted-color: var(--slate-12);
+  --pico-primary: var(--teal-11);
+  --pico-primary-background: var(--teal-11);
+  --pico-primary-border: var(--teal-11);
+  --pico-primary-underline: var(--teal-11);
+  --pico-primary-hover: var(--teal-12);
+  --pico-primary-hover-background: var(--teal-12);
+  --pico-primary-hover-border: var(--teal-12);
+  --pico-primary-inverse: #ffffff;
+  --pico-primary-focus: rgba(18, 165, 148, 0.35);
+  --pico-muted-border-color: var(--slate-6);
+  --pico-background-color: #ffffff;
+  --pico-card-background-color: #ffffff;
+  --pico-border-radius: 8px;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--slate-12);
+  background: #ffffff;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+h1, h2, h3 { text-wrap: balance; }
+.num, .tnum { font-variant-numeric: tabular-nums; }
+
+/* ── 페이지 공통 부품: 값은 Pico 2.1.1 기본값을 그대로 쓴다 ─────────────
+ * --pico-border-radius .25rem · 폼 요소 여백 .75rem 1rem · 블록 여백 1rem
+ * 이 파일은 페이지 인라인 <style> "뒤"에 연결한다. 그래야 같은 선택자에서 이 값이 이긴다.
+ */
+:root { --pico-border-radius: 0.25rem; --r: 0.25rem; }
+
+/* 왼쪽 굵은 선 + 둥근 박스(콜아웃) → 얇은 테두리 한 줄의 평범한 상자 */
+.how, .callout {
+  border: 1px solid var(--line) !important;
+  border-left: 1px solid var(--line) !important;
+  border-radius: var(--r) !important;
+  background: var(--slate-2) !important;
+  padding: 0.75rem 1rem !important;
+}
+.how b, .callout b { color: var(--ink) !important; }
+
+/* 버튼·다운로드 링크: Pico 버튼 치수 */
+.btn, .get a, .app a, button.btn, a.btn {
+  border-radius: var(--r) !important;
+  padding: 0.75rem 1rem !important;
+}
+.btn.pri, .get a:not(.alt), .app a { background: var(--accent) !important; border-color: var(--accent) !important; color: #ffffff !important; }
+
+/* 알약형 칩·필은 모양 유지하되 둥글기만 Pico 값 */
+.chip, .pill { border-radius: var(--r) !important; }
+
+/* 카드형 블록: 둥글기·그림자 줄이기 */
+.app, .save, .next, .grpfoot, .resume, .card, .done, .ans, .box, .src {
+  border-radius: var(--r) !important;
+  box-shadow: none !important;
+}
+.app { background: var(--slate-2) !important; border: 1px solid var(--line) !important; }
+.app img { box-shadow: none !important; }
+
+/* 위 작은 라벨(eyebrow): 넓은 자간 대문자풍 → 평범한 굵은 글자 */
+.eyebrow { letter-spacing: 0 !important; font-size: 15px !important; }
+
+/* 글자 크기 바닥 14px */
+footer, small, .lab, .n, em { font-size: max(14px, 1em); }
+
+/* 다크 모드는 이번 범위에서 켜지 않는다. 페이지 곳곳에 흰 글자·흰 카드가 박혀 있어
+ * 반쪽만 어두워지면 오히려 읽기 힘들다. 밝은 화면 한 벌로 고정한다. */
+:root { color-scheme: light; }
+
+@media print {
+  body { background: #ffffff; color: #000000; }
+}
