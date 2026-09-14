@@ -5,15 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>초등 낱말 목록 — 교육부 영단어 800 · 국립국어원 우리말 기초 어휘</title>
 <meta name="description" content="교육부가 초등용으로 지정한 영단어 800개와 국립국어원이 정리한 우리말 기초 어휘를 원문 그대로 공개합니다. 필요하신 목록을 PDF와 이미지로 내려받으세요.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-  :root{
-    --bg:#FFFDF8; --ink:#2B2622; --sub:#6B625A; --line:#EDE4D8;
-    --accent:#C2410C; --soft:#FFF6EC; --card:#FFFFFF;
-  }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    line-height:1.7;-webkit-text-size-adjust:100%}
+  body{margin:0}
   .wrap{max-width:860px;margin:0 auto;padding:0 20px;min-width:0}
   html,body{overflow-x:hidden}
   h1,p,li,td,th,a{overflow-wrap:anywhere;word-break:keep-all}
@@ -30,16 +25,16 @@
   .get a{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;min-width:0;
     background:var(--accent);color:#fff;text-decoration:none;padding:16px 20px;border-radius:14px;
     font-weight:800;font-size:17px}
-  .get a small{font-weight:600;font-size:13px;opacity:.9}
+  .get a small{font-weight:600;font-size:14px;opacity:.9}
   .get a.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--accent)}
   .get a.alt small{color:var(--sub)}
 
   .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:40px 0 8px}
   .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
-  .box .lab{font-size:13px;color:var(--sub);margin:0 0 6px}
+  .box .lab{font-size:14px;color:var(--sub);margin:0 0 6px}
   .box .num{font-size:40px;font-weight:800;letter-spacing:-.03em;margin:0;line-height:1.1}
   .box .unit{font-size:15px;font-weight:600;color:var(--sub);margin:6px 0 0}
-  .box.hi{background:var(--soft);border-color:#F3D6BE}
+  .box.hi{background:var(--soft);border-color:var(--line)}
   .box.hi .num{color:var(--accent)}
   .ratio{text-align:center;font-size:15px;color:var(--sub);margin:0 0 34px}
   .ratio b{color:var(--accent);font-size:17px}
@@ -54,19 +49,19 @@
   .dl{display:inline-block;padding:9px 14px;border:1.5px solid var(--accent);border-radius:10px;
     background:var(--card);color:var(--accent);text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap}
   .dl:hover{background:var(--accent);color:#fff}
-  .dl.tiny{border-color:var(--line);color:var(--sub);font-weight:600;padding:5px 9px;font-size:12px}
+  .dl.tiny{border-color:var(--line);color:var(--sub);font-weight:600;padding:5px 9px;font-size:14px}
 
   .grp{margin:26px 0}
   .grp h3{font-size:18px;margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid var(--line)}
-  .grp h3 .n{font-size:13px;color:var(--sub);font-weight:500;margin-left:6px}
+  .grp h3 .n{font-size:14px;color:var(--sub);font-weight:500;margin-left:6px}
   ul.words{list-style:none;margin:0;padding:0;
     display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px 14px}
   ul.words li{font-size:16px;padding:3px 0}
-  ul.words li em{display:block;font-size:12px;color:var(--sub);font-style:normal}
+  ul.words li em{display:block;font-size:14px;color:var(--sub);font-style:normal}
   ul.ko{list-style:none;margin:16px 0 0;padding:0;
     display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:4px 14px}
   ul.ko li{font-size:16px;padding:3px 0}
-  ul.ko li em{font-size:12px;color:var(--sub);font-style:normal;margin-left:5px}
+  ul.ko li em{font-size:14px;color:var(--sub);font-style:normal;margin-left:5px}
 
   table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
   th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line)}
@@ -78,18 +73,18 @@
     border-radius:14px;padding:22px;margin:20px 0}
   .src p{margin:0 0 10px}
   .src p:last-child{margin:0}
-  .raw{font-size:13px;color:var(--sub);margin:14px 0 0}
+  .raw{font-size:14px;color:var(--sub);margin:14px 0 0}
   .raw a{color:var(--sub)}
 
   .app{margin:18px 0 0;padding:20px 22px;background:var(--soft);
-    border:1px solid #F3D6BE;border-radius:16px;display:flex;gap:18px;align-items:center}
+    border:1px solid var(--line);border-radius:16px;display:flex;gap:18px;align-items:center}
   .app img{flex:0 0 112px;width:112px;height:112px;object-fit:cover;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
   .app h2{margin:0 0 6px;padding:0;font-size:18px;line-height:1.4}
   .app p{font-size:14px;color:var(--sub);margin:0 0 12px}
   .app a{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
     padding:13px 22px;border-radius:10px;font-weight:700;font-size:15px}
   footer{margin:44px 0 70px;padding-top:22px;border-top:1px solid var(--line);
-    font-size:13px;color:var(--sub)}
+    font-size:14px;color:var(--sub)}
 
   @media (max-width:560px){
     h1{font-size:26px} header{padding:38px 0 30px}
@@ -103,6 +98,7 @@
     .grp{break-inside:avoid} a{text-decoration:none;color:inherit}
   }
 </style>
+<link rel="stylesheet" href="assets/peera.css">
 </head>
 <body>
 <div class="wrap">
@@ -1047,7 +1043,7 @@
 </table>
 <p class="note">색이 칠해진 세 줄을 더한 <b>18,000개</b>가 초등학교 6년에 해당합니다.</p>
 
-<h3 style="font-size:19px;margin:34px 0 0">초등 1~2학년 시기 낱말 <span style="font-size:14px;color:#C2410C">2,500개 전체</span></h3>
+<h3 style="font-size:19px;margin:34px 0 0">초등 1~2학년 시기 낱말 <span style="font-size:14px;color:var(--accent)">2,500개 전체</span></h3>
 <p class="note">아래는 2등급 전체 목록입니다. 나머지 등급은 위 표에서 PDF로 받으세요.</p>
 <ul class="ko" id="kolist">
 <li>가능성<em>명사</em></li>
