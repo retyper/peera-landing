@@ -1,0 +1,155 @@
+{
+  "check.html:ids": [
+    "bApp",
+    "bCopy",
+    "bImg",
+    "bMode",
+    "bPdf",
+    "bReset",
+    "bReview",
+    "barline",
+    "chips",
+    "dn",
+    "kn",
+    "next",
+    "print",
+    "prog",
+    "progF",
+    "progP",
+    "progT",
+    "resume",
+    "save",
+    "saveH",
+    "saveP",
+    "toast",
+    "tt",
+    "un"
+  ],
+  "review.html:ids": [
+    "aApply",
+    "aGarden",
+    "bMore",
+    "bNext",
+    "bNo",
+    "bSay",
+    "bStart",
+    "bYes",
+    "cAns",
+    "cAsk",
+    "cEk",
+    "cEn",
+    "cKo",
+    "cNext",
+    "cPos",
+    "cTwo",
+    "cWord",
+    "dNext",
+    "dNo",
+    "dSub",
+    "dYes",
+    "eyebrow",
+    "gknown",
+    "goal",
+    "grest",
+    "gtxt",
+    "h1n",
+    "introCnt",
+    "introMore",
+    "moe",
+    "pbar",
+    "ptext",
+    "s-card",
+    "s-done",
+    "s-intro",
+    "s-none",
+    "sizeRow"
+  ],
+  "words.html:ids": [
+    "englist",
+    "ko",
+    "kolist"
+  ],
+  "prompts.html:ids": [],
+  "check:handoff": "https://dearmydiary.vercel.app/vocab-boost?known=4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&n=800&v=f23e916d&utm_source=check&utm_medium=page&utm_campaign=peera_check",
+  "review:handoff": "https://dearmydiary.vercel.app/vocab-boost?known=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&n=800&v=f23e916d&st=00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&t=en&utm_source=review&utm_medium=page&utm_campaign=peera_review",
+  "words.html:downloads": [
+    {
+      "href": "data/pdf/elementary-english-800.pdf",
+      "download": "교육부 초등 영단어 800.pdf"
+    },
+    {
+      "href": "data/img/elementary-english-800.png",
+      "download": "교육부 초등 영단어 800.png"
+    },
+    {
+      "href": "data/pdf/elementary-english-800.pdf",
+      "download": "교육부 초등 영단어 800.pdf"
+    },
+    {
+      "href": "data/img/elementary-english-800.png",
+      "download": "교육부 초등 영단어 800.png"
+    },
+    {
+      "href": "data/pdf/korean-grade1.pdf",
+      "download": "우리말 기초 어휘 1등급 (학령 전).pdf"
+    },
+    {
+      "href": "data/pdf/korean-grade2.pdf",
+      "download": "우리말 기초 어휘 2등급 (초1~2).pdf"
+    },
+    {
+      "href": "data/pdf/korean-grade3.pdf",
+      "download": "우리말 기초 어휘 3등급 (초3~4).pdf"
+    },
+    {
+      "href": "data/pdf/korean-grade4.pdf",
+      "download": "우리말 기초 어휘 4등급 (초5~6).pdf"
+    },
+    {
+      "href": "data/pdf/korean-grade5.pdf",
+      "download": "우리말 기초 어휘 5등급 (중등).pdf"
+    },
+    {
+      "href": "data/초등필수영단어-800-목록.txt",
+      "download": ""
+    },
+    {
+      "href": "data/초등필수영단어-800-교육부.json",
+      "download": ""
+    },
+    {
+      "href": "data/국어기초어휘-1등급.json",
+      "download": ""
+    },
+    {
+      "href": "data/국어기초어휘-2등급.json",
+      "download": ""
+    },
+    {
+      "href": "data/국어기초어휘-3등급.json",
+      "download": ""
+    },
+    {
+      "href": "data/국어기초어휘-4등급.json",
+      "download": ""
+    },
+    {
+      "href": "data/국어기초어휘-5등급.json",
+      "download": ""
+    }
+  ],
+  "words.html:printHidden": [
+    ".get, .app, .dl"
+  ],
+  "prompts.html:downloads": [
+    {
+      "href": "data/pdf/diary-prompts.pdf",
+      "download": "쓸 게 없다는 아이에게 던지는 질문 34개.pdf"
+    },
+    {
+      "href": "data/img/diary-prompts.png",
+      "download": "쓸 게 없다는 아이에게 던지는 질문 34개.png"
+    }
+  ],
+  "prompts.html:printHidden": []
+}
