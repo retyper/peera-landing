@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>오늘의 복습 — 안 누른 낱말부터</title>
-<meta name="description" content="「아는 낱말 체크」에서 누르지 않은 낱말을 하루 열 개씩 꺼내 봅니다(5개·20개로 바꿀 수 있어요). 뜻을 먼저 보여주지 않고, 아이가 떠올려 본 뒤에 확인합니다. 가입·이메일 없음.">
+<title>오늘의 복습, 안 누른 낱말부터</title>
+<meta name="description" content="「아는 낱말 체크」에서 누르지 않은 낱말을 하루 열 개씩 꺼내 봅니다. 5개·20개로 바꿀 수 있습니다. 뜻을 먼저 보여주지 않고, 아이가 떠올려 본 뒤에 확인합니다. 가입·이메일 없음.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="오늘의 복습 — 안 누른 낱말부터 하루 열 개">
-<meta property="og:description" content="다시 읽히지 말고 떠올리게 해 주세요. 맞힌 낱말은 1일·3일·7일·16일·35일 뒤에 다시 나옵니다.">
+<meta property="og:title" content="오늘의 복습, 안 누른 낱말부터 하루 열 개">
+<meta property="og:description" content="낱말만 보고 뜻을 떠올리게 해 주세요. 맞힌 낱말은 1일·3일·7일·16일·35일 뒤에 다시 나옵니다.">
 <meta property="og:url" content="https://retyper.github.io/peera-landing/review.html">
 <meta property="og:image" content="https://retyper.github.io/peera-landing/check-og.png">
 <meta property="og:image:width" content="1200">
@@ -82,13 +82,13 @@
 
 <header>
   <p class="eyebrow" id="eyebrow">오늘의 복습</p>
-  <h1>안 누른 낱말부터 <b>하루 <span id="h1n">열</span> 개</b>씩.</h1>
+  <h1>안 누른 낱말부터 <b>하루 <span id="h1n">열</span> 개</b>씩</h1>
   <p class="lede">「아는 낱말 체크」에서 누르지 않은 낱말을 여기서 꺼내 봅니다.</p>
 </header>
 
 <!-- ① 체크 기록이 없을 때 -->
 <section id="s-none" class="hide">
-  <div class="how">먼저 <b>어떤 낱말을 아는지</b> 확인하면 복습할 목록이 생깁니다. A 한 글자만 하고 오셔도 됩니다.</div>
+  <div class="how">먼저 <b>아는 낱말</b>을 확인하면 복습 목록이 생깁니다. A 한 글자만 하고 오셔도 됩니다.</div>
   <p style="margin:18px 0 0"><a class="btn pri" style="text-decoration:none;display:inline-block" href="check.html">아는 낱말 확인하러 가기</a></p>
 </section>
 
@@ -137,7 +137,7 @@
 <!-- ④ 끝 -->
 <section id="s-done" class="hide">
   <div class="done">
-    <h2>오늘 것 끝났어요.</h2>
+    <h2>오늘 것은 다 하셨습니다.</h2>
     <p class="lede" id="dSub"></p>
     <div class="stat">
       <div class="g"><b id="dYes">0</b>알아요</div>
@@ -149,11 +149,11 @@
     <img src="writy-avatar.png" alt="라이티" width="76" height="76">
     <div>
       <h3>아이 혼자 할 때는 앱에서 이어서 합니다</h3>
-      <p>이 페이지는 부모님이 곁에서 눌러 주셔야 합니다. 피어라에도 같은 800개가 들어 있고, 앱에서는 아이가 혼자 풀어요.</p>
+      <p>이 페이지는 부모님이 곁에서 눌러 주셔야 합니다. 피어라에도 같은 800개가 들어 있고, 앱에서는 아이가 혼자 풉니다.</p>
       <p>맞힌 낱말은 다음 날, 3일, 7일, 16일, 35일 뒤에 다시 나옵니다. 틀린 낱말은 더 자주 나옵니다.</p>
       <p>라이티와 이야기하고 그 낱말을 일기에 써 보는 것도 앱에서 합니다. 알파라 무료입니다.</p>
       <a id="aGarden" href="#">아이 혼자 풀게 하기</a>
-      <p class="sub2">지금까지 하신 것을 그대로 들고 갑니다. 가입은 필요 없고 보호자 동의 한 번이면 열려요.<br>
+      <p class="sub2">지금까지 하신 것을 그대로 가져갑니다. 가입은 필요 없고 보호자 동의 한 번이면 열립니다.<br>
         메일로 안내받고 싶으시면 <a class="plain" id="aApply" href="https://retyper.github.io/peera-landing/?utm_source=review&utm_medium=page&utm_campaign=peera_review">30일 체험단 신청</a>도 있습니다.</p>
     </div>
   </div>
@@ -265,7 +265,7 @@
       var tmr = pool.filter(function(w){ var r = rec[w]; if (!r) return false; return r[0] < MASTER && r[1] <= T + 1; }).length;
       var tmrTxt = tmr > 0 ? "<b>내일 " + tmr + "개</b>가 기다립니다. " : "";
       $("introCnt").innerHTML = notYet > 0
-        ? "오늘 꺼낼 낱말은 다 하셨습니다. " + tmrTxt + "<br>아직 확인하지 않은 낱말이 <b>" + notYet + "개</b> 남아 있어요. 더 확인하시면 오늘 할 것이 늘어납니다."
+        ? "오늘 꺼낼 낱말은 다 하셨습니다. " + tmrTxt + "<br>아직 확인하지 않은 낱말이 <b>" + notYet + "개</b> 남아 있습니다. 더 확인하시면 오늘 할 것이 늘어납니다."
         : "오늘 꺼낼 낱말은 다 하셨습니다. " + (tmr > 0 ? "내일 " + tmr + "개가 기다립니다." : "내일 다시 오시면 됩니다.");
       $("bStart").disabled = true;
       $("bStart").className = "btn pri";
@@ -338,7 +338,7 @@
     $("gknown").style.width = (knownN / total * 100) + "%";
     $("grest").style.width = (restN / total * 100) + "%";
     var s = "초등 필수 영단어 <b>" + total + "개</b> 가운데 아이가 아는 낱말 <b>" + knownN + "개</b>, 복습할 낱말 <b>" + restN + "개</b>입니다.";
-    if (notYet > 0) s += " 아직 확인하지 않은 낱말이 " + notYet + "개 있어요. <a href=\"check.html\">이어서 확인하기</a>";
+    if (notYet > 0) s += " 아직 확인하지 않은 낱말이 " + notYet + "개 있습니다. <a href=\"check.html\">이어서 확인하기</a>";
     $("gtxt").innerHTML = s;
   }
 
@@ -350,8 +350,8 @@
     $("dNo").textContent = cNo;
     /* 첫 정답의 다음 복습도 하루 뒤다(IV[0]=1). "맞히면 바로 사흘 뒤"라고 쓰면 사실과 다르다. */
     $("dSub").textContent = cNo > 0
-      ? "못 맞힌 낱말은 내일 다시 나옵니다. 맞힐 때마다 간격이 1일, 3일, 7일, 16일, 35일로 늘어납니다."
-      : "맞힐 때마다 다시 나오는 간격이 1일, 3일, 7일, 16일, 35일로 늘어납니다.";
+      ? "못 맞힌 낱말은 내일 다시 나옵니다. 맞히면 다시 나오는 간격이 1일, 3일, 7일, 16일, 35일로 늘어납니다."
+      : "맞히면 다시 나오는 간격이 1일, 3일, 7일, 16일, 35일로 늘어납니다.";
     var tomorrow = pool.filter(function(w){ var r = rec[w]; if (!r) return false; return r[0] < MASTER && r[1] <= T + 1; }).length;
     var newLeft = pool.filter(function(w){ return !rec[w]; }).length;
     $("dNext").textContent = "내일은 " + tomorrow + "개를 다시 봅니다. 아직 꺼내지 않은 낱말은 " + newLeft + "개 남아 있습니다.";
