@@ -14,20 +14,20 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-  :root{--bg:#FFFDF8;--ink:#2B2622;--sub:#6B625A;--line:#EDE4D8;--accent:#C2410C;--soft:#FFF6EC;--card:#fff;--ok:#1F7A4D;--okbg:#E6F4EC}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-text-size-adjust:100%}
+  body{margin:0}
   .wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
   header{padding:40px 0 18px}
-  .eyebrow{font-size:13px;letter-spacing:.12em;color:var(--accent);font-weight:700;margin:0 0 10px}
+  .eyebrow{font-size:14px;letter-spacing:.12em;color:var(--accent);font-weight:700;margin:0 0 10px}
   h1{font-size:28px;line-height:1.3;margin:0 0 12px;letter-spacing:-.02em}
   h1 b{color:var(--accent)}
   .lede{font-size:16px;color:var(--sub);margin:0}
   .how{background:var(--soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 16px;margin:16px 0 0;font-size:15px}
   .how b{color:var(--accent)}
 
-  .bar{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;margin:14px -16px 0;padding-left:16px;padding-right:16px}
+  .bar{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;margin:14px -16px 0;padding-left:16px;padding-right:16px}
   .bar .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .cnt{font-size:15px;font-weight:700}
   .cnt b{color:var(--ok)}
@@ -40,8 +40,8 @@
   .grp{margin:22px 0}
   .grp h3{font-size:17px;margin:0 0 8px;padding:8px 0 7px;border-bottom:1px solid var(--line);
      display:flex;align-items:center;gap:7px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
-  .grp h3 .n{font-size:12px;color:var(--sub);font-weight:500}
-  .grp h3 .ar{margin-left:auto;width:8px;height:8px;border-right:2px solid #B9AC9C;border-bottom:2px solid #B9AC9C;
+  .grp h3 .n{font-size:14px;color:var(--sub);font-weight:500}
+  .grp h3 .ar{margin-left:auto;width:8px;height:8px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);
      transform:rotate(-135deg) translate(-2px,-2px);transition:transform .15s}
   .grp.closed{margin:0}
   .grp.closed h3{margin-bottom:0}
@@ -52,42 +52,42 @@
   .w{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 14px;font-size:16px;font-family:inherit;cursor:pointer;line-height:1.2;
      -webkit-tap-highlight-color:transparent;user-select:none;transition:background .08s,border-color .08s}
   .w.on{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:700}
-  .w.on::before{content:"✓ ";font-size:13px}
+  .w.on::before{content:"✓ ";font-size:14px}
 
   .app.top{margin:14px 0 0;padding:14px 16px;gap:14px}
   .app.top h2{font-size:15px;margin-bottom:4px}
-  .app.top p{font-size:13px;margin-bottom:8px}
+  .app.top p{font-size:14px;margin-bottom:8px}
   .app.top img{flex:0 0 44px;width:44px;height:44px}
-  .app.top .row .btn{background:var(--card);color:var(--accent);padding:8px 12px;font-size:13.5px;border-radius:9px;font-weight:700;display:inline-block;text-decoration:none}
+  .app.top .row .btn{background:var(--card);color:var(--accent);padding:8px 12px;font-size:14px;border-radius:9px;font-weight:700;display:inline-block;text-decoration:none}
   .app.top .row{display:flex;gap:8px;flex-wrap:wrap}
   .app.top .btn small{font-weight:500;color:var(--sub);margin-left:4px}
-  .app{margin:40px 0 0;padding:18px 20px;background:var(--soft);border:1px solid #F3D6BE;border-radius:16px;display:flex;gap:16px;align-items:center}
+  .app{margin:40px 0 0;padding:18px 20px;background:var(--soft);border:1px solid var(--line);border-radius:16px;display:flex;gap:16px;align-items:center}
   .app img{flex:0 0 96px;width:96px;height:96px;object-fit:cover;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
   .app h2{margin:0 0 6px;font-size:17px;line-height:1.4}
   .app p{font-size:14px;color:var(--sub);margin:0 0 10px}
   .app a{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:11px 18px;border-radius:10px;font-weight:700;font-size:15px}
-  footer{margin:36px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
-  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#2B2622;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}
+  footer{margin:36px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--sub)}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--slate-12);color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s}
   .toast.show{opacity:1}
 
   /* 인쇄 = 복습 목록만 */
   #print{display:none}
   @media print{
     body{background:#fff} .wrap,.toast{display:none!important}
-    #print{display:block;font-family:'Pretendard','Malgun Gothic','Noto Sans KR',sans-serif;color:#2B2622;padding:0}
-    #print h1{font-size:18pt;margin:0 0 4pt} #print h1 b{color:#C2410C}
-    #print .meta{font-size:9pt;color:#6B625A;margin:0 0 10pt}
+    #print{display:block;font-family:'Pretendard Variable','Pretendard','Malgun Gothic','Noto Sans KR',sans-serif;color:#1c2024;padding:0}
+    #print h1{font-size:18pt;margin:0 0 4pt} #print h1 b{color:#008573}
+    #print .meta{font-size:9pt;color:#1c2024;margin:0 0 10pt}
     #print ul{list-style:none;margin:0;padding:0;column-count:4;column-gap:12pt}
-    #print li{font-size:11pt;line-height:1.6;border-bottom:.4pt solid #EDE4D8;break-inside:avoid}
-    #print li.h{font-weight:800;color:#C2410C;border:0;margin-top:6pt}
-    #print .foot{font-size:8pt;color:#8B8178;margin-top:10pt}
+    #print li{font-size:11pt;line-height:1.6;border-bottom:.4pt solid #d9d9e0;break-inside:avoid}
+    #print li.h{font-weight:800;color:#008573;border:0;margin-top:6pt}
+    #print .foot{font-size:8pt;color:#1c2024;margin-top:10pt}
     @page{size:A4;margin:14mm 12mm}
   }
   @media (max-width:560px){ h1{font-size:22px;margin-bottom:8px} header{padding:26px 0 12px} .grp{margin-top:14px} .w{font-size:15px;padding:8px 12px} .app{flex-direction:column;align-items:flex-start}
-    .lede{font-size:15px} .how{font-size:13px;padding:10px 12px;margin-top:12px}
-    .bar{padding:8px 0} .btn{font-size:13px;padding:7px 10px;border-radius:8px} .cnt{font-size:14px}
+    .lede{font-size:15px} .how{font-size:14px;padding:10px 12px;margin-top:12px}
+    .bar{padding-top:8px;padding-bottom:8px} .bar .btn{padding:7px 10px!important} .btn{font-size:14px;padding:7px 10px;border-radius:8px} .cnt{font-size:14px}
     .bar .row{gap:6px} .bar .note{display:none}
-    .app.top{flex-direction:row;align-items:center;padding:10px 12px;gap:10px} .app.top img{flex:0 0 40px;width:40px;height:40px} .app.top h2{font-size:13.5px;margin-bottom:6px} }
+    .app.top{flex-direction:row;align-items:center;padding:10px 12px;gap:10px} .app.top img{flex:0 0 40px;width:40px;height:40px} .app.top h2{font-size:14px;margin-bottom:6px} }
 
   /* ── 한 글자씩 하기 (2026-09-11) ── */
   .chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0 2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -100,13 +100,13 @@
   .chip.now{background:var(--accent);border-color:var(--accent);color:#fff}
   .chip.done.now{background:var(--ok);border-color:var(--ok);color:#fff}
   .resume[hidden]{display:none!important}
-  .resume{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--okbg);border:1px solid #BFE0CD;border-radius:12px;padding:10px 14px;margin:14px 0 0;font-size:14px}
+  .resume{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--okbg);border:1px solid var(--teal-6);border-radius:12px;padding:10px 14px;margin:14px 0 0;font-size:14px}
   .resume b{color:var(--ok)}
   .resume .btn{border-color:var(--ok);color:var(--ok);padding:7px 12px}
   .grpfoot{margin:16px 0 6px;padding:14px 16px;background:var(--soft);border-radius:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .grpfoot .t{font-size:14px;color:var(--sub);flex:1;min-width:180px}
   .grpfoot .t b{color:var(--ink)}
-  .grpfoot .again{background:none;border:0;color:var(--sub);font-size:13px;text-decoration:underline;cursor:pointer;font-family:inherit;padding:4px}
+  .grpfoot .again{background:none;border:0;color:var(--sub);font-size:14px;text-decoration:underline;cursor:pointer;font-family:inherit;padding:4px}
   .save{margin:28px 0 0;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
   .save h2{font-size:17px;margin:0 0 6px}
   .save p{font-size:14px;color:var(--sub);margin:0 0 12px}
@@ -118,22 +118,23 @@
   .next p{font-size:14px;color:var(--sub);margin:0 0 12px;line-height:1.6}
   .next a{display:inline-block;text-decoration:none}
   .prog{margin:14px 0 0}
-  .prog .pt{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--sub);margin:0 0 6px}
+  .prog .pt{display:flex;align-items:baseline;gap:8px;font-size:14px;color:var(--sub);margin:0 0 6px}
   .prog .pt .sp{flex:1}
   .prog .pt b{font-size:15px;color:var(--accent);font-variant-numeric:tabular-nums}
-  .prog .pbar{height:10px;border-radius:999px;background:#F1E7DA;overflow:hidden}
-  .prog .pbar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#E0803F,var(--accent));transition:width .25s ease}
-  .prog.full .pbar i{background:linear-gradient(90deg,#3F9E6B,var(--ok))}
+  .prog .pbar{height:10px;border-radius:999px;background:var(--slate-4);overflow:hidden}
+  .prog .pbar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--teal-9),var(--accent));transition:width .25s ease}
+  .prog.full .pbar i{background:linear-gradient(90deg,var(--teal-9),var(--ok))}
   .prog.full .pt b{color:var(--ok)}
   .barline{position:absolute;left:0;right:0;bottom:-1px;height:3px}
   .barline i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s ease}
   .barline.full i{background:var(--ok)}
   .hid{display:none!important}
   @media (max-width:560px){
-    .chips{gap:5px;padding-top:6px} .chip{min-width:31px;padding:5px 7px;font-size:13px}
-    .grpfoot{padding:12px} .grpfoot .t{font-size:13px} .save{padding:14px 16px}
+    .chips{gap:5px;padding-top:6px} .chip{min-width:31px;padding:5px 7px;font-size:14px}
+    .grpfoot{padding:12px} .grpfoot .t{font-size:14px} .save{padding:14px 16px}
   }
 </style>
+<link rel="stylesheet" href="assets/peera.css">
 </head>
 <body>
 <div class="wrap">
@@ -160,7 +161,7 @@
   <img src="writy-avatar.png" alt="라이티" width="44" height="44">
   <div>
     <h2>안 누른 낱말은 앱으로 그대로 가져갈 수 있습니다</h2>
-    <div class="row"><button class="btn" id="bApp" style="border-color:#1F7A4D;color:#1F7A4D">웹에서 시작<small>가입 없이 바로</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=check&utm_medium=page&utm_campaign=peera_check" style="text-decoration:none">폰 앱 신청</a></div>
+    <div class="row"><button class="btn" id="bApp" style="border-color:var(--ok);color:var(--ok)">웹에서 시작<small>가입 없이 바로</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=check&utm_medium=page&utm_campaign=peera_check" style="text-decoration:none">폰 앱 신청</a></div>
   </div>
 </div>
 
@@ -1239,18 +1240,18 @@
   document.getElementById('bImg').addEventListener('click',function(){
     if(!gate()) return;
     var t=totals(), list=unknownByLetter();
-    var W=1080, pad=56, cols=4, colW=(W-pad*2)/cols, lh=42, font='26px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif';
+    var W=1080, pad=56, cols=4, colW=(W-pad*2)/cols, lh=42, font='26px "Pretendard Variable", Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif';
     var rows=[]; list.forEach(function(g){ rows.push({h:g.letter}); g.words.forEach(function(w){rows.push({w:w});}); });
     var perCol=Math.ceil(rows.length/cols)||1, H=pad+120+perCol*lh+140;
     var cv=document.createElement('canvas'); cv.width=W; cv.height=H; var x=cv.getContext('2d');
-    x.fillStyle='#FFFDF8'; x.fillRect(0,0,W,H);
-    x.fillStyle='#2B2622'; x.font='bold 44px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText('복습할 영단어 '+t.unknown+'개',pad,pad+44);
-    x.fillStyle='#6B625A'; x.font='22px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(today()+' · 초등 필수 영단어 800개 중 '+t.done+'글자 확인 · 아는 낱말 '+t.known+'개',pad,pad+84);
+    x.fillStyle='#ffffff'; x.fillRect(0,0,W,H);
+    x.fillStyle='#1c2024'; x.font='bold 44px "Pretendard Variable", Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText('복습할 영단어 '+t.unknown+'개',pad,pad+44);
+    x.fillStyle='#1c2024'; x.font='22px "Pretendard Variable", Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(today()+' · 초등 필수 영단어 800개 중 '+t.done+'글자 확인 · 아는 낱말 '+t.known+'개',pad,pad+84);
     x.font=font;
     rows.forEach(function(r,i){ var ci=Math.floor(i/perCol), ri=i%perCol, px=pad+ci*colW, py=pad+140+ri*lh;
-      if(r.h){ x.fillStyle='#C2410C'; x.font='bold 26px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(r.h,px,py); x.font=font; }
-      else { x.fillStyle='#2B2622'; x.fillText(r.w,px,py); } });
-    x.fillStyle='#8B8178'; x.font='20px Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif';
+      if(r.h){ x.fillStyle='#008573'; x.font='bold 26px "Pretendard Variable", Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif'; x.fillText(r.h,px,py); x.font=font; }
+      else { x.fillStyle='#1c2024'; x.fillText(r.w,px,py); } });
+    x.fillStyle='#1c2024'; x.font='20px "Pretendard Variable", Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif';
     /* 아래 두 줄은 캔버스 폭을 넘기 쉽다. 넘치면 글자 목록을 줄여서 자른 티가 안 나게 한다. */
     var maxW=W-pad*2, f1=tailLine()||'수준이나 점수가 아닙니다', f2='retyper.github.io/peera-landing/check.html';
     if(x.measureText(f1).width>maxW){
