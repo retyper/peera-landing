@@ -128,9 +128,13 @@
   ("air bread coffee fire food fun gold hair homework ice juice luck meat milk money music news oil paper rain "
   +"salt sand snow soup sugar time water weather earth moon sea sky sun world clothes pants scissors be believe know")
     .split(" ").forEach(function(w){ SKIP[w]=1; });
-  /* 사람에게 안 붙는 형용사 → It is 틀 */
+  /* 사람에게 안 붙는 형용사 → It is 틀.
+     9/16 형용사 88개 전수 확인(콘텐츠/_build/write-adj-audit.mjs). 처음엔 20개만 수기로 골랐는데
+     I am red / I am delicious / I am big 같은 것이 38개 더 남아 있었다. 58개로 확정. */
   var THING={};
-  ("bright cheap clean cold cool dark deep dry full hard heavy hot long new old quiet short soft warm wet")
+  ("bad big black blue bright brown cheap clean clear clever cold cool dark dead deep delicious difficult double "
+  +"dry early far fast fat favorite free fresh full gray green hard heavy high hot large last lazy little long low "
+  +"new next old pink pretty quick quiet red same short slow small soft true ugly warm wet white wrong yellow")
     .split(" ").forEach(function(w){ THING[w]=1; });
 
   var FRAME={
