@@ -168,7 +168,7 @@
 <div class="app top">
   <img src="writy-avatar.png" alt="라이티" width="44" height="44">
   <div>
-    <h2>복습 목록은 이 브라우저에 남습니다</h2>
+    <h2>안 누른 낱말은 앱으로 그대로 가져갑니다</h2>
     <div class="row"><button class="btn" id="bApp" style="border-color:var(--ok);color:var(--ok)">웹에서 시작<small>가입 없이 바로</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=korean3&utm_medium=page&utm_campaign=peera_korean" style="text-decoration:none">폰 앱 신청</a></div>
   </div>
 </div>
@@ -1560,7 +1560,7 @@
   <img src="writy-avatar.png" alt="라이티" width="96" height="96">
   <div>
     <h2>목록을 뽑고 나면, 매일 뭘 시킬지가 진짜 문제더라고요</h2>
-    <p>저도 낱말 목록을 정리해 놓고 그 다음이 제일 막혔습니다. 그래서 하루에 몇 개씩만 꺼내 주고, 맞힌 낱말은 다음 날·3일·7일·16일·35일 뒤에 다시 물어보는 앱을 만들고 있습니다. 틀린 낱말은 더 자주 나옵니다. 알파라 무료입니다.</p>
+    <p>저도 낱말 목록을 정리해 놓고 그 다음이 제일 막혔습니다. 그래서 하루에 몇 개씩만 꺼내 주고, 맞힌 낱말은 다음 날·3일·7일·16일·35일 뒤에 다시 물어보는 앱을 만들고 있습니다. 틀린 낱말은 더 자주 나옵니다. 위에서 남은 복습 목록을 그대로 가져갑니다. 알파라 무료입니다.</p>
     <a href="https://retyper.github.io/peera-landing/?utm_source=korean3&utm_medium=page&utm_campaign=peera_korean">무료로 써 보기 신청</a>
   </div>
 </div>
@@ -1811,7 +1811,7 @@
     for(var j=0;j<joined.length;j++){ h^=joined.charCodeAt(j); h=Math.imul(h,0x01000193)>>>0; }
     var v=h.toString(16); while(v.length<8) v='0'+v;
     var t=totals(); track('send_to_app',{unknown:t.unknown,letters:t.done});
-    location.href='https://dearmydiary.vercel.app/?utm_source=korean3&utm_medium=page&utm_campaign=peera_korean';
+    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&t=ko-elem-3&utm_source=korean3&utm_medium=page&utm_campaign=peera_korean';
   });
 
   document.getElementById('bReset').addEventListener('click',function(){
