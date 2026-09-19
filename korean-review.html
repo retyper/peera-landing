@@ -154,12 +154,12 @@
   <div class="app">
     <img src="writy-avatar.png" alt="라이티" width="76" height="76">
     <div>
-      <h3>글쓰기는 앱에서 합니다</h3>
-      <p>이 페이지는 부모님이 곁에서 눌러 주셔야 합니다. 누른 기록은 이 브라우저에만 남고, 어디로도 보내지 않습니다.</p>
+      <h3>아이 혼자 할 때는 앱에서 이어서 합니다</h3>
+      <p>이 페이지는 부모님이 곁에서 눌러 주셔야 합니다. 앱에서는 아이가 혼자 풉니다.</p>
       <p>맞힌 낱말은 다음 날, 3일, 7일, 16일, 35일 뒤에 다시 나옵니다. 틀린 낱말은 더 자주 나옵니다.</p>
       <p>라이티와 이야기하고 일기를 써 보는 것은 앱에서 합니다. 알파라 무료입니다.</p>
       <a id="aGarden" href="#">아이 혼자 풀게 하기</a>
-      <p class="sub2">여기서 누른 것은 이 브라우저에만 남습니다. 앱은 지금 로그인을 거쳐야 열립니다.<br>
+      <p class="sub2">확인하신 학년의 낱말과 지금까지 하신 것을 그대로 가져갑니다. 누르기 전까지는 이 브라우저에만 남습니다.<br>
         메일로 안내받고 싶으시면 <a class="plain" id="aApply" href="https://retyper.github.io/peera-landing/?utm_source=korean_review&utm_medium=page&utm_campaign=peera_korean">30일 체험단 신청</a>도 있습니다.</p>
     </div>
   </div>
@@ -406,27 +406,36 @@
      known 비트 1 = 체크에서 '안다'고 누른 낱말(앱이 익힘으로 받는다).
      st 한 자리 = 그 낱말의 복습 상자(0~5). 웹에서 사흘 외운 낱말이
      앱에서 또 '처음 보는 낱말'로 나오지 않게 한다. */
+  /* ko-handoff:start — 검사가 이 블록을 통째로 꺼내 돌린다. 이름·경계를 바꾸면 검사도 같이 고친다.
+     연 학년(TOUCHED)의 세트를 id 오름차순으로 이어 한 링크에 싣는다. bit 1 = 눌러 둔 낱말 전부
+     (복습 목록에 없는 것도 — 0으로 가면 앱이 아는 낱말을 강등한다). st = 복습 상자 0~5. */
   function fnv1a(str){
     var h = 0x811c9dc5;
     for (var i = 0; i < str.length; i++){ h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
     var v = h.toString(16); while (v.length < 8) v = "0" + v; return v;
   }
   function appUrl(){
-    var bytes = new Uint8Array(Math.ceil(ORDER.length / 8));
-    var st = "";
-    for (var i = 0; i < ORDER.length; i++){
-      var w = ORDER[i];
+    var UTM = "utm_source=korean_review&utm_medium=page&utm_campaign=peera_korean";
+    var gs = GRADES.filter(function(g){ return !!TOUCHED[g]; }).sort(function(a, b){ return a - b; });
+    if (!gs.length) return "https://dearmydiary.vercel.app/?" + UTM;
+    var list = [];
+    gs.forEach(function(g){ ORDER.forEach(function(w){ if (GR(w) === g) list.push(w); }); });
+    var bytes = new Uint8Array(Math.ceil(list.length / 8)), st = "";
+    for (var i = 0; i < list.length; i++){
+      var w = list[i];
       if (known[w]) bytes[i >> 3] |= (128 >> (i & 7));
       var r = rec[w];
-      st += r ? String(Math.max(0, Math.min(MASTER, r[0]))) : "0";
+      st += r ? String(Math.max(0, Math.min(MASTER, r[0] | 0))) : "0";
     }
     var bin = ""; for (var j = 0; j < bytes.length; j++) bin += String.fromCharCode(bytes[j]);
     var b64 = btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-    var joined = ORDER.map(function(w){ return w.toLowerCase(); }).join(String.fromCharCode(10));
-    return "https://dearmydiary.vercel.app/"
-      + "?utm_source=korean_review&utm_medium=page&utm_campaign=peera_korean"
-      + "&utm_source=korean_review&utm_medium=page&utm_campaign=peera_korean";
+    var joined = list.map(function(w){ return w.toLowerCase(); }).join(String.fromCharCode(10));
+    return "https://dearmydiary.vercel.app/vocab-boost"
+      + "?known=" + b64 + "&n=" + list.length + "&v=" + fnv1a(joined) + "&st=" + st
+      + "&t=" + gs.map(function(g){ return "ko-elem-" + g; }).join(",")
+      + "&" + UTM;
   }
+  /* ko-handoff:end */
   (function(){
     var g = $("aGarden"); if (!g) return;
     g.addEventListener("click", function(e){
