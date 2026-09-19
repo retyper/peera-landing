@@ -9,8 +9,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="초등 1학년 교과서 낱말 874개, 아이가 아는 것만 눌러 보세요">
 <meta property="og:description" content="안 누른 낱말이 복습 목록이 됩니다. ㄱ 하나만 하고 나가셔도 이어집니다. 이메일·가입 없음.">
-<meta property="og:url" content="https://retyper.github.io/peera-landing/check.html">
-<meta property="og:image" content="https://retyper.github.io/peera-landing/check-og.png">
+<meta property="og:url" content="https://retyper.github.io/peera-landing/korean1.html">
+<meta property="og:image" content="https://retyper.github.io/peera-landing/korean-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -133,6 +133,12 @@
     .chips{gap:5px;padding-top:6px} .chip{min-width:31px;padding:5px 7px;font-size:14px}
     .grpfoot{padding:12px} .grpfoot .t{font-size:14px} .save{padding:14px 16px}
   }
+
+  /* 학년 이동 — 2026-09-18 신설. 흐린 회색 금지(메모리 no-faint-gray-text): 글자는 본문색·15px. */
+  .grades{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 16px}
+  .grades .gl{font-size:14px;font-weight:700;color:var(--sub);margin-right:2px}
+  .grades a{display:inline-block;padding:8px 13px;border:1.5px solid var(--line);border-radius:999px;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;background:var(--card)}
+  .grades a[aria-current="page"]{border-color:var(--accent);color:var(--accent-strong);background:var(--okbg)}
 </style>
 <link rel="stylesheet" href="assets/peera.css">
 </head>
@@ -145,10 +151,12 @@
      안 누른 낱말이 복습 목록이 됩니다.</p>
   <p class="lede" style="margin-top:6px">874개를 한 번에 다 하지 않으셔도 됩니다. <b>ㄱ 하나만 하고 나가셔도</b> 그대로 남아 있습니다.</p>
 </header>
+<nav class="grades" aria-label="학년 고르기"><span class="gl">학년</span><a href="korean1.html" aria-current="page">1학년</a><a href="korean2.html">2학년</a><a href="korean3.html">3학년</a><a href="korean4.html">4학년</a><a href="korean5.html">5학년</a><a href="korean6.html">6학년</a></nav>
+
 
 <div class="bar">
   <div class="row">
-    <span class="cnt">끝낸 자음 <b id="dn">0</b> / <span id="tt">25</span> · 아는 낱말 <b id="kn">0</b> · 복습 목록 <i id="un">0</i></span>
+    <span class="cnt">끝낸 자음 <b id="dn">0</b> / <span id="tt">14</span> · 아는 낱말 <b id="kn">0</b> · 복습 목록 <i id="un">0</i></span>
     <span class="sp"></span>
     <button class="btn ghost" id="bMode">전부 펼치기</button>
   </div>
@@ -160,7 +168,7 @@
 <div class="app top">
   <img src="writy-avatar.png" alt="라이티" width="44" height="44">
   <div>
-    <h2>안 누른 낱말은 앱으로 그대로 가져갑니다</h2>
+    <h2>복습 목록은 이 브라우저에 남습니다</h2>
     <div class="row"><button class="btn" id="bApp" style="border-color:var(--ok);color:var(--ok)">웹에서 시작<small>가입 없이 바로</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=korean1&utm_medium=page&utm_campaign=peera_korean" style="text-decoration:none">폰 앱 신청</a></div>
   </div>
 </div>
@@ -1094,21 +1102,21 @@
   <img src="writy-avatar.png" alt="라이티" width="96" height="96">
   <div>
     <h2>목록을 뽑고 나면, 매일 뭘 시킬지가 진짜 문제더라고요</h2>
-    <p>저도 낱말 목록을 정리해 놓고 그 다음이 제일 막혔습니다. 그래서 하루에 몇 개씩만 꺼내 주고, 맞힌 낱말은 다음 날·3일·7일·16일·35일 뒤에 다시 물어보는 앱을 만들고 있습니다. 틀린 낱말은 더 자주 나옵니다. 위에서 남은 복습 목록을 그대로 가져갑니다. 알파라 무료입니다.</p>
+    <p>저도 낱말 목록을 정리해 놓고 그 다음이 제일 막혔습니다. 그래서 하루에 몇 개씩만 꺼내 주고, 맞힌 낱말은 다음 날·3일·7일·16일·35일 뒤에 다시 물어보는 앱을 만들고 있습니다. 틀린 낱말은 더 자주 나옵니다. 알파라 무료입니다.</p>
     <a href="https://retyper.github.io/peera-landing/?utm_source=korean1&utm_medium=page&utm_campaign=peera_korean">무료로 써 보기 신청</a>
   </div>
 </div>
 
 <footer>
-  출처: 국립국어원 「국어 기초 어휘 선정 및 등급화 연구」(2017~2023) × 「초등학교 교과서 어휘 조사 연구」(2009) · 1학년 교과서에 처음 나오는 낱말 874개이며, 그 학년에 반드시 배운다는 뜻은 아닙니다 · 교과서 자료는 7차 교육과정 기준 · 공공누리 제1유형 ·
-  전체 목록과 PDF: <a href="words.html">낱말 목록</a><br>
+  출처: 국립국어원 「국어 기초 어휘 선정 및 어휘 등급화 연구」(2017~2023) × 「초등학교 교과서 어휘 조사 연구」(2009) · 1학년 교과서에 처음 나오는 낱말 874개이며, 그 학년에 배운다는 뜻도 이 낱말이 전부라는 뜻도 아닙니다 · 2009년에 조사된 교과서라 지금 교과서와 다를 수 있습니다 · 국립국어원 자료를 가공해 만들었습니다 · 공공누리 제1유형 ·<br>
   누른 기록은 이 브라우저에만 남습니다. 어떤 낱말을 눌렀는지는 밖으로 나가지 않고, 이름도 이메일도 받지 않습니다.<br>
   아이가 아는 낱말을 표시하는 도구일 뿐입니다. 수준을 매기거나 학습 효과를 주장하지 않습니다.
 </footer>
 </div>
 
-<p class="note">낱말 출처: 국립국어원 「국어 기초 어휘 선정 및 등급화 연구」(2017~2023)와 「초등학교 교과서 어휘 조사 연구」(2009)를 교차한 것입니다. <b>1학년 교과서에 처음 나오는 낱말</b>이라는 뜻이고, 그 학년에 반드시 배운다는 뜻은 아닙니다. 교과서 자료는 7차 교육과정 기준입니다. 공공누리 제1유형.</p>
-<p class="note">복습 목록이 <b>0개</b>가 되면 이 학년 낱말은 다 아는 것입니다. 다음 학년으로 가셔도 됩니다.</p>
+<p class="note">낱말 출처: 국립국어원 「국어 기초 어휘 선정 및 어휘 등급화 연구」(2017~2023)와 「초등학교 교과서 어휘 조사 연구」(2009)를 교차해 가공한 것입니다. <b>1학년 교과서에 처음 나오는 낱말</b>이라는 뜻이고, 그 학년에 배운다는 뜻도 이 낱말이 전부라는 뜻도 아닙니다. 2009년에 조사된 교과서라 지금 교과서와 다를 수 있습니다. 공공누리 제1유형.</p>
+<p class="note">한 낱말은 처음 나오는 학년에 <b>한 번만</b> 넣었습니다. 그래서 1학년 목록이 가장 두껍고, 학년마다 개수가 들쭉날쭉합니다.</p>
+<p class="note">끝낸 자음에서 안 누른 낱말이 복습 목록이 됩니다. 많이 남아도 늦은 것이 아니고, 남은 낱말이 오늘 같이 볼 거리입니다. 다른 학년 목록은 맨 위에서 고르실 수 있습니다.</p>
 <div id="print"></div>
 <div class="toast" id="toast"></div>
 
@@ -1273,7 +1281,7 @@
   document.getElementById('bPdf').addEventListener('click',function(){
     if(!gate()) return;
     var t=totals(), list=unknownByLetter(), p=document.getElementById('print');
-    var h='<h1>복습할 낱말 <b>'+t.unknown+'개</b></h1><p class="meta">'+today()+' · 초등 1학년 교과서 낱말 874개 중 '+t.done+'자음을 확인한 결과 · 아는 낱말 '+t.known+'개 · retyper.github.io/peera-landing/check.html</p><ul>';
+    var h='<h1>복습할 낱말 <b>'+t.unknown+'개</b></h1><p class="meta">'+today()+' · 초등 1학년 교과서 낱말 874개 중 '+t.done+'자음을 확인한 결과 · 아는 낱말 '+t.known+'개 · retyper.github.io/peera-landing/korean1.html</p><ul>';
     list.forEach(function(g){ h+='<li class="h">'+g.letter+'</li>'; g.words.forEach(function(w){ h+='<li>'+w+'</li>'; }); });
     h+='</ul><p class="foot">아이가 아직 뜻을 말하지 못한 낱말입니다. '+tailLine()+'</p>';
     p.innerHTML=h; track('export_pdf',{unknown:t.unknown,letters:t.done}); window.print();
@@ -1284,7 +1292,7 @@
     var t=totals(), list=unknownByLetter();
     var s='복습할 낱말 '+t.unknown+'개 ('+today()+')\n'+list.map(function(g){return g.letter+': '+g.words.join(', ');}).join('\n');
     var tl=tailLine(); if(tl) s+='\n'+tl;
-    s+='\nretyper.github.io/peera-landing/check.html';
+    s+='\nretyper.github.io/peera-landing/korean1.html';
     function ok(){ toast('복사했습니다. 카톡이나 메모에 붙여 넣으세요.'); track('export_copy',{unknown:t.unknown,letters:t.done}); }
     function fallback(x){ var ta=document.createElement('textarea'); ta.value=x; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');ok();}catch(e){toast('복사가 막혔습니다. PDF로 저장하세요.');} document.body.removeChild(ta); }
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(s).then(ok,function(){fallback(s);}); } else fallback(s);
@@ -1306,7 +1314,7 @@
       else { x.fillStyle='#1c2024'; x.fillText(r.w,px,py); } });
     x.fillStyle='#1c2024'; x.font='20px "Pretendard Variable", Pretendard, "Malgun Gothic", "Noto Sans KR", sans-serif';
     /* 아래 두 줄은 캔버스 폭을 넘기 쉽다. 넘치면 글자 목록을 줄여서 자른 티가 안 나게 한다. */
-    var maxW=W-pad*2, f1=tailLine()||'복습할 낱말입니다', f2='retyper.github.io/peera-landing/check.html';
+    var maxW=W-pad*2, f1=tailLine()||'복습할 낱말입니다', f2='retyper.github.io/peera-landing/korean1.html';
     if(x.measureText(f1).width>maxW){
       var rest=restLetters();
       while(rest.length>1 && x.measureText('아직 안 보신 글자: '+rest.join(' ')+' 외 '+(restLetters().length-rest.length)+'개').width>maxW) rest.pop();
