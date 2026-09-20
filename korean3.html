@@ -1811,7 +1811,7 @@
     for(var j=0;j<joined.length;j++){ h^=joined.charCodeAt(j); h=Math.imul(h,0x01000193)>>>0; }
     var v=h.toString(16); while(v.length<8) v='0'+v;
     var t=totals(); track('send_to_app',{unknown:t.unknown,letters:t.done});
-    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&t=ko-elem-3&utm_source=korean3&utm_medium=page&utm_campaign=peera_korean';
+    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&t=ko-elem-3&utm_source=korean3&utm_medium=page&utm_campaign=peera_korean' + (window.PEERA_SRC_SUFFIX || '');
   });
 
   document.getElementById('bReset').addEventListener('click',function(){
@@ -1834,6 +1834,26 @@
   var appA=document.querySelector('.app a'); if(appA) appA.addEventListener('click',function(){ track('app_cta_click',{page:'check'}); });
   if('scrollRestoration' in history){history.scrollRestoration='manual';}
   window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,0); });
+})();
+</script>
+<script>
+/* 유입 채널 이어붙이기 (2026-09-20) — 시트 유입경로가 스레드·인스타 둘 다 koreanN으로 뭉개지던 것을 막는다.
+   utm_source는 등록된 값 그대로 두고, 원래 들어온 채널만 utm_content=src_*로 덧붙인다. */
+(function(){
+  try {
+    var KEY = 'peera_src';
+    var q = new URLSearchParams(location.search).get('utm_source') || '';
+    var src = String(q).toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 20);
+    if (src) { try { sessionStorage.setItem(KEY, src); } catch (e) {} }
+    else { try { src = sessionStorage.getItem(KEY) || ''; } catch (e) { src = ''; } }
+    if (!src) { window.PEERA_SRC_SUFFIX = ''; return; }
+    window.PEERA_SRC_SUFFIX = '&utm_content=src_' + src;
+    var links = document.querySelectorAll('a[href*="utm_source="]');
+    for (var i = 0; i < links.length; i++) {
+      var h = links[i].getAttribute('href') || '';
+      if (h.indexOf('utm_content=') === -1) links[i].setAttribute('href', h + window.PEERA_SRC_SUFFIX);
+    }
+  } catch (e) { window.PEERA_SRC_SUFFIX = ''; }
 })();
 </script>
 </body>

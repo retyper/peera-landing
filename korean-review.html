@@ -415,7 +415,7 @@
     var v = h.toString(16); while (v.length < 8) v = "0" + v; return v;
   }
   function appUrl(){
-    var UTM = "utm_source=korean_review&utm_medium=page&utm_campaign=peera_korean";
+    var UTM = "utm_source=korean_review&utm_medium=page&utm_campaign=peera_korean" + (window.PEERA_SRC_SUFFIX || "");
     var gs = GRADES.filter(function(g){ return !!TOUCHED[g]; }).sort(function(a, b){ return a - b; });
     if (!gs.length) return "https://dearmydiary.vercel.app/?" + UTM;
     var list = [];
@@ -494,6 +494,26 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
 (function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-VK77HTLEQH';document.head.appendChild(s);})();
 gtag('js',new Date());gtag('config','G-VK77HTLEQH',{anonymize_ip:true,allow_google_signals:false,allow_ad_personalization_signals:false,page_title:'review'});
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;if(a.id==='aApply'){gtag('event','app_cta_click',{page:'review'});}},true);
+</script>
+<script>
+/* 유입 채널 이어붙이기 (2026-09-20) — 시트 유입경로가 스레드·인스타 둘 다 koreanN으로 뭉개지던 것을 막는다.
+   utm_source는 등록된 값 그대로 두고, 원래 들어온 채널만 utm_content=src_*로 덧붙인다. */
+(function(){
+  try {
+    var KEY = 'peera_src';
+    var q = new URLSearchParams(location.search).get('utm_source') || '';
+    var src = String(q).toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 20);
+    if (src) { try { sessionStorage.setItem(KEY, src); } catch (e) {} }
+    else { try { src = sessionStorage.getItem(KEY) || ''; } catch (e) { src = ''; } }
+    if (!src) { window.PEERA_SRC_SUFFIX = ''; return; }
+    window.PEERA_SRC_SUFFIX = '&utm_content=src_' + src;
+    var links = document.querySelectorAll('a[href*="utm_source="]');
+    for (var i = 0; i < links.length; i++) {
+      var h = links[i].getAttribute('href') || '';
+      if (h.indexOf('utm_content=') === -1) links[i].setAttribute('href', h + window.PEERA_SRC_SUFFIX);
+    }
+  } catch (e) { window.PEERA_SRC_SUFFIX = ''; }
+})();
 </script>
 </body>
 </html>
