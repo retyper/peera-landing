@@ -32,7 +32,7 @@ if (!src || !outPng) {
 
 const { 제목, 리드, 쓰는법, 섹션, 총개수, 재료해시 } = 읽기(src);
 
-const 주소 = "retyper.github.io/peera-landing/" + path.basename(src);
+// 🟥 종이에 주소 글자를 적지 않는다(2026-09-22 사장님). 여기 있던 `.src` 줄(주소)을 뺐다.
 const 시트 = `<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="${pathToFileURL(path.resolve("assets/peera.css")).href}">
@@ -45,7 +45,6 @@ const 시트 = `<!doctype html><html lang="ko"><head><meta charset="utf-8">
   h1{font-size:40px;line-height:1.28;font-weight:800;letter-spacing:-.02em;margin:0 0 14px}
   h1 b{color:var(--teal-11)}
   .lede{font-size:17px;line-height:1.6;margin:0 0 4px}
-  .src{font-size:15px;margin:6px 0 0;color:var(--teal-12);font-weight:600}
   .how{background:var(--teal-2);border-left:4px solid var(--teal-9);border-radius:0 12px 12px 0;
        padding:16px 20px;margin:24px 0 8px;font-size:16px;line-height:1.65}
   .how b{color:var(--teal-11)}
@@ -61,7 +60,6 @@ const 시트 = `<!doctype html><html lang="ko"><head><meta charset="utf-8">
 </style></head><body><div class="sheet">
 <h1>${제목}</h1>
 <p class="lede">${리드}</p>
-<p class="src">${주소}</p>
 <div class="how">${쓰는법}</div>
 ${섹션.map(s => `<h2>${s.제목}</h2>${s.안내 ? `<p class="note">${s.안내}</p>` : ""}
 <ol>${s.줄.map(q => `<li><span class="n">${q.n}</span><span>${q.t}</span></li>`).join("")}</ol>`).join("\n")}
