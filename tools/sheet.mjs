@@ -7,9 +7,15 @@
 // 못 보기 때문이다. ⇒ 제목·쓰는 법·질문 목록을 전부 페이지에서 파싱해 굽는다.
 // 페이지를 고치고 이 스크립트를 다시 돌리면 이미지가 따라온다.
 //
+// 구울 때마다 재료(제목·리드·쓰는 법·질문 목록)의 해시를 data/생성-기록.json에 남긴다.
+// 🟥 그 해시를 `peera-growth/운영/검사/문구-냉장고시험.mjs`가 읽어 「페이지는 고쳤는데
+//    자료를 안 구웠다」를 잡는다. **아래 재료 추출 규칙을 고치면 그 검사도 같이 고쳐야 한다** —
+//    한쪽만 고치면 검사가 전부 「낡았다」고 거짓말을 한다.
+//
 // playwright는 본품(dearmydiary)의 것을 빌려 쓴다(shoot.mjs와 같은 방식).
 import { createRequire } from "node:module";
 import { readFileSync, writeFileSync, unlinkSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { pathToFileURL } from "node:url";
 import path from "node:path";
 
@@ -83,6 +89,9 @@ ${섹션.map(s => `<h2>${s.제목}</h2>${s.안내 ? `<p class="note">${s.안내}
 <footer>만든 곳: 피어라(1인 개발) · 질문은 어떤 효과도 약속하지 않습니다. 아이가 말문을 여는 자리를 만들 뿐입니다.</footer>
 </div></body></html>`;
 
+const 재료해시 = createHash("sha256").update(JSON.stringify(
+  { 제목, 리드, 쓰는법, 섹션 })).digest("hex").slice(0, 16);
+
 const 임시 = path.resolve("tools/_sheet.tmp.html");
 writeFileSync(임시, 시트, "utf8");
 
@@ -106,4 +115,21 @@ if (outPdf) {
 }
 await browser.close();
 unlinkSync(임시);
+// 생성 기록 — 「페이지를 고치고 굽지 않았다」를 정확히 잡기 위한 도장.
+// mtime은 git checkout·무관한 편집에도 바뀌어 헛경보가 난다. 그래서 재료 해시를 남긴다.
+// 검사: node ../peera-growth/운영/검사/문구-냉장고시험.mjs
+const 기록파일 = path.resolve("data/생성-기록.json");
+let 기록 = {};
+try { 기록 = JSON.parse(readFileSync(기록파일, "utf8")); } catch {}
+for (const 산출 of [outPng, outPdf].filter(Boolean)) {
+  기록[산출.split(path.sep).join("/")] = {
+    출처: path.basename(src),
+    재료해시,
+    제목: 제목.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(),
+    개수: 총개수,
+    구운시각: new Date().toISOString(),
+  };
+}
+writeFileSync(기록파일, JSON.stringify(기록, null, 2) + "\n", "utf8");
+
 console.log(`구움: ${outPng}${outPdf ? " · " + outPdf : ""} — 질문 ${총개수}개 · 섹션 ${섹션.length}개`);
