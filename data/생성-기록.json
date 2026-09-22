@@ -4,13 +4,59 @@
     "재료해시": "a9de8bdfaf42b5b1",
     "제목": "오늘 하루를 꺼내는 질문 34개",
     "개수": 34,
-    "구운시각": "2026-09-22T02:51:13.808Z"
+    "구운시각": "2026-09-22T03:23:06.243Z"
   },
   "data/pdf/diary-prompts.pdf": {
     "출처": "prompts.html",
     "재료해시": "a9de8bdfaf42b5b1",
     "제목": "오늘 하루를 꺼내는 질문 34개",
     "개수": 34,
-    "구운시각": "2026-09-22T02:51:13.816Z"
+    "구운시각": "2026-09-22T03:23:06.245Z"
+  },
+  "data/img/냉장고-질문12.png": {
+    "출처": "prompts.html",
+    "재료해시": "a9de8bdfaf42b5b1",
+    "제목": "오늘 뭐 물어볼까?",
+    "개수": 12,
+    "고른번호": [
+      1,
+      4,
+      3,
+      7,
+      16,
+      10,
+      11,
+      15,
+      21,
+      17,
+      18,
+      12
+    ],
+    "QR주소": "https://retyper.github.io/peera-landing/prompts.html?utm_source=print&utm_medium=qr&utm_campaign=peera_prompts",
+    "쪽수": 1,
+    "구운시각": "2026-09-22T03:33:28.482Z"
+  },
+  "data/pdf/냉장고-질문12.pdf": {
+    "출처": "prompts.html",
+    "재료해시": "a9de8bdfaf42b5b1",
+    "제목": "오늘 뭐 물어볼까?",
+    "개수": 12,
+    "고른번호": [
+      1,
+      4,
+      3,
+      7,
+      16,
+      10,
+      11,
+      15,
+      21,
+      17,
+      18,
+      12
+    ],
+    "QR주소": "https://retyper.github.io/peera-landing/prompts.html?utm_source=print&utm_medium=qr&utm_campaign=peera_prompts",
+    "쪽수": 1,
+    "구운시각": "2026-09-22T03:33:28.490Z"
   }
 }

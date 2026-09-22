@@ -9,15 +9,16 @@
 //
 // 구울 때마다 재료(제목·리드·쓰는 법·질문 목록)의 해시를 data/생성-기록.json에 남긴다.
 // 🟥 그 해시를 `peera-growth/운영/검사/문구-냉장고시험.mjs`가 읽어 「페이지는 고쳤는데
-//    자료를 안 구웠다」를 잡는다. **아래 재료 추출 규칙을 고치면 그 검사도 같이 고쳐야 한다** —
+//    자료를 안 구웠다」를 잡는다. **추출 규칙을 고치면 그 검사도 같이 고쳐야 한다** —
 //    한쪽만 고치면 검사가 전부 「낡았다」고 거짓말을 한다.
+//    추출·해시 규칙 자체는 `tools/lib/prompts-parse.mjs` 한 곳에 있다(fridge.mjs와 공유).
 //
 // playwright는 본품(dearmydiary)의 것을 빌려 쓴다(shoot.mjs와 같은 방식).
 import { createRequire } from "node:module";
-import { readFileSync, writeFileSync, unlinkSync } from "node:fs";
-import { createHash } from "node:crypto";
+import { writeFileSync, unlinkSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import path from "node:path";
+import { 읽기, 기록하기 } from "./lib/prompts-parse.mjs";
 
 const FROM = process.env.PLAYWRIGHT_FROM
   || "C:/Users/YunCheolShin/Desktop/flutter/dearmydiary/package.json";
@@ -29,29 +30,7 @@ if (!src || !outPng) {
   process.exit(1);
 }
 
-const html = readFileSync(src, "utf8");
-const 하나 = (re, 이름) => {
-  const m = html.match(re);
-  if (!m) throw new Error(`${src}에서 ${이름}를 못 찾았습니다 — 페이지 구조가 바뀌었습니다`);
-  return m[1].trim();
-};
-
-const 제목 = 하나(/<h1>([\s\S]*?)<\/h1>/, "h1");
-const 리드 = 하나(/<p class="lede">([\s\S]*?)<\/p>/, "lede");
-const 쓰는법 = 하나(/<div class="how">([\s\S]*?)<\/div>/, "how");
-
-// 섹션: <h2>제목</h2> ... <ol>…</ol>  (사이에 안내문 <p>가 있을 수 있다)
-const 섹션 = [];
-const re = /<h2>([^<]+)<\/h2>([\s\S]*?)<ol>([\s\S]*?)<\/ol>/g;
-let m;
-while ((m = re.exec(html)) !== null) {
-  const 안내 = (m[2].match(/<p[^>]*>([\s\S]*?)<\/p>/) || [, ""])[1].trim();
-  const 줄 = [...m[3].matchAll(/<li><span class="n">(\d+)<\/span>([\s\S]*?)<\/li>/g)]
-    .map(x => ({ n: x[1], t: x[2].trim() }));
-  if (줄.length) 섹션.push({ 제목: m[1].trim(), 안내, 줄 });
-}
-if (!섹션.length) throw new Error(`${src}에서 질문 목록을 못 찾았습니다`);
-const 총개수 = 섹션.reduce((a, s) => a + s.줄.length, 0);
+const { 제목, 리드, 쓰는법, 섹션, 총개수, 재료해시 } = 읽기(src);
 
 const 주소 = "retyper.github.io/peera-landing/" + path.basename(src);
 const 시트 = `<!doctype html><html lang="ko"><head><meta charset="utf-8">
@@ -89,9 +68,6 @@ ${섹션.map(s => `<h2>${s.제목}</h2>${s.안내 ? `<p class="note">${s.안내}
 <footer>만든 곳: 피어라(1인 개발) · 질문은 어떤 효과도 약속하지 않습니다. 아이가 말문을 여는 자리를 만들 뿐입니다.</footer>
 </div></body></html>`;
 
-const 재료해시 = createHash("sha256").update(JSON.stringify(
-  { 제목, 리드, 쓰는법, 섹션 })).digest("hex").slice(0, 16);
-
 const 임시 = path.resolve("tools/_sheet.tmp.html");
 writeFileSync(임시, 시트, "utf8");
 
@@ -115,21 +91,11 @@ if (outPdf) {
 }
 await browser.close();
 unlinkSync(임시);
-// 생성 기록 — 「페이지를 고치고 굽지 않았다」를 정확히 잡기 위한 도장.
-// mtime은 git checkout·무관한 편집에도 바뀌어 헛경보가 난다. 그래서 재료 해시를 남긴다.
-// 검사: node ../peera-growth/운영/검사/문구-냉장고시험.mjs
-const 기록파일 = path.resolve("data/생성-기록.json");
-let 기록 = {};
-try { 기록 = JSON.parse(readFileSync(기록파일, "utf8")); } catch {}
-for (const 산출 of [outPng, outPdf].filter(Boolean)) {
-  기록[산출.split(path.sep).join("/")] = {
-    출처: path.basename(src),
-    재료해시,
-    제목: 제목.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(),
-    개수: 총개수,
-    구운시각: new Date().toISOString(),
-  };
-}
-writeFileSync(기록파일, JSON.stringify(기록, null, 2) + "\n", "utf8");
+기록하기([outPng, outPdf], {
+  출처: path.basename(src),
+  재료해시,
+  제목: 제목.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(),
+  개수: 총개수,
+});
 
 console.log(`구움: ${outPng}${outPdf ? " · " + outPdf : ""} — 질문 ${총개수}개 · 섹션 ${섹션.length}개`);

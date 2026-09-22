@@ -15,3 +15,13 @@ expert2d.png
 peera-sprout.png
 dump/
 HANDOFF.md
+
+# npm (tools/ 전용 — qrcode)
+node_modules/
+package-lock.json
+tools/_*.tmp.html
+
+# 검사용 임시 산출물(망가뜨려 보는 단언이 남긴 것) — 커밋하지 않는다
+tools/_*
+data/img/_*
+data/pdf/_*
