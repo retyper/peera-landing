@@ -65,7 +65,7 @@ const 시트 = `<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <div class="how">${쓰는법}</div>
 ${섹션.map(s => `<h2>${s.제목}</h2>${s.안내 ? `<p class="note">${s.안내}</p>` : ""}
 <ol>${s.줄.map(q => `<li><span class="n">${q.n}</span><span>${q.t}</span></li>`).join("")}</ol>`).join("\n")}
-<footer>만든 곳: 피어라(1인 개발) · 질문은 어떤 효과도 약속하지 않습니다. 아이가 말문을 여는 자리를 만들 뿐입니다.</footer>
+<footer>만든 곳: 피어라(1인 개발)</footer>
 </div></body></html>`;
 
 const 임시 = path.resolve("tools/_sheet.tmp.html");

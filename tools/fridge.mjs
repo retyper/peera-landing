@@ -113,7 +113,7 @@ const 시트 = `<!doctype html><html lang="ko"><head><meta charset="utf-8">
   <div class="qr">${qrSvg}</div>
   <div>
     <div class="more">폰으로 찍으면<br>질문이 ${재료.총개수}개 다 있어요</div>
-    <p class="fine">피어라가 만들었습니다 · 이 질문들은 어떤 효과도 약속하지 않습니다.</p>
+    <p class="fine">피어라가 만들었습니다</p>
   </div>
 </footer>
 
