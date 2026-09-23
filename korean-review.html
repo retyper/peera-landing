@@ -38,6 +38,10 @@
   .word{font-size:46px;font-weight:800;letter-spacing:-.02em;margin:0;word-break:break-word;line-height:1.15}
   .pos{font-size:14px;color:var(--sub);margin:8px 0 0}
   .say{margin:18px auto 0;border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:999px;padding:8px 15px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+  .saynote{margin:14px 0 0;text-align:left;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:15px;color:var(--ink)}
+  .saynote p{margin:0 0 12px}
+  .saynote .sm{margin:12px 0 0;font-size:14px;color:var(--ink)}
+  .saynote .btn{display:block;text-align:center;text-decoration:none}
   .ask{font-size:15px;color:var(--sub);margin:22px 0 0}
   .ans{margin:16px 0 0;text-align:left;background:var(--soft);border-radius:14px;padding:16px 18px}
   .ans .m{font-size:19px;font-weight:800;margin:0 0 10px;line-height:1.45}
@@ -78,6 +82,7 @@
   .grades a{display:inline-block;padding:8px 13px;border:1.5px solid var(--line);border-radius:999px;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;background:var(--card)}
 </style>
 <link rel="stylesheet" href="assets/peera.css">
+<script src="assets/speak-help.js" data-keys="korean1_v1,korean1_done_v1,korean2_v1,korean2_done_v1,korean3_v1,korean3_done_v1,korean4_v1,korean4_done_v1,korean5_v1,korean5_done_v1,korean6_v1,korean6_done_v1,korean_review_v1,korean_review_meta_v1,korean_review_size_v1"></script>
 </head>
 <body>
 <div class="wrap">
@@ -123,6 +128,7 @@
     <p class="word" id="cWord">word</p>
     <p class="pos" id="cPos"></p>
     <button type="button" class="say" id="bSay">소리로 듣기</button>
+    <div class="saynote hide" id="sayNote"></div>
     <p class="ask" id="cAsk">아이가 뜻을 말해 보게 해 주세요.</p>
     <div class="ans hide" id="cAns">
       <p class="m" id="cKo"></p>
@@ -350,6 +356,7 @@
   }
 
   function speak(){
+    if (window.__peeraSpeakBlocked && window.__peeraSpeakBlocked()) return;
     try {
       var u = new SpeechSynthesisUtterance(queue[idx]);
       u.lang = "ko-KR"; u.rate = 0.9;

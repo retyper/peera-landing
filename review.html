@@ -39,6 +39,10 @@
   .word{font-size:46px;font-weight:800;letter-spacing:-.02em;margin:0;word-break:break-word;line-height:1.15}
   .pos{font-size:14px;color:var(--sub);margin:8px 0 0}
   .say{margin:18px auto 0;border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:999px;padding:8px 15px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+  .saynote{margin:14px 0 0;text-align:left;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:15px;color:var(--ink)}
+  .saynote p{margin:0 0 12px}
+  .saynote .sm{margin:12px 0 0;font-size:14px;color:var(--ink)}
+  .saynote .btn{display:block;text-align:center;text-decoration:none}
   .ask{font-size:15px;color:var(--sub);margin:22px 0 0}
   .ans{margin:16px 0 0;text-align:left;background:var(--soft);border-radius:14px;padding:16px 18px}
   .ans .m{font-size:19px;font-weight:800;margin:0 0 10px;line-height:1.45}
@@ -76,6 +80,7 @@
   @media (max-width:430px){ .word{font-size:40px} .app{flex-direction:column;align-items:flex-start} }
 </style>
 <link rel="stylesheet" href="assets/peera.css">
+<script src="assets/speak-help.js" data-keys="check800_v1,check800_done_v1,review800_v1,review800_meta_v1,review800_size_v1"></script>
 </head>
 <body>
 <div class="wrap">
@@ -118,6 +123,7 @@
     <p class="word" id="cWord">word</p>
     <p class="pos" id="cPos"></p>
     <button type="button" class="say" id="bSay">소리로 듣기</button>
+    <div class="saynote hide" id="sayNote"></div>
     <p class="ask" id="cAsk">아이가 뜻을 말해 보게 해 주세요.</p>
     <div class="ans hide" id="cAns">
       <p class="m" id="cKo"></p>
@@ -319,6 +325,7 @@
   }
 
   function speak(){
+    if (window.__peeraSpeakBlocked && window.__peeraSpeakBlocked()) return;
     try {
       var u = new SpeechSynthesisUtterance(queue[idx]);
       u.lang = "en-US"; u.rate = 0.85;
