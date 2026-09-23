@@ -149,6 +149,77 @@ for (const [page, cfg] of Object.entries(PAGES)) {
   }
 }
 
+// [G] 합치기 — 크롬에 이미 더 새 기록이 있을 때, 스레드 창의 옛 기록이 그걸 덮으면 안 된다
+//   시나리오: 스레드→크롬으로 넘어가 크롬에서 며칠 더 함 → 다음에 스레드 링크로 다시 들어와 「크롬에서 이어서 하기」
+//   rec 값 모양 [단계, 다음 날짜] 는 review.html:421·428, meta {start,size,lastDone} 는 review.html:304·354 · 230
+async function carryFrom(page, seed) {
+  const { ctx, p } = await open(`${BASE}/${page}`, { ua: UA_THREADS, seed });
+  const h = await p.evaluate(() => window.__peeraCarryUrl());
+  await ctx.close();
+  const m = h.match(/^intent:\/\/([^#]+)#Intent;/); return m ? "http://" + m[1] : "";
+}
+{
+  console.log(`\n■ 합치기 (review.html)`);
+  const stale = { check800_v1: JSON.stringify({ apple: 1, book: 1 }), check800_done_v1: JSON.stringify({ A: 1, B: 1 }),
+    review800_v1: JSON.stringify({ about: [2, 50], after: [0, 40] }), review800_meta_v1: JSON.stringify({ start: 30, size: 10, lastDone: 45 }) };
+  const chrome = { check800_v1: JSON.stringify({ cat: 1 }), check800_done_v1: JSON.stringify({ C: 1 }),
+    review800_v1: JSON.stringify({ about: [0, 61], again: [1, 62] }), review800_meta_v1: JSON.stringify({ start: 40, size: 20, lastDone: 60 }) };
+  const url = await carryFrom("review.html", stale);
+  const { ctx, p, errs } = await open(url, { ua: UA_CHROME, seed: chrome });
+  await p.waitForTimeout(800);
+  ok(`[G] 로드 오류 0`, errs.length === 0, errs.join(" | "));
+  const got = await p.evaluate(() => ({ k: JSON.parse(localStorage.getItem("check800_v1")), d: JSON.parse(localStorage.getItem("check800_done_v1")),
+    r: JSON.parse(localStorage.getItem("review800_v1")), m: JSON.parse(localStorage.getItem("review800_meta_v1")) }));
+  const kk = Object.keys(got.k || {}).sort().join(","), dd = Object.keys(got.d || {}).sort().join(",");
+  ok(`[G] 아는 낱말은 둘 다 남는다 → ${kk}`, kk === "apple,book,cat");
+  ok(`[G] 끝낸 글자도 둘 다 남는다 → ${dd}`, dd === "A,B,C");
+  const r = got.r || {};
+  ok(`[G] 복습 기록은 더 뒤에 푼 쪽(다음 날짜가 늦은 쪽) → about=${JSON.stringify(r.about)}`, JSON.stringify(r.about) === "[0,61]");
+  ok(`[G] 한쪽에만 있는 복습 기록도 남는다 → after=${JSON.stringify(r.after)} again=${JSON.stringify(r.again)}`, JSON.stringify(r.after) === "[0,40]" && JSON.stringify(r.again) === "[1,62]");
+  const mm = got.m || {};
+  ok(`[G] 시작일은 이른 쪽, 마지막으로 끝낸 날은 늦은 쪽 → start=${mm.start} lastDone=${mm.lastDone}`, mm.start === 30 && mm.lastDone === 60);
+  await ctx.close();
+}
+
+// [H] 스레드 창에선 누르기 전에 위에서 먼저 알려 준다 — 카드를 풀다 넘어가면 풀던 자리를 잃는다
+for (const [page, cfg] of Object.entries(PAGES)) {
+  console.log(`\n■ 위쪽 안내 (${page})`);
+  for (const [tag, seed] of [["기록 있음", cfg.seed], ["기록 없음(빈 상태)", {}]]) {
+    const { ctx, p } = await open(`${BASE}/${page}`, { ua: UA_THREADS, seed });
+    const on = await visible(p, "#inappBar");
+    const t = on ? (await p.locator("#inappBar").innerText()).replace(/\s+/g, " ") : "";
+    const h = on ? await p.locator("#aChromeTop").getAttribute("href") : "";
+    ok(`[H] 스레드 창 · ${tag}: 위쪽 안내가 보인다 → "${t.slice(0, 50)}"`, on);
+    ok(`[H] 스레드 창 · ${tag}: 위쪽 버튼도 크롬 주소 (${String(h).slice(0, 30)}…)`, /^intent:\/\/.*;package=com\.android\.chrome;.*;end$/.test(h || ""));
+    await ctx.close();
+  }
+  const { ctx, p } = await open(`${BASE}/${page}`, { ua: UA_CHROME, seed: cfg.seed });
+  ok(`[H] 보통 크롬에선 위쪽 안내가 없다`, !(await visible(p, "#inappBar")));
+  await ctx.close();
+}
+
+// [I] 크롬에서 「가져왔습니다」를 한 번 보여 준다 — 넘어온 사람이 기록이 따라왔는지 바로 안다
+// [J] 기록을 실은 긴 주소(c=)가 GA 로 새지 않는다 — 가져오는 첫 로드에선 GA 를 끈다
+{
+  console.log(`\n■ 넘어온 뒤 (review.html)`);
+  const url = await carryFrom("review.html", PAGES["review.html"].seed);
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, userAgent: UA_CHROME, locale: "ko-KR" });
+  const hits = [];
+  await ctx.route(/google-analytics\.com\/(g\/)?collect/, (r) => { hits.push(r.request().url() + " " + (r.request().postData() || "")); r.fulfill({ status: 204, body: "" }); });
+  const p = await ctx.newPage();
+  await p.goto(url, { waitUntil: "load" }); await p.waitForTimeout(4000);
+  const on = await visible(p, "#carriedBar");
+  const t = on ? (await p.locator("#carriedBar").innerText()).replace(/\s+/g, " ") : "";
+  ok(`[I] 크롬에서 가져왔다는 안내가 보인다 → "${t.slice(0, 50)}"`, on && /가져왔/.test(t));
+  const leaked = hits.filter((h) => /c%3Dz|c%3Du|[?&]c=z/.test(h));
+  ok(`[J] GA 요청 ${hits.length}건 중 기록 주소가 실린 것 ${leaked.length}건`, hits.length > 0 && leaked.length === 0,
+     hits.length === 0 ? "GA 요청이 한 건도 안 잡혔다 — 못 잰 것이지 통과가 아니다"
+       : leaked.length ? leaked[0].split(/[&\s]/).filter((x) => /c%3D[zu]|[?&]c=[zu]/.test(x)).map((x) => x.slice(0, 90)).join(" · ") : "");
+  await p.reload({ waitUntil: "load" }); await p.waitForTimeout(600);
+  ok(`[I] 새로고침하면 그 안내는 사라진다`, !(await visible(p, "#carriedBar")));
+  await ctx.close();
+}
+
 // [F] 주소 길이 최악치 — 800개·7,706개를 전부 눌렀을 때
 {
   console.log(`\n■ 주소 길이 최악치`);
