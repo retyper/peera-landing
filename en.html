@@ -34,7 +34,8 @@
     if (q === 'ko' || q === 'en') { localStorage.setItem('peeraLang', q); }
     var saved = localStorage.getItem('peeraLang');
     var want = saved || ((navigator.language || 'en').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en');
-    if (want !== THIS) location.replace(OTHER);
+    /* 주소 뒤(?utm_…)를 같이 넘긴다 — 영어 브라우저에서 들어온 신청이 「(직접 방문)」으로 찍히던 구멍(2026-09-28). */
+    if (want !== THIS) location.replace(OTHER + location.search + location.hash);
   } catch (_) { /* 저장소 차단 환경에선 그냥 현재 페이지를 보여준다 */ }
 })();
 </script>
@@ -2010,7 +2011,10 @@
     if (src) {
       const medium = q.get('utm_medium');
       const campaign = q.get('utm_campaign');
-      return [src, medium, campaign].filter(Boolean).join(' / ');
+      /* utm_content(도구 페이지가 붙이는 src_threads 같은 원래 채널 · 시리즈 편 번호)까지 넷째 토막으로 싣는다(2026-09-28).
+         없으면 예전과 똑같이 세 토막이라 기존 행과 섞여도 읽힌다. */
+      const content = q.get('utm_content');
+      return [src, medium, campaign, content].filter(Boolean).join(' / ');
     }
     if (!document.referrer) return '(직접 방문)';
     try {

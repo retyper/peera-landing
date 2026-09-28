@@ -160,8 +160,8 @@
 <div class="app top">
   <img src="writy-avatar.png" alt="라이티" width="44" height="44">
   <div>
-    <h2>안 누른 낱말은 앱으로 그대로 가져갑니다</h2>
-    <div class="row"><button class="btn" id="bApp" style="border-color:var(--ok);color:var(--ok)">웹에서 시작<small>가입 없이 바로</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=check&utm_medium=page&utm_campaign=peera_check" style="text-decoration:none">폰 앱 신청</a></div>
+    <h2>안 누른 낱말은 피어라 앱으로 그대로 가져갑니다</h2>
+    <div class="row"><button class="btn" id="bApp" style="border-color:var(--ok);color:var(--ok)">웹에서 시작<small>가입 없이 바로</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=check&utm_medium=page&utm_campaign=peera_check" style="text-decoration:none">피어라 30일 체험단 신청</a></div>
   </div>
 </div>
 
@@ -1313,6 +1313,26 @@
   var appA=document.querySelector('.app a'); if(appA) appA.addEventListener('click',function(){ track('app_cta_click',{page:'check'}); });
   if('scrollRestoration' in history){history.scrollRestoration='manual';}
   window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,0); });
+})();
+</script>
+<script>
+/* 유입 채널 이어붙이기 (2026-09-20 koreanN에 넣은 것을 2026-09-28 이 페이지에도) — 시트 유입경로가 스레드·인스타 둘 다
+   이 페이지 이름으로 뭉개지던 것을 막는다. utm_source는 등록된 값 그대로 두고, 원래 들어온 채널만 utm_content=src_*로 덧붙인다. */
+(function(){
+  try {
+    var KEY = 'peera_src';
+    var q = new URLSearchParams(location.search).get('utm_source') || '';
+    var src = String(q).toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 20);
+    if (src) { try { sessionStorage.setItem(KEY, src); } catch (e) {} }
+    else { try { src = sessionStorage.getItem(KEY) || ''; } catch (e) { src = ''; } }
+    if (!src) { window.PEERA_SRC_SUFFIX = ''; return; }
+    window.PEERA_SRC_SUFFIX = '&utm_content=src_' + src;
+    var links = document.querySelectorAll('a[href*="utm_source="]');
+    for (var i = 0; i < links.length; i++) {
+      var h = links[i].getAttribute('href') || '';
+      if (h.indexOf('utm_content=') === -1) links[i].setAttribute('href', h + window.PEERA_SRC_SUFFIX);
+    }
+  } catch (e) { window.PEERA_SRC_SUFFIX = ''; }
 })();
 </script>
 </body>
