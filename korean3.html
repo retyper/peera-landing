@@ -1738,10 +1738,8 @@
 
   /* 피어라(말의 정원)로 보내기 — 800비트(1=아는 낱말)를 base64url로 URL에 싣는다.
      순서 규약: 소문자로 바꿔 코드포인트 순 단순 정렬. 앱 쪽 lib/vocabImport.ts와 동일해야 한다. */
-  /* 판독 누락으로 화면에서 뺀 낱말(앱 세트엔 있다). 앱이 n·v로 대조하므로 차례에 도로 끼운다 — 비트는 0 */
-  var KO_APP_EXTRA=["각", "간", "공", "과", "그래", "그쪽", "기구", "깃", "꾸다", "남", "눈", "늘", "되다", "들", "들리다", "등", "때", "리", "모", "못", "및", "분단", "사", "생", "석", "세", "시", "식", "씨", "씻기다", "앞", "역", "오전", "위", "은", "의사", "이다", "이따가", "읽다", "자리", "자주", "저", "전부", "정하다", "종", "좋다", "죄", "징", "창", "채", "천", "축", "타다", "탈", "판", "필", "한", "허", "회", "후"];
   document.getElementById('bApp').addEventListener('click',function(){
-    var order=btns.map(function(b){return b.dataset.w;}).concat(KO_APP_EXTRA).map(function(w){return {k:w.toLowerCase(),w:w};})
+    var order=btns.map(function(b){return b.dataset.w;}).map(function(w){return {k:w.toLowerCase(),w:w};})
       .sort(function(a,b){return a.k<b.k?-1:a.k>b.k?1:0;}).map(function(x){return x.w;});
     var bytes=new Uint8Array(Math.ceil(order.length/8));
     order.forEach(function(w,i){ if(known[w]) bytes[i>>3] |= (128>>(i&7)); });
@@ -1752,7 +1750,7 @@
     for(var j=0;j<joined.length;j++){ h^=joined.charCodeAt(j); h=Math.imul(h,0x01000193)>>>0; }
     var v=h.toString(16); while(v.length<8) v='0'+v;
     var t=totals(); track('send_to_app',{unknown:t.unknown,letters:t.done});
-    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&t=ko-elem-3&utm_source=korean3&utm_medium=page&utm_campaign=peera_korean';
+    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&t=ko-elem-3&utm_source=korean3&utm_medium=page&utm_campaign=peera_korean' + (window.PEERA_SRC_SUFFIX || '');
   });
 
   document.getElementById('bReset').addEventListener('click',function(){
