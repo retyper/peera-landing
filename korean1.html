@@ -168,8 +168,8 @@
 <div class="app top">
   <img src="writy-avatar.png" alt="라이티" width="44" height="44">
   <div>
-    <h2>안 누른 낱말은 앱으로 그대로 가져갑니다</h2>
-    <div class="row"><button class="btn" id="bApp" style="border-color:var(--ok);color:var(--ok)">웹에서 시작<small>가입 없이 바로</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=korean1&utm_medium=page&utm_campaign=peera_korean" style="text-decoration:none">폰 앱 신청</a></div>
+    <h2>안 누른 낱말은 피어라 앱으로 그대로 가져갑니다</h2>
+    <div class="row"><button class="btn" id="bApp" style="border-color:var(--ok);color:var(--ok)">웹에서 시작<small>가입 없이 바로</small></button><a class="btn" href="https://retyper.github.io/peera-landing/?utm_source=korean1&utm_medium=page&utm_campaign=peera_korean" style="text-decoration:none">피어라 30일 체험단 신청</a></div>
   </div>
 </div>
 
@@ -1114,7 +1114,7 @@
 </div>
 
 <p class="note">낱말 출처: 국립국어원 「국어 기초 어휘 선정 및 어휘 등급화 연구」(2017~2023)와 「초등학교 교과서 어휘 조사 연구」(2009)를 교차해 가공한 것입니다. <b>1학년 교과서에 처음 나오는 낱말</b>이라는 뜻이고, 그 학년에 배운다는 뜻도 이 낱말이 전부라는 뜻도 아닙니다. 2009년에 조사된 교과서라 지금 교과서와 다를 수 있습니다. 공공누리 제1유형.</p>
-<p class="note">한 낱말은 처음 나오는 학년에 <b>한 번만</b> 넣었습니다. 그래서 학년마다 개수가 들쭉날쭉합니다 — 가장 많은 학년은 <b>5학년(1,987개)</b>이고 가장 적은 학년은 2학년(559개)입니다.</p>
+<p class="note">한 낱말은 처음 나오는 학년에 <b>한 번만</b> 넣었습니다. 그래서 학년마다 개수가 들쭉날쭉합니다 — 가장 많은 학년은 <b>5학년(1,938개)</b>이고 가장 적은 학년은 2학년(530개)입니다. 원자료 스캔본을 글자로 옮기며 앞 학년 기록이 빠진 것으로 보이는 낱말은 뺐습니다.</p>
 <p class="note">끝낸 자음에서 안 누른 낱말이 복습 목록이 됩니다. 많이 남아도 늦은 것이 아니고, 남은 낱말이 오늘 같이 볼 거리입니다. 다른 학년 목록은 맨 위에서 고르실 수 있습니다.</p>
 <div id="print"></div>
 <div class="toast" id="toast"></div>
@@ -1339,8 +1339,10 @@
 
   /* 피어라(말의 정원)로 보내기 — 800비트(1=아는 낱말)를 base64url로 URL에 싣는다.
      순서 규약: 소문자로 바꿔 코드포인트 순 단순 정렬. 앱 쪽 lib/vocabImport.ts와 동일해야 한다. */
+  /* 판독 누락으로 화면에서 뺀 낱말(앱 세트엔 있다). 앱이 n·v로 대조하므로 차례에 도로 끼운다 — 비트는 0 */
+  var KO_APP_EXTRA=[];
   document.getElementById('bApp').addEventListener('click',function(){
-    var order=btns.map(function(b){return b.dataset.w;}).map(function(w){return {k:w.toLowerCase(),w:w};})
+    var order=btns.map(function(b){return b.dataset.w;}).concat(KO_APP_EXTRA).map(function(w){return {k:w.toLowerCase(),w:w};})
       .sort(function(a,b){return a.k<b.k?-1:a.k>b.k?1:0;}).map(function(x){return x.w;});
     var bytes=new Uint8Array(Math.ceil(order.length/8));
     order.forEach(function(w,i){ if(known[w]) bytes[i>>3] |= (128>>(i&7)); });
@@ -1351,7 +1353,7 @@
     for(var j=0;j<joined.length;j++){ h^=joined.charCodeAt(j); h=Math.imul(h,0x01000193)>>>0; }
     var v=h.toString(16); while(v.length<8) v='0'+v;
     var t=totals(); track('send_to_app',{unknown:t.unknown,letters:t.done});
-    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&t=ko-elem-1&utm_source=korean1&utm_medium=page&utm_campaign=peera_korean' + (window.PEERA_SRC_SUFFIX || '');
+    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&t=ko-elem-1&utm_source=korean1&utm_medium=page&utm_campaign=peera_korean';
   });
 
   document.getElementById('bReset').addEventListener('click',function(){
@@ -1377,8 +1379,8 @@
 })();
 </script>
 <script>
-/* 유입 채널 이어붙이기 (2026-09-20) — 시트 유입경로가 스레드·인스타 둘 다 koreanN으로 뭉개지던 것을 막는다.
-   utm_source는 등록된 값 그대로 두고, 원래 들어온 채널만 utm_content=src_*로 덧붙인다. */
+/* 유입 채널 이어붙이기 (2026-09-20 koreanN에 넣은 것을 2026-09-28 이 페이지에도) — 시트 유입경로가 스레드·인스타 둘 다
+   이 페이지 이름으로 뭉개지던 것을 막는다. utm_source는 등록된 값 그대로 두고, 원래 들어온 채널만 utm_content=src_*로 덧붙인다. */
 (function(){
   try {
     var KEY = 'peera_src';
