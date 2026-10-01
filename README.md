@@ -96,6 +96,22 @@ Formspree가 하던 걸 그대로 대신한다. 필요 없으면 스크립트의
 > 이름 바꿔 저장) 등을 다시 복사하면 된다.
 > Rive 런타임은 dearmydiary `node_modules/@rive-app/canvas`의 `rive.js`/`rive.wasm`.
 
+## 검색 등록 — 새 공개 페이지를 만들면 세 군데
+
+2026-10-01까지 이 사이트는 **구글에 한 쪽도 없었다**(루트 포함). 그날 건 것:
+- `google1a3c47ba0335435b.html` — 구글 서치콘솔 소유 확인. **지우면 확인이 풀린다.**
+- `26007f8d5420d46eba37c24bab380fbf.txt` — IndexNow 키. 네이버(2023-07부터 지원)·빙 등에 새 주소를 알린다. 지우면 알림이 거절된다.
+- `sitemap.xml` — 공개 페이지 목록. 복습 페이지처럼 첫 화면이 비는 쪽은 넣지 않는다.
+- robots.txt는 이 레포가 아니라 **루트 레포 `retyper/retyper.github.io`** 에 있다 —
+  프로젝트 페이지의 robots는 도메인 루트에서만 읽힌다. 거기 사이트맵 위치가 적혀 있다.
+- 네이버 서치어드바이저 등록은 사장님 로그인이 필요하다(브라우저 확장이 naver.com을 못 연다).
+
+새 공개 페이지를 만들면:
+1. `sitemap.xml`에 `<url>` 한 줄.
+2. IndexNow — 브라우저로 아래를 연다(`url=` 뒤만 새 주소로, 인코딩해서). 응답 200·202면 접수.
+   `https://api.indexnow.org/indexnow?url=<새 주소>&key=26007f8d5420d46eba37c24bab380fbf&keyLocation=https%3A%2F%2Fretyper.github.io%2Fpeera-landing%2F26007f8d5420d46eba37c24bab380fbf.txt`
+3. 서치콘솔 → URL 검사 → 「색인 생성 요청」. 하루 한도가 있다 — 10/1엔 랜딩에 10번 쓴 뒤 다른 속성에서도 「할당량 초과」로 막혔다.
+
 ## 한국어 / 영어 두 벌 — ★수정 순서를 반드시 지킬 것
 
 `en.html`은 **손으로 고치지 않는다.** `index.html`에서 스크립트로 생성한다
