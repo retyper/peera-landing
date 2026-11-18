@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>초등 필수 영단어 800개, 아는 낱말 체크</title>
-<meta name="description" content="초등 필수 영단어 800개를 A부터 Z까지 한 글자씩 확인하고, 안 누른 낱말만 복습 목록으로 저장하세요. 나갔다 오셔도 이어집니다. 이메일·가입 없음.">
+<meta name="description" content="초등 필수 영단어 800개를 A부터 Z까지 한 글자씩 확인하고, 안 누른 낱말만 복습 목록으로 저장하세요. 나갔다 오셔도 이어집니다. 쓰는 데 가입·이메일은 필요 없습니다.">
 <!-- 오픈그래프(카톡·스레드·인스타 링크 미리보기) — og:image는 살아 있는 절대 URL이어야 뜬다 -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="초등 필수 영단어 800개, 아이가 아는 것만 눌러 보세요">
-<meta property="og:description" content="안 누른 낱말이 복습 목록이 됩니다. A 한 글자만 하고 나가셔도 이어집니다. 이메일·가입 없음.">
+<meta property="og:description" content="안 누른 낱말이 복습 목록이 됩니다. A 한 글자만 하고 나가셔도 이어집니다. 쓰는 데 가입·이메일은 필요 없습니다.">
 <meta property="og:url" content="https://retyper.github.io/peera-landing/check.html">
 <meta property="og:image" content="https://retyper.github.io/peera-landing/check-og.png">
 <meta property="og:image:width" content="1200">
@@ -1050,10 +1050,32 @@
   </div>
 </div>
 
+<!-- 가격 알림(2026-11-18 출시·과금 위원회 결정 4) — 결제를 받기 전의 가격 확인. 가격을 본 뒤에도 신청하는 사람을 채널별로 센다.
+     보내는 칸은 여섯뿐이다. 낱말 기록(check800_v1)은 절대 싣지 않는다. 문구: copy-drafter 후보 → 사장님 확인. 검사: tests/price-notify.mjs -->
+<section class="pn" id="pn">
+  <h2>값은 미리 말씀드리는 게 맞을 것 같아서요</h2>
+  <p>지금은 앱까지 전부 무료이고 카드도 받지 않습니다. 출시 뒤에도 이 체크·복습 페이지, 위 앱의 낱말 복습과 일기는 계속 무료이고, 라이티와의 통화도 매일 다시 차오르는 만큼은 값을 받지 않습니다. 값을 받는 건 라이티와 더 넉넉하게 통화하는 가족 플랜 하나로, <b>월 19,000원</b>(매달 자동 결제) 또는 <b>1년 이용권 159,000원</b>(한 번 결제, 자동 갱신 없음, 형제 포함)이고 둘 다 부가세 포함입니다.</p>
+  <form id="priceNotify" data-pn action="https://script.google.com/macros/s/AKfycbx__YoZtlq6XV9-mHElS2_GLH3SbyH1SmHtubwIzsUxsJvt--TF8f2nowaE5TKTrX8/exec" method="POST">
+    <input type="hidden" name="_subject" value="[피어라] 출시 알림 신청 — 체크 가격">
+    <input type="hidden" name="신청위치" value="체크-가격알림">
+    <input type="hidden" name="유입경로" value="(직접 방문)">
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <div class="row">
+      <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" required aria-label="이메일 주소">
+      <button class="btn pri" type="submit">출시되면 알려 주세요</button>
+    </div>
+    <label class="consent">
+      <input type="checkbox" name="개인정보동의" value="동의함" required checked>
+      <span>출시 알림을 받기 위한 <b>이메일 주소 수집·이용</b>에 동의합니다. 출시 안내 발송 후 지체 없이 파기해요. <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span>
+    </label>
+    <p class="status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
 <footer>
   출처: 교육부 고시 제2022-33호 [별책 14] 영어과 교육과정 [별표 3] 기본 어휘 중 초등학교 사용 권장 800개 · 800개를 모두 배우라는 뜻은 아니며, 학년군당 300개 이내, 합해서 600개 이내로 정한 목록입니다 ·
   전체 목록과 PDF: <a href="words.html">낱말 목록</a><br>
-  누른 기록은 이 브라우저에만 남습니다. 어떤 낱말을 눌렀는지는 밖으로 나가지 않고, 이름도 이메일도 받지 않습니다.
+  누른 낱말 기록은 이 브라우저에 저장되고 앱으로 이어 가는 버튼을 누르실 때만 앱으로 넘어가며, 이메일은 이름 없이 위 알림 칸에서만 받아 광고 없이 한 번 보낸 뒤 지웁니다.
 </footer>
 </div>
 
@@ -1340,6 +1362,21 @@
 <style>
   .pset{margin:14px 0 4px;padding:16px 16px 12px;background:var(--okbg);border:1.5px solid var(--ok);border-radius:14px}
   .pset[hidden]{display:none}
+  .pn{margin:28px 0 0;padding:18px 20px;border:2px solid var(--accent);border-radius:16px;background:var(--card)}
+  .pn h2{font-size:17px;line-height:1.4;margin:0 0 8px;color:var(--ink)}
+  .pn p{font-size:15px;color:var(--ink);margin:0 0 12px;line-height:1.6}
+  .pn p b{color:var(--accent);font-size:16px}
+  .pn .row{display:flex;gap:8px;flex-wrap:wrap}
+  .pn input[type=email]{flex:1 1 200px;min-width:0;font:inherit;font-size:16px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;color:var(--ink);background:var(--card)}
+  .pn .btn.pri{flex:0 0 auto;font-size:15px;padding:10px 14px}
+  .pn .consent{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;font-size:14px;color:var(--sub);line-height:1.5}
+  .pn .consent b{color:var(--sub);font-size:14px}
+  .pn .consent input{margin-top:3px}
+  .pn .consent a{color:var(--accent)}
+  .pn .status{margin:10px 0 0;font-size:15px;font-weight:700}
+  .pn .status:empty{display:none}
+  .pn .status.ok{color:var(--ok)}
+  .pn .status.err{color:#B42318}
   .pset .ph{display:flex;align-items:flex-start;gap:10px}
   .pset .ph p{margin:0;font-size:15px;line-height:1.5;color:var(--ink)}
   .pset .ph b{color:var(--ok)}
@@ -1396,6 +1433,48 @@
     box.hidden = false; sync();
     g('event', 'post_set_view', { set: src, n: pws.length });
   } catch (e) {}
+})();
+
+/* 가격 알림 제출 — index.html 제출 처리와 같은 판정(Apps Script는 항상 200, 성공은 JSON result로, Code.gs:51·54).
+   유입경로 모양도 index.html:2108 trafficSource와 같다. */
+(function(){
+  var form = document.getElementById('priceNotify'); if (!form) return;
+  var DONE = '신청됐어요. 출시 소식은 이 주소로 메일 한 번만 보내 드리고, 보낸 뒤엔 지울게요.';
+  function g(){ try { (window.dataLayer = window.dataLayer || []).push(arguments); } catch (e) {} }
+  var src = (function(){
+    var q = new URLSearchParams(location.search), s = q.get('utm_source');
+    if (s) return [s, q.get('utm_medium'), q.get('utm_campaign'), q.get('utm_content')].filter(Boolean).join(' / ');
+    /* 같은 탭에서 utm 없이 돌아온 경우 — 위 peera_src 스크립트가 남긴 첫 출처(소문자·20자) */
+    try { var ss = sessionStorage.getItem('peera_src'); if (ss) return ss + ' / 같은 방문'; } catch (e) {}
+    if (!document.referrer) return '(직접 방문)';
+    try { var h = new URL(document.referrer).hostname.replace(/^www\./, ''); return h === location.hostname ? '(직접 방문)' : h; }
+    catch (e) { return '(직접 방문)'; }
+  })();
+  var srcField = form.querySelector('[name="유입경로"]'); srcField.value = src;
+  var status = form.querySelector('.status'), button = form.querySelector('button[type=submit]');
+  var started = false;
+  form.querySelector('input[type=email]').addEventListener('focus', function(){ if (started) return; started = true; g('event', 'form_start', { cta_location: '체크-가격알림' }); });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.className = 'status'; status.textContent = '보내는 중…'; button.disabled = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(function(res){ return res.json().catch(function(){ return null; }).then(function(d){ return { ok: res.ok, d: d }; }); })
+      .then(function(r){
+        if (r.ok && r.d && r.d.result === 'success') {
+          form.reset(); srcField.value = src;
+          status.className = 'status ok'; status.textContent = DONE;
+          g('event', 'generate_lead', { cta_location: '체크-가격알림', traffic_source: src });
+        } else {
+          status.className = 'status err'; status.textContent = '전송이 잘 안 됐어요. 잠시 후 다시 시도해 주세요.';
+          g('event', 'form_error', { cta_location: '체크-가격알림', reason: 'server' });
+        }
+      })
+      .catch(function(){
+        status.className = 'status err'; status.textContent = '네트워크 연결을 확인해 주세요.';
+        g('event', 'form_error', { cta_location: '체크-가격알림', reason: 'network' });
+      })
+      .then(function(){ button.disabled = false; });
+  });
 })();
 </script>
 </body>
