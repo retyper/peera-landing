@@ -1389,7 +1389,7 @@
     function sync(){ pws.forEach(function(b){ var m = mainBtn(b.dataset.pw); b.classList.toggle('on', !!(m && m.classList.contains('on'))); }); }
     pws.forEach(function(b){ b.addEventListener('click', function(e){
       e.stopPropagation(); var m = mainBtn(b.dataset.pw); if (m) m.click(); sync();
-      g('event', 'post_set_click', { set: src, word: b.dataset.pw });
+      g('event', 'post_set_click', { set: src });
     }); });
     document.addEventListener('click', function(){ setTimeout(sync, 0); });
     document.getElementById('postSetClose').addEventListener('click', function(){ box.hidden = true; g('event', 'post_set_close', { set: src }); });

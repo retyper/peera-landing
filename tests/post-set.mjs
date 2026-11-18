@@ -104,6 +104,9 @@ for (const [src, n] of [["threads_1119_1", 28], ["threads_1124_1", 32], ["thread
     band: document.querySelector('#postSet [data-pw="house"]').classList.contains("on"),
     store: JSON.parse(localStorage.getItem("check800_v1") || "{}").house }));
   ok(s.main && s.band && !!s.store, `묶음에서 house → 본 목록 on·묶음 on·저장 — 지금 ${JSON.stringify(s)}`);
+  // 푸터 약속 「어떤 낱말을 눌렀는지는 밖으로 나가지 않는다」 — GA로 가는 이벤트에 낱말이 실리면 빨강 (11/18 감사 1-c)
+  const leak = await page.evaluate(() => JSON.stringify((window.dataLayer || []).map(a => [...a]).filter(a => a[0] === "event")));
+  ok(!/house/.test(leak), `GA 이벤트에 누른 낱말 없음 — 지금 ${leak.slice(0, 160)}`);
   await page.evaluate(() => document.querySelector('.grp .w[data-w="cloud"]').click());
   s = await page.evaluate(() => document.querySelector('#postSet [data-pw="cloud"]').classList.contains("on"));
   ok(s, `본 목록에서 cloud → 묶음 on — 지금 ${s}`);
