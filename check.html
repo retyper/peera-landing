@@ -146,6 +146,8 @@
   <p class="lede" style="margin-top:6px">800개를 한 번에 다 하지 않으셔도 됩니다. <b>A 한 글자만 하고 나가셔도</b> 그대로 남아 있습니다.</p>
 </header>
 
+<section class="pset" id="postSet" hidden></section>
+
 <div class="bar">
   <div class="row">
     <span class="cnt">끝낸 글자 <b id="dn">0</b> / <span id="tt">25</span> · 아는 낱말 <b id="kn">0</b> · 복습 목록 <i id="un">0</i></span>
@@ -1333,6 +1335,67 @@
       if (h.indexOf('utm_content=') === -1) links[i].setAttribute('href', h + window.PEERA_SRC_SUFFIX);
     }
   } catch (e) { window.PEERA_SRC_SUFFIX = ''; }
+})();
+</script>
+<style>
+  .pset{margin:14px 0 4px;padding:16px 16px 12px;background:var(--okbg);border:1.5px solid var(--ok);border-radius:14px}
+  .pset[hidden]{display:none}
+  .pset .ph{display:flex;align-items:flex-start;gap:10px}
+  .pset .ph p{margin:0;font-size:15px;line-height:1.5;color:var(--ink)}
+  .pset .ph b{color:var(--ok)}
+  .pset .x{margin-left:auto;flex:0 0 auto;border:1.5px solid var(--ok);background:var(--card);color:var(--ok);border-radius:999px;padding:5px 12px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer}
+  .pset h3{font-size:16px;margin:14px 0 8px;color:var(--ink)}
+  .pset .btns{display:flex;flex-wrap:wrap;gap:8px}
+</style>
+<script>
+/* 스레드 연재 글 → 「글에 나온 낱말」 묶음 (2026-11-18 출시·과금 위원회 결정 5)
+   예약된 글의 링크는 그대로 두고 utm_source로 어느 글에서 왔는지 안다. 낱말은 각 글 그림의 원본
+   peera-growth/콘텐츠/_패스/2026-11-{19-스레드-oo,24-스레드-ouow,28-스레드-y끝}/그림/_틀.mjs 에서 옮겼다.
+   묶음의 버튼은 아래 800개 목록의 같은 낱말 버튼을 대신 눌러 준다 — 저장·집계·앱 넘김은 원래 흐름 그대로.
+   검사: tests/post-set.mjs */
+(function(){
+  try {
+    var SETS = {
+      threads_1119_1: [
+        ['oo를 길게 「우—」로 읽는 낱말 13', 'moon spoon afternoon school cool fool room restroom zoo too food tooth choose'],
+        ['oo를 짧게 읽는 11', 'book look cook cookie notebook textbook good goodbye foot football wood'],
+        ['아예 다르게 읽는 4', 'blood door floor poor']
+      ],
+      threads_1124_1: [
+        ['ou를 「아우」로 읽는 낱말 12', 'around ground sound about out house mouse mouth south cloud mountain hour'],
+        ['ow를 「오우」로 읽는 11', 'yellow window tomorrow borrow below snow show slow grow know low'],
+        ['ow를 「아우」로 읽는 9', 'down town brown flower power cow now how however']
+      ],
+      threads_1128_1: [
+        ['끝 y를 「이」로 읽는 낱말 39', 'very story sorry worry hurry carry marry every memory history library country city party pretty beauty thirty twenty candy lady body ready study already family only early ugly baby happy puppy hobby any many company heavy lazy busy energy'],
+        ['「아이」로 읽는 8개는 전부 한 음절', 'by cry dry fly shy sky try why']
+      ]
+    };
+    var src = (new URLSearchParams(location.search).get('utm_source') || '').toLowerCase();
+    var set = SETS[src]; if (!set) return;
+    var box = document.getElementById('postSet'); if (!box) return;
+    function mainBtn(w){ return document.querySelector('.grp .w[data-w="' + w + '"]'); }
+    function g(){ try { (window.dataLayer = window.dataLayer || []).push(arguments); } catch (e) {} }
+    var html = '<div class="ph"><p><b>스레드 글에 나온 낱말</b>부터 모았어요. 아이가 뜻을 아는 것만 누르세요. 아래 800개 목록에도 똑같이 표시됩니다.</p>' +
+               '<button type="button" class="x" id="postSetClose">닫기</button></div>';
+    set.forEach(function(row){
+      var ws = row[1].split(' ').filter(function(w){ return !!mainBtn(w); });
+      if (!ws.length) return;
+      html += '<h3>' + row[0] + '</h3><div class="btns">' + ws.map(function(w){
+        return '<button type="button" class="w" data-pw="' + w + '">' + w + '</button>'; }).join('') + '</div>';
+    });
+    box.innerHTML = html;
+    var pws = [].slice.call(box.querySelectorAll('[data-pw]'));
+    function sync(){ pws.forEach(function(b){ var m = mainBtn(b.dataset.pw); b.classList.toggle('on', !!(m && m.classList.contains('on'))); }); }
+    pws.forEach(function(b){ b.addEventListener('click', function(e){
+      e.stopPropagation(); var m = mainBtn(b.dataset.pw); if (m) m.click(); sync();
+      g('event', 'post_set_click', { set: src, word: b.dataset.pw });
+    }); });
+    document.addEventListener('click', function(){ setTimeout(sync, 0); });
+    document.getElementById('postSetClose').addEventListener('click', function(){ box.hidden = true; g('event', 'post_set_close', { set: src }); });
+    box.hidden = false; sync();
+    g('event', 'post_set_view', { set: src, n: pws.length });
+  } catch (e) {}
 })();
 </script>
 </body>
