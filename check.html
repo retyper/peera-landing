@@ -1290,7 +1290,7 @@
     for(var j=0;j<joined.length;j++){ h^=joined.charCodeAt(j); h=Math.imul(h,0x01000193)>>>0; }
     var v=h.toString(16); while(v.length<8) v='0'+v;
     var t=totals(); track('send_to_app',{unknown:t.unknown,letters:t.done});
-    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&utm_source=check&utm_medium=page&utm_campaign=peera_check';
+    location.href='https://dearmydiary.vercel.app/vocab-boost?known='+b64+'&n='+order.length+'&v='+v+'&utm_source=check&utm_medium=page&utm_campaign=peera_check'+(window.PEERA_SRC_SUFFIX||'');
   });
 
   document.getElementById('bReset').addEventListener('click',function(){
